@@ -116,6 +116,7 @@
 				4DD14010259ED22800C98EB8 /* Views */,
 				4DD14011259ED23900C98EB8 /* Data */,
 				4DD13FE9259ED18600C98EB8 /* Info.plist */,
+				4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */,
 				4DAFBD9E25A2B1880000E690 /* Utilities */,
 				4DD1400F259ED1F500C98EB8 /* Resources */,
 				4DD13FE3259ED18600C98EB8 /* PreviewContent */,
@@ -172,7 +173,6 @@
 				4DD13FDC259ED18300C98EB8 /* ContentView.swift */,
 				4DB8EFFE259F17050012F02B /* HeaderView.swift */,
 				4DB8F003259F1E190012F02B /* BodyView.swift */,
-				4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
