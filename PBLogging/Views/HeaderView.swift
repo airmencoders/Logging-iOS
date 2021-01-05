@@ -25,7 +25,7 @@ struct HeaderView: View {
             TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle")
         }
         .frame(height: 50.0)    // ATTN: I don't like hard coding this, what other way can we do it?
-        .background(Color("notBlack"))
+        .background(Color.pblNotBlack)
     }
 
 }

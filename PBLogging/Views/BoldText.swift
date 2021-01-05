@@ -21,7 +21,7 @@ struct BoldText: View {
 
 struct BoldText_Previews: PreviewProvider {
     static var previews: some View {
-        BoldText(text: "OVERVIEW", size: 20, color: Color("slate"))
+        BoldText(text: "OVERVIEW", size: 20, color: .pblSlate)
             .previewLayout(.sizeThatFits)
         BoldText(text: "OVERVIEW", size: 20, color: .white)
             .preferredColorScheme(.dark)

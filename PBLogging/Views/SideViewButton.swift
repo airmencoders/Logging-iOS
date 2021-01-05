@@ -16,12 +16,12 @@ struct SideViewButton: View {
             print("SideViewButton tapped")
         }) {
             HStack {
-                BoldText(text: text, size: 14, color: Color("slate"))
+                BoldText(text: text, size: 14, color: .pblSlate)
                     .padding(.all)
                 Spacer()
             }
         }
-            .background(Color("fog"))
+        .background(Color.pblFog)
         .cornerRadius(5)
     }
 }

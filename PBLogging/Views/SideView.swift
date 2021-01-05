@@ -10,16 +10,16 @@ import SwiftUI
 struct SideView: View {
     var body: some View {
         ZStack {
-            Color("mist")
+            Color.pblMist
             VStack(alignment: .leading) {
-                BoldText(text: "MISSION FORMS", size: 16, color: Color("slate"))
+                BoldText(text: "MISSION FORMS", size: 16, color: .pblSlate)
                     .padding()
                 SideViewButton(text: "OVERVIEW")
                 SideViewButton(text: "MISSION DATA")
                 SideViewButton(text: "AIRCREW LIST")
                 SideViewButton(text: "AIRCREW DATA")
                 Spacer()
-                BoldText(text: "DAYS", size: 16, color: Color("slate"))
+                BoldText(text: "DAYS", size: 16, color: .pblSlate)
                     .padding()
                 Spacer()
             }
