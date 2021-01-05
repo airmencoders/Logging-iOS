@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 0) {
             HeaderView()
-            // This is probably wring as we want the body to run the
-            // full height rfom the bottom of the header to the .bottom
-            Spacer()
             BodyView()
+                //.ignoresSafeArea()
         }
     }
 }
