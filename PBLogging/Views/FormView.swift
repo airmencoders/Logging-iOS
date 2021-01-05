@@ -12,17 +12,17 @@ struct FormView: View {
         VStack(alignment: .leading) {
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                 Rectangle()
-                    .fill(Color("slate"))
+                    .fill(Color.pblSlate)
                     .frame(height: 60)
                 BoldText(text: "MISSION DATE", size: 16, color: .white)
                     .padding()
             }
             HStack {
-                BoldText(text: "AFTO Form 781", size: 18, color: Color("slate"))
+                BoldText(text: "AFTO Form 781", size: 18, color: .pblSlate)
                     .padding()
                 Spacer()
-                TextAndIconButton(text: "SHARE", color: Color("slate"), icon: "square.and.arrow.up")
-                TextAndIconButton(text: "PRINT", color: Color("slate"), icon: "printer.fill")
+                TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up")
+                TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "printer.fill")
             }
             MissionDataView()
                 .padding()

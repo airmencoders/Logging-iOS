@@ -13,9 +13,9 @@ struct FormHeaderView: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Rectangle()
-                .fill(Color("mist"))
+                .fill(Color.pblMist)
                 .frame(height: 50)
-            BoldText(text: text, size: 14, color: Color("slate"))
+            BoldText(text: text, size: 14, color: .pblSlate)
                 .padding()
         }
     }

@@ -30,6 +30,7 @@
 		7F83DAC925A4CC5D00D5860C /* FormHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DAC825A4CC5D00D5860C /* FormHeaderView.swift */; };
 		7F83DACE25A4CF4200D5860C /* MissionDataInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DACD25A4CF4200D5860C /* MissionDataInfoView.swift */; };
 		7F83DAD325A4CFE600D5860C /* FlightSeqListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DAD225A4CFE600D5860C /* FlightSeqListView.swift */; };
+		BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		7F83DAC825A4CC5D00D5860C /* FormHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeaderView.swift; sourceTree = "<group>"; };
 		7F83DACD25A4CF4200D5860C /* MissionDataInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataInfoView.swift; sourceTree = "<group>"; };
 		7F83DAD225A4CFE600D5860C /* FlightSeqListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSeqListView.swift; sourceTree = "<group>"; };
+		BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PBLStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +108,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4DAFBD9E25A2B1880000E690 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		4DD13FCC259ED18300C98EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -136,12 +131,13 @@
 		4DD13FD7259ED18300C98EB8 /* PBLogging */ = {
 			isa = PBXGroup;
 			children = (
+				BFDD329B25A500C3000FE732 /* Utilities */,
+				BFDD329225A4FE70000FE732 /* Extensions */,
 				4DD1400E259ED1DB00C98EB8 /* App */,
 				4DD14010259ED22800C98EB8 /* Views */,
 				4DD14011259ED23900C98EB8 /* Data */,
 				4DD13FE9259ED18600C98EB8 /* Info.plist */,
 				4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */,
-				4DAFBD9E25A2B1880000E690 /* Utilities */,
 				4DD1400F259ED1F500C98EB8 /* Resources */,
 				4DD13FE3259ED18600C98EB8 /* PreviewContent */,
 			);
@@ -227,6 +223,21 @@
 				7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BFDD329225A4FE70000FE732 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFDD329B25A500C3000FE732 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +403,7 @@
 				4DB8F004259F1E190012F02B /* BodyView.swift in Sources */,
 				7F83DAC425A4C6A900D5860C /* MissionDataView.swift in Sources */,
 				7F83DACE25A4CF4200D5860C /* MissionDataInfoView.swift in Sources */,
+				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				4DD13FDD259ED18300C98EB8 /* ContentView.swift in Sources */,

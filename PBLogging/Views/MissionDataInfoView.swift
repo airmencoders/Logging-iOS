@@ -11,46 +11,46 @@ struct MissionDataInfoView: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Rectangle()
-                .fill(Color("mist"))
+                .fill(Color.pblMist)
                 .frame(height: 150)
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
                         VStack(alignment: .leading) {
-                            BoldText(text: "DATE", size: 12, color: Color("slate"))
-                            BoldText(text: "DD MMM YYYY", size: 16, color: Color("fog"))
+                            BoldText(text: "DATE", size: 12, color: .pblSlate)
+                            BoldText(text: "DD MMM YYYY", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                         VStack(alignment: .leading) {
-                            BoldText(text: "MDS", size: 12, color: Color("slate"))
-                            BoldText(text: "XX-00", size: 16, color: Color("fog"))
+                            BoldText(text: "MDS", size: 12, color: .pblSlate)
+                            BoldText(text: "XX-00", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                         VStack(alignment: .leading) {
-                            BoldText(text: "SERIAL NUMBER", size: 12, color: Color("slate"))
-                            BoldText(text: "00-0000", size: 16, color: Color("fog"))
+                            BoldText(text: "SERIAL NUMBER", size: 12, color: .pblSlate)
+                            BoldText(text: "00-0000", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                         VStack(alignment: .leading) {
-                            BoldText(text: "UNIT CHARGED FOR FLYING HOURS", size: 12, color: Color("slate"))
-                            BoldText(text: "00 AB CDE FG", size: 16, color: Color("fog"))
+                            BoldText(text: "UNIT CHARGED FOR FLYING HOURS", size: 12, color: .pblSlate)
+                            BoldText(text: "00 AB CDE FG", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                     }
                     HStack {
                         VStack(alignment: .leading) {
-                            BoldText(text: "HARM LOCATION", size: 12, color: Color("slate"))
-                            BoldText(text: "LOCATION, ST ZIP", size: 16, color: Color("fog"))
+                            BoldText(text: "HARM LOCATION", size: 12, color: .pblSlate)
+                            BoldText(text: "LOCATION, ST ZIP", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                         VStack(alignment: .leading) {
-                            BoldText(text: "ISSUING UNIT", size: 12, color: Color("slate"))
-                            BoldText(text: "00 AA", size: 16, color: Color("fog"))
+                            BoldText(text: "ISSUING UNIT", size: 12, color: .pblSlate)
+                            BoldText(text: "00 AA", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                         VStack(alignment: .leading) {
-                            BoldText(text: "FLIGHT AUTH #", size: 12, color: Color("slate"))
-                            BoldText(text: "00-XXXX", size: 16, color: Color("fog"))
+                            BoldText(text: "FLIGHT AUTH #", size: 12, color: .pblSlate)
+                            BoldText(text: "00-XXXX", size: 16, color: .pblFog)
                         }
                         .padding(.horizontal)
                     }
@@ -60,7 +60,7 @@ struct MissionDataInfoView: View {
                     print("EditButton tapped")
                 }) {
                     Image(systemName: "pencil")
-                        .foregroundColor(Color("slate"))
+                        .foregroundColor(.pblSlate)
                 }
                 .padding()
             }
