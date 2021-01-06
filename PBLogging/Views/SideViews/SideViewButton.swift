@@ -21,7 +21,7 @@ struct SideViewButton: View {
                 Spacer()
             }
         }
-        .background(Color.pblFog)
+        .background(Color.pblFogBG)
         .cornerRadius(5)
     }
 }

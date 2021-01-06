@@ -11,7 +11,7 @@ struct MissionDataInfoView: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Rectangle()
-                .fill(Color.pblMist)
+                .fill(Color.pblMistBG)
                 .frame(height: 150)
             HStack {
                 VStack(alignment: .leading, spacing: 20) {

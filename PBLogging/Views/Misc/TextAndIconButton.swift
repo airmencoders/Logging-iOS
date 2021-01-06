@@ -31,7 +31,7 @@ struct TextAndIconButton_Previews: PreviewProvider {
     static var previews: some View {
         TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle")
             .previewLayout(.sizeThatFits)
-        TextAndIconButton(text: "PRINT", color: .white, icon: "info.circle")
+        TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle")
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

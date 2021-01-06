@@ -108,6 +108,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D8A8F2125A5325500D197FD /* SideViews */ = {
+			isa = PBXGroup;
+			children = (
+				7F83DA9B25A4BAF000D5860C /* SideView.swift */,
+				7F83DAA925A4BB7E00D5860C /* SideViewButton.swift */,
+			);
+			path = SideViews;
+			sourceTree = "<group>";
+		};
+		4D8A8F2525A5330B00D197FD /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
+				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		4D8A8F2925A5357F00D197FD /* FormViews */ = {
+			isa = PBXGroup;
+			children = (
+				7F83DAC825A4CC5D00D5860C /* FormHeaderView.swift */,
+				7F83DA8A25A3C16200D5860C /* FormView.swift */,
+				7F83DAC325A4C6A900D5860C /* MissionDataView.swift */,
+				7F83DAD225A4CFE600D5860C /* FlightSeqListView.swift */,
+				7F83DACD25A4CF4200D5860C /* MissionDataInfoView.swift */,
+			);
+			path = FormViews;
+			sourceTree = "<group>";
+		};
 		4DD13FCC259ED18300C98EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -131,14 +161,14 @@
 		4DD13FD7259ED18300C98EB8 /* PBLogging */ = {
 			isa = PBXGroup;
 			children = (
-				BFDD329B25A500C3000FE732 /* Utilities */,
-				BFDD329225A4FE70000FE732 /* Extensions */,
 				4DD1400E259ED1DB00C98EB8 /* App */,
 				4DD14010259ED22800C98EB8 /* Views */,
 				4DD14011259ED23900C98EB8 /* Data */,
+				BFDD329225A4FE70000FE732 /* Extensions */,
 				4DD13FE9259ED18600C98EB8 /* Info.plist */,
 				4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */,
 				4DD1400F259ED1F500C98EB8 /* Resources */,
+				BFDD329B25A500C3000FE732 /* Utilities */,
 				4DD13FE3259ED18600C98EB8 /* PreviewContent */,
 			);
 			path = PBLogging;
@@ -194,15 +224,9 @@
 				4DD13FDC259ED18300C98EB8 /* ContentView.swift */,
 				4DB8EFFE259F17050012F02B /* HeaderView.swift */,
 				4DB8F003259F1E190012F02B /* BodyView.swift */,
-				7F83DA9B25A4BAF000D5860C /* SideView.swift */,
-				7F83DAA925A4BB7E00D5860C /* SideViewButton.swift */,
-				7F83DA8A25A3C16200D5860C /* FormView.swift */,
-				7F83DAC825A4CC5D00D5860C /* FormHeaderView.swift */,
-				7F83DAC325A4C6A900D5860C /* MissionDataView.swift */,
-				7F83DAD225A4CFE600D5860C /* FlightSeqListView.swift */,
-				7F83DACD25A4CF4200D5860C /* MissionDataInfoView.swift */,
-				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
-				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
+				4D8A8F2125A5325500D197FD /* SideViews */,
+				4D8A8F2925A5357F00D197FD /* FormViews */,
+				4D8A8F2525A5330B00D197FD /* Misc */,
 			);
 			path = Views;
 			sourceTree = "<group>";

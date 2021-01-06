@@ -13,7 +13,7 @@ struct FormHeaderView: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Rectangle()
-                .fill(Color.pblMist)
+                .fill(Color.pblMistBG)
                 .frame(height: 50)
             BoldText(text: text, size: 14, color: .pblSlate)
                 .padding()

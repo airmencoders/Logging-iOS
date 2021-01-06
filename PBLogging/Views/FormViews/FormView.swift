@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+
 struct FormView: View {
+    //@State var currentView: PBLBodyViews = .overview
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                 Rectangle()
-                    .fill(Color.pblSlate)
+                    .fill(Color.pblSlateBG)
                     .frame(height: 60)
                 BoldText(text: "MISSION DATE", size: 16, color: .white)
                     .padding()

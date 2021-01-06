@@ -12,7 +12,6 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 0) {
             HeaderView()
             BodyView()
-                //.ignoresSafeArea()
         }
     }
 }
