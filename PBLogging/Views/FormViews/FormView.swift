@@ -25,7 +25,7 @@ struct FormView: View {
                     .fill(Color.pblSlateBG)
                     .frame(height: 60)
                 //("Just to demo, remove once you guys start using actual data")
-                BoldText(text: "MISSION DATE \(forms.first?.date!.string() ?? "nada")", size: 16, color: .white)
+                BoldText(text: "MISSION DATE \(forms.first?.id?.uuidString ?? "nada")", size: 16, color: .white)
                     .padding()
             }
             HStack {

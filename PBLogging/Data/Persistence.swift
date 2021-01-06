@@ -17,7 +17,6 @@ struct PersistenceController {
         for i in 0..<4 {
             
             let newForm = Form781(context: viewContext)
-            newForm.id = UUID()
             newForm.date = FauxData.dates[i]
             newForm.mds = FauxData.mds[i]
             newForm.issuingUnit = FauxData.issuingUnits[i]
@@ -29,7 +28,6 @@ struct PersistenceController {
             
             for x in 0..<4 {
                 let newFlight = Flight(context: viewContext)
-                newFlight.id = UUID()
                 newFlight.fromICAO =  FauxData.icaos[counter]
                 newFlight.toICAO = FauxData.icaos[counter + 1]
                 newFlight.missionNumber = "\(x * i)"
