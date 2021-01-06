@@ -10,13 +10,22 @@ import SwiftUI
 
 struct FormView: View {
     //@State var currentView: PBLBodyViews = .overview
+    @Environment(\.managedObjectContext) private var moc
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Form781.date, ascending: true)],
+        animation: .default)
+    
+    private var forms: FetchedResults<Form781>
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                 Rectangle()
                     .fill(Color.pblSlateBG)
                     .frame(height: 60)
-                BoldText(text: "MISSION DATE", size: 16, color: .white)
+                //("Just to demo, remove once you guys start using actual data")
+                BoldText(text: "MISSION DATE \(forms.first?.id?.uuidString ?? "nada")", size: 16, color: .white)
                     .padding()
             }
             HStack {
@@ -34,10 +43,16 @@ struct FormView: View {
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        FormView()
-            .previewLayout(.sizeThatFits)
-        FormView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.sizeThatFits)
+        let previewController = PersistenceController.preview
+        
+            FormView().environment(\.managedObjectContext, previewController.container.viewContext)
+                .previewLayout(.sizeThatFits)
+                
+            FormView()
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+                .environment(\.managedObjectContext, previewController.container.viewContext)
+       
+       
     }
 }
