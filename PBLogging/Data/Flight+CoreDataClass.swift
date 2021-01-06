@@ -1,9 +1,6 @@
 //
 //  Flight+CoreDataClass.swift
-//  Logging
-//
-//  Created by John Bethancourt on 1/5/21.
-//
+//  PBLogging
 //
 
 import Foundation

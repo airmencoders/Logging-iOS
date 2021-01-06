@@ -1,6 +1,7 @@
 //
 //  FauxData.swift
-//  PBLiOS
+//  PBLogging
+//
 
 import Foundation
 

@@ -1,14 +1,10 @@
 //
 //  Flight+CoreDataProperties.swift
-//  Logging
-//
-//  Created by John Bethancourt on 1/5/21.
-//
+//  PBLogging
 //
 
 import Foundation
 import CoreData
-
 
 extension Flight {
 
