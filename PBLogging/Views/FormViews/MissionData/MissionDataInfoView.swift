@@ -16,55 +16,40 @@ struct MissionDataInfoView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
-                        VStack(alignment: .leading) {
-                            BoldText(text: "DATE", size: 12, color: .pblSlate)
-                            BoldText(text: "DD MMM YYYY", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
-                        VStack(alignment: .leading) {
-                            BoldText(text: "MDS", size: 12, color: .pblSlate)
-                            BoldText(text: "XX-00", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
-                        VStack(alignment: .leading) {
-                            BoldText(text: "SERIAL NUMBER", size: 12, color: .pblSlate)
-                            BoldText(text: "00-0000", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
-                        VStack(alignment: .leading) {
-                            BoldText(text: "UNIT CHARGED FOR FLYING HOURS", size: 12, color: .pblSlate)
-                            BoldText(text: "00 AB CDE FG", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
+                        InfoSection(labelText: "DATE", inputText: "DD MMM YYYY")
+                        InfoSection(labelText: "MDS", inputText: "XX-00")
+                        InfoSection(labelText: "SERIAL NUMBER", inputText: "00-0000")
+                        InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", inputText: "00 AB CDE FG")
                     }
                     HStack {
-                        VStack(alignment: .leading) {
-                            BoldText(text: "HARM LOCATION", size: 12, color: .pblSlate)
-                            BoldText(text: "LOCATION, ST ZIP", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
-                        VStack(alignment: .leading) {
-                            BoldText(text: "ISSUING UNIT", size: 12, color: .pblSlate)
-                            BoldText(text: "00 AA", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
-                        VStack(alignment: .leading) {
-                            BoldText(text: "FLIGHT AUTH #", size: 12, color: .pblSlate)
-                            BoldText(text: "00-XXXX", size: 16, color: .pblFog)
-                        }
-                        .padding(.horizontal)
+                        InfoSection(labelText: "HARM LOCATION", inputText: "LOCATION, ST ZIP")
+                        InfoSection(labelText: "ISSUING UNIT", inputText: "00 AA")
+                        InfoSection(labelText: "FLIGHT AUTH #", inputText: "00-XXXX")
                     }
                 }
                 Spacer()
                 Button(action: {
                     print("EditButton tapped")
                 }) {
-                    Image(systemName: "pencil")
+                    Image(systemName: "square.and.pencil")
                         .foregroundColor(.pblSlate)
                 }
                 .padding()
             }
         }
+    }
+}
+
+struct InfoSection: View {
+    let labelText: String
+    let inputText: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            BoldText(text: labelText, size: 12, color: .pblSlate)
+            BoldText(text: inputText, size: 16, color: .pblSlate)
+        }
+        .padding(.horizontal)
     }
 }
 

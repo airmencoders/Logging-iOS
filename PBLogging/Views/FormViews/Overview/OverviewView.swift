@@ -18,5 +18,9 @@ struct OverviewView: View {
 struct OverviewView_Previews: PreviewProvider {
     static var previews: some View {
         OverviewView()
+            .previewLayout(.sizeThatFits)
+        OverviewView()
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

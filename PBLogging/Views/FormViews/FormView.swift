@@ -53,7 +53,7 @@ struct FormView: View {
                 AircrewListView()
                     .padding()
             case .aircrewData:
-                AirecrewDataView()
+                AircrewDataView()
                     .padding()
             }
         }

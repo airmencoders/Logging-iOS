@@ -1,28 +1,28 @@
 //
-//  MissionDataView.swift
+//  AirecrewDataView.swift
 //  Logging
 //
-//  Created by Bethany Morris on 1/5/21.
+//  Created by Pete Hoch on 1/5/21.
 //
 
 import SwiftUI
 
-struct MissionDataView: View {
+struct AircrewDataView: View {
     var body: some View {
         VStack {
-            FormHeaderView(text: "MISSION DATA")
-            MissionDataInfoView()
             FormHeaderView(text: "FLIGHT SEQ")
             FlightSeqListView()
+            FormHeaderView(text: "FLIGHT TIME")
+            FlightTimeListView()
         }
     }
 }
 
-struct MissionDataView_Previews: PreviewProvider {
+struct AirecrewDataView_Previews: PreviewProvider {
     static var previews: some View {
-        MissionDataView()
+        AircrewDataView()
             .previewLayout(.sizeThatFits)
-        MissionDataView()
+        AircrewDataView()
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

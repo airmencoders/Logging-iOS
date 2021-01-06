@@ -9,14 +9,19 @@ import SwiftUI
 
 struct AircrewListView: View {
     var body: some View {
-        Text("Aircrew List coming soon!")
-            .padding()
-            .frame(alignment: .center)
+        VStack {
+            FormHeaderView(text: "AIRCREW LIST")
+            AircrewList()
+        }
     }
 }
 
 struct AircrewListView_Previews: PreviewProvider {
     static var previews: some View {
         AircrewListView()
+            .previewLayout(.sizeThatFits)
+        AircrewListView()
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

@@ -16,7 +16,7 @@ struct SideView: View {
             Color.pblMistBG
             if isCollapsed {
                 VStack(alignment: .leading) {
-                    ShevronButton()
+                    ChevronButton()
                     .padding()
                     Spacer()
                 }
@@ -25,7 +25,7 @@ struct SideView: View {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                         BoldText(text: "MISSION FORMS", size: 16, color: Color("slate"))
                             .padding()
-                        ShevronButton()
+                        ChevronButton()
                     }
                     SideViewButton(text: "OVERVIEW", action: {
                         currentView = .overview
@@ -50,7 +50,7 @@ struct SideView: View {
         .clipped()
     }
 
-    fileprivate func ShevronButton() -> Button<Image> {
+    fileprivate func ChevronButton() -> Button<Image> {
         return Button(action:{
             withAnimation {
                 self.isCollapsed.toggle()
