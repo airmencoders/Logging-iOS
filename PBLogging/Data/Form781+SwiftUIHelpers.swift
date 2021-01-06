@@ -8,12 +8,23 @@ import Foundation
 extension Form781{
     
     public var flights: [Flight] {
-        let set = flights_ as? Set<Flight> ?? []
-        return Array(set)
+        get {
+            let set = flights_ as? Set<Flight> ?? []
+            return Array(set)
+        }
+        set {
+            flights_ = Set(newValue) as NSSet
+        }
+
     }
     
     public var aircrewData: [AircrewData] {
-        let set = aircrewData_ as? Set<AircrewData> ?? []
-        return Array(set)
+        get {
+            let set = aircrewData_ as? Set<AircrewData> ?? []
+            return Array(set)
+        }
+        set {
+            aircrewData_ = Set(newValue) as NSSet
+        }
     }
 }
