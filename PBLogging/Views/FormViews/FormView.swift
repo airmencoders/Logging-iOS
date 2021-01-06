@@ -60,31 +60,20 @@ struct FormView: View {
     }
 }
 
-//struct FormView_Previews: PreviewProvider {
-//    @State private var currentView: PBLBodyViewID = .overview
+// struct FormView_Previews: PreviewProvider {
+//     @State private var currentView: PBLBodyViewID = .overview
 //
 //    static var previews: some View {
-//
-//        FormView(currentView: $currentView)
-//            .previewLayout(.sizeThatFits)
-//        FormView(currentView: nil)
-//            .preferredColorScheme(.dark)
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
-
-// struct FormView_Previews: PreviewProvider {
-//     static var previews: some View {
 //         let previewController = PersistenceController.preview
-        
-//             FormView().environment(\.managedObjectContext, previewController.container.viewContext)
+//
+//        FormView(currentView:$currentView).environment(\.managedObjectContext, previewController.container.viewContext)
 //                 .previewLayout(.sizeThatFits)
-                
-//             FormView()
+//
+//             FormView(currentView:$currentView)
 //                 .preferredColorScheme(.dark)
 //                 .previewLayout(.sizeThatFits)
 //                 .environment(\.managedObjectContext, previewController.container.viewContext)
-       
-       
+//
+//
 //     }
 // }

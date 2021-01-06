@@ -14,7 +14,9 @@ struct SideViewButton: View {
     var body: some View {
         
         Button(action: {
-            action()
+            withAnimation {
+                action()
+            }
         }) {
             HStack {
                 BoldText(text: text, size: 14, color: .pblSlate)
