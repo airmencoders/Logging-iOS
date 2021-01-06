@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SideViewButton: View {
     let text: String
+    let action: () -> Void
     
     var body: some View {
         
         Button(action: {
-            print("SideViewButton tapped")
+            action()
         }) {
             HStack {
                 BoldText(text: text, size: 14, color: .pblSlate)
@@ -28,9 +29,13 @@ struct SideViewButton: View {
 
 struct SideViewButton_Previews: PreviewProvider {
     static var previews: some View {
-        SideViewButton(text: "Overview")
+        SideViewButton(text: "Overview", action: {
+            print("SideViewButton tapped")
+        })
             .previewLayout(.sizeThatFits)
-        SideViewButton(text: "Overview")
+        SideViewButton(text: "Overview", action: {
+            print("SideViewButton tapped")
+        })
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }

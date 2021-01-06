@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
 struct FormView: View {
-    //@State var currentView: PBLBodyViews = .overview
+    @Binding var currentView: PBLBodyViewID
     @Environment(\.managedObjectContext) private var moc
     
     @FetchRequest(
@@ -24,35 +23,68 @@ struct FormView: View {
                 Rectangle()
                     .fill(Color.pblSlateBG)
                     .frame(height: 60)
-                //("Just to demo, remove once you guys start using actual data")
-                BoldText(text: "MISSION DATE \(forms.first?.id?.uuidString ?? "nada")", size: 16, color: .white)
-                    .padding()
+                if currentView != .overview {
+                    // ATTN: Get the date from the current form.
+                    //("Just to demo, remove once you guys start using actual data")
+                    BoldText(text: "MISSION DATE \(forms.first?.id?.uuidString ?? "nada")", size: 16, color: .white)
+                        .padding()
+                }
             }
             HStack {
-                BoldText(text: "AFTO Form 781", size: 18, color: .pblSlate)
-                    .padding()
-                Spacer()
-                TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up")
-                TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "printer.fill")
+                if currentView != .overview {
+                    BoldText(text: "AFTO Form 781", size: 18, color: .pblSlate)
+                        .padding()
+                    Spacer()
+                    TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up")
+                    TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "printer.fill")
+                } else {
+                    BoldText(text: "Overview", size: 18, color: .pblSlate)
+                        .padding()
+                }
             }
-            MissionDataView()
-                .padding()
+            switch currentView {
+            case .overview:
+                OverviewView()
+                    .padding()
+            case .missionData:
+                MissionDataView()
+                    .padding()
+            case .aircrewList:
+                AircrewListView()
+                    .padding()
+            case .aircrewData:
+                AirecrewDataView()
+                    .padding()
+            }
         }
     }
 }
 
-struct FormView_Previews: PreviewProvider {
-    static var previews: some View {
-        let previewController = PersistenceController.preview
+//struct FormView_Previews: PreviewProvider {
+//    @State private var currentView: PBLBodyViewID = .overview
+//
+//    static var previews: some View {
+//
+//        FormView(currentView: $currentView)
+//            .previewLayout(.sizeThatFits)
+//        FormView(currentView: nil)
+//            .preferredColorScheme(.dark)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
+
+// struct FormView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         let previewController = PersistenceController.preview
         
-            FormView().environment(\.managedObjectContext, previewController.container.viewContext)
-                .previewLayout(.sizeThatFits)
+//             FormView().environment(\.managedObjectContext, previewController.container.viewContext)
+//                 .previewLayout(.sizeThatFits)
                 
-            FormView()
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-                .environment(\.managedObjectContext, previewController.container.viewContext)
+//             FormView()
+//                 .preferredColorScheme(.dark)
+//                 .previewLayout(.sizeThatFits)
+//                 .environment(\.managedObjectContext, previewController.container.viewContext)
        
        
-    }
-}
+//     }
+// }

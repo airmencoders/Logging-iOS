@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+enum PBLBodyViewID {
+    case overview
+    case missionData
+    case aircrewList
+    case aircrewData
+}
+
 struct BodyView: View {
+    @State private var currentView: PBLBodyViewID = .overview
+
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            SideView()
-            FormView()
+            SideView(currentView:$currentView)
+            FormView(currentView:$currentView)
         }
     }
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SideView: View {
     @State var isCollapsed: Bool = false
-    
+    @Binding var currentView: PBLBodyViewID
+
     var body: some View {
         ZStack {
             Color.pblMistBG
@@ -26,10 +27,18 @@ struct SideView: View {
                             .padding()
                         ShevronButton()
                     }
-                    SideViewButton(text: "OVERVIEW")
-                    SideViewButton(text: "MISSION DATA")
-                    SideViewButton(text: "AIRCREW LIST")
-                    SideViewButton(text: "AIRCREW DATA")
+                    SideViewButton(text: "OVERVIEW", action: {
+                        currentView = .overview
+                    })
+                    SideViewButton(text: "MISSION DATA", action: {
+                        currentView = .missionData
+                    })
+                    SideViewButton(text: "AIRCREW LIST", action: {
+                        currentView = .aircrewList
+                    })
+                    SideViewButton(text: "AIRCREW DATA", action: {
+                        currentView = .aircrewData
+                    })
                     Spacer()
                     BoldText(text: "DAYS", size: 16, color: Color("slate"))
                         .padding()
@@ -53,14 +62,14 @@ struct SideView: View {
     }
 }
 
-struct SideView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SideView()
-                .previewLayout(.sizeThatFits )
-            SideView()
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-        }
-    }
-}
+//struct SideView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            SideView()
+//                .previewLayout(.sizeThatFits )
+//            SideView()
+//                .preferredColorScheme(.dark)
+//                .previewLayout(.sizeThatFits)
+//        }
+//    }
+//}
