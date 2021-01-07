@@ -28,6 +28,7 @@ struct SideView: View {
                         .padding()
                     Spacer()
                     ChevronButton()
+                        .rotationEffect(.degrees(isCollapsed ? 0 : -180))
                         .padding()
                 }
                 Group{
@@ -71,9 +72,9 @@ struct SideView: View {
                 self.isCollapsed.toggle()
             }
         }){
-            Image(systemName:self.isCollapsed ? "chevron.right"
-                    : "chevron.left")
+            Image(systemName: "chevron.right")
         }
+        
     }
 }
 
