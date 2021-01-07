@@ -12,9 +12,7 @@ struct FlightTimeCellView: View {
     
     var body: some View {
         HStack {
-            Text("Smith, IP B5")
-                .font(Font.custom("DMSans-Regular", size: size))
-                .foregroundColor(.pblSlate)
+            RegularText(text: "Smith, IP B5", size: size, color: .pblSlate)
                 .frame(width: 200, alignment: .leading)
                 .padding(.leading)
             CellText(text: "1.5", size: size)

@@ -45,6 +45,9 @@
 		7FF0FE7625A64B0B00097C66 /* FlightTimeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE7525A64B0B00097C66 /* FlightTimeCellView.swift */; };
 		7FF0FE7B25A64CC700097C66 /* RegularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE7A25A64CC700097C66 /* RegularText.swift */; };
 		7FF0FE8325A64D9200097C66 /* ListHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */; };
+		7FF0FE8B25A775DC00097C66 /* GrandTotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */; };
+		7FF0FE9325A7810600097C66 /* ListHeaderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9225A7810600097C66 /* ListHeaderLine.swift */; };
+		7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */; };
 		BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */; };
 		BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C1F2325A683690075404C /* AlertProvider.swift */; };
 		BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF982CC625A54B0500C14019 /* PBLogging.xcdatamodeld */; };
@@ -122,6 +125,9 @@
 		7FF0FE7525A64B0B00097C66 /* FlightTimeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimeCellView.swift; sourceTree = "<group>"; };
 		7FF0FE7A25A64CC700097C66 /* RegularText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularText.swift; sourceTree = "<group>"; };
 		7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderText.swift; sourceTree = "<group>"; };
+		7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandTotalsView.swift; sourceTree = "<group>"; };
+		7FF0FE9225A7810600097C66 /* ListHeaderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderLine.swift; sourceTree = "<group>"; };
+		7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldTextField.swift; sourceTree = "<group>"; };
 		BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Form781+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		BF5C1F2325A683690075404C /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		BF982CC725A54B0500C14019 /* PBLiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBLiOS.xcdatamodel; sourceTree = "<group>"; };
@@ -176,9 +182,11 @@
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
 				7FF0FE7A25A64CC700097C66 /* RegularText.swift */,
+				7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 				7FF0FE6825A629DC00097C66 /* CellText.swift */,
 				7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */,
+				7FF0FE9225A7810600097C66 /* ListHeaderLine.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 				4DFF496625A559CB00C65720 /* AircrewData */,
 				7F83DAD225A4CFE600D5860C /* FlightSeqListView.swift */,
 				7FF0FE5925A6229400097C66 /* FlightSeqCellView.swift */,
+				7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */,
 			);
 			path = FormViews;
 			sourceTree = "<group>";
@@ -536,6 +545,7 @@
 				7F83DAC925A4CC5D00D5860C /* FormHeaderView.swift in Sources */,
 				7FF0FE7625A64B0B00097C66 /* FlightTimeCellView.swift in Sources */,
 				4DB8EFFF259F17050012F02B /* HeaderView.swift in Sources */,
+				7FF0FE9325A7810600097C66 /* ListHeaderLine.swift in Sources */,
 				BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BF982CD025A54E3D00C14019 /* Persistence.swift in Sources */,
@@ -558,6 +568,7 @@
 				BF982CD525A54E5900C14019 /* FauxData.swift in Sources */,
 				13B0A4F225A7810D007304DB /* Form781+CoreDataProperties.swift in Sources */,
 				7FF0FE7125A648FE00097C66 /* FlightTimeListView.swift in Sources */,
+				7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */,
 				BF982CE625A54ECF00C14019 /* Flight+CoreDataClass.swift in Sources */,
 				BF982CE425A54ECF00C14019 /* AircrewData+CoreDataClass.swift in Sources */,
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
@@ -567,6 +578,7 @@
 				13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */,
 				BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */,
 				7FF0FE6425A6295A00097C66 /* AircrewListCellView.swift in Sources */,
+				7FF0FE8B25A775DC00097C66 /* GrandTotalsView.swift in Sources */,
 				4DD13FDD259ED18300C98EB8 /* ContentView.swift in Sources */,
 				7F83DA9C25A4BAF000D5860C /* SideView.swift in Sources */,
 				7F83DA8B25A3C16200D5860C /* FormView.swift in Sources */,

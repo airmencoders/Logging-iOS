@@ -11,28 +11,26 @@ struct AircrewListCellView: View {
     let size: CGFloat = 14
     
     var body: some View {
-        ZStack {
-            Color.pblMistBG
-            HStack {
-                CellText(text: "Last, First", size: size)
-                CellText(text: "1234", size: size)
-                CellText(text: "0000", size: size)
-                CellText(text: "XX", size: size)
-                Button(action: {
-                    print("EditButton tapped")
-                }) {
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(.pblSlate)
-                }
-                Button(action: {
-                    print("DeleteButton tapped")
-                }) {
-                    Image(systemName: "minus.circle")
-                        .foregroundColor(.pblSlate)
-                }
-                    .padding(.horizontal)
+        HStack {
+            CellText(text: "Last, First", size: size)
+            CellText(text: "1234", size: size)
+            CellText(text: "0000", size: size)
+            CellText(text: "XX", size: size)
+            Button(action: {
+                print("EditButton tapped")
+            }) {
+                Image(systemName: "square.and.pencil")
+                    .foregroundColor(.pblSlate)
+            }
+                .padding()
+            Button(action: {
+                print("DeleteButton tapped")
+            }) {
+                Image(systemName: "minus.circle")
+                    .foregroundColor(.pblSlate)
             }
         }
+        .background(Color.pblMistBG)
     }
 }
 

@@ -13,7 +13,7 @@ struct FlightSeqCellView: View {
     var body: some View {
         HStack {
             RegularText(text: "A.", size: 14, color: .pblSlate)
-                .padding(.leading)
+                .padding(.vertical)
             HStack {
                 CellText(text: "SIM", size: size)
                 CellText(text: "Q1", size: size)
@@ -29,6 +29,19 @@ struct FlightSeqCellView: View {
                 CellText(text: "4", size: size)
                 CellText(text: "1", size: size)
                 CellText(text: "--", size: size)
+            }
+            Button(action: {
+                print("EditButton tapped")
+            }) {
+                Image(systemName: "square.and.pencil")
+                    .foregroundColor(.pblSlate)
+                    .padding(.trailing)
+            }
+            Button(action: {
+                print("DeleteButton tapped")
+            }) {
+                Image(systemName: "minus.circle")
+                    .foregroundColor(.pblSlate)
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  AirecrewDataView.swift
+//  AircrewDataView.swift
 //  Logging
 //
 //  Created by Pete Hoch on 1/5/21.
@@ -12,13 +12,23 @@ struct AircrewDataView: View {
         VStack {
             FormHeaderView(text: "FLIGHT SEQ")
             FlightSeqListView()
+            GrandTotalsView()
             FormHeaderView(text: "FLIGHT TIME")
-            FlightTimeListView()
+            HStack {
+                FlightTimeListView()
+                Button(action: {
+                    print("EditButton tapped")
+                }) {
+                    Image(systemName: "square.and.pencil")
+                        .foregroundColor(.pblSlate)
+                }
+                .padding(.leading)
+            }
         }
     }
 }
 
-struct AirecrewDataView_Previews: PreviewProvider {
+struct AircrewDataView_Previews: PreviewProvider {
     static var previews: some View {
         AircrewDataView()
             .previewLayout(.sizeThatFits)

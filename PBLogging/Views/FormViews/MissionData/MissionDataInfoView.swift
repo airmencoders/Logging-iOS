@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct MissionDataInfoView: View {
+    @State private var date: String = ""
+    @State private var mds: String = ""
+    @State private var serialNumber: String = ""
+    @State private var unitCharged: String = ""
+    @State private var harmLocation: String = ""
+    @State private var issuingUnit: String = ""
+    @State private var flightAuth: String = ""
+        
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Rectangle()
@@ -15,16 +23,16 @@ struct MissionDataInfoView: View {
                 .frame(height: 150)
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
-                    HStack {
-                        InfoSection(labelText: "DATE", inputText: "DD MMM YYYY")
-                        InfoSection(labelText: "MDS", inputText: "XX-00")
-                        InfoSection(labelText: "SERIAL NUMBER", inputText: "00-0000")
-                        InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", inputText: "00 AB CDE FG")
+                    HStack(alignment: .bottom) {
+                        InfoSection(labelText: "DATE", placeholder: "DD MMM YYYY", field: $date)
+                        InfoSection(labelText: "MDS", placeholder: "XX-00", field: $mds)
+                        InfoSection(labelText: "SERIAL NUMBER", placeholder: "00-0000", field: $serialNumber)
+                        InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", placeholder: "00 AB CDE FG", field: $unitCharged)
                     }
                     HStack {
-                        InfoSection(labelText: "HARM LOCATION", inputText: "LOCATION, ST ZIP")
-                        InfoSection(labelText: "ISSUING UNIT", inputText: "00 AA")
-                        InfoSection(labelText: "FLIGHT AUTH #", inputText: "00-XXXX")
+                        InfoSection(labelText: "HARM LOCATION", placeholder: "LOCATION, ST ZIP", field: $harmLocation)
+                        InfoSection(labelText: "ISSUING UNIT", placeholder: "00 AA", field: $issuingUnit)
+                        InfoSection(labelText: "FLIGHT AUTH #", placeholder: "00-XXXX", field: $flightAuth)
                     }
                 }
                 Spacer()
@@ -42,12 +50,15 @@ struct MissionDataInfoView: View {
 
 struct InfoSection: View {
     let labelText: String
-    let inputText: String
+    let placeholder: String
+    let field: Binding<String>
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             BoldText(text: labelText, size: 12, color: .pblSlate)
-            BoldText(text: inputText, size: 16, color: .pblSlate)
+                .minimumScaleFactor(0.5)
+                .lineLimit(2)
+            BoldTextField(placeholder: placeholder, field: field, size: 14)
         }
         .padding(.horizontal)
     }

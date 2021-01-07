@@ -24,7 +24,7 @@ struct SideView: View {
             if isCollapsed {
                 VStack(alignment: .leading) {
                     ChevronButton()
-                     .padding()
+                        .padding()
                     Spacer()
                 }
             } else {
@@ -49,7 +49,7 @@ struct SideView: View {
                     .padding(.bottom)
 
                     BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
-                        .padding(.leading)
+                        .padding()
                     ForEach(forms) { form in
                         SideViewButton(text: form.date?.string() ?? "No Date", action: {
                             // Probably need to stash the UUID somewhere

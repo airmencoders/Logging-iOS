@@ -10,19 +10,21 @@ import SwiftUI
 struct ListHeaderText: View {
     let text: String
     let size: CGFloat
+    let lines: Int
     
     var body: some View {
         BoldText(text: text, size: size, color: .pblSlate)
             .frame(maxWidth: .infinity)
-            //.lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .minimumScaleFactor(0.5)
+            .lineLimit(lines)
     }
 }
 
 struct ListHeaderText_Previews: PreviewProvider {
     static var previews: some View {
-        ListHeaderText(text: "TEST", size: 14)
+        ListHeaderText(text: "TEST", size: 14, lines: 1)
             .previewLayout(.sizeThatFits)
-        ListHeaderText(text: "TEST", size: 14)
+        ListHeaderText(text: "TEST", size: 14, lines: 1)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

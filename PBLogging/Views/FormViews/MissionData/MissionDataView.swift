@@ -14,6 +14,7 @@ struct MissionDataView: View {
             MissionDataInfoView()
             FormHeaderView(text: "FLIGHT SEQ")
             FlightSeqListView()
+            GrandTotalsView()
         }
     }
 }

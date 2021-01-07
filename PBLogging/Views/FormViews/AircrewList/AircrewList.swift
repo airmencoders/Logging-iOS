@@ -9,30 +9,35 @@ import SwiftUI
 
 struct AircrewList: View {
     var body: some View {
-        List {
-            AircrewListHeader()
-            AircrewListCellView()
-            AircrewListCellView()
-            AircrewListCellView()
+        VStack {
+            AircrewListHeaderView()
+                .padding(.horizontal)
+            ListHeaderLine()
+            List {
+                AircrewListCellView()
+                AircrewListCellView()
+                AircrewListCellView()
+            }
             AddAircrewView()
+            Spacer()
         }
     }
 }
 
-struct AircrewListHeader: View {
+struct AircrewListHeaderView: View {
     let size: CGFloat = 14
     
     var body: some View {
         HStack {
-            ListHeaderText(text: "NAME", size: size)
-            ListHeaderText(text: "SSN", size: size)
-            ListHeaderText(text: "FLYING ORG", size: size)
-            ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size)
-            //figure out how to get correct spacing without hidden images
-            Image(systemName: "plus")
-                .hidden()
+            ListHeaderText(text: "NAME", size: size, lines: 1)
+            ListHeaderText(text: "SSN", size: size, lines: 1)
+            ListHeaderText(text: "FLYING ORG", size: size, lines: 2)
+            ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size, lines: 2)
+            //figure out how to get correct spacing without hidden images?
             Image(systemName: "plus")
                 .padding(.horizontal)
+                .hidden()
+            Image(systemName: "plus")
                 .hidden()
         }
     }
@@ -40,18 +45,18 @@ struct AircrewListHeader: View {
 
 struct AddAircrewView: View {
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .center)) {
-            Rectangle()
-                .fill(Color.pblMistBG)
-                .frame(height: 50)
+        HStack {
+            Spacer()
             Button(action: {
                 print("EditButton tapped")
             }) {
                 Image(systemName: "plus.circle")
                     .foregroundColor(.pblSlate)
-                    .padding(.trailing)
+                    .padding()
             }
         }
+        .background(Color.pblMistBG)
+        .padding(.horizontal)
     }
 }
 
