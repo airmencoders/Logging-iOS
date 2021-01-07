@@ -19,7 +19,7 @@ struct HeaderView: View {
             TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle")
         }
         .background(Color.pblNotBlack)
-        //color needs better name. This is everything but black :) red is not black. gray is not black
+        //color needs better name. This is everything but black 🤪🤔 red is not black. gray is not black
     }
 }
 
