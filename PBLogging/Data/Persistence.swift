@@ -43,9 +43,10 @@ struct PersistenceController {
                  
                  */
                 
-                AlertProvider.shared.showAlertWithTitle(title: "Records Added", message: "Fake records were added to the app's core data store.")
+                //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
+                AlertProvider.shared.showAlertWithTitle(title: "Persistent Store Error", message: "\(error), \(error.userInfo). Please screenshot and send to the dev team.")
                 
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                //fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
     }
@@ -84,7 +85,11 @@ struct PersistenceController {
             // Replace this implementation with code to handle the error appropriately.
             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+          //  FatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            
+            //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
+            AlertProvider.shared.showAlertWithTitle(title: "Context Save Error", message: "\(nsError), \(nsError.userInfo). Please screenshot and send to the dev team.")
+            
         }
     }
 }
@@ -94,10 +99,7 @@ extension UIWindow {
     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             PersistenceController.addFakeRecordsForContext()
-            
-            AlertProvider.shared.showAlert(.ugly)
 
-            //AlertProvider.shared.showAlertWithTitle(title: "Records Added", message: "Fake records were added to the app's core data store.")
         }
     }
 }

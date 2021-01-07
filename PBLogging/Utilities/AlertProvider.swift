@@ -13,6 +13,8 @@ import SwiftUI
 /// Observed by any view modified by the AlertViewModifier.
 /// Should only be placed on a single container view
 ///
+/// These modal alerts should be avoided if at all possible. Hopefully we can restrict them to just unavoidable beta testing related items.
+///
 class AlertProvider: ObservableObject{
     
     @Published var alertIsVisible = false
@@ -29,7 +31,7 @@ class AlertProvider: ObservableObject{
         func getAlert() -> Alert{
             switch self{
             case .persistence:
-            return Alert(title: Text("Persistence Error"), message: Text("There was a database problem"), dismissButton: .default(Text("Got it!")))
+            return Alert(title: Text("Persistence Error"), message: Text("There was a database problem"), dismissButton: .default(Text("Okay")))
             case .ugly:
             return Alert(title: Text("You're ugly"), message: Text("U.G.L.Y. you ain’t got no alibi"), dismissButton: .default(Text("That makes me sad.")))
 
