@@ -26,7 +26,7 @@ struct FormView: View {
                 if currentView != .overview {
                     // ATTN: Get the date from the current form.
                     //("Just to demo, remove once you guys start using actual data")
-                    BoldText(text: "MISSION DATE \(forms.first?.id?.uuidString ?? "nada")", size: 16, color: .white)
+                    BoldText(text: "MISSION \(forms.first?.date?.string() ?? "nada")", size: 16, color: .white)
                         .padding()
                 }
             }
@@ -60,20 +60,21 @@ struct FormView: View {
     }
 }
 
-// struct FormView_Previews: PreviewProvider {
-//     @State private var currentView: PBLBodyViewID = .overview
-//
-//    static var previews: some View {
-//         let previewController = PersistenceController.preview
-//
-//        FormView(currentView:$currentView).environment(\.managedObjectContext, previewController.container.viewContext)
-//                 .previewLayout(.sizeThatFits)
-//
-//             FormView(currentView:$currentView)
-//                 .preferredColorScheme(.dark)
-//                 .previewLayout(.sizeThatFits)
-//                 .environment(\.managedObjectContext, previewController.container.viewContext)
-//
-//
-//     }
-// }
+ struct FormView_Previews: PreviewProvider {
+    @State static var showView: PBLBodyViewID = .missionData
+
+    static var previews: some View {
+         let previewController = PersistenceController.preview
+
+        FormView(currentView:$showView)
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+            .previewLayout(.sizeThatFits)
+
+        FormView(currentView:$showView)
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+
+
+     }
+ }
