@@ -26,15 +26,14 @@ class AlertProvider: ObservableObject{
     enum AlertType{
         
         case persistence
-        case ugly
         
         func getAlert() -> Alert{
             switch self{
+            // .persistence is an unused sample... add case above and Alert design below to add new alert if you are using an alert in more than one place
+            // Then it is easy access at the call site like:
+            //      AlertProvider.shared.showAlert(.persistence)
             case .persistence:
-            return Alert(title: Text("Persistence Error"), message: Text("There was a database problem"), dismissButton: .default(Text("Okay")))
-            case .ugly:
-            return Alert(title: Text("You're ugly"), message: Text("U.G.L.Y. you ain’t got no alibi"), dismissButton: .default(Text("That makes me sad.")))
-
+            return Alert(title: Text("Persistence Error"), message: Text("There was a database problem"), dismissButton: .default(Text("OK")))
             }
         }
     }
