@@ -20,12 +20,14 @@ struct SideViewButton: View {
         }) {
             HStack {
                 BoldText(text: text, size: 14, color: .pblSlate)
-                    .padding(.all)
+                    .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
                 Spacer()
             }
         }
         .background(Color.pblFogBG)
-        .cornerRadius(5)
+        .cornerRadius(8)
+        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+        
     }
 }
 

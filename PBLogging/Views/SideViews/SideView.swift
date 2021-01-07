@@ -11,29 +11,26 @@ struct SideView: View {
     @State var isCollapsed: Bool = false
     @Binding var currentView: PBLBodyViewID
     @Environment(\.managedObjectContext) private var moc
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Form781.date, ascending: true)],
         animation: .default)
-
+    
     private var forms: FetchedResults<Form781>
-
+    
     var body: some View {
         ZStack {
             Color.pblMistBG
-            if isCollapsed {
-                VStack(alignment: .leading) {
-                    ChevronButton()
-                     .padding()
+            
+            VStack(alignment: .leading) {
+                HStack() {
+                    BoldText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
+                        .padding()
                     Spacer()
+                    ChevronButton()
+                        .padding()
                 }
-            } else {
-                VStack(alignment: .leading) {
-                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                        BoldText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
-                            .padding()
-                        ChevronButton()
-                    }
+                Group{
                     SideViewButton(text: "OVERVIEW", action: {
                         currentView = .overview
                     })
@@ -47,7 +44,7 @@ struct SideView: View {
                         currentView = .aircrewData
                     })
                     .padding(.bottom)
-
+                    
                     BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
                         .padding(.leading)
                     ForEach(forms) { form in
@@ -56,15 +53,18 @@ struct SideView: View {
                             // and use it to set the current Form
                         })
                     }
-                    // Keep this last to push everything up.
-                    Spacer()
-                }
+                }.opacity(isCollapsed ? 0.0 : 1.0)
+                
+                Spacer()
             }
+            
         }
-        .frame(width: isCollapsed ? 40 : 200)
-        .clipped()
+        .frame(width: 240)
+        .offset(x: isCollapsed ? -100 : 0)
+        .frame(width: isCollapsed ? 40 : 240)
+        
     }
-
+    
     fileprivate func ChevronButton() -> Button<Image> {
         return Button(action:{
             withAnimation {
@@ -72,22 +72,22 @@ struct SideView: View {
             }
         }){
             Image(systemName:self.isCollapsed ? "chevron.right"
-                                              : "chevron.left")
+                    : "chevron.left")
         }
     }
 }
 
 struct SideView_Previews: PreviewProvider {
     @State static var showView: PBLBodyViewID = .overview
-
+    
     static var previews: some View {
         let previewController = PersistenceController.preview
-
+        
         Group {
             SideView(isCollapsed: false, currentView: $showView)
                 .environment(\.managedObjectContext, previewController.container.viewContext)
                 .previewLayout(.sizeThatFits )
-
+            
             SideView(isCollapsed: false, currentView: $showView)
                 .environment(\.managedObjectContext, previewController.container.viewContext)
                 .preferredColorScheme(.dark)
