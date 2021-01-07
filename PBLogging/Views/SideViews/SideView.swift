@@ -10,6 +10,13 @@ import SwiftUI
 struct SideView: View {
     @State var isCollapsed: Bool = false
     @Binding var currentView: PBLBodyViewID
+    @Environment(\.managedObjectContext) private var moc
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Form781.date, ascending: true)],
+        animation: .default)
+
+    private var forms: FetchedResults<Form781>
 
     var body: some View {
         ZStack {
@@ -17,13 +24,13 @@ struct SideView: View {
             if isCollapsed {
                 VStack(alignment: .leading) {
                     ChevronButton()
-                    .padding()
+                     .padding()
                     Spacer()
                 }
             } else {
                 VStack(alignment: .leading) {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                        BoldText(text: "MISSION FORMS", size: 16, color: Color("slate"))
+                        BoldText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
                             .padding()
                         ChevronButton()
                     }
@@ -39,9 +46,17 @@ struct SideView: View {
                     SideViewButton(text: "AIRCREW DATA", action: {
                         currentView = .aircrewData
                     })
-                    Spacer()
-                    BoldText(text: "DAYS", size: 16, color: Color("slate"))
-                        .padding()
+                    .padding(.bottom)
+
+                    BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
+                        .padding(.leading)
+                    ForEach(forms) { form in
+                        SideViewButton(text: form.date?.string() ?? "No Date", action: {
+                            // Probably need to stash the UUID somewhere
+                            // and use it to set the current Form
+                        })
+                    }
+                    // Keep this last to push everything up.
                     Spacer()
                 }
             }
@@ -62,14 +77,21 @@ struct SideView: View {
     }
 }
 
-//struct SideView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            SideView()
-//                .previewLayout(.sizeThatFits )
-//            SideView()
-//                .preferredColorScheme(.dark)
-//                .previewLayout(.sizeThatFits)
-//        }
-//    }
-//}
+struct SideView_Previews: PreviewProvider {
+    @State static var showView: PBLBodyViewID = .overview
+
+    static var previews: some View {
+        let previewController = PersistenceController.preview
+
+        Group {
+            SideView(isCollapsed: false, currentView: $showView)
+                .environment(\.managedObjectContext, previewController.container.viewContext)
+                .previewLayout(.sizeThatFits )
+
+            SideView(isCollapsed: false, currentView: $showView)
+                .environment(\.managedObjectContext, previewController.container.viewContext)
+                .preferredColorScheme(.dark)
+                .previewLayout(.sizeThatFits)
+        }
+    }
+}
