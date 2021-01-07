@@ -9,7 +9,7 @@ import XCTest
 @testable import Logging
 
 class LoggingTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -29,5 +29,21 @@ class LoggingTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    func testCoreDataAutoUUIDgeneration() throws {
+        let context = PersistenceController.preview.container.viewContext
+        let form1 = Form781(context: context)
+        let form2 = Form781(context: context)
+        
+        // test identifiable
+        XCTAssertTrue(form1 != form2)
+        
+        // test comparable ... waiting on comparable
+        form1.date = Date()
+        form2.date = Date.init(timeIntervalSince1970: 0)
+        
+        //XCTAssertTrue(form1 > form2)
+    
+    }
+      
 }

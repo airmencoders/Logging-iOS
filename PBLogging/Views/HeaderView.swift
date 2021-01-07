@@ -9,25 +9,18 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        HStack(alignment: .center) {
-            // The left side of the bar.
+        HStack{
             Image("PB_Logo")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 40.0, height: 45.0)
                 .padding(.leading)
-
-            // ATTN: Is there a better way to push the
-            // left and right apart?
-            Spacer(minLength: 5)
-
-            // The right side of the bar.
+            Spacer()
             TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle")
         }
-        .frame(height: 50.0)    // ATTN: I don't like hard coding this, what other way can we do it?
         .background(Color.pblNotBlack)
+        //color needs better name. This is everything but black 🤪🤔 red is not black. gray is not black
     }
-
 }
 
 struct HeaderView_Previews: PreviewProvider {
