@@ -1,10 +1,14 @@
 //
 //  Flight+CoreDataProperties.swift
-//  PBLogging
+//  Logging
+//
+//  Created by Pete Misik on 1/7/21.
+//
 //
 
 import Foundation
 import CoreData
+
 
 extension Flight {
 
@@ -13,17 +17,17 @@ extension Flight {
     }
 
     @NSManaged public var dateCreated: Date?
-    @NSManaged public var fromICAO: String?
+    @NSManaged public var fromICAO_: String?
     @NSManaged public var fullStop: Int16
-    @NSManaged public var id: UUID?
-    @NSManaged public var landTime: Date?
-    @NSManaged public var missionNumber: String?
-    @NSManaged public var missionSymbol: String?
-    @NSManaged public var pilotReviewInitials: String?
+    @NSManaged public var id_: UUID?
+    @NSManaged public var landTime_: Date?
+    @NSManaged public var missionNumber_: String?
+    @NSManaged public var missionSymbol_: String?
+    @NSManaged public var pilotReviewInitials_: String?
     @NSManaged public var sorties: Int16
-    @NSManaged public var specialUse: String?
-    @NSManaged public var takeOffTime: Date?
-    @NSManaged public var toICAO: String?
+    @NSManaged public var specialUse_: String?
+    @NSManaged public var takeOffTime_: Date?
+    @NSManaged public var toICAO_: String?
     @NSManaged public var totalLandings: Int16
     @NSManaged public var totalTime: Float
     @NSManaged public var touchAndGo: Int16

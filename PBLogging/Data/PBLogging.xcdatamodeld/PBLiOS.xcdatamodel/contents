@@ -9,8 +9,8 @@
         <attribute name="fcNight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="fcNVG" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="fcSimInstructor" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="flightAuthDutyCode" optional="YES" attributeType="String"/>
-        <attribute name="flyingOrganization" optional="YES" attributeType="String"/>
+        <attribute name="flightAuthDutyCode_" optional="YES" attributeType="String"/>
+        <attribute name="flyingOrganization_" optional="YES" attributeType="String"/>
         <attribute name="ftEvaluator" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="ftInstructor" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="ftOther" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -18,25 +18,25 @@
         <attribute name="ftSecondary" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="ftTotalSorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="ftTotalTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="id_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastName_" optional="YES" attributeType="String"/>
         <attribute name="reserveStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ssanLast4" optional="YES" attributeType="String"/>
+        <attribute name="ssanLast4_" optional="YES" attributeType="String"/>
         <relationship name="form781" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Form781" inverseName="aircrewData_" inverseEntity="Form781"/>
     </entity>
     <entity name="Flight" representedClassName="Flight" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="fromICAO" optional="YES" attributeType="String"/>
+        <attribute name="fromICAO_" optional="YES" attributeType="String"/>
         <attribute name="fullStop" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="landTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="missionNumber" optional="YES" attributeType="String"/>
-        <attribute name="missionSymbol" optional="YES" attributeType="String"/>
-        <attribute name="pilotReviewInitials" optional="YES" attributeType="String"/>
+        <attribute name="id_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="landTime_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="missionNumber_" optional="YES" attributeType="String"/>
+        <attribute name="missionSymbol_" optional="YES" attributeType="String"/>
+        <attribute name="pilotReviewInitials_" optional="YES" attributeType="String"/>
         <attribute name="sorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="specialUse" optional="YES" attributeType="String"/>
-        <attribute name="takeOffTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="toICAO" optional="YES" attributeType="String"/>
+        <attribute name="specialUse_" optional="YES" attributeType="String"/>
+        <attribute name="takeOffTime_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="toICAO_" optional="YES" attributeType="String"/>
         <attribute name="totalLandings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="touchAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -44,29 +44,29 @@
     </entity>
     <entity name="Form781" representedClassName="Form781" syncable="YES">
         <attribute name="armsAuditDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="armsAuditInitials" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="armsAuditInitials_" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="armsInputDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="armsInputInitials" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="armsInputInitials_" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="extractCertificationBranch" optional="YES" attributeType="String"/>
-        <attribute name="extractCertificationDSN" optional="YES" attributeType="String"/>
-        <attribute name="extractCertificationPrintName" optional="YES" attributeType="String"/>
-        <attribute name="extractCertificationRank" optional="YES" attributeType="String"/>
-        <attribute name="flightAuthNum" optional="YES" attributeType="String"/>
+        <attribute name="extractCertificationBranch_" optional="YES" attributeType="String"/>
+        <attribute name="extractCertificationDSN_" optional="YES" attributeType="String"/>
+        <attribute name="extractCertificationPrintName_" optional="YES" attributeType="String"/>
+        <attribute name="extractCertificationRank_" optional="YES" attributeType="String"/>
+        <attribute name="flightAuthNum_" optional="YES" attributeType="String"/>
         <attribute name="grandTotalFullStop" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="grandTotalLandings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="grandTotalSorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="grandTotalTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="grandTotalTouchAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="harmLocation" optional="YES" attributeType="String"/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="issuingUnit" optional="YES" attributeType="String"/>
-        <attribute name="maintenanceReview" optional="YES" attributeType="String"/>
-        <attribute name="mds" attributeType="String" defaultValueString="&quot;&quot;"/>
-        <attribute name="remarks" optional="YES" attributeType="String"/>
-        <attribute name="sarmReview" optional="YES" attributeType="String"/>
-        <attribute name="serialNumber" optional="YES" attributeType="String"/>
-        <attribute name="unitCharged" optional="YES" attributeType="String"/>
+        <attribute name="harmLocation_" optional="YES" attributeType="String"/>
+        <attribute name="id_" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="issuingUnit_" optional="YES" attributeType="String"/>
+        <attribute name="maintenanceReview_" optional="YES" attributeType="String"/>
+        <attribute name="mds_" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="remarks_" optional="YES" attributeType="String"/>
+        <attribute name="sarmReview_" optional="YES" attributeType="String"/>
+        <attribute name="serialNumber_" optional="YES" attributeType="String"/>
+        <attribute name="unitCharged_" optional="YES" attributeType="String"/>
         <relationship name="aircrewData_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AircrewData" inverseName="form781" inverseEntity="AircrewData"/>
         <relationship name="flights_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="form781" inverseEntity="Flight"/>
     </entity>

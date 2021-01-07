@@ -1,6 +1,9 @@
 //
 //  AircrewData+CoreDataProperties.swift
-//  PBLogging
+//  Logging
+//
+//  Created by Pete Misik on 1/7/21.
+//
 //
 
 import Foundation
@@ -21,8 +24,8 @@ extension AircrewData {
     @NSManaged public var fcNight: Float
     @NSManaged public var fcNVG: Float
     @NSManaged public var fcSimInstructor: Float
-    @NSManaged public var flightAuthDutyCode: String?
-    @NSManaged public var flyingOrganization: String?
+    @NSManaged public var flightAuthDutyCode_: String?
+    @NSManaged public var flyingOrganization_: String?
     @NSManaged public var ftEvaluator: Float
     @NSManaged public var ftInstructor: Float
     @NSManaged public var ftOther: Float
@@ -30,10 +33,10 @@ extension AircrewData {
     @NSManaged public var ftSecondary: Float
     @NSManaged public var ftTotalSorties: Int16
     @NSManaged public var ftTotalTime: Float
-    @NSManaged public var id: UUID?
-    @NSManaged public var lastName: String?
+    @NSManaged public var id_: UUID?
+    @NSManaged public var lastName_: String?
     @NSManaged public var reserveStatus: Int16
-    @NSManaged public var ssanLast4: String?
+    @NSManaged public var ssanLast4_: String?
     @NSManaged public var form781: Form781?
 
 }

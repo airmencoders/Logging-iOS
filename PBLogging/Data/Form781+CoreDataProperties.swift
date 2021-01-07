@@ -1,6 +1,9 @@
 //
 //  Form781+CoreDataProperties.swift
-//  PBLogging
+//  Logging
+//
+//  Created by Pete Misik on 1/7/21.
+//
 //
 
 import Foundation
@@ -14,48 +17,48 @@ extension Form781 {
     }
 
     @NSManaged public var armsAuditDate: Date?
-    @NSManaged public var armsAuditInitials: String?
+    @NSManaged public var armsAuditInitials_: String?
     @NSManaged public var armsInputDate: Date?
-    @NSManaged public var armsInputInitials: String?
+    @NSManaged public var armsInputInitials_: String?
     @NSManaged public var date: Date?
-    @NSManaged public var extractCertificationBranch: String?
-    @NSManaged public var extractCertificationDSN: String?
-    @NSManaged public var extractCertificationPrintName: String?
-    @NSManaged public var extractCertificationRank: String?
-    @NSManaged public var flightAuthNum: String?
+    @NSManaged public var extractCertificationBranch_: String?
+    @NSManaged public var extractCertificationDSN_: String?
+    @NSManaged public var extractCertificationPrintName_: String?
+    @NSManaged public var extractCertificationRank_: String?
+    @NSManaged public var flightAuthNum_: String?
     @NSManaged public var grandTotalFullStop: Int16
     @NSManaged public var grandTotalLandings: Int16
     @NSManaged public var grandTotalSorties: Int16
     @NSManaged public var grandTotalTime: Float
     @NSManaged public var grandTotalTouchAndGo: Int16
-    @NSManaged public var harmLocation: String?
-    @NSManaged public var id: UUID?
-    @NSManaged public var issuingUnit: String?
-    @NSManaged public var maintenanceReview: String?
-    @NSManaged public var mds: String?
-    @NSManaged public var remarks: String?
-    @NSManaged public var sarmReview: String?
-    @NSManaged public var serialNumber: String?
-    @NSManaged public var unitCharged: String?
+    @NSManaged public var harmLocation_: String?
+    @NSManaged public var id_: UUID?
+    @NSManaged public var issuingUnit_: String?
+    @NSManaged public var maintenanceReview_: String?
+    @NSManaged public var mds_: String?
+    @NSManaged public var remarks_: String?
+    @NSManaged public var sarmReview_: String?
+    @NSManaged public var serialNumber_: String?
+    @NSManaged public var unitCharged_: String?
     @NSManaged public var aircrewData_: NSSet?
     @NSManaged public var flights_: NSSet?
 
 }
 
-// MARK: Generated accessors for aircrewData
+// MARK: Generated accessors for aircrewData_
 extension Form781 {
 
-    @objc(addAircrewDataObject:)
-    @NSManaged public func addToAircrewData(_ value: AircrewData)
+    @objc(addAircrewData_Object:)
+    @NSManaged public func addToAircrewData_(_ value: AircrewData)
 
-    @objc(removeAircrewDataObject:)
-    @NSManaged public func removeFromAircrewData(_ value: AircrewData)
+    @objc(removeAircrewData_Object:)
+    @NSManaged public func removeFromAircrewData_(_ value: AircrewData)
 
-    @objc(addAircrewData:)
-    @NSManaged public func addToAircrewData(_ values: NSSet)
+    @objc(addAircrewData_:)
+    @NSManaged public func addToAircrewData_(_ values: NSSet)
 
-    @objc(removeAircrewData:)
-    @NSManaged public func removeFromAircrewData(_ values: NSSet)
+    @objc(removeAircrewData_:)
+    @NSManaged public func removeFromAircrewData_(_ values: NSSet)
 
 }
 
