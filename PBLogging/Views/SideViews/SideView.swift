@@ -17,20 +17,23 @@ struct SideView: View {
         animation: .default)
     
     private var forms: FetchedResults<Form781>
-    
+    private let collapsedWidth: CGFloat = 40.0
+    private let expandedWidth: CGFloat = 200.0
+
     var body: some View {
         ZStack {
             Color.pblMistBG
             
             VStack(alignment: .leading) {
-                HStack() {
+                HStack(alignment: .center, content: {
                     BoldText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
                         .padding()
+                        .lineLimit(1)
                     Spacer()
                     ChevronButton()
                         .rotationEffect(.degrees(isCollapsed ? 0 : -180))
-                        .padding()
-                }
+                        .padding(isCollapsed ? .leading : .trailing)
+                })
                 Group{
                     SideViewButton(text: "OVERVIEW", action: {
                         currentView = .overview
@@ -60,9 +63,9 @@ struct SideView: View {
             }
             
         }
-        .frame(width: 240)
+        .frame(width: expandedWidth)
         .offset(x: isCollapsed ? -100 : 0)
-        .frame(width: isCollapsed ? 40 : 240)
+        .frame(width: isCollapsed ? collapsedWidth : expandedWidth)
         
     }
     
