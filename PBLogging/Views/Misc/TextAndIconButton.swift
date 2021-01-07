@@ -11,11 +11,12 @@ struct TextAndIconButton: View {
     let text: String
     let color: Color
     let icon: String
-    
+    let action: () -> Void
+
     var body: some View {
         
         Button(action: {
-            print("TextAndIconButton tapped")
+            action()
         }) {
             HStack {
                 BoldText(text: text, size: 12, color: color)
@@ -29,9 +30,13 @@ struct TextAndIconButton: View {
 
 struct TextAndIconButton_Previews: PreviewProvider {
     static var previews: some View {
-        TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle")
+        TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle", action: {
+            print("TextAndIconButton tapped")
+        })
             .previewLayout(.sizeThatFits)
-        TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle")
+        TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle", action: {
+            print("TextAndIconButton tapped")
+        })
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

@@ -15,8 +15,13 @@ struct HeaderView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 40.0, height: 45.0)
                 .padding(.leading)
-            Spacer()
-            TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle")
+
+          Spacer()
+          TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle", action: {
+                if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            })
         }
         .background(Color.pblNotBlack)
         //color needs better name. This is everything but black 🤪🤔 red is not black. gray is not black

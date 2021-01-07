@@ -35,8 +35,12 @@ struct FormView: View {
                     BoldText(text: "AFTO Form 781", size: 18, color: .pblSlate)
                         .padding()
                     Spacer()
-                    TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up")
-                    TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "printer.fill")
+                    TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up", action: {
+                        print("Me Share one day")
+                    })
+                    TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "printer.fill", action: {
+                        print("Make it print")
+                    })
                 } else {
                     BoldText(text: "Overview", size: 18, color: .pblSlate)
                         .padding()
