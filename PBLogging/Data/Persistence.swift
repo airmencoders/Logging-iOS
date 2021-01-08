@@ -52,6 +52,7 @@ struct PersistenceController {
     }
     static func addFakeRecordsForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
         var counter = 0
+        
         for i in 0..<4 {
             
             let newForm             = Form781(context: context)
@@ -77,7 +78,40 @@ struct PersistenceController {
                 counter += 1
             }
             
+            var crewCounter: Float = 0
+            for x in 0..<35 {
+                crewCounter = Float(x) + 0.1
+                let newMember                   = AircrewData(context: context)
+                newMember.lastName              = FauxData.lastNames[x]
+                newMember.ssanLast4             = FauxData.socials[x]
+                newMember.flightAuthDutyCode    = FauxData.flightAuthDutyCodes[x]
+                newMember.flyingOrganization    = FauxData.flightOrgs[x]
+                                                              
+                newMember.ftPrimary             = crewCounter ; crewCounter += 0.1
+                newMember.ftSecondary           = crewCounter ; crewCounter += 0.1
+                newMember.ftInstructor          = crewCounter ; crewCounter += 0.1
+                newMember.ftEvaluator           = crewCounter ; crewCounter += 0.1
+                newMember.ftOther               = crewCounter ; crewCounter += 0.1
+                newMember.ftTotalTime           = newMember.ftPrimary + newMember.ftSecondary + newMember.ftInstructor + newMember.ftEvaluator + newMember.ftOther
+                
+                newMember.ftTotalSorties        = Int16(x % 5) + 1
+                
+                newMember.fcNight               = crewCounter ; crewCounter += 0.1
+                newMember.fcInstructor          = crewCounter ; crewCounter += 0.1
+                newMember.fcSimInstructor       = crewCounter ; crewCounter += 0.1
+                newMember.fcNVG                 = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatTime          = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatSorties       = Int16(x % 5) + 1
+                
+                newMember.fcCombatSupportTime       = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatSupportSorties    = Int16(x % 5) + 2
+                newMember.reserveStatus             = 3
+                
+                newMember.form781 = newForm
+                
+            }
         }
+        
         do {
             try context.save()
         } catch {

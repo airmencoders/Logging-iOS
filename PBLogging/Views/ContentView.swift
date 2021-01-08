@@ -17,11 +17,16 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let previewController = PersistenceController.preview
+
     static var previews: some View {
         Group {
             ContentView()
+                .environment(\.managedObjectContext, previewController.container.viewContext)
             ContentView()
+                .environment(\.managedObjectContext, previewController.container.viewContext)
                 .preferredColorScheme(.dark)
         }
+
     }
 }

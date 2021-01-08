@@ -10,7 +10,7 @@ struct FauxData{
     static let icaos = ["RJSM", "KTIK", "KNGB", "RJTY", "KSKA", "KPDX", "PHIK", "RJTA", "RJTZ", "KADW", "KAFF", "KBKF", "KCHS", "KDMA", "KEDW", "KHIF", "KHMN", "KIAB", "KLFI", "KLSV", "KSSC", "KSUU"]
     
     static let dates: [Date] =  {
-       
+        
         var dates = [Date]()
         for i in 1..<8{
             let stringDate = "20\(14 + i)-\(i)-\(i * 2)"
@@ -42,7 +42,7 @@ struct FauxData{
             
             dates.append(thisDate!)
         }
-         return dates
+        return dates
         
     }()
     
@@ -71,6 +71,37 @@ struct FauxData{
         }
         return serials
     }()
+    static let lastNames = ["Anderson", "Bernard", "Connor", "Daniels", "Engram", "Fredericks", "Goddard", "Harrison", "Ingraham", "Jacobson", "Kimmel", "Lucas", "Maryweather", "Nelson", "Osborne", "Pettersen", "Quesenberry", "Reese", "Stein", "Truman", "Underwood", "Victoria", "Wetherspoon", "X", "Young", "Zellman", "Angelos", "Barry", "Caldera", "Davidson", "Elfman", "Franks", "Goodman", "Hanks", "Ivy", "Jalrobi", "Keller", "Look", "Morrison", "Nelly", "Oglethorpe", "Prince", "Qui"]
+    
+    static let socials: [String] = {
+        var socials = [String]()
+        
+        for i in 10..<(10 + 35){
+            socials.append("\(i)\(i+1)")
+        }
+        
+        return socials
+        
+    }()
+    
+    static let flightAuthDutyCodes: [String] = {
+        var codes = [String]()
+        var knownCodes = ["XK", "IP B", "MP A", "IPB", "FPLC", "IL B", "XT", "EP", "IP", "MP", "FPQ", "FPC", "FPN", "UP", "EL", "IL", "ML", "FL", "UL", "ML1", "ML2", "ML1C", "ML1B"]
+        knownCodes = Array(Set(knownCodes))
+        for i in 0..<(10 + 35){
+            codes.append(knownCodes[i % knownCodes.count])
+        }
+        return codes
+    }()
+    
+    static let flightOrgs: [String] = {
+        var orgs = [String]()
+        for i in 10..<(10 + 35){
+            orgs.append("00\(i)")
+        }
+        return orgs
+    }()
+    
     
 }
 
@@ -120,5 +151,5 @@ struct FauxData{
  SSN     - Social Security Number
  TACP    - Tactical Air Control Party
  U.S.C.  - US Code
-            
+ 
  */
