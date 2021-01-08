@@ -19,7 +19,7 @@ struct SideViewButton: View {
             }
         }) {
             HStack {
-                BoldText(text: text, size: 14, color: .pblSlate)
+                BoldText(text: text, size: 14)
                     .padding(.all)
                 Spacer()
             }

@@ -55,10 +55,10 @@ struct InfoSection: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            BoldText(text: labelText, size: 12, color: .pblSlate)
+            BoldText(text: labelText, size: 12)
                 .minimumScaleFactor(0.5)
                 .lineLimit(2)
-            BoldTextField(placeholder: placeholder, field: field, size: 14)
+            RegularTextField(placeholder: placeholder, field: field, size: 14, alignment: .leading)
         }
         .padding(.horizontal)
     }

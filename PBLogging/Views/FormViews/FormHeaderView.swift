@@ -15,7 +15,7 @@ struct FormHeaderView: View {
             Rectangle()
                 .fill(Color.pblMistBG)
                 .frame(height: 50)
-            BoldText(text: text, size: 14, color: .pblSlate)
+            BoldText(text: text, size: 14)
                 .padding()
         }
     }

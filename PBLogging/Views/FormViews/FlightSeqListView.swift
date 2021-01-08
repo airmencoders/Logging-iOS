@@ -30,7 +30,7 @@ struct FlightSeqListHeader: View {
     var body: some View {
         HStack {
             // figure out how to space correctly without hidden text?
-            RegularText(text: "A.", size: 14, color: .pblSlate)
+            RegularText(text: "A.", size: 14)
                 .hidden()
             HStack {
                 ListHeaderText(text: "MISSION\nNUMBER", size: size, lines: 2)

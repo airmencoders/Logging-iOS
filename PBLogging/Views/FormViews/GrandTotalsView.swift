@@ -12,21 +12,21 @@ struct GrandTotalsView: View {
     
     var body: some View {
         HStack {
-            RegularText(text: "A.", size: 14, color: .pblSlate)
+            RegularText(text: "A.", size: 14)
                 .padding(.vertical)
                 .hidden()
             HStack {
-                BoldText(text: "GRAND TOTALS", size: size, color: .pblSlate)
+                BoldText(text: "GRAND TOTALS", size: size)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
             HStack {
-                ListHeaderText(text: "X", size: size, lines: 1)
+                ListHeaderText(text: "X", size: size)
                     .hidden()
-                ListHeaderText(text: "0", size: size, lines: 1)
-                ListHeaderText(text: "0", size: size, lines: 1)
-                ListHeaderText(text: "0", size: size, lines: 1)
-                ListHeaderText(text: "0", size: size, lines: 1)
-                ListHeaderText(text: "0", size: size, lines: 1)
+                ListHeaderText(text: "0", size: size)
+                ListHeaderText(text: "0", size: size)
+                ListHeaderText(text: "0", size: size)
+                ListHeaderText(text: "0", size: size)
+                ListHeaderText(text: "0", size: size)
             }
             Image(systemName: "plus.circle")
                 .hidden()

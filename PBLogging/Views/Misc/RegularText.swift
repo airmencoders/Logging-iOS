@@ -10,20 +10,20 @@ import SwiftUI
 struct RegularText: View {
     let text: String
     let size: CGFloat
-    let color: Color
+    var color: Color? = nil
     
     var body: some View {
         Text(text)
             .font(Font.custom("DMSans-Regular", size: size))
-            .foregroundColor(color)
+            .foregroundColor(color ?? .pblSlate)
     }
 }
 
 struct RegularText_Previews: PreviewProvider {
     static var previews: some View {
-        RegularText(text: "OVERVIEW", size: 20, color: .pblSlate)
+        RegularText(text: "OVERVIEW", size: 20)
             .previewLayout(.sizeThatFits)
-        RegularText(text: "OVERVIEW", size: 20, color: .pblSlate)
+        RegularText(text: "OVERVIEW", size: 20, color: .white)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }

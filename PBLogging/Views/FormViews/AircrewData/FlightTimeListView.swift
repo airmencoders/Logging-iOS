@@ -29,7 +29,7 @@ struct FlightTimeListHeader: View {
     
     var body: some View {
         HStack(alignment: .bottom) {
-            BoldText(text: "NAME", size: size, color: .pblSlate)
+            BoldText(text: "NAME", size: size)
                 .frame(width: 200, alignment: .leading)
                 .padding(.leading)
             ListHeaderText(text: "PRIM", size: size)

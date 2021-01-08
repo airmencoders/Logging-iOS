@@ -30,7 +30,7 @@ struct SideView: View {
             } else {
                 VStack(alignment: .leading) {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                        BoldText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
+                        RegularText(text: "MISSION FORMS", size: 16, color: Color.pblSlate)
                             .padding()
                         ChevronButton()
                     }
@@ -49,7 +49,7 @@ struct SideView: View {
                     .padding(.bottom)
 
                     HStack(alignment: .center, content: {
-                        BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
+                        RegularText(text: "DAYS", size: 16, color: Color.pblSlate)
                             .padding(.top)
                         Spacer()
                         Button(action: {

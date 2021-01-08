@@ -45,6 +45,7 @@
 		7FF0FE9325A7810600097C66 /* CellLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9225A7810600097C66 /* CellLine.swift */; };
 		7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */; };
 		7FF0FEBB25A8D06000097C66 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */; };
+		7FF0FEC325A8E80200097C66 /* FormCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEC225A8E80200097C66 /* FormCellView.swift */; };
 		BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */; };
 		BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C1F2325A683690075404C /* AlertProvider.swift */; };
 		BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF982CC625A54B0500C14019 /* PBLogging.xcdatamodeld */; };
@@ -122,6 +123,7 @@
 		7FF0FE9225A7810600097C66 /* CellLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLine.swift; sourceTree = "<group>"; };
 		7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldTextField.swift; sourceTree = "<group>"; };
 		7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
+		7FF0FEC225A8E80200097C66 /* FormCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellView.swift; sourceTree = "<group>"; };
 		BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Form781+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		BF5C1F2325A683690075404C /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		BF982CC725A54B0500C14019 /* PBLiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBLiOS.xcdatamodel; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				4DFF496725A55A6600C65720 /* OverviewView.swift */,
+				7FF0FEC225A8E80200097C66 /* FormCellView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				7F83DA8B25A3C16200D5860C /* FormView.swift in Sources */,
 				4DFF497625A577AC00C65720 /* AircrewDataView.swift in Sources */,
 				BF982CE225A54ECF00C14019 /* Form781+CoreDataClass.swift in Sources */,
+				7FF0FEC325A8E80200097C66 /* FormCellView.swift in Sources */,
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
 				13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */,
 				4DFF496825A55A6600C65720 /* OverviewView.swift in Sources */,

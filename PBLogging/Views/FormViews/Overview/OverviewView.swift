@@ -9,9 +9,13 @@ import SwiftUI
 
 struct OverviewView: View {
     var body: some View {
-        Text("Overview coming soon!")
-            .padding()
-            .frame(alignment: .center)
+        ScrollView {
+            VStack(spacing: 20) {
+                FormCellView()
+                FormCellView()
+                FormCellView()
+            }
+        }
     }
 }
 

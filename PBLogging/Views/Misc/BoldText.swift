@@ -10,20 +10,20 @@ import SwiftUI
 struct BoldText: View {
     let text: String
     let size: CGFloat
-    let color: Color
+    var color: Color? = nil
     
     var body: some View {
         Text(text)
             .font(Font.custom("DMSans-Bold", size: size))
-            .foregroundColor(color)
+            .foregroundColor(color ?? .pblSlate)
     }
 }
 
 struct BoldText_Previews: PreviewProvider {
     static var previews: some View {
-        BoldText(text: "OVERVIEW", size: 20, color: .pblSlate)
+        BoldText(text: "OVERVIEW", size: 20)
             .previewLayout(.sizeThatFits)
-        BoldText(text: "OVERVIEW", size: 20, color: .pblSlate)
+        BoldText(text: "OVERVIEW", size: 20, color: .white)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }

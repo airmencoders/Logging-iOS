@@ -13,7 +13,7 @@ struct ListHeaderText: View {
     var lines: Int? = nil
     
     var body: some View {
-        BoldText(text: text, size: size, color: .pblSlate)
+        BoldText(text: text, size: size)
             .frame(maxWidth: .infinity)
             .minimumScaleFactor(0.5)
             .lineLimit(lines ?? 1)

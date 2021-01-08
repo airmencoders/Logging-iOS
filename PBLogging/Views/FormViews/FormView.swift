@@ -26,13 +26,13 @@ struct FormView: View {
                 if currentView != .overview {
                     // ATTN: Get the date from the current form.
                     //("Just to demo, remove once you guys start using actual data")
-                    BoldText(text: "MISSION \(forms.first?.date?.string() ?? "nada")", size: 16, color: .white)
+                    RegularText(text: "Mission \(forms.first?.date?.string() ?? "nada")", size: 16, color: .white)
                         .padding()
                 }
             }
             HStack {
                 if currentView != .overview {
-                    BoldText(text: "AFTO Form 781", size: 18, color: .pblSlate)
+                    BoldText(text: "AFTO Form 781", size: 18)
                         .padding()
                     Spacer()
                     TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up", action: {
@@ -42,7 +42,7 @@ struct FormView: View {
                         print("Make it print")
                     })
                 } else {
-                    BoldText(text: "Overview", size: 18, color: .pblSlate)
+                    BoldText(text: "Overview", size: 18)
                         .padding()
                 }
             }

@@ -29,9 +29,9 @@ struct AircrewListHeaderView: View {
     
     var body: some View {
         HStack {
-            BoldText(text: "NAME (LAST, FIRST)", size: size, color: .pblSlate)
+            BoldText(text: "NAME (LAST, FIRST)", size: size)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            ListHeaderText(text: "SSN", size: size, lines: 1)
+            ListHeaderText(text: "SSN", size: size)
             ListHeaderText(text: "FLYING ORG", size: size, lines: 2)
             ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size, lines: 2)
             //figure out how to get correct spacing without hidden images?

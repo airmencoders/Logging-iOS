@@ -26,7 +26,7 @@ struct FlightSeqCellView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                RegularText(text: "A.", size: 14, color: .pblSlate)
+                RegularText(text: "A.", size: 14)
                 HStack {
                     RegularTextField(placeholder: "SIM", field: $missionNumber, size: size)
                     RegularTextField(placeholder: "Q1", field: $missionSymbol, size: size)
