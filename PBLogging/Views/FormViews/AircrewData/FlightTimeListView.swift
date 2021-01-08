@@ -9,14 +9,16 @@ import SwiftUI
 
 struct FlightTimeListView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             FlightTimeListHeader()
-                .padding(.horizontal)
-            ListHeaderLine()
-            List {
-                FlightTimeCellView()
-                FlightTimeCellView()
-                FlightTimeCellView()
+                .padding()
+            CellLine()
+            ScrollView {
+                VStack(spacing: 0) {
+                    FlightTimeCellView()
+                    FlightTimeCellView()
+                    FlightTimeCellView()
+                }
             }
         }
     }
@@ -24,20 +26,19 @@ struct FlightTimeListView: View {
 
 struct FlightTimeListHeader: View {
     let size: CGFloat = 14
-    let lines = 1
     
     var body: some View {
         HStack(alignment: .bottom) {
             BoldText(text: "NAME", size: size, color: .pblSlate)
                 .frame(width: 200, alignment: .leading)
                 .padding(.leading)
-            ListHeaderText(text: "PRIM", size: size, lines: lines)
-            ListHeaderText(text: "SEC", size: size, lines: lines)
-            ListHeaderText(text: "INSTR", size: size, lines: lines)
-            ListHeaderText(text: "EVAL", size: size, lines: lines)
-            ListHeaderText(text: "OTHER", size: size, lines: lines)
-            ListHeaderText(text: "SRTY", size: size, lines: lines)
-            ListHeaderText(text: "TIME", size: size, lines: lines)
+            ListHeaderText(text: "PRIM", size: size)
+            ListHeaderText(text: "SEC", size: size)
+            ListHeaderText(text: "INSTR", size: size)
+            ListHeaderText(text: "EVAL", size: size)
+            ListHeaderText(text: "OTHER", size: size)
+            ListHeaderText(text: "SRTY", size: size)
+            ListHeaderText(text: "TIME", size: size)
         }
     }
 }

@@ -50,11 +50,13 @@ struct SideView: View {
 
                     BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
                         .padding()
-                    ForEach(forms) { form in
-                        SideViewButton(text: form.date?.string() ?? "No Date", action: {
-                            // Probably need to stash the UUID somewhere
-                            // and use it to set the current Form
-                        })
+                    ScrollView {
+                        ForEach(forms) { form in
+                            SideViewButton(text: form.date?.string() ?? "No Date", action: {
+                                // Probably need to stash the UUID somewhere
+                                // and use it to set the current Form
+                            })
+                        }
                     }
                     // Keep this last to push everything up.
                     Spacer()

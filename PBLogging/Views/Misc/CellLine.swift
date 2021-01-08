@@ -7,20 +7,19 @@
 
 import SwiftUI
 
-struct ListHeaderLine: View {
+struct CellLine: View {
     var body: some View {
         Rectangle()
             .frame(height: 1)
             .foregroundColor(.pblHaze)
-            .padding(.leading)
     }
 }
 
-struct ListHeaderLine_Previews: PreviewProvider {
+struct CellLine_Previews: PreviewProvider {
     static var previews: some View {
-        ListHeaderLine()
+        CellLine()
             .previewLayout(.sizeThatFits)
-        ListHeaderLine()
+        CellLine()
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

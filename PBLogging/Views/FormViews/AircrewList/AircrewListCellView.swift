@@ -12,7 +12,9 @@ struct AircrewListCellView: View {
     
     var body: some View {
         HStack {
-            CellText(text: "Last, First", size: size)
+            //CellText(text: "Last, First", size: size)
+            RegularText(text: "Last, First", size: size, color: .pblSlate)
+                .frame(maxWidth: .infinity,alignment: .leading)
             CellText(text: "1234", size: size)
             CellText(text: "0000", size: size)
             CellText(text: "XX", size: size)
@@ -30,6 +32,7 @@ struct AircrewListCellView: View {
                     .foregroundColor(.pblSlate)
             }
         }
+        .padding(.horizontal)
         .background(Color.pblMistBG)
     }
 }

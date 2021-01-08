@@ -9,17 +9,17 @@ import SwiftUI
 
 struct AircrewList: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             AircrewListHeaderView()
-                .padding(.horizontal)
-            ListHeaderLine()
-            List {
-                AircrewListCellView()
-                AircrewListCellView()
-                AircrewListCellView()
+                .padding()
+            ScrollView {
+                VStack(spacing: 8) {
+                    AircrewListCellView()
+                    AircrewListCellView()
+                    AircrewListCellView()
+                }
             }
             AddAircrewView()
-            Spacer()
         }
     }
 }
@@ -29,7 +29,8 @@ struct AircrewListHeaderView: View {
     
     var body: some View {
         HStack {
-            ListHeaderText(text: "NAME", size: size, lines: 1)
+            BoldText(text: "NAME (LAST, FIRST)", size: size, color: .pblSlate)
+                .frame(maxWidth: .infinity, alignment: .leading)
             ListHeaderText(text: "SSN", size: size, lines: 1)
             ListHeaderText(text: "FLYING ORG", size: size, lines: 2)
             ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size, lines: 2)

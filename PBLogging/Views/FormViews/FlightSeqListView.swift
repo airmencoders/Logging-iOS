@@ -9,14 +9,16 @@ import SwiftUI
 
 struct FlightSeqListView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             FlightSeqListHeader()
-                .padding(.horizontal)
-            ListHeaderLine()
-            List {
-                FlightSeqCellView()
-                FlightSeqCellView()
-                FlightSeqCellView()
+                .padding(.vertical)
+            CellLine()
+            ScrollView {
+                VStack(spacing: 0) {
+                    FlightSeqCellView()
+                    FlightSeqCellView()
+                    FlightSeqCellView()
+                }
             }
         }
     }
@@ -42,8 +44,8 @@ struct FlightSeqListHeader: View {
                 ListHeaderText(text: "TOTAL\nTIME", size: size, lines: 2)
                 ListHeaderText(text: "TOUCH\n& GO", size: size, lines: 2)
                 ListHeaderText(text: "FULL\nSTOP", size: size, lines: 2)
-                ListHeaderText(text: "TOTAL", size: size, lines: 1)
-                ListHeaderText(text: "SORTIES", size: size, lines: 1)
+                ListHeaderText(text: "TOTAL", size: size)
+                ListHeaderText(text: "SORTIES", size: size)
                 ListHeaderText(text: "SPECIAL\nUSE", size: size, lines: 2)
             }
             Image(systemName: "plus.circle")
