@@ -48,8 +48,20 @@ struct SideView: View {
                     })
                     .padding(.bottom)
 
-                    BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
-                        .padding()
+                    HStack(alignment: .center, content: {
+                        BoldText(text: "DAYS", size: 16, color: Color.pblSlate)
+                            .padding(.top)
+                        Spacer()
+                        Button(action: {
+                            PersistenceController.newRecordForContext()
+                        }) {
+                            Image(systemName: "plus.circle")
+                                .foregroundColor(.pblSlate)
+                                .padding(.top)
+                        }
+                    })
+                    .background(Color.pblMistBG)
+                    .padding(.horizontal)
                     ScrollView {
                         ForEach(forms) { form in
                             SideViewButton(text: form.date?.string() ?? "No Date", action: {

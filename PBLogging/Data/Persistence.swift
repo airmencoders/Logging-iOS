@@ -125,6 +125,20 @@ struct PersistenceController {
             
         }
     }
+
+    static func newRecordForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+        let newForm = Form781(context: context)
+        newForm.date = Date()
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            let nsError = error as NSError
+            //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
+            AlertProvider.shared.showAlertWithTitle(title: "Context Save Error", message: "\(nsError), \(nsError.userInfo). Please screenshot and send to the dev team.")
+
+        }
+    }
 }
 
 #if DEBUG
