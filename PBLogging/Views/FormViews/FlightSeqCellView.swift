@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct FlightSeqCellView: View {
+    @State private var missionNumber: String = ""
+    @State private var missionSymbol: String = ""
+    @State private var fromICAO: String = ""
+    @State private var toICAO: String = ""
+    @State private var takeOffTime: String = ""
+    @State private var landTime: String = ""
+    @State private var totalTime: String = ""
+    @State private var touchGo: String = ""
+    @State private var fullStop: String = ""
+    @State private var totalLandings: String = ""
+    @State private var sorties: String = ""
+    @State private var specialUse: String = ""
+    
     let size: CGFloat = 14
     
     var body: some View {
@@ -15,20 +28,20 @@ struct FlightSeqCellView: View {
             HStack {
                 RegularText(text: "A.", size: 14, color: .pblSlate)
                 HStack {
-                    CellText(text: "SIM", size: size)
-                    CellText(text: "Q1", size: size)
-                    CellText(text: "KCHS", size: size)
-                    CellText(text: "KCHS", size: size)
-                    CellText(text: "1800", size: size)
-                    CellText(text: "2100", size: size)
+                    RegularTextField(placeholder: "SIM", field: $missionNumber, size: size)
+                    RegularTextField(placeholder: "Q1", field: $missionSymbol, size: size)
+                    RegularTextField(placeholder: "KCHS", field: $fromICAO, size: size)
+                    RegularTextField(placeholder: "KCHS", field: $toICAO, size: size)
+                    RegularTextField(placeholder: "1800", field: $takeOffTime, size: size)
+                    RegularTextField(placeholder: "2100", field: $landTime, size: size)
                 }
                 HStack {
-                    CellText(text: "3.0", size: size)
-                    CellText(text: "--", size: size)
-                    CellText(text: "4", size: size)
-                    CellText(text: "4", size: size)
-                    CellText(text: "1", size: size)
-                    CellText(text: "--", size: size)
+                    RegularTextField(placeholder: "3.0", field: $totalTime, size: size)
+                    RegularTextField(placeholder: "--", field: $touchGo, size: size)
+                    RegularTextField(placeholder: "4", field: $fullStop, size: size)
+                    RegularTextField(placeholder: "4", field: $totalLandings, size: size)
+                    RegularTextField(placeholder: "1", field: $sorties, size: size)
+                    RegularTextField(placeholder: "--", field: $specialUse, size: size)
                 }
                 Button(action: {
                     print("EditButton tapped")

@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct AircrewListCellView: View {
+    @State private var name: String = ""
+    @State private var ssn: String = ""
+    @State private var flyingOrg: String = ""
+    @State private var flightAuthDutyCode: String = ""
+
+    
     let size: CGFloat = 14
     
     var body: some View {
         HStack {
-            //CellText(text: "Last, First", size: size)
-            RegularText(text: "Last, First", size: size, color: .pblSlate)
-                .frame(maxWidth: .infinity,alignment: .leading)
-            CellText(text: "1234", size: size)
-            CellText(text: "0000", size: size)
-            CellText(text: "XX", size: size)
+            TextField("Last, First", text: $name)
+                .font(Font.custom("DMSans-Regular", size: size))
+                .foregroundColor(.pblSlate)
+            RegularTextField(placeholder: "1234", field: $ssn, size: size)
+            RegularTextField(placeholder: "0000", field: $flyingOrg, size: size)
+            RegularTextField(placeholder: "XX", field: $flightAuthDutyCode, size: size)
+            
             Button(action: {
                 print("EditButton tapped")
             }) {
