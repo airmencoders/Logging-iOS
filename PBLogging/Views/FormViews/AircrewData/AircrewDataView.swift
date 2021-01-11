@@ -9,20 +9,13 @@ import SwiftUI
 
 struct AircrewDataView: View {
     var body: some View {
-        VStack {
-            FormHeaderView(text: "FLIGHT SEQ")
-            FlightSeqListView()
-            GrandTotalsView()
-            FormHeaderView(text: "FLIGHT TIME")
-            HStack {
+        Form {
+            Section(header: Text("FLIGHT SEQ")) {
+                FlightSeqListView()
+                GrandTotalsView()
+            }
+            Section(header: Text("FLIGHT TIME")) {
                 FlightTimeListView()
-                Button(action: {
-                    print("EditButton tapped")
-                }) {
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(.pblSlate)
-                }
-                .padding(.leading)
             }
         }
     }

@@ -10,12 +10,18 @@ import SwiftUI
 struct MissionDataView: View {
     var body: some View {
         VStack {
-            FormHeaderView(text: "MISSION DATA")
-            MissionDataInfoView()
-            FormHeaderView(text: "FLIGHT SEQ")
-            FlightSeqListView()
+            Form {
+                Section(header: Text("MISSION DATA")) {
+                    MissionDataInfoView()
+                }
+                Section(header: Text("FLIGHT SEQ")) {
+                    FlightSeqListView()
+                }
+            }
+            Spacer()
             GrandTotalsView()
         }
+        .background(Color.pblMistBG)
     }
 }
 

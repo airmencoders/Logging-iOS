@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AircrewListView: View {
     var body: some View {
-        VStack {
-            FormHeaderView(text: "AIRCREW LIST")
-            AircrewList()
+        Form {
+            Section(header: Text("AIRCREW LIST")) {
+                AircrewList()
+            }
         }
     }
 }

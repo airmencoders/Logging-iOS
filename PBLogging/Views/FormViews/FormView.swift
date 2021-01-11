@@ -30,10 +30,10 @@ struct FormView: View {
                         .padding()
                 }
             }
-            HStack {
+            HStack(alignment: .center, content: {
                 if currentView != .overview {
                     BoldText(text: "AFTO Form 781", size: 18)
-                        .padding()
+                        .padding(.leading)
                     Spacer()
                     TextAndIconButton(text: "SHARE", color: .pblSlate, icon: "square.and.arrow.up", action: {
                         print("Me Share one day")
@@ -43,9 +43,11 @@ struct FormView: View {
                     })
                 } else {
                     BoldText(text: "Overview", size: 18)
-                        .padding()
+                        .padding(.leading)
                 }
-            }
+            })
+            .frame(height: 30)
+
             switch currentView {
             case .overview:
                 OverviewView()
