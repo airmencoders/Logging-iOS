@@ -10,13 +10,13 @@ import SwiftUI
 struct ListHeaderText: View {
     let text: String
     let size: CGFloat
-    var lines: Int? = nil
+    var lines: Int = 1
     
     var body: some View {
         BoldText(text: text, size: size)
             .frame(maxWidth: .infinity)
             .minimumScaleFactor(0.5)
-            .lineLimit(lines ?? 1)
+            .lineLimit(lines)
     }
 }
 

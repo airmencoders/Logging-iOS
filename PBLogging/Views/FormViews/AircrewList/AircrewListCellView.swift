@@ -25,19 +25,19 @@ struct AircrewListCellView: View {
             RegularTextField(placeholder: "0000", field: $flyingOrg, size: size)
             RegularTextField(placeholder: "XX", field: $flightAuthDutyCode, size: size)
             
-            Button(action: {
+            Button {
                 print("EditButton tapped")
-            }) {
+            } label: {
                 Image(systemName: "square.and.pencil")
-                    .foregroundColor(.pblSlate)
             }
                 .padding()
-            Button(action: {
+                .foregroundColor(.pblSlate)
+            Button {
                 print("DeleteButton tapped")
-            }) {
+            } label: {
                 Image(systemName: "minus.circle")
-                    .foregroundColor(.pblSlate)
             }
+                .foregroundColor(.pblSlate)
         }
         .padding(.horizontal)
         .background(Color.pblMistBG)

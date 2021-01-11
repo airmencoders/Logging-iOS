@@ -36,7 +36,7 @@ struct FlightTimeCellView: View {
                 RegularTextField(placeholder: "1", field: $time, size: size)
             }
                 .padding(.vertical)
-            CellLine()
+            Divider()
         }
     }
 }

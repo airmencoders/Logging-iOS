@@ -11,14 +11,14 @@ struct RegularTextField: View {
     let placeholder: String
     let field: Binding<String>
     let size: CGFloat
-    var alignment: TextAlignment? = nil
+    var alignment: TextAlignment = .center
     
     var body: some View {
         TextField(placeholder, text: field)
             .font(Font.custom("DMSans-Regular", size: size))
             .foregroundColor(.pblSlate)
             .autocapitalization(.allCharacters)
-            .multilineTextAlignment(alignment ?? .center)
+            .multilineTextAlignment(alignment)
     }
 }
 

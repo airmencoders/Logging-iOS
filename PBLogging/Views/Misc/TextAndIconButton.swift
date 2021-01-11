@@ -12,19 +12,17 @@ struct TextAndIconButton: View {
     let color: Color
     let icon: String
     let action: () -> Void
-
+    
     var body: some View {
         
-        Button(action: {
+        Button {
             action()
-        }) {
-            HStack {
-                BoldText(text: text, size: 12, color: color)
-                Image(systemName: icon)
-                    .foregroundColor(color)
-            }
+        } label: {
+            BoldText(text: text, size: 12)
+            Image(systemName: icon)
         }
         .padding()
+        .foregroundColor(color)
     }
 }
 
@@ -33,11 +31,11 @@ struct TextAndIconButton_Previews: PreviewProvider {
         TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle", action: {
             print("TextAndIconButton tapped")
         })
-            .previewLayout(.sizeThatFits)
+        .previewLayout(.sizeThatFits)
         TextAndIconButton(text: "PRINT", color: .pblSlate, icon: "info.circle", action: {
             print("TextAndIconButton tapped")
         })
-            .previewLayout(.sizeThatFits)
-            .preferredColorScheme(.dark)
+        .previewLayout(.sizeThatFits)
+        .preferredColorScheme(.dark)
     }
 }

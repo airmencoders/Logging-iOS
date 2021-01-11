@@ -13,7 +13,7 @@ struct FlightSeqListView: View {
         VStack(spacing: 0) {
             FlightSeqListHeader()
                 .padding(.vertical)
-            CellLine()
+            Divider()
             ScrollView {
                 VStack(spacing: 0) {
                     FlightSeqCellView()
@@ -30,16 +30,10 @@ struct FlightSeqListHeader: View {
 
     var body: some View {
         HStack {
-            // figure out how to space correctly without hidden text?
-            RegularText(text: "A.", size: 14)
-                .hidden()
+            Spacer(minLength: 20)
             LeftHeader()
-            RightHEader()
-            Image(systemName: "plus.circle")
-                .padding(.trailing)
-                .hidden()
-            Image(systemName: "plus.circle")
-                .hidden()
+            RightHeader()
+            Spacer(minLength: 70)
         }
     }
 
@@ -54,7 +48,7 @@ struct FlightSeqListHeader: View {
         }
     }
 
-    fileprivate func RightHEader() -> HStack<TupleView<(ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText)>> {
+    fileprivate func RightHeader() -> HStack<TupleView<(ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText, ListHeaderText)>> {
         return HStack {
             ListHeaderText(text: "TOTAL\nTIME", size: size, lines: 2)
             ListHeaderText(text: "TOUCH\n& GO", size: size, lines: 2)
@@ -69,6 +63,12 @@ struct FlightSeqListHeader: View {
 struct FlightSeqListView_Previews: PreviewProvider {
     static var previews: some View {
         FlightSeqListView()
+            .previewDisplayName("iPad Pro (9.7-inch)")
+            .previewDevice("iPad Pro (9.7-inch)")
+            .previewLayout(.sizeThatFits)
+        FlightSeqListView()
+            .previewDisplayName("iPad Pro (12.9-inch)")
+            .previewDevice("iPad Pro (12.9-inch)")
             .previewLayout(.sizeThatFits)
         FlightSeqListView()
             .previewLayout(.sizeThatFits)

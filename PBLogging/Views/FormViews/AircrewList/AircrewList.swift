@@ -48,16 +48,15 @@ struct AddAircrewView: View {
     var body: some View {
         HStack {
             Spacer()
-            Button(action: {
+            Button {
                 print("EditButton tapped")
-            }) {
+            } label: {
                 Image(systemName: "plus.circle")
-                    .foregroundColor(.pblSlate)
-                    .padding()
             }
+            .padding()
         }
+        .foregroundColor(.pblSlate)
         .background(Color.pblMistBG)
-        .padding(.horizontal)
     }
 }
 

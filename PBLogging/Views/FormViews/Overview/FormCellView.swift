@@ -13,8 +13,7 @@ struct FormCellView: View {
 
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(Color.pblMistBG)
+            Color.pblMistBG
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 80)
                 .padding(.horizontal)
                 .shadow(radius: 3, y: 3)
@@ -23,7 +22,7 @@ struct FormCellView: View {
                     RegularText(text: "AFTO FORM 781", size: 16)
                     RegularText(text: "Mission #\(form.mds)", size: 12)
                 }
-                    .padding()
+                .padding()
                 Spacer()
                 HStack {
                     // ATTN: Get the complete state from the form (when we can)
@@ -37,32 +36,31 @@ struct FormCellView: View {
                     BoldText(text: "COMPLETE", size: 12)
                 }
                 Spacer()
-                Button(action: {
+                Button {
                     print("Review & Share")
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(Color.pblSlate)
-                            .frame(width: 150, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        BoldText(text: "REVIEW & SHARE", size: 12, color: .white)
-                            .foregroundColor(.pblSlate)
-                    }
+                } label: {
+                    BoldText(text: "REVIEW & SHARE", size: 12, color: .white)
+                        .frame(width: 150, height: 40)
+                        .foregroundColor(.pblSlate)
+                        .background(Color.pblSlate)
+                        .cornerRadius(25)
                 }
                 Spacer()
                 HStack {
-                    Button(action: {
+                    Button {
                         action(form, .edit)
-                    }) {
+                    } label: {
                         Image(systemName: "square.and.pencil")
-                            .foregroundColor(.pblSlate)
                     }
-                    Button(action: {
+                    .foregroundColor(.pblSlate)
+
+                    Button {
                         action(form, .delete)
-                    }) {
+                    } label: {
                         Image(systemName: "minus.circle")
-                            .foregroundColor(.pblSlate)
                     }
                     .padding()
+                    .foregroundColor(.pblSlate)
                 }
             }
             .padding(.horizontal)

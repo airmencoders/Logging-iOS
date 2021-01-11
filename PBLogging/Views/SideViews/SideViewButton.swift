@@ -12,19 +12,16 @@ struct SideViewButton: View {
     let action: () -> Void
     
     var body: some View {
-        
-        Button(action: {
+        Button {
             withAnimation {
                 action()
             }
-        }) {
-            HStack {
-                BoldText(text: text, size: 14)
-                    .padding(.all)
-                Spacer()
-            }
+        } label: {
+            BoldText(text: text, size: 14)
         }
-        .background(Color.pblFogBG)
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.pblFog)
         .cornerRadius(5)
     }
 }
@@ -34,11 +31,11 @@ struct SideViewButton_Previews: PreviewProvider {
         SideViewButton(text: "Overview", action: {
             print("SideViewButton tapped")
         })
-            .previewLayout(.sizeThatFits)
+        .previewLayout(.sizeThatFits)
         SideViewButton(text: "Overview", action: {
             print("SideViewButton tapped")
         })
-            .preferredColorScheme(.dark)
-            .previewLayout(.sizeThatFits)
+        .preferredColorScheme(.dark)
+        .previewLayout(.sizeThatFits)
     }
 }

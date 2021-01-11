@@ -25,6 +25,7 @@ struct HeaderView: View {
         }
         .background(Color.pblNotBlack)
         //color needs better name. This is everything but black 🤪🤔 red is not black. gray is not black
+        // ^ lol That's what Rachael named it - you'll have to take that up with her haha 
     }
 }
 

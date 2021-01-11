@@ -11,13 +11,10 @@ struct FormHeaderView: View {
     let text: String
     
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-            Rectangle()
-                .fill(Color.pblMistBG)
-                .frame(height: 50)
-            BoldText(text: text, size: 14)
-                .padding()
-        }
+        BoldText(text: text, size: 14)
+            .padding()
+            .frame(maxWidth: .infinity, idealHeight: 50, alignment: .leading)
+            .background(Color.pblMistBG)
     }
 }
 

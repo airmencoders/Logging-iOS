@@ -30,13 +30,13 @@ struct GrandTotalsView: View {
             }
             Image(systemName: "plus.circle")
                 .hidden()
-            Button(action: {
+            Button {
                 print("EditButton tapped")
-            }) {
+            } label: {
                 Image(systemName: "plus.circle")
-                    .foregroundColor(.pblSlate)
-                    .padding(.trailing)
             }
+            .foregroundColor(.pblSlate)
+            .padding(.trailing)
         }
         .background(Color.pblMistBG)
     }

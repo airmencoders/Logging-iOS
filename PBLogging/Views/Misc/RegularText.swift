@@ -10,12 +10,12 @@ import SwiftUI
 struct RegularText: View {
     let text: String
     let size: CGFloat
-    var color: Color? = nil
+    var color: Color = .pblSlate
     
     var body: some View {
         Text(text)
             .font(Font.custom("DMSans-Regular", size: size))
-            .foregroundColor(color ?? .pblSlate)
+            .foregroundColor(color)
     }
 }
 

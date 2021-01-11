@@ -19,17 +19,12 @@ struct FormView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                Rectangle()
-                    .fill(Color.pblSlateBG)
-                    .frame(height: 60)
-                if currentView != .overview {
-                    // ATTN: Get the date from the current form.
-                    //("Just to demo, remove once you guys start using actual data")
-                    RegularText(text: "Mission \(forms.first?.date?.string() ?? "nada")", size: 16, color: .white)
-                        .padding()
-                }
-            }
+            // ATTN: Get the date from the current form.
+            //("Just to demo, remove once you guys start using actual data")
+            RegularText(text: currentView != .overview ? "Mission \(forms.first?.date?.string() ?? "nada")" : "", size: 16, color: .white)
+                .padding()
+                .frame(maxWidth: .infinity, idealHeight: 60, alignment: .leading)
+                .background(Color.pblSlate)
             HStack(alignment: .center, content: {
                 if currentView != .overview {
                     BoldText(text: "AFTO Form 781", size: 18)
@@ -51,7 +46,7 @@ struct FormView: View {
                 }
             })
             .frame(height: 30)
-
+            
             switch currentView {
             case .overview:
                 OverviewView(currentView:$currentView)
@@ -70,21 +65,21 @@ struct FormView: View {
     }
 }
 
- struct FormView_Previews: PreviewProvider {
+struct FormView_Previews: PreviewProvider {
     @State static var showView: PBLBodyViewID = .missionData
-
+    
     static var previews: some View {
-         let previewController = PersistenceController.preview
-
+        let previewController = PersistenceController.preview
+        
         FormView(currentView:$showView)
             .environment(\.managedObjectContext, previewController.container.viewContext)
             .previewLayout(.sizeThatFits)
-
+        
         FormView(currentView:$showView)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
             .environment(\.managedObjectContext, previewController.container.viewContext)
-
-
-     }
- }
+        
+        
+    }
+}

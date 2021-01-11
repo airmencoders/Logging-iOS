@@ -42,7 +42,6 @@
 		7FF0FE7B25A64CC700097C66 /* RegularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE7A25A64CC700097C66 /* RegularText.swift */; };
 		7FF0FE8325A64D9200097C66 /* ListHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */; };
 		7FF0FE8B25A775DC00097C66 /* GrandTotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */; };
-		7FF0FE9325A7810600097C66 /* CellLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9225A7810600097C66 /* CellLine.swift */; };
 		7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */; };
 		7FF0FEBB25A8D06000097C66 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */; };
 		7FF0FEC325A8E80200097C66 /* FormCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEC225A8E80200097C66 /* FormCellView.swift */; };
@@ -120,7 +119,6 @@
 		7FF0FE7A25A64CC700097C66 /* RegularText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularText.swift; sourceTree = "<group>"; };
 		7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderText.swift; sourceTree = "<group>"; };
 		7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandTotalsView.swift; sourceTree = "<group>"; };
-		7FF0FE9225A7810600097C66 /* CellLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLine.swift; sourceTree = "<group>"; };
 		7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldTextField.swift; sourceTree = "<group>"; };
 		7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		7FF0FEC225A8E80200097C66 /* FormCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellView.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */,
 				7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
-				7FF0FE9225A7810600097C66 /* CellLine.swift */,
 				7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */,
 			);
 			path = Misc;
@@ -539,7 +536,6 @@
 				7F83DAC925A4CC5D00D5860C /* FormHeaderView.swift in Sources */,
 				7FF0FE7625A64B0B00097C66 /* FlightTimeCellView.swift in Sources */,
 				4DB8EFFF259F17050012F02B /* HeaderView.swift in Sources */,
-				7FF0FE9325A7810600097C66 /* CellLine.swift in Sources */,
 				BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BF982CD025A54E3D00C14019 /* Persistence.swift in Sources */,

@@ -43,22 +43,23 @@ struct FlightSeqCellView: View {
                     RegularTextField(placeholder: "1", field: $sorties, size: size)
                     RegularTextField(placeholder: "--", field: $specialUse, size: size)
                 }
-                Button(action: {
+                Button {
                     print("EditButton tapped")
-                }) {
+                } label: {
                     Image(systemName: "square.and.pencil")
-                        .foregroundColor(.pblSlate)
-                        .padding(.trailing)
                 }
-                Button(action: {
+                    .foregroundColor(.pblSlate)
+                    .padding(.trailing)
+                
+                Button {
                     print("DeleteButton tapped")
-                }) {
+                } label: {
                     Image(systemName: "minus.circle")
-                        .foregroundColor(.pblSlate)
                 }
+                    .foregroundColor(.pblSlate)
             }
                 .padding(.vertical)
-            CellLine()
+            Divider()
         }
     }
 }

@@ -80,11 +80,11 @@ struct SideView: View {
     }
 
     fileprivate func ChevronButton() -> Button<Image> {
-        return Button(action:{
+        return Button {
             withAnimation {
                 self.isCollapsed.toggle()
             }
-        }){
+        } label: {
             Image(systemName:self.isCollapsed ? "chevron.right"
                                               : "chevron.left")
         }
