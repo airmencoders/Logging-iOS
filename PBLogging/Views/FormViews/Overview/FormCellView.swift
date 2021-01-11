@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FormCellView: View {
+    var form: Form781
+    let action: (_ form: Form781, _ action: PBLFormAction) -> Void
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -18,18 +21,24 @@ struct FormCellView: View {
             HStack {
                 VStack(alignment: .leading) {
                     RegularText(text: "AFTO FORM 781", size: 16)
-                    RegularText(text: "Mission #00000", size: 12)
+                    RegularText(text: "Mission #\(form.mds)", size: 12)
                 }
                     .padding()
                 Spacer()
                 HStack {
-                    Image(systemName: "checkmark.circle")
-                        .foregroundColor(.pblSlate)
+                    // ATTN: Get the complete state from the form (when we can)
+//                    if form.isComplete {
+//                        Image(systemName: "checkmark.circle")
+//                            .foregroundColor(.pblSlate)
+//                    } else {
+                        Image(systemName: "circle")
+                            .foregroundColor(.pblSlate)
+//                    }
                     BoldText(text: "COMPLETE", size: 12)
                 }
                 Spacer()
                 Button(action: {
-                    print("EditButton tapped")
+                    print("Review & Share")
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
@@ -42,13 +51,13 @@ struct FormCellView: View {
                 Spacer()
                 HStack {
                     Button(action: {
-                        print("EditButton tapped")
+                        action(form, .edit)
                     }) {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.pblSlate)
                     }
                     Button(action: {
-                        print("DeleteButton tapped")
+                        action(form, .delete)
                     }) {
                         Image(systemName: "minus.circle")
                             .foregroundColor(.pblSlate)
@@ -61,12 +70,12 @@ struct FormCellView: View {
     }
 }
 
-struct FormCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        FormCellView()
-            .previewLayout(.sizeThatFits)
-        FormCellView()
-            .previewLayout(.sizeThatFits)
-            .preferredColorScheme(.dark)
-    }
-}
+//struct FormCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FormCellView()
+//            .previewLayout(.sizeThatFits)
+//        FormCellView()
+//            .previewLayout(.sizeThatFits)
+//            .preferredColorScheme(.dark)
+//    }
+//}

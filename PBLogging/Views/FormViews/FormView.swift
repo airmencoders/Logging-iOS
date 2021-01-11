@@ -44,13 +44,17 @@ struct FormView: View {
                 } else {
                     BoldText(text: "Overview", size: 18)
                         .padding(.leading)
+                    Spacer()
+                    TextAndIconButton(text: "New Form", color: .pblSlate, icon: "plus.circle", action: {
+                        PersistenceController.newRecordForContext()
+                    })
                 }
             })
             .frame(height: 30)
 
             switch currentView {
             case .overview:
-                OverviewView()
+                OverviewView(currentView:$currentView)
                     .padding()
             case .missionData:
                 MissionDataView()
