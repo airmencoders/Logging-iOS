@@ -17,41 +17,30 @@ struct MissionDataInfoView: View {
     @State private var flightAuth: String = ""
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            InfoSectionRowOne()
-            InfoSectionRowTwo()
-        }
-    }
-
-    fileprivate func InfoSectionRowOne() -> HStack<TupleView<(InfoSection, InfoSection, InfoSection, InfoSection)>> {
-        return HStack(alignment: .bottom) {
+        VStack {
             InfoSection(labelText: "DATE", placeholder: "DD MMM YYYY", field: $date)
             InfoSection(labelText: "MDS", placeholder: "XX-00", field: $mds)
             InfoSection(labelText: "SERIAL NUMBER", placeholder: "00-0000", field: $serialNumber)
             InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", placeholder: "00 AB CDE FG", field: $unitCharged)
-        }
-    }
-
-    fileprivate func InfoSectionRowTwo() -> HStack<TupleView<(InfoSection, InfoSection, InfoSection)>> {
-        return HStack(alignment: .bottom) {
             InfoSection(labelText: "HARM LOCATION", placeholder: "LOCATION, ST ZIP", field: $harmLocation)
             InfoSection(labelText: "ISSUING UNIT", placeholder: "00 AA", field: $issuingUnit)
             InfoSection(labelText: "FLIGHT AUTH #", placeholder: "00-XXXX", field: $flightAuth)
         }
     }
+
 }
 
 struct InfoSection: View {
     let labelText: String
     let placeholder: String
-    let field: Binding<String>
+    @Binding var field: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             BoldText(text: labelText, size: 12)
                 .minimumScaleFactor(0.5)
                 .lineLimit(2)
-            RegularTextField(placeholder: placeholder, field: field, size: 14, alignment: .leading)
+            RegularTextField(placeholder: placeholder, field: $field, size: 14, alignment: .leading)
         }
         .padding(.horizontal)
     }

@@ -17,11 +17,11 @@ struct HeaderView: View {
                 .padding(.leading)
 
           Spacer()
-          TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle", action: {
+            TextAndIconButton(text: "HELP CENTER", color: .white, icon: "info.circle") {
                 if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
-                    UIApplication.shared.open(url, options: [:])
+                    UIApplication.shared.open(url)
                 }
-            })
+            }
         }
         .background(Color.pblNotBlack)
         //color needs better name. This is everything but black 🤪🤔 red is not black. gray is not black
@@ -36,7 +36,7 @@ struct HeaderView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
             HeaderView()
                 .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
+                .previewLayout(.sizeThatFits) 
         }
     }
 }

@@ -14,7 +14,7 @@ struct RegularText: View {
     
     var body: some View {
         Text(text)
-            .font(Font.custom("DMSans-Regular", size: size))
+            .font(.pblRegular(size: size))
             .foregroundColor(color)
     }
 }

@@ -19,7 +19,7 @@ struct AircrewListCellView: View {
     var body: some View {
         HStack {
             TextField("Last, First", text: $name)
-                .font(Font.custom("DMSans-Regular", size: size))
+                .font(.pblRegular(size: size))
                 .foregroundColor(.pblSlate)
             RegularTextField(placeholder: "1234", field: $ssn, size: size)
             RegularTextField(placeholder: "0000", field: $flyingOrg, size: size)

@@ -24,7 +24,7 @@ struct FlightTimeCellView: View {
             Divider()
             HStack {
                 TextField("Smith, IP B5", text: $name)
-                    .font(Font.custom("DMSans-Regular", size: size))
+                    .font(.pblRegular(size: size))
                     .foregroundColor(.pblSlate)
                     .padding(.leading)
                     .frame(width: 200)

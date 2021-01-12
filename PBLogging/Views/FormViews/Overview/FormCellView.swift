@@ -9,8 +9,9 @@ import SwiftUI
 
 struct FormCellView: View {
     var form: Form781
-    let action: (_ form: Form781, _ action: PBLFormAction) -> Void
-
+    @Environment(\.managedObjectContext) private var moc
+    @Binding var currentView: PBLBodyViewID
+    
     var body: some View {
         ZStack {
             Color.pblMistBG
@@ -20,7 +21,7 @@ struct FormCellView: View {
             HStack {
                 VStack(alignment: .leading) {
                     RegularText(text: "AFTO FORM 781", size: 16)
-                    RegularText(text: "Mission #\(form.mds)", size: 12)
+                    RegularText(text: "\(form.date?.string() ?? "")", size: 12)
                 }
                 .padding()
                 Spacer()
@@ -41,20 +42,20 @@ struct FormCellView: View {
                 } label: {
                     BoldText(text: "REVIEW & SHARE", size: 12, color: .white)
                         .frame(width: 150, height: 40)
-                        .foregroundColor(.pblSlate)
                         .background(Color.pblSlate)
                         .cornerRadius(25)
                 }
                 Spacer()
                 HStack {
                     Button {
-                        action(form, .edit)
+                        currentView = .missionData
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.pblSlate)
                     }
                     Button {
-                        action(form, .delete)
+                        moc.delete(form)
+                        try? moc.save()
                     } label: {
                         Image(systemName: "minus.circle")
                             .padding()
@@ -67,12 +68,17 @@ struct FormCellView: View {
     }
 }
 
-//struct FormCellView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FormCellView()
-//            .previewLayout(.sizeThatFits)
-//        FormCellView()
-//            .previewLayout(.sizeThatFits)
-//            .preferredColorScheme(.dark)
-//    }
-//}
+struct FormCellView_Previews: PreviewProvider {
+    static let form: Form781  = {
+        let form = Form781(context: PersistenceController.preview.container.viewContext)
+        form.date = Date()
+        return form
+    }()
+    static var previews: some View {
+        FormCellView(form: form, currentView: .constant(.overview))
+            .previewLayout(.sizeThatFits)
+        FormCellView(form: form, currentView: .constant(.overview))
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
+    }
+}

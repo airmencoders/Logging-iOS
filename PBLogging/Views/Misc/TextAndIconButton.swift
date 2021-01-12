@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextAndIconButton: View {
     let text: String
-    let color: Color
+    var color: Color = .pblSlate
     let icon: String
     let action: () -> Void
     

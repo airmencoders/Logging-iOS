@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum PBLFormAction {
-    case edit
-    case delete
-}
-
 struct OverviewView: View {
     @Binding var currentView: PBLBodyViewID
 
@@ -27,20 +22,9 @@ struct OverviewView: View {
         ScrollView {
             VStack(spacing: 20) {
                 ForEach(forms) { form in
-                    FormCellView(form: form, action:formAction)
+                    FormCellView(form: form, currentView: $currentView)
                 }
             }
-        }
-    }
-
-    private func formAction(form: Form781, action: PBLFormAction) {
-        switch action {
-        case .edit:
-            // ATTN: We need to set the CurrentForm to form before changing the view.
-            currentView = .missionData
-        case .delete:
-            moc.delete(form)
-            try? moc.save()
         }
     }
 }

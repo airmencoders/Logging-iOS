@@ -14,7 +14,7 @@ struct BoldText: View {
     
     var body: some View {
         Text(text)
-            .font(Font.custom("DMSans-Bold", size: size))
+            .font(.pblBold(size: size))
             .foregroundColor(color)
     }
 }

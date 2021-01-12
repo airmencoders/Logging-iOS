@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListHeaderText: View {
     let text: String
-    let size: CGFloat
+    var size: CGFloat = 10
     var lines: Int = 1
     
     var body: some View {
