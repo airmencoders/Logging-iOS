@@ -18,11 +18,11 @@ struct TextAndIconButton: View {
         Button {
             action()
         } label: {
-            BoldText(text: text, size: 12)
+            BoldText(text: text, size: 12, color: color)
             Image(systemName: icon)
+                .foregroundColor(color)
         }
         .padding()
-        .foregroundColor(color)
     }
 }
 

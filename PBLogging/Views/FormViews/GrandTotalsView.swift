@@ -34,9 +34,10 @@ struct GrandTotalsView: View {
                 print("EditButton tapped")
             } label: {
                 Image(systemName: "plus.circle")
+                    .padding(.trailing)
+                    .padding(.vertical)
+                    .foregroundColor(.pblSlate)
             }
-            .foregroundColor(.pblSlate)
-            .padding(.trailing)
         }
         .background(Color.pblMistBG)
     }

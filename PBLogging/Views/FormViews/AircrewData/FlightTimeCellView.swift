@@ -21,6 +21,7 @@ struct FlightTimeCellView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Divider()
             HStack {
                 TextField("Smith, IP B5", text: $name)
                     .font(Font.custom("DMSans-Regular", size: size))
@@ -36,7 +37,6 @@ struct FlightTimeCellView: View {
                 RegularTextField(placeholder: "1", field: $time, size: size)
             }
                 .padding(.vertical)
-            Divider()
         }
     }
 }

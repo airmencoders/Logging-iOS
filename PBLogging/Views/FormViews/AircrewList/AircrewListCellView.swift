@@ -29,17 +29,18 @@ struct AircrewListCellView: View {
                 print("EditButton tapped")
             } label: {
                 Image(systemName: "square.and.pencil")
+                    .padding()
+                    .foregroundColor(.pblSlate)
             }
-                .padding()
-                .foregroundColor(.pblSlate)
             Button {
                 print("DeleteButton tapped")
             } label: {
                 Image(systemName: "minus.circle")
+                    .padding()
+                    .foregroundColor(.pblSlate)
             }
-                .foregroundColor(.pblSlate)
         }
-        .padding(.horizontal)
+        .padding(.leading)
         .background(Color.pblMistBG)
     }
 }

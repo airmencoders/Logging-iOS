@@ -25,6 +25,7 @@ struct FlightSeqCellView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Divider()
             HStack {
                 RegularText(text: "A.", size: 14)
                 HStack {
@@ -47,19 +48,18 @@ struct FlightSeqCellView: View {
                     print("EditButton tapped")
                 } label: {
                     Image(systemName: "square.and.pencil")
+                        .padding(.vertical)
+                        .padding(.trailing)
+                        .foregroundColor(.pblSlate)
                 }
-                    .foregroundColor(.pblSlate)
-                    .padding(.trailing)
-                
                 Button {
                     print("DeleteButton tapped")
                 } label: {
                     Image(systemName: "minus.circle")
+                        .padding(.vertical)
+                        .foregroundColor(.pblSlate)
                 }
-                    .foregroundColor(.pblSlate)
             }
-                .padding(.vertical)
-            Divider()
         }
     }
 }

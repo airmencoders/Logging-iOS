@@ -12,7 +12,6 @@ struct FlightTimeListView: View {
         VStack(spacing: 0) {
             FlightTimeListHeader()
                 .padding()
-            Divider()
             ScrollView {
                 VStack(spacing: 0) {
                     FlightTimeCellView()

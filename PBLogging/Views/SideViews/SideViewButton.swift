@@ -18,11 +18,11 @@ struct SideViewButton: View {
             }
         } label: {
             BoldText(text: text, size: 14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color.pblFog)
+                .cornerRadius(5)
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.pblFog)
-        .cornerRadius(5)
     }
 }
 

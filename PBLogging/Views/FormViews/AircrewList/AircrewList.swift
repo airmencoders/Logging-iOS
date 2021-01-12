@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AircrewList: View {
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 8) {
             AircrewListHeaderView()
-                .padding()
+                .padding(.leading)
             ScrollView {
                 VStack(spacing: 8) {
                     AircrewListCellView()
@@ -36,9 +36,10 @@ struct AircrewListHeaderView: View {
             ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size, lines: 2)
             //figure out how to get correct spacing without hidden images?
             Image(systemName: "plus")
-                .padding(.horizontal)
+                .padding()
                 .hidden()
             Image(systemName: "plus")
+                .padding()
                 .hidden()
         }
     }
@@ -52,10 +53,10 @@ struct AddAircrewView: View {
                 print("EditButton tapped")
             } label: {
                 Image(systemName: "plus.circle")
+                    .padding()
+                    .foregroundColor(.pblSlate)
             }
-            .padding()
         }
-        .foregroundColor(.pblSlate)
         .background(Color.pblMistBG)
     }
 }

@@ -51,16 +51,15 @@ struct FormCellView: View {
                         action(form, .edit)
                     } label: {
                         Image(systemName: "square.and.pencil")
+                            .foregroundColor(.pblSlate)
                     }
-                    .foregroundColor(.pblSlate)
-
                     Button {
                         action(form, .delete)
                     } label: {
                         Image(systemName: "minus.circle")
+                            .padding()
+                            .foregroundColor(.pblSlate)
                     }
-                    .padding()
-                    .foregroundColor(.pblSlate)
                 }
             }
             .padding(.horizontal)

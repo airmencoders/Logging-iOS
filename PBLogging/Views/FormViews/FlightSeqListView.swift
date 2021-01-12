@@ -13,7 +13,6 @@ struct FlightSeqListView: View {
         VStack(spacing: 0) {
             FlightSeqListHeader()
                 .padding(.vertical)
-            Divider()
             ScrollView {
                 VStack(spacing: 0) {
                     FlightSeqCellView()
