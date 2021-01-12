@@ -47,6 +47,8 @@
 		7FF0FEC325A8E80200097C66 /* FormCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEC225A8E80200097C66 /* FormCellView.swift */; };
 		BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */; };
 		BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C1F2325A683690075404C /* AlertProvider.swift */; };
+		BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */; };
+		BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */; };
 		BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF982CC625A54B0500C14019 /* PBLogging.xcdatamodeld */; };
 		BF982CD025A54E3D00C14019 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CCF25A54E3D00C14019 /* Persistence.swift */; };
 		BF982CD525A54E5900C14019 /* FauxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CD425A54E5900C14019 /* FauxData.swift */; };
@@ -124,6 +126,8 @@
 		7FF0FEC225A8E80200097C66 /* FormCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellView.swift; sourceTree = "<group>"; };
 		BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Form781+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		BF5C1F2325A683690075404C /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
+		BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Animation+Ext.swift"; sourceTree = "<group>"; };
+		BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		BF982CC725A54B0500C14019 /* PBLiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PBLiOS.xcdatamodel; sourceTree = "<group>"; };
 		BF982CCF25A54E3D00C14019 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BF982CD425A54E5900C14019 /* FauxData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FauxData.swift; sourceTree = "<group>"; };
@@ -371,6 +375,8 @@
 		BFDD329225A4FE70000FE732 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */,
+				BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */,
 				BF982CEE25A54EFE00C14019 /* Date+Ext.swift */,
 				BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */,
 			);
@@ -554,6 +560,7 @@
 				7F83DACE25A4CF4200D5860C /* MissionDataInfoView.swift in Sources */,
 				4DFF497125A5776900C65720 /* AircrewListView.swift in Sources */,
 				BF982CD525A54E5900C14019 /* FauxData.swift in Sources */,
+				BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */,
 				7FF0FE7125A648FE00097C66 /* FlightTimeListView.swift in Sources */,
 				7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */,
 				BF982CE625A54ECF00C14019 /* Flight+CoreDataClass.swift in Sources */,
@@ -563,6 +570,7 @@
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				7FF0FE8325A64D9200097C66 /* ListHeaderText.swift in Sources */,
 				13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */,
+				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,
 				BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */,
 				7FF0FE6425A6295A00097C66 /* AircrewListCellView.swift in Sources */,
 				7FF0FE8B25A775DC00097C66 /* GrandTotalsView.swift in Sources */,
