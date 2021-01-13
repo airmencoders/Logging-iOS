@@ -16,7 +16,7 @@ struct FormView: View {
         animation: .default)
     
     private var forms: FetchedResults<Form781>
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             // ATTN: Get the date from the current form.
@@ -32,9 +32,14 @@ struct FormView: View {
                     Spacer()
                     TextAndIconButton(text: "SHARE", icon: "square.and.arrow.up") {
                         print("Me Share one day")
+//                        if let form781 = forms.first {
+//                           form781.popoverSharePDF(from: self, sourceRect: .frame)
+//                        }
                     }
                     TextAndIconButton(text: "PRINT", icon: "printer.fill") {
-                        print("Make it print")
+                        if let form781 = forms.first {
+                            form781.printPDF()
+                        }
                     }
                 } else {
                     BoldText(text: "Overview", size: 18)

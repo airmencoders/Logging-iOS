@@ -18,16 +18,19 @@ struct MissionDataInfoView: View {
 
     var body: some View {
         VStack {
-            InfoSection(labelText: "DATE", placeholder: "DD MMM YYYY", field: $date)
-            InfoSection(labelText: "MDS", placeholder: "XX-00", field: $mds)
-            InfoSection(labelText: "SERIAL NUMBER", placeholder: "00-0000", field: $serialNumber)
-            InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", placeholder: "00 AB CDE FG", field: $unitCharged)
-            InfoSection(labelText: "HARM LOCATION", placeholder: "LOCATION, ST ZIP", field: $harmLocation)
-            InfoSection(labelText: "ISSUING UNIT", placeholder: "00 AA", field: $issuingUnit)
-            InfoSection(labelText: "FLIGHT AUTH #", placeholder: "00-XXXX", field: $flightAuth)
+            HStack {
+                InfoSection(labelText: "DATE", placeholder: "DD MMM YYYY", field: $date)
+                InfoSection(labelText: "MDS", placeholder: "XX-00", field: $mds)
+                InfoSection(labelText: "SERIAL NUMBER", placeholder: "00-0000", field: $serialNumber)
+                InfoSection(labelText: "UNIT CHARGED FOR FLYING HOURS", placeholder: "00 AB CDE FG", field: $unitCharged)
+            }
+            HStack {
+                InfoSection(labelText: "HARM LOCATION", placeholder: "LOCATION, ST ZIP", field: $harmLocation)
+                InfoSection(labelText: "ISSUING UNIT", placeholder: "00 AA", field: $issuingUnit)
+                InfoSection(labelText: "FLIGHT AUTH #", placeholder: "00-XXXX", field: $flightAuth)
+            }
         }
     }
-
 }
 
 struct InfoSection: View {
