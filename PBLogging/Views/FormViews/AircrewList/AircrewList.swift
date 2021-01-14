@@ -11,6 +11,7 @@ struct AircrewList: View {
     var body: some View {
         VStack(spacing: 8) {
             AircrewListHeaderView()
+                .padding(.vertical)
                 .padding(.leading)
             ScrollView {
                 VStack(spacing: 8) {
@@ -31,6 +32,8 @@ struct AircrewListHeaderView: View {
         HStack {
             BoldText(text: "NAME (LAST, FIRST)", size: size)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .minimumScaleFactor(0.5)
+                .lineLimit(2)
             ListHeaderText(text: "SSN", size: size)
             ListHeaderText(text: "FLYING ORG", size: size, lines: 2)
             ListHeaderText(text: "FLIGHT AUTH\nDUTY CODE", size: size, lines: 2)

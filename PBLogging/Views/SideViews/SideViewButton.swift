@@ -28,14 +28,14 @@ struct SideViewButton: View {
 
 struct SideViewButton_Previews: PreviewProvider {
     static var previews: some View {
-        SideViewButton(text: "Overview", action: {
+        SideViewButton(text: "Overview") {
             print("SideViewButton tapped")
-        })
-        .previewLayout(.sizeThatFits)
-        SideViewButton(text: "Overview", action: {
+        }
+            .previewLayout(.sizeThatFits)
+        SideViewButton(text: "Overview") {
             print("SideViewButton tapped")
-        })
-        .preferredColorScheme(.dark)
-        .previewLayout(.sizeThatFits)
+        }
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -48,6 +48,8 @@
 		7FF0FE9E25A7AB3600097C66 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */; };
 		7FF0FEBB25A8D06000097C66 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */; };
 		7FF0FEC325A8E80200097C66 /* FormCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEC225A8E80200097C66 /* FormCellView.swift */; };
+		7FF0FEE025AF589300097C66 /* FlightConditionsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEDF25AF589300097C66 /* FlightConditionsCellView.swift */; };
+		7FF0FEE525AF5A0700097C66 /* FlightConditionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEE425AF5A0700097C66 /* FlightConditionsListView.swift */; };
 		BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */; };
 		BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C1F2325A683690075404C /* AlertProvider.swift */; };
 		BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */; };
@@ -131,6 +133,8 @@
 		7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldTextField.swift; sourceTree = "<group>"; };
 		7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		7FF0FEC225A8E80200097C66 /* FormCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCellView.swift; sourceTree = "<group>"; };
+		7FF0FEDF25AF589300097C66 /* FlightConditionsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConditionsCellView.swift; sourceTree = "<group>"; };
+		7FF0FEE425AF5A0700097C66 /* FlightConditionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConditionsListView.swift; sourceTree = "<group>"; };
 		BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Form781+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		BF5C1F2325A683690075404C /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Animation+Ext.swift"; sourceTree = "<group>"; };
@@ -360,6 +364,8 @@
 				4DFF497525A577AC00C65720 /* AircrewDataView.swift */,
 				7FF0FE7025A648FE00097C66 /* FlightTimeListView.swift */,
 				7FF0FE7525A64B0B00097C66 /* FlightTimeCellView.swift */,
+				7FF0FEE425AF5A0700097C66 /* FlightConditionsListView.swift */,
+				7FF0FEDF25AF589300097C66 /* FlightConditionsCellView.swift */,
 			);
 			path = AircrewData;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				4D84000E25AE72B60089AAB7 /* Form781pdfFiller.swift in Sources */,
 				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,
 				BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */,
+				7FF0FEE525AF5A0700097C66 /* FlightConditionsListView.swift in Sources */,
 				7FF0FE6425A6295A00097C66 /* AircrewListCellView.swift in Sources */,
 				7FF0FE8B25A775DC00097C66 /* GrandTotalsView.swift in Sources */,
 				4DD13FDD259ED18300C98EB8 /* ContentView.swift in Sources */,
@@ -598,6 +605,7 @@
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
 				13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,
+				7FF0FEE025AF589300097C66 /* FlightConditionsCellView.swift in Sources */,
 				4DFF496825A55A6600C65720 /* OverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

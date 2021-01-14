@@ -11,7 +11,8 @@ struct FlightTimeListView: View {
     var body: some View {
         VStack(spacing: 0) {
             FlightTimeListHeader()
-                .padding()
+                .padding(.vertical)
+                .padding(.leading)
             ScrollView {
                 VStack(spacing: 0) {
                     FlightTimeCellView()
@@ -27,10 +28,9 @@ struct FlightTimeListHeader: View {
     let size: CGFloat = 14
     
     var body: some View {
-        HStack(alignment: .bottom) {
+        HStack {
             BoldText(text: "NAME", size: size)
                 .frame(width: 200, alignment: .leading)
-                .padding(.leading)
             ListHeaderText(text: "PRIM", size: size)
             ListHeaderText(text: "SEC", size: size)
             ListHeaderText(text: "INSTR", size: size)

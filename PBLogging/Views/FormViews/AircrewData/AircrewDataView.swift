@@ -17,6 +17,9 @@ struct AircrewDataView: View {
             Section(header: Text("FLIGHT TIME")) {
                 FlightTimeListView()
             }
+            Section(header: Text("FLIGHT CONDITIONS")) {
+                FlightConditionsListView()
+            }
         }
     }
 }

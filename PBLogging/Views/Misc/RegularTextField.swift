@@ -19,6 +19,7 @@ struct RegularTextField: View {
             .foregroundColor(.pblSlate)
             .autocapitalization(.allCharacters)
             .multilineTextAlignment(alignment)
+            .minimumScaleFactor(0.5)
     }
 }
 

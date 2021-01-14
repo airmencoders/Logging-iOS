@@ -17,6 +17,7 @@ struct ListHeaderText: View {
             .frame(maxWidth: .infinity)
             .minimumScaleFactor(0.5)
             .lineLimit(lines)
+            .multilineTextAlignment(.center)
     }
 }
 

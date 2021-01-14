@@ -19,8 +19,8 @@ struct BodyView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            SideView(currentView:$currentView)
-            FormView(currentView:$currentView)
+            SideView(currentView: $currentView)
+            FormView(currentView: $currentView)
         }
     }
 }

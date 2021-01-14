@@ -12,7 +12,6 @@ struct AircrewListCellView: View {
     @State private var ssn: String = ""
     @State private var flyingOrg: String = ""
     @State private var flightAuthDutyCode: String = ""
-
     
     let size: CGFloat = 14
     

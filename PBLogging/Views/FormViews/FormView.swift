@@ -83,7 +83,5 @@ struct FormView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
             .environment(\.managedObjectContext, previewController.container.viewContext)
-        
-        
     }
 }

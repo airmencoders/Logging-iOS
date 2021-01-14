@@ -26,7 +26,6 @@ struct FlightTimeCellView: View {
                 TextField("Smith, IP B5", text: $name)
                     .font(.pblRegular(size: size))
                     .foregroundColor(.pblSlate)
-                    .padding(.leading)
                     .frame(width: 200)
                 RegularTextField(placeholder: "1.5", field: $prim, size: size)
                 RegularTextField(placeholder: "--", field: $sec, size: size)
@@ -37,6 +36,7 @@ struct FlightTimeCellView: View {
                 RegularTextField(placeholder: "1", field: $time, size: size)
             }
                 .padding(.vertical)
+                .padding(.leading)
         }
     }
 }

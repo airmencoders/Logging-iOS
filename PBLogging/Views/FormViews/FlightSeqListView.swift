@@ -14,7 +14,7 @@ struct FlightSeqListView: View {
             FlightSeqListHeader()
                 .padding(.vertical)
             ScrollView {
-                VStack {
+                VStack(spacing: 0) {
                     FlightSeqCellView()
                     FlightSeqCellView()
                     FlightSeqCellView()
