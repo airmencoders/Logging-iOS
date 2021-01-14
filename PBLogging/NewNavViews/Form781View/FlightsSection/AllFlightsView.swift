@@ -6,25 +6,23 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AllFlightsView: View {
     
     @State var flights: [Flight]
-    
-    var body: some View{
-        VStack{
-            HStack {
-                Text("Mission #").padding(.trailing, 60)
-                Text("Mission Symbol").padding(.trailing, 70)
-                Text("From ICAO").padding(.trailing, 90)
-                Text("To ICAO")
-            }.font(.headline)
-            List{
+        
+    var body: some View {
+        List {
+            VStack(spacing: 20) {
                 ForEach(flights, id: \.self) { flight in
-                     SingleFlightRowView(flight: flight)
-                }.onDelete(perform: delete)
+                    SingleFlightRowView(flight: flight)
+                }
+                .onDelete(perform: delete)
             }
-        }.navigationBarTitle(Text("Flights"))
+        }
+        .padding(.top)
+        .navigationBarTitle(Text("Flights"))
         .navigationBarItems(leading: EditButton(),
                             trailing: Button {
                                 add()
@@ -37,23 +35,44 @@ struct AllFlightsView: View {
                                 
                             })
         // .navigationBarItems(trailing: EditButton())
-        
     }
+    
     func add(){
         /// MAKE VIA Managed Object Context
-//        let flight = Flight(missionNumber: "", missionSymbol: "", fromICAO: "", toICAO: "")
-//        flights.append(flight)
+        //        let flight = Flight(missionNumber: "", missionSymbol: "", fromICAO: "", toICAO: "")
+        //        flights.append(flight)
     }
+    
     func delete(at offsets: IndexSet) {
-         flights.remove(atOffsets: offsets)
+        flights.remove(atOffsets: offsets)
         // SAVE MOC HERE?
     }
 }
 
 // TODO: Repair preview
-
-//struct AllFlightsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AllFlightsView()
-//    }
-//}
+struct AllFlightsView_Previews: PreviewProvider {
+    static let previewController = PersistenceController.preview
+    
+    static let flights: [Flight] = {
+        
+        let numberOfFlights = 5
+        
+        let previewController = PersistenceController.preview
+        PersistenceController.addFakeRecordsForContext(previewController.container.viewContext)
+        
+        let flightsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Flight")
+        
+        var flights = try? (previewController.container.viewContext.fetch(flightsFetch) as! [Flight])
+        
+        flights = Array((flights?.prefix(numberOfFlights))!)
+        return flights!
+        
+    }()
+    
+    static var previews: some View {
+        
+        AllFlightsView(flights: flights)
+            .previewLayout(.sizeThatFits)
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+    }
+}
