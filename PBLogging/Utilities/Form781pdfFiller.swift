@@ -6,6 +6,8 @@
 //  Copyright © 2020 Christian Brechbuhl. All rights reserved.
 //
 
+
+// TODO: See if this is called anywhere... I think it is moved to the Form781+PDF.swift file now.
 import Foundation
 import PDFKit
 
@@ -85,8 +87,8 @@ struct Form781pdfFiller  {
         //Fill out crew member section
         //zeroeth to max on front page
         for i in 0..<min(formData.aircrewData.count, 15){
-            page0?.annotation(at: page0dict["organization_\(i)"]!)?         .setText(formData.aircrewData[i].flyingOrganization_)
-            page0?.annotation(at: page0dict["ssan_\(i)"]!)?                 .setText(formData.aircrewData[i].ssanLast4_)
+            page0?.annotation(at: page0dict["organization_\(i)"]!)?         .setText(formData.aircrewData[i].flyingOrganization)
+            page0?.annotation(at: page0dict["ssan_\(i)"]!)?                 .setText(formData.aircrewData[i].ssanLast4)
             page0?.annotation(at: page0dict["last_name_\(i)"]!)?            .setText(formData.aircrewData[i].lastName)
             page0?.annotation(at: page0dict["flight_auth_\(i)"]!)?          .setText(formData.aircrewData[i].flightAuthDutyCode)
             page0?.annotation(at: page0dict["ft_prim_\(i)"]!)?              .setText("\(formData.aircrewData[i].ftPrimary)")
@@ -161,20 +163,11 @@ struct Form781pdfFiller  {
         }
         return pageAnnotationDictionaries
     }
+     
     
 }
 
 
-extension PDFAnnotation{
-    func setText(_ string: String?){
-        guard let string = string, !string.isEmpty  else {
-            return
-        }
-        let page = self.page
-        page?.removeAnnotation(self)
-        self.setValue(string, forAnnotationKey: .widgetValue)
-        page?.addAnnotation(self)
-    }
-}
+
 
  
