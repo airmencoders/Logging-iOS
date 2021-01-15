@@ -10,15 +10,16 @@ import SwiftUI
 struct TextAndIconButton: View {
     let text: String
     var color: Color = .pblSlate
+    var size: CGFloat = 12.0
     let icon: String
     let action: () -> Void
-    
+
     var body: some View {
-        
+
         Button {
             action()
         } label: {
-            BoldText(text: text, size: 12, color: color)
+            BoldText(text: text, size: CGFloat(size), color: color)
             Image(systemName: icon)
                 .foregroundColor(color)
         }

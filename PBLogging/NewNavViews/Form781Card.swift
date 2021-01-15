@@ -10,6 +10,10 @@ import SwiftUI
 struct Form781Card: View {
     var form: Form781
 
+    @State var formDate: String = ""
+    @State var mds: String = ""
+    @State var serialNumber: String = ""
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -24,7 +28,7 @@ struct Form781Card: View {
                 HStack(spacing: 5){
                     Image(systemName: "calendar")
                         .padding(.leading, 10)
-                    Text(form.date?.string() ?? "Date Unknown")
+                    Text(formDate)
                         .frame(width: 160, height: 24, alignment: .leading)
                         .padding(.leading, 1)
                     Image(systemName: "square.and.arrow.up")
@@ -37,7 +41,7 @@ struct Form781Card: View {
                 HStack (spacing: 5) {
                     Image(systemName: "airplane")
                         .padding(.leading, 10)
-                    Text(form.mds)
+                    Text(mds)
                         .frame(width: 160, height: 24, alignment: .leading)
                         .padding(.leading, 1)
                     Image(systemName: "envelope")
@@ -53,7 +57,7 @@ struct Form781Card: View {
                     Image(systemName: "number")
                         .padding(.leading, 10)
                     //TouchAndGoes()
-                    Text(form.serialNumber)
+                    Text(serialNumber)
                         .frame(width: 160, height: 24, alignment: .leading)
                         .padding(.leading, 1)
                 // ATTN: Get the complete state from the form (when we can)
@@ -66,6 +70,11 @@ struct Form781Card: View {
             }
             .frame(width: 700, height: 100)
             .foregroundColor(Color("primary"))
+        }
+        .onAppear() {
+            formDate = form.date?.string() ?? "Date Unknown"
+            mds = form.mds
+            serialNumber = form.serialNumber
         }
     }
 }

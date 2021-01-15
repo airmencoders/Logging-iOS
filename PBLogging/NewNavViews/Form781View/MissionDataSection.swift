@@ -19,6 +19,8 @@ import SwiftUI
  */
 
 struct MissionDataSection: View {
+    @Environment(\.managedObjectContext) private var moc
+
     var form: Form781
 
     @State private var date: String = ""
@@ -32,7 +34,20 @@ struct MissionDataSection: View {
     var body: some View {
         Section(header: Text("Mission Data").font(.headline)) {
             TextField("Date", text: $date)
-            TextField("MDS", text: $mds)
+            TextField("MDS", text: $mds, onEditingChanged: { beginEdit in
+                // This fires on becoming or resigning first responder.
+                // ATTN: But not when the form is dismissed
+                if !beginEdit {
+                    updateMDSInCoreData()
+                }
+            })
+            .onDisappear() {
+                // We do not appear to resign first responder when the
+                // user navigates back to the parent level.
+                // This updates the form in core data, but it not picked up
+                // by the parent.
+                updateMDSInCoreData()
+            }
             TextField("SERIAL NUMBER", text: $serialNumber)
             TextField("UNIT CHARGED FOR FLYING HOURS", text: $unitCharged)
             TextField("HARM LOCATION", text: $harmLocation)
@@ -47,6 +62,16 @@ struct MissionDataSection: View {
             harmLocation = form.harmLocation
             issuingUnit = form.issuingUnit
             flightAuthNum = form.flightAuthNum
+        }
+    }
+
+    private func updateMDSInCoreData() {
+        // Does Core Data do this for me?
+        // In other words, if I assign the variable with the
+        // same value, is the object dirtied or not?
+        if form.mds != mds {
+            form.mds = mds
+            try? self.moc.save()
         }
     }
 }
