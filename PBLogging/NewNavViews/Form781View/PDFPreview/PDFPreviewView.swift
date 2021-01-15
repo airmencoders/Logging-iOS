@@ -7,7 +7,7 @@ struct PDFPreviewView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var isReady = false
     @State private var pdfURL: URL?
-    @State private var isSharing: Bool = false
+    @State private var isSharing = false
     
     var form: Form781
     
@@ -44,9 +44,11 @@ struct PDFPreviewView: View {
                         // Inverts the black and white on the form to give a black background with white text
                         .colorInvert()
                             .colorMultiply(.pblPrimary)
+                            .blur(radius: isReady ? 0.0 : 3.0)
                     }else{
                         PDFRepView(url:pdfURL!)
                             .padding()
+                            .blur(radius: isReady ? 0.0 : 3.0)
                     }
                        
                     
@@ -64,7 +66,9 @@ struct PDFPreviewView: View {
                 switch result {
                 case .success(let url):
                    pdfURL = url
-                    isReady = true
+                    withAnimation (Animation.easeInOut(duration: 0.6).delay(0.2)){
+                        isReady = true
+                    }
                 case .failure(let error):
                     print(error.description())
                 }
