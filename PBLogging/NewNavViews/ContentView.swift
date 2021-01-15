@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-       
+            
             ContentHeaderView()
             FormNavigationView().alertProvider()
             Spacer()
@@ -21,7 +21,7 @@ struct ContentView: View {
         .accentColor(Color("primary"))
         .foregroundColor(Color("primary"))
     }
-     
+    
     init() {
         //Sets the navigation bar title's to the specified colors...
         
@@ -34,15 +34,14 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
-
+    
     static var previews: some View {
-        Group {
-            ContentView()
-                .environment(\.managedObjectContext, previewController.container.viewContext)
-            ContentView()
-                .environment(\.managedObjectContext, previewController.container.viewContext)
-                .preferredColorScheme(.dark)
-        }
+        ContentView()
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+        ContentView()
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+            .preferredColorScheme(.dark)
     }
 }

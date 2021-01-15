@@ -81,7 +81,9 @@ struct AircrewDetail: View {
 }
 
 struct AircrewDetail_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
+    
     static let data: AircrewData = {
         let data = AircrewData(context: previewController.container.viewContext)
         data.flyingOrganization = "0016AS"
@@ -95,11 +97,9 @@ struct AircrewDetail_Previews: PreviewProvider {
     static var previews: some View {
         Form {
             AircrewDetail(member: data)
-                .previewLayout(.sizeThatFits)
         }
         Form {
             AircrewDetail(member: data)
-                .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
     }

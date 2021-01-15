@@ -77,7 +77,9 @@ struct MissionDataSection: View {
 }
 
 struct MissionDataSection_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
+    
     static let form: Form781 = {
         let form = Form781(context: previewController.container.viewContext)
         form.date = Date()
@@ -90,9 +92,13 @@ struct MissionDataSection_Previews: PreviewProvider {
         return form
     }()
     
-   static var previews: some View {
+    static var previews: some View {
         Form {
             MissionDataSection(form: form)
         }
-   }
+        Form {
+            MissionDataSection(form: form)
+                .preferredColorScheme(.dark)
+        }
+    }
 }

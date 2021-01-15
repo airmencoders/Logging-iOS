@@ -51,6 +51,7 @@ struct AllFlightsView: View {
 
 // TODO: Repair preview
 struct AllFlightsView_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
     
     static let flights: [Flight] = {

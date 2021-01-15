@@ -67,6 +67,7 @@ struct SingleFlightRowView: View {
 }
 
 struct SingleFlightRowView_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
     
     static let flight: Flight = {

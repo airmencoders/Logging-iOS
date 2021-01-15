@@ -29,6 +29,7 @@ struct SingleAircrewRowView: View {
 }
 
 struct SingleAircrewRowView_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
     
     static let member: AircrewData = {

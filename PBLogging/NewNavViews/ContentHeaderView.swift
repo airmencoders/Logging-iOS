@@ -42,5 +42,9 @@ struct ContentHeaderView: View {
 struct ContentHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         ContentHeaderView()
+            .previewLayout(.sizeThatFits)
+        ContentHeaderView()
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

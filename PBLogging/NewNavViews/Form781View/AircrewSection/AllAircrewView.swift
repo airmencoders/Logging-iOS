@@ -53,6 +53,7 @@ struct AllAircrewView: View {
 }
 
 struct AllAircrewView_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
     
     static let members: [AircrewData] = {
@@ -68,7 +69,6 @@ struct AllAircrewView_Previews: PreviewProvider {
         
         members = Array((members?.prefix(numberOfMembers))!)
         return members!
-        
     }()
     
     static var previews: some View {

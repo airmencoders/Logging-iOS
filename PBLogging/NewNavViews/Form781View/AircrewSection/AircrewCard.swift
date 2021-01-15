@@ -60,7 +60,9 @@ struct AircrewCard: View {
 }
 
 struct AircrewCard_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
+    
     static let data: AircrewData = {
         let data = AircrewData(context: previewController.container.viewContext)
         data.flyingOrganization = "0016AS"

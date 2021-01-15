@@ -80,7 +80,9 @@ struct Form781Card: View {
 }
 
 struct Form781Card_Previews: PreviewProvider {
+    
     static let previewController = PersistenceController.preview
+    
     static let form: Form781 = {
         let form = Form781(context: previewController.container.viewContext)
         form.date = Date()
@@ -91,5 +93,9 @@ struct Form781Card_Previews: PreviewProvider {
 
     static var previews: some View {
         Form781Card(form:form)
+            .previewLayout(.sizeThatFits)
+        Form781Card(form:form)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

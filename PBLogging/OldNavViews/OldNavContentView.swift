@@ -27,6 +27,5 @@ struct OldNavContentView_Previews: PreviewProvider {
                 .environment(\.managedObjectContext, previewController.container.viewContext)
                 .preferredColorScheme(.dark)
         }
-
     }
 }

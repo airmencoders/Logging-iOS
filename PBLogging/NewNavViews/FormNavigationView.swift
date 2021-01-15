@@ -47,15 +47,13 @@ struct FormNavigationView_Previews: PreviewProvider {
         
         let previewController = PersistenceController.preview
         
-        Group {
-            FormNavigationView()
-                .environment(\.managedObjectContext, previewController.container.viewContext)
-                .previewLayout(.sizeThatFits )
-            
-            FormNavigationView()
-                .environment(\.managedObjectContext, previewController.container.viewContext)
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-        }
+        FormNavigationView()
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+            .previewLayout(.sizeThatFits)
+        
+        FormNavigationView()
+            .environment(\.managedObjectContext, previewController.container.viewContext)
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
     }
 }

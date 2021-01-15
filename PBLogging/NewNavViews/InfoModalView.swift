@@ -39,5 +39,9 @@ struct InfoModalView: View {
 struct InfoModalView_Previews: PreviewProvider {
     static var previews: some View {
         InfoModalView(isDisplayed: .constant(true))
+            .previewLayout(.sizeThatFits)
+        InfoModalView(isDisplayed: .constant(true))
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

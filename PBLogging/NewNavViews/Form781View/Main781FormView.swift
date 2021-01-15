@@ -60,9 +60,11 @@ struct Main781FormView : View {
             aircrew = form.aircrewData
         }
     }
+    
     func deleteAircrew(at offsets: IndexSet) {
         aircrew.remove(atOffsets: offsets)
     }
+    
     func deleteFlight(at offsets: IndexSet) {
         aircrew.remove(atOffsets: offsets)
     }
@@ -71,6 +73,7 @@ struct Main781FormView : View {
 struct Main781FormView_Previews: PreviewProvider {
     
     static let previewController = PersistenceController.preview
+    
     static let form: Form781 = {
         let form = Form781(context: previewController.container.viewContext)
         form.date = Date()
@@ -80,8 +83,10 @@ struct Main781FormView_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        
         Main781FormView(form: form)
+            .previewLayout(.sizeThatFits)
+        Main781FormView(form: form)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }
-

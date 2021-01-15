@@ -25,7 +25,6 @@ struct Main781FormHeaderView: View {
                         Text("Preview PDF")
                     }.padding()
                 }).disabled(!isPreviewEnabled)
-
         }
     }
 }
@@ -33,5 +32,9 @@ struct Main781FormHeaderView: View {
 struct Main781FormHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         Main781FormHeaderView(isPreviewEnabled:.constant(true), form: Form781())
+            .previewLayout(.sizeThatFits)
+        Main781FormHeaderView(isPreviewEnabled:.constant(true), form: Form781())
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }
