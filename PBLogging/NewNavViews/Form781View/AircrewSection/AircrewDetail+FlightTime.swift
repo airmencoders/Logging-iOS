@@ -10,35 +10,34 @@ import SwiftUI
 struct AircrewDetail_FlightTime: View {
     
     var member: AircrewData
-    
-    @State var ftPrimary: Float = 0.0
-    @State var ftSecondary: Float = 0.0
-    @State var ftInstructor: Float = 0.0
-    @State var ftEvaluator: Float = 0.0
-    @State var ftOther: Float = 0.0
-    @State var ftTotalTime: Float = 0.0
-    @State var ftTotalSorties: Int16 = 0
-    
-    @State var test: String = ""
-    
+    @State var ftPrimary        = ""
+    @State var ftSecondary      = ""
+    @State var ftInstructor     = ""
+    @State var ftEvaluator      = ""
+    @State var ftOther          = ""
+    @State var ftTotalTime      = ""
+    @State var ftTotalSorties   = ""
+
     var body: some View {
         HStack {
-            TextFieldWithLabel(label: "Primary", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Secondary", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Instructor", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Evaluator", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Other", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Time", placeholder: "0", userInput: $test)
-            TextFieldWithLabel(label: "Sorty", placeholder: "0", userInput: $test)
+            // Flight time section
+            TextFieldWithLabel(label: "Primary",    placeholder: "0", userInput: $ftPrimary)
+            TextFieldWithLabel(label: "Secondary",  placeholder: "0", userInput: $ftSecondary)
+            TextFieldWithLabel(label: "Instructor", placeholder: "0", userInput: $ftInstructor)
+            TextFieldWithLabel(label: "Evaluator",  placeholder: "0", userInput: $ftEvaluator)
+            TextFieldWithLabel(label: "Other",      placeholder: "0", userInput: $ftOther)
+            TextFieldWithLabel(label: "Time",       placeholder: "0", userInput: $ftTotalTime)
+            TextFieldWithLabel(label: "Sorty",      placeholder: "0", userInput: $ftTotalSorties)
         }
+  
         .onAppear{
-            ftEvaluator = member.ftEvaluator
-            ftInstructor = member.ftInstructor
-            ftOther = member.ftOther
-            ftPrimary = member.ftPrimary
-            ftSecondary = member.ftSecondary
-            ftTotalSorties = member.ftTotalSorties
-            ftTotalTime = member.ftTotalTime
+            ftEvaluator =       String(format: "%.1f", member.ftEvaluator)
+            ftInstructor =      String(format: "%.1f", member.ftInstructor)
+            ftOther =           String(format: "%.1f", member.ftOther)
+            ftPrimary =         String(format: "%.1f", member.ftPrimary)
+            ftSecondary =       String(format: "%.1f", member.ftSecondary)
+            ftTotalSorties =    String(format: "%i",   member.ftTotalSorties)
+            ftTotalTime =       String(format: "%.1f", member.ftTotalTime)
         }
     }
     
