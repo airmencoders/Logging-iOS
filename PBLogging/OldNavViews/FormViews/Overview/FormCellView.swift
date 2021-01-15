@@ -19,23 +19,6 @@ struct FormCellView: View {
                 .padding(.horizontal)
                 .shadow(radius: 3, y: 3)
             HStack {
-                VStack(alignment: .leading) {
-                    RegularText(text: "AFTO FORM 781", size: 16)
-                    RegularText(text: "\(form.date?.string() ?? "")", size: 12)
-                }
-                .padding()
-                Spacer()
-                HStack {
-                    // ATTN: Get the complete state from the form (when we can)
-//                    if form.isComplete {
-//                        Image(systemName: "checkmark.circle")
-//                            .foregroundColor(.pblSlate)
-//                    } else {
-                        Image(systemName: "circle")
-                            .foregroundColor(.pblSlate)
-//                    }
-                    BoldText(text: "COMPLETE", size: 12)
-                }
                 Spacer()
                 Button {
                     print("Review & Share")
@@ -47,12 +30,6 @@ struct FormCellView: View {
                 }
                 Spacer()
                 HStack {
-                    Button {
-                        currentView = .missionData
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                            .foregroundColor(.pblSlate)
-                    }
                     Button {
                         moc.delete(form)
                         try? moc.save()
