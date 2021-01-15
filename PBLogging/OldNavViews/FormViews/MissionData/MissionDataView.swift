@@ -11,9 +11,10 @@ struct MissionDataView: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("MISSION DATA")) {
-                    MissionDataInfoView()
-                }
+//                Section(header: Text("MISSION DATA")) {
+//                    Replaced in Nav with MissionDataSection
+//                    MissionDataInfoView()
+//                }
                 Section(header: Text("FLIGHT SEQ")) {
                     FlightSeqListView()
                 }

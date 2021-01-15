@@ -11,9 +11,6 @@ struct Main781FormView : View {
     
     var form: Form781
     
-    @State var date:            String = ""
-    @State var mds:             String = ""
-    @State var serial:          String = ""
     @State var remarks:         String = ""
     @State var flights:         [Flight] = [Flight]()
     @State var aircrew:         [AircrewData] = [AircrewData]()
@@ -27,11 +24,7 @@ struct Main781FormView : View {
              
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
-                Section(header: Text("Main").font(.headline)) {
-                    TextField("Date",   text:$date)
-                    TextField("MDS",    text:$mds)
-                    TextField("SERIAL", text:$serial)
-                }
+                MissionDataSection(form: form)
                 Section(header: Text("Flights").font(.headline)) {
                     
                     NavigationLink(
@@ -63,9 +56,6 @@ struct Main781FormView : View {
             Spacer()
         }
         .onAppear{
-            date = form.date?.string() ?? "Date Unknown"
-            mds = form.mds
-            serial = form.serialNumber
             remarks = form.remarks
             flights = form.flights
             aircrew = form.aircrewData
