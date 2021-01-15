@@ -32,9 +32,10 @@ struct FormNavigationView: View {
             }
             .navigationBarTitle(Text("AFTO Form 781s"))
             .navigationBarItems(trailing:
-                                    TextAndIconButton(text: "New Form", size: 18.0, icon: "plus.circle") {
+                                    TextAndIconButton(text: "New Form", size: 18.0, icon: "plus.circle")
+                                    {
                         PersistenceController.newRecordForContext()
-                    })
+                                    })
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

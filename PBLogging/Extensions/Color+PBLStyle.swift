@@ -17,5 +17,5 @@ extension Color {
     public static let pblNotBlack   = Color("notBlack")
     public static let pblGray       = Color("PBLGray")
     public static let pblPrimary    = Color("primary")
-    
+    public static let pblBackground = Color("background")
 }

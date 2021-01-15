@@ -17,10 +17,10 @@ struct Form781Card: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.pblMistBG)
+                .foregroundColor(.pblBackground)
                 .cornerRadius(10.0)
                 .frame(width: 700, height: 100, alignment: .center)
-                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 5, y: 5)
+                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 1, y: 2)
                 .padding()
 
             VStack(alignment: .leading) {

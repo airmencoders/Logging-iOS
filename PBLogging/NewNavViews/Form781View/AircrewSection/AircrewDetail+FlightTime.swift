@@ -18,51 +18,20 @@ struct AircrewDetail_FlightTime: View {
     @State var ftTotalSorties: Int16 = 0
     @State var ftTotalTime: Float = 0.0
     
+    @State var test: String = ""
+    
     var body: some View {
-        
-        ZStack {
-            VStack {
-                HStack {
-                    // Flight time section
-                    VStack {
-                        Text("Primary")
-                        TextField("Pri", value: $ftPrimary, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Secondary")
-                        TextField("Sec", value: $ftSecondary, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Instructor")
-                        TextField("Inst", value: $ftInstructor, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Evaluator")
-                        TextField("Eval", value: $ftEvaluator, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Other")
-                        TextField("Other", value: $ftOther, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Time")
-                        TextField("TTime", value: $ftTotalTime, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Sorty")
-                        TextField("TSorty", value: $ftTotalSorties, formatter: formatter())
-                            .frame(width: 40, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                }
-            }
+        HStack {
+            // Flight time section
+            TextFieldWithLabel(label: "Primary", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Secondary", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Instructor", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Evaluator", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Other", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Time", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Sorty", placeholder: "0", userInput: $test)
         }
-        .frame(width: 600, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        //.frame(width: 600, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .onAppear{
             ftEvaluator = member.ftEvaluator
             ftInstructor = member.ftInstructor
@@ -93,5 +62,9 @@ struct AircrewDetail_FlightTime_Previews: PreviewProvider {
     }()
     static var previews: some View {
         AircrewDetail_FlightTime(member: data)
+            .previewLayout(.sizeThatFits)
+        AircrewDetail_FlightTime(member: data)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

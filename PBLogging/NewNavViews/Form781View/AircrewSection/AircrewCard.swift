@@ -9,33 +9,29 @@ import SwiftUI
 
 struct AircrewCard: View {
     
-    var crew: AircrewData
+    var member: AircrewData
     
     var body: some View {
-        
-        
         ZStack{
             Rectangle()
-                .foregroundColor(.pblMistBG)
+                .foregroundColor(.pblBackground)
+                .cornerRadius(10.0)
+
                 .frame(width: 700, height: 100, alignment: .center)
                 //.shadow(color: Color("primary"), radius: 5, x: 5, y: 5)
-                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 5, y: 5)
-                
+                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 1, y: 2)
                 .padding()
-            
-            VStack(alignment: .leading){
-                
+            VStack(alignment: .leading) {
                 HStack(spacing: 5){
                     Image(systemName: "person")
                         .padding(.leading, 10)
-                    Text(crew.flyingOrganization)
+                    Text(member.flyingOrganization)
                     Spacer()
-                    Text(crew.lastName)
+                    Text(member.lastName)
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 1)
                     Spacer()
-                    Text(crew.ssanLast4)
-                    
+                    Text(member.ssanLast4)
                 }
                 .frame(width:600)
                 HStack(spacing: 5) {
@@ -43,25 +39,22 @@ struct AircrewCard: View {
                     Image(systemName: "chevron.right")
                         .padding(.trailing, 20)
                 }
-                
                 HStack(spacing: 5) {
-                    
                     Image(systemName: "clock")
                         .padding(.leading, 10)
                     Text("Primary")
-                    Text(String(format: "%.1f", crew.ftPrimary))
+                    Text(String(format: "%.1f", member.ftPrimary))
                         .padding(.leading, 10)
                     Spacer()
                     Image(systemName: "clock")
                         .padding(.leading, 10)
                     Text("Secondary")
-                    Text(String(format: "%.1f", crew.ftSecondary))
-                    
+                    Text(String(format: "%.1f", member.ftSecondary))
                 }
-                
-            .frame(width: 600)
-        }.frame(width: 700, height: 50)
-        .foregroundColor(Color("primary"))
+                .frame(width: 600)
+            }
+        .frame(width: 700, height: 50)
+            .foregroundColor(.pblPrimary)
         }
     }
 }
@@ -79,6 +72,10 @@ struct AircrewCard_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        AircrewCard(crew: data)
+        AircrewCard(member: data)
+            .previewLayout(.sizeThatFits)
+        AircrewCard(member: data)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

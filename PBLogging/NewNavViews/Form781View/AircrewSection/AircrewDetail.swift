@@ -9,49 +9,72 @@ import SwiftUI
 
 struct AircrewDetail: View {
     
-    @State var flightAuthDutyCode: String = ""
     @State var flyingOrganization: String = ""
-    @State var lastName: String = ""
-    @State var reserveStatus: Int16 = 0
     @State var ssanLast4: String = ""
+    @State var lastName: String = ""
+    @State var flightAuthDutyCode: String = ""
+    @State var reserveStatus: Int16 = 0
+    
+    @State var test: String = ""
 
     var member: AircrewData
     
     var body: some View {
-        VStack{
-            HStack {
-                Text("Flying Organization")
-                TextField("Flying Org", text:$flyingOrganization)
-                Text("SSAN Last 4")
-                TextField("Last 4", text:$ssanLast4)
-                Text("Last Name")
-                TextField("Last Name", text: $lastName)
+        VStack(alignment: .leading) {
+            Section(header: Text("Member Info")
+                                .font(.pblBold(size: 20))
+                                .foregroundColor(.pblPrimary)) {
+                VStack {
+                    HStack {
+                        TextFieldWithLabel(label: "Flying Organization", placeholder: "Flying Org", userInput: $flyingOrganization)
+                        TextFieldWithLabel(label: "SSAN (Last 4)", placeholder: "0000", userInput: $ssanLast4)
+                        TextFieldWithLabel(label: "Last Name", placeholder: "Last Name", userInput: $lastName)
+                        TextFieldWithLabel(label: "Flight Auth Duty Code", placeholder: "Flight Auth", userInput: $flightAuthDutyCode)
+                    }
+                    HStack {
+        //                TextField("Res Status", value: $reserveStatus, formatter: NumberFormatter())
+                        TextFieldWithLabel(label: "Grand Total Time", placeholder: "0.0", userInput: $test)
+                        TextFieldWithLabel(label: "Reserve Status", placeholder: "Res Status", userInput: $test)
+                    }
+                    .padding(.top)
+                }
+                .padding()
+                .background(Color.pblBackground)
+                .cornerRadius(20)
+                .shadow(radius: 4, x: 1, y: 2)
             }
-            HStack {
-                Text("Flight Auth \nDuty Code")
-                TextField("Flight Auth Duty Code", text: $flightAuthDutyCode)
-                Text("Grand Total Time")
-                Text("20.0")
-                Text("Reserve Status")
-                TextField("Res Status", value: $reserveStatus, formatter: NumberFormatter())
-                
-                Spacer()
-            }
+            .padding(.horizontal)
+
             Section(header: Text("Flight Time")
-                                .font(.title)) {
+                                .font(.pblBold(size: 20))
+                                .foregroundColor(.pblPrimary)) {
                 AircrewDetail_FlightTime(member: member)
+                    .padding()
+                    .background(Color.pblBackground)
+                    .cornerRadius(20)
+                    .shadow(radius: 4, x: 1, y: 2)
+                    .multilineTextAlignment(.leading)
             }
+            .padding(.horizontal)
+
             Section(header: Text("Flight Conditions")
-                                .font(.title)) {
+                                .font(.pblBold(size: 20))
+                                .foregroundColor(.pblPrimary)) {
                 AircrewDetail_FlightConditions(member: member)
+                    .padding()
+                    .background(Color.pblBackground)
+                    .cornerRadius(20)
+                    .shadow(radius: 4, x: 1, y: 2)
             }
+            .padding(.horizontal)
+            Spacer()
         }
         .onAppear{
-            flightAuthDutyCode = member.flightAuthDutyCode
             flyingOrganization = member.flyingOrganization
-            lastName = member.lastName
-            reserveStatus = member.reserveStatus
             ssanLast4 = member.ssanLast4
+            lastName = member.lastName
+            flightAuthDutyCode = member.flightAuthDutyCode
+            reserveStatus = member.reserveStatus
         }
         .navigationBarTitle("Aircrew Detail")
     }
@@ -70,6 +93,14 @@ struct AircrewDetail_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        AircrewDetail(member: data)
+        Form {
+            AircrewDetail(member: data)
+                .previewLayout(.sizeThatFits)
+        }
+        Form {
+            AircrewDetail(member: data)
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+        }
     }
 }

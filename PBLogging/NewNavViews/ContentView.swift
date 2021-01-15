@@ -17,9 +17,9 @@ struct ContentView: View {
             ContentHeaderView()
             FormNavigationView().alertProvider()
             Spacer()
-        }.accentColor(Color("primary"))
+        }
+        .accentColor(Color("primary"))
         .foregroundColor(Color("primary"))
-       
     }
      
     init() {
@@ -44,6 +44,5 @@ struct ContentView_Previews: PreviewProvider {
                 .environment(\.managedObjectContext, previewController.container.viewContext)
                 .preferredColorScheme(.dark)
         }
-
     }
 }

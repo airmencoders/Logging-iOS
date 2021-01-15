@@ -17,62 +17,29 @@ struct AircrewDetail_FlightConditions: View {
     @State var fcNVG: Float = 0.0
     @State var fcSimInstructor: Float = 0.0
     
+    @State var test: String = ""
+    
     var member: AircrewData
     
     var body: some View {
-        ZStack {
-            VStack {
-                HStack {
-                    // Flight time section
-                    VStack {
-                        Text("Night\n(P/S/I/E)")
-                        TextField("Pri", value: $fcNight, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("INS\n(P/I/E)")
-                        TextField("Sec", value: $fcInstructor, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("SIM INS\n  (P/I/E)")
-                        TextField("Inst", value: $fcSimInstructor, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("NVG\n")
-                        TextField("Eval", value: $fcNVG, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Combat\n   Time")
-                        TextField("Other", value: $fcCombatTime, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Combat\n  Sorty")
-                        TextField("TTime", value: $fcCombatSorties, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Combat Spt\n      Time")
-                        TextField("TSorty", value: $fcCombatSupportTime, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    VStack {
-                        Text("Combat Spt\n      Sorty")
-                        TextField("TSorty", value: $fcCombatSupportSorties, formatter: NumberFormatter())
-                            .frame(width: 20, height: 20, alignment: .center)
-                    }
-//                    VStack {
-//                        Text("Sorty\n")
-//                        TextField("TSorty", value: , formatter: NumberFormatter())
-//                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                    }
-                }
-            }
+        HStack(alignment: .bottom) {
+            // Flight time section
+            TextFieldWithLabel(label: "Night\n(P/S/I/E)", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Ins\n(P/I/E)", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Sim Ins\n(P/S/I/E)", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Navigation", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Combat\nTime", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Combat\nSorty", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Combat Spt\nTime", placeholder: "0", userInput: $test)
+            TextFieldWithLabel(label: "Combat Spt\nSorty", placeholder: "0", userInput: $test)
+
+            //                    VStack {
+            //                        Text("Sorty\n")
+            //                        TextField("TSorty", value: , formatter: NumberFormatter())
+            //                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            //                    }
         }
-        .frame(width: 600, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        //.frame(width: 600, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 
@@ -89,5 +56,9 @@ struct AircrewDetail_FlightConditions_Previews: PreviewProvider {
     }()
     static var previews: some View {
         AircrewDetail_FlightConditions(member: data)
+            .previewLayout(.sizeThatFits)
+        AircrewDetail_FlightConditions(member: data)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

@@ -20,6 +20,7 @@ struct FauxData{
         return dates
         
     }()
+    
     static let dateTimePairs: [(Date, Date)] = {
         
         
@@ -51,6 +52,7 @@ struct FauxData{
         
         return pairs
     }()
+    
     static let dateTimes: [Date] = {
         
         let formatter = DateFormatter()
@@ -101,6 +103,7 @@ struct FauxData{
         }
         return serials
     }()
+    
     static let lastNames = ["Anderson", "Bernard", "Connor", "Daniels", "Engram", "Fredericks", "Goddard", "Harrison", "Ingraham", "Jacobson", "Kimmel", "Lucas", "Maryweather", "Nelson", "Osborne", "Pettersen", "Quesenberry", "Reese", "Stein", "Truman", "Underwood", "Victoria", "Wetherspoon", "X", "Young", "Zellman", "Angelos", "Barry", "Caldera", "Davidson", "Elfman", "Franks", "Goodman", "Hanks", "Ivy", "Jalrobi", "Keller", "Look", "Morrison", "Nelly", "Oglethorpe", "Prince", "Qui"]
     
     static let socials: [String] = {
@@ -131,6 +134,5 @@ struct FauxData{
         }
         return orgs
     }()
-    
     
 }

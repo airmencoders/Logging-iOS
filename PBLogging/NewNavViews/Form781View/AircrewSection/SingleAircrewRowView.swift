@@ -28,10 +28,20 @@ struct SingleAircrewRowView: View {
     }
 }
 
-// TODO: Fix preview
-
-//struct SingleAircrewRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SingleAircrewRowView()
-//    }
-//}
+struct SingleAircrewRowView_Previews: PreviewProvider {
+    static let previewController = PersistenceController.preview
+    
+    static let member: AircrewData = {
+        var member = AircrewData(context: previewController.container.viewContext)
+        member.lastName = "Smith"
+        return member
+    }()
+    
+    static var previews: some View {
+        SingleAircrewRowView(member: member)
+            .previewLayout(.sizeThatFits)
+        SingleAircrewRowView(member: member)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
+    }
+}

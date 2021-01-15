@@ -26,7 +26,6 @@ struct Main781FormView : View {
             Form {
                 MissionDataSection(form: form)
                 Section(header: Text("Flights").font(.headline)) {
-                    
                     NavigationLink(
                         destination: AllFlightsView(flights: flights),
                         label: {

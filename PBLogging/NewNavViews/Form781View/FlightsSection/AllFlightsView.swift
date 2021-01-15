@@ -14,7 +14,7 @@ struct AllFlightsView: View {
         
     var body: some View {
         List {
-            VStack(spacing: 20) {
+            VStack(spacing: 30) {
                 ForEach(flights, id: \.self) { flight in
                     SingleFlightRowView(flight: flight)
                 }
@@ -74,5 +74,8 @@ struct AllFlightsView_Previews: PreviewProvider {
         AllFlightsView(flights: flights)
             .previewLayout(.sizeThatFits)
             .environment(\.managedObjectContext, previewController.container.viewContext)
+        AllFlightsView(flights: flights)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

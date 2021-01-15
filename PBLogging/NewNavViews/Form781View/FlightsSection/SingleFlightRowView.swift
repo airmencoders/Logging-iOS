@@ -27,26 +27,26 @@ struct SingleFlightRowView: View {
     var body: some View {
         VStack(spacing: 15) {
             HStack {
-                TextFieldAndLabel(label: "Mission Number", placeholder: "Mission Number", userInput: $missionNumber)
-                TextFieldAndLabel(label: "Mission Symbol", placeholder: "Mission Number", userInput: $missionSymbol)
-                TextFieldAndLabel(label: "From ICAO", placeholder: "From ICAO", userInput: $fromICAO)
-                TextFieldAndLabel(label: "To ICAO", placeholder: "To ICAO", userInput: $toICAO)
-                TextFieldAndLabel(label: "Take Off Time (Z)", placeholder: "Take Off Time", userInput: $takeOffTime)
-                TextFieldAndLabel(label: "Land Time (Z)", placeholder: "Land Time", userInput: $landTime)
+                TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: $missionNumber)
+                TextFieldWithLabel(label: "Mission Symbol", placeholder: "Mission Number", userInput: $missionSymbol)
+                TextFieldWithLabel(label: "From ICAO", placeholder: "From ICAO", userInput: $fromICAO)
+                TextFieldWithLabel(label: "To ICAO", placeholder: "To ICAO", userInput: $toICAO)
+                TextFieldWithLabel(label: "Take Off Time (Z)", placeholder: "Take Off Time", userInput: $takeOffTime)
+                TextFieldWithLabel(label: "Land Time (Z)", placeholder: "Land Time", userInput: $landTime)
             }
             HStack {
-                TextFieldAndLabel(label: "Total Time", placeholder: "0", userInput: $totalTime)
-                TextFieldAndLabel(label: "Touch And Go", placeholder: "Touch And Go", userInput: $touchAndGo)
-                TextFieldAndLabel(label: "Full Stop", placeholder: "Full Stop", userInput: $fullStop)
-                TextFieldAndLabel(label: "Total", placeholder: "0", userInput: $totalLandings)
-                TextFieldAndLabel(label: "Sorties", placeholder: "Sorties", userInput: $sorties)
-                TextFieldAndLabel(label: "Special Use", placeholder: "Special Use", userInput: $specialUse)
+                TextFieldWithLabel(label: "Total Time", placeholder: "0", userInput: $totalTime)
+                TextFieldWithLabel(label: "Touch And Go", placeholder: "Touch And Go", userInput: $touchAndGo)
+                TextFieldWithLabel(label: "Full Stop", placeholder: "Full Stop", userInput: $fullStop)
+                TextFieldWithLabel(label: "Total", placeholder: "0", userInput: $totalLandings)
+                TextFieldWithLabel(label: "Sorties", placeholder: "Sorties", userInput: $sorties)
+                TextFieldWithLabel(label: "Special Use", placeholder: "Special Use", userInput: $specialUse)
             }
         }
         .padding()
-        .background(Color.pblMistBG)
+        .background(Color.pblBackground)
         .cornerRadius(20)
-        .shadow(radius: 4, x: 1, y: 2)
+        .shadow(radius: 5, x: 1, y: 2)
         
         .onAppear{
             missionNumber = flight.missionNumber
@@ -62,24 +62,6 @@ struct SingleFlightRowView: View {
             //            sorties = flight.sorties
             specialUse = flight.specialUse
             print("appear")
-        }
-    }
-}
-
-struct TextFieldAndLabel: View {
-    
-    let label: String
-    let placeholder: String
-    @Binding var userInput: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(label)
-                .font(.pblBold(size: 12))
-                .foregroundColor(.pblSlate)
-            TextField(placeholder, text: $userInput)
-                .font(.pblRegular(size: 16))
-                .foregroundColor(.pblSlate)
         }
     }
 }
