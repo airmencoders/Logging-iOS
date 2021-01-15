@@ -32,27 +32,16 @@ struct MissionDataSection: View {
     @State private var flightAuthNum: String = ""
 
     var body: some View {
+        Group { // This only exists to get .onAppear & .onDisappear to fire correctly
         Section(header: Text("Mission Data").font(.headline)) {
             TextField("Date", text: $date)
-            TextField("MDS", text: $mds, onEditingChanged: { beginEdit in
-                // This fires on becoming or resigning first responder.
-                // ATTN: But not when the form is dismissed
-                if !beginEdit {
-                    updateMDSInCoreData()
-                }
-            })
-            .onDisappear() {
-                // We do not appear to resign first responder when the
-                // user navigates back to the parent level.
-                // This updates the form in core data, but it not picked up
-                // by the parent.
-                updateMDSInCoreData()
-            }
+            TextField("MDS", text: $mds)
             TextField("SERIAL NUMBER", text: $serialNumber)
             TextField("UNIT CHARGED FOR FLYING HOURS", text: $unitCharged)
             TextField("HARM LOCATION", text: $harmLocation)
             TextField("ISSUING UNIT", text: $issuingUnit)
             TextField("FLIGHT AUTH #", text: $flightAuthNum)
+        }
         }
         .onAppear() {
             date = form.date?.string() ?? "Date Unknown"
@@ -63,14 +52,16 @@ struct MissionDataSection: View {
             issuingUnit = form.issuingUnit
             flightAuthNum = form.flightAuthNum
         }
-    }
-
-    private func updateMDSInCoreData() {
-        // Does Core Data do this for me?
-        // In other words, if I assign the variable with the
-        // same value, is the object dirtied or not?
-        if form.mds != mds {
+        .onDisappear() {
+            if let newDate = Date.dateFromUserString(date) {
+                form.date = newDate
+            }
             form.mds = mds
+            form.serialNumber = serialNumber
+            form.unitCharged = unitCharged
+            form.harmLocation = harmLocation
+            form.issuingUnit = issuingUnit
+            form.flightAuthNum = flightAuthNum
             try? self.moc.save()
         }
     }

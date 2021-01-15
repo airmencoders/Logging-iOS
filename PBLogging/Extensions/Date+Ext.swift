@@ -22,7 +22,21 @@ extension Date{
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         return dateStringFormatter.date(from: dateTimeString)!
     }
-    
+
+    static func dateFromUserString(_ dateStr: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        let formats = ["d/M/y", "d-M-y", "d.M.y", "d M y", "M/d/y", "M-d-y", "M.d.y", "M d y"]
+        
+        for format in formats {
+            dateFormatter.dateFormat = format
+            if let date = dateFormatter.date(from: dateStr) {
+                return date
+            }
+        }
+        
+        return nil
+    }
+
     func stringDecimalHoursTill(date: Date) -> String {
         
         let diffComponents = Calendar.current.dateComponents([.hour, .minute], from: self, to: date)
