@@ -72,8 +72,8 @@ struct PersistenceController {
                 newFlight.missionSymbol = "234"
                 newFlight.fullStop      = 1
                 newFlight.touchAndGo    = 2
-                newFlight.landTime      = FauxData.dateTimes[x]
-                newFlight.takeOffTime   = FauxData.dateTimes[x + 1]
+                newFlight.takeOffTime   = FauxData.dateTimePairs[counter + x].0
+                newFlight.landTime      = FauxData.dateTimePairs[counter + x].1
                 newFlight.form781       = newForm
                 counter += 1
             }

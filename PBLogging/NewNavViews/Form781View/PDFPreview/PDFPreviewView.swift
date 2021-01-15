@@ -4,6 +4,7 @@ import PDFKit
 
 struct PDFPreviewView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @State private var isReady = false
     @State private var pdfURL: URL?
     @State private var isSharing: Bool = false
@@ -33,14 +34,22 @@ struct PDFPreviewView: View {
                                 Image(systemName: "printer")
                                 Text("Print")
                             }
-                            
                         }
                         .padding(.trailing)
-
                     }
                    
-                    PDFRepView(url:pdfURL!)
-                        .padding()
+                    if colorScheme == .dark {
+                        PDFRepView(url:pdfURL!, darkMode: true)
+                            .padding()
+                        // Inverts the black and white on the form to give a black background with white text
+                        .colorInvert()
+                            .colorMultiply(.pblPrimary)
+                    }else{
+                        PDFRepView(url:pdfURL!)
+                            .padding()
+                    }
+                       
+                    
                 }.sheet(isPresented: $isSharing, onDismiss: nil, content: {
                     ActivityViewController(activityItems: [pdfURL!])
                 })
@@ -98,6 +107,7 @@ struct ActivityIndicator: UIViewRepresentable {
 struct PDFRepView : UIViewRepresentable {
     
     var url: URL
+    var darkMode: Bool = true
     
     func makeUIView(context: Context) -> UIView {
         
@@ -110,6 +120,10 @@ struct PDFRepView : UIViewRepresentable {
         let pdfView = uiView as! PDFView
         pdfView.document = PDFDocument(url: url)
         pdfView.autoScales = true
+        if darkMode{
+            pdfView.backgroundColor = UIColor.init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+        }
+       
     }
     
 }

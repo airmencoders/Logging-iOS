@@ -135,19 +135,19 @@ extension Form781 {
                 page0?.annotation(at: page0dict["to_icao_\(i)"]!)?          .setText(self.flights[i].toICAO)
                 
                 //TODO: REPAIR THIS
-               // page0?.annotation(at: page0dict["take_off_time_\(i)"]!)?    .setText(self.flights[i].takeOffTime?.string())
-               // page0?.annotation(at: page0dict["land_time_\(i)"]!)?        .setText(self.flights[i].landTime?.string())
+               page0?.annotation(at: page0dict["take_off_time_\(i)"]!)?    .setText(self.flights[i].takeOffTime.string24HourTime())
+               page0?.annotation(at: page0dict["land_time_\(i)"]!)?        .setText(self.flights[i].landTime.string24HourTime())
            
-               // let totalTimeString = self.flights[i].takeOffTime.stringDecimalHoursTill(date: self.flights[i].landTime!)
-                let totalTimeString = "HEY!!"
+                let totalTimeString = self.flights[i].takeOffTime.stringDecimalHoursTill(date: self.flights[i].landTime)
+                
                 page0?.annotation(at: page0dict["total_time_\(i)"]!)?       .setText(totalTimeString)
-                page0?.annotation(at: page0dict["touch_go_\(i)"]!)?         .setText("\(self.flights[i].touchAndGo)")
-                page0?.annotation(at: page0dict["full_stop_\(i)"]!)?        .setText("\(self.flights[i].fullStop)")
+                page0?.annotation(at: page0dict["touch_go_\(i)"]!)?         .setText(self.flights[i].touchAndGo)
+                page0?.annotation(at: page0dict["full_stop_\(i)"]!)?        .setText(self.flights[i].fullStop)
                 
                 
                 
-                page0?.annotation(at: page0dict["total_\(i)"]!)?            .setText("\(self.flights[i].touchAndGo + self.flights[i].fullStop)")
-                page0?.annotation(at: page0dict["sorties_\(i)"]!)?          .setText("\(self.flights[i].sorties)")
+                page0?.annotation(at: page0dict["total_\(i)"]!)?            .setText(self.flights[i].touchAndGo + self.flights[i].fullStop)
+                page0?.annotation(at: page0dict["sorties_\(i)"]!)?          .setText(self.flights[i].sorties)
                 page0?.annotation(at: page0dict["special_use_\(i)"]!)?      .setText(self.flights[i].specialUse)
                 
             }
@@ -160,21 +160,23 @@ extension Form781 {
                 page0?.annotation(at: page0dict["last_name_\(i)"]!)?            .setText(self.aircrewData[i].lastName)
                 page0?.annotation(at: page0dict["flight_auth_\(i)"]!)?          .setText(self.aircrewData[i].flightAuthDutyCode)
                 page0?.annotation(at: page0dict["ft_prim_\(i)"]!)?              .setText("\(self.aircrewData[i].ftPrimary)")
-                page0?.annotation(at: page0dict["ft_sec_\(i)"]!)?               .setText("\(self.aircrewData[i].ftSecondary)")
-                page0?.annotation(at: page0dict["ft_instr_\(i)"]!)?             .setText("\(self.aircrewData[i].ftInstructor)")
-                page0?.annotation(at: page0dict["ft_eval_\(i)"]!)?              .setText("\(self.aircrewData[i].ftEvaluator)")
-                page0?.annotation(at: page0dict["ft_other_\(i)"]!)?             .setText("\(self.aircrewData[i].ftOther)")
-                page0?.annotation(at: page0dict["ft_total_time_\(i)"]!)?        .setText("\(self.aircrewData[i].ftTotalTime)")
-                page0?.annotation(at: page0dict["ft_total_srty_\(i)"]!)?        .setText("\(self.aircrewData[i].ftTotalSorties)")
-                page0?.annotation(at: page0dict["fc_night_\(i)"]!)?             .setText("\(self.aircrewData[i].fcNight)")
-                page0?.annotation(at: page0dict["fc_ins_\(i)"]!)?               .setText("\(self.aircrewData[i].fcInstructor)")
-                page0?.annotation(at: page0dict["fc_sim_ins_\(i)"]!)?           .setText("\(self.aircrewData[i].fcSimInstructor)")
-                page0?.annotation(at: page0dict["fc_nvg_\(i)"]!)?               .setText("\(self.aircrewData[i].fcNVG)")
-                page0?.annotation(at: page0dict["fc_combat_time_\(i)"]!)?       .setText("\(self.aircrewData[i].fcCombatTime)")
-                page0?.annotation(at: page0dict["fc_combat_srty_\(i)"]!)?       .setText("\(self.aircrewData[i].fcCombatSorties)")
-                page0?.annotation(at: page0dict["fc_combat_spt_time_\(i)"]!)?   .setText("\(self.aircrewData[i].fcCombatSupportTime)")
-                page0?.annotation(at: page0dict["fc_combat_spt_srty_\(i)"]!)?   .setText("\(self.aircrewData[i].fcCombatSupportSorties)")
-                page0?.annotation(at: page0dict["resv_status_\(i)"]!)?          .setText("\(self.aircrewData[i].reserveStatus)")
+            
+                page0?.annotation(at: page0dict["ft_sec_\(i)"]!)?               .setText(self.aircrewData[i].ftSecondary)
+         
+                page0?.annotation(at: page0dict["ft_instr_\(i)"]!)?             .setText(self.aircrewData[i].ftInstructor)
+                page0?.annotation(at: page0dict["ft_eval_\(i)"]!)?              .setText(self.aircrewData[i].ftEvaluator)
+                page0?.annotation(at: page0dict["ft_other_\(i)"]!)?             .setText(self.aircrewData[i].ftOther)
+                page0?.annotation(at: page0dict["ft_total_time_\(i)"]!)?        .setText(self.aircrewData[i].ftTotalTime)
+                page0?.annotation(at: page0dict["ft_total_srty_\(i)"]!)?        .setText(self.aircrewData[i].ftTotalSorties)
+                page0?.annotation(at: page0dict["fc_night_\(i)"]!)?             .setText(self.aircrewData[i].fcNight)
+                page0?.annotation(at: page0dict["fc_ins_\(i)"]!)?               .setText(self.aircrewData[i].fcInstructor)
+                page0?.annotation(at: page0dict["fc_sim_ins_\(i)"]!)?           .setText(self.aircrewData[i].fcSimInstructor)
+                page0?.annotation(at: page0dict["fc_nvg_\(i)"]!)?               .setText(self.aircrewData[i].fcNVG)
+                page0?.annotation(at: page0dict["fc_combat_time_\(i)"]!)?       .setText(self.aircrewData[i].fcCombatTime)
+                page0?.annotation(at: page0dict["fc_combat_srty_\(i)"]!)?       .setText(self.aircrewData[i].fcCombatSorties)
+                page0?.annotation(at: page0dict["fc_combat_spt_time_\(i)"]!)?   .setText(self.aircrewData[i].fcCombatSupportTime)
+                page0?.annotation(at: page0dict["fc_combat_spt_srty_\(i)"]!)?   .setText(self.aircrewData[i].fcCombatSupportSorties)
+                page0?.annotation(at: page0dict["resv_status_\(i)"]!)?          .setText(self.aircrewData[i].reserveStatus)
                 
             }
              
@@ -188,22 +190,22 @@ extension Form781 {
                     page1?.annotation(at: page1dict["ssan_\(i)"]!)?                 .setText(self.aircrewData[i].ssanLast4)
                     page1?.annotation(at: page1dict["last_name_\(i)"]!)?            .setText(self.aircrewData[i].lastName)
                     page1?.annotation(at: page1dict["flight_auth_\(i)"]!)?          .setText(self.aircrewData[i].flightAuthDutyCode)
-                    page1?.annotation(at: page1dict["ft_prim_\(i)"]!)?              .setText("\(self.aircrewData[i].ftPrimary)")
-                    page1?.annotation(at: page1dict["ft_sec_\(i)"]!)?               .setText("\(self.aircrewData[i].ftSecondary)")
-                    page1?.annotation(at: page1dict["ft_instr_\(i)"]!)?             .setText("\(self.aircrewData[i].ftInstructor)")
-                    page1?.annotation(at: page1dict["ft_eval_\(i)"]!)?              .setText("\(self.aircrewData[i].ftEvaluator)")
-                    page1?.annotation(at: page1dict["ft_other_\(i)"]!)?             .setText("\(self.aircrewData[i].ftOther)")
-                    page1?.annotation(at: page1dict["ft_total_time_\(i)"]!)?        .setText("\(self.aircrewData[i].ftTotalTime)")
-                    page1?.annotation(at: page1dict["ft_total_srty_\(i)"]!)?        .setText("\(self.aircrewData[i].ftTotalSorties)")
-                    page1?.annotation(at: page1dict["fc_night_\(i)"]!)?             .setText("\(self.aircrewData[i].fcNight)")
-                    page1?.annotation(at: page1dict["fc_ins_\(i)"]!)?               .setText("\(self.aircrewData[i].fcInstructor)")
-                    page1?.annotation(at: page1dict["fc_sim_ins_\(i)"]!)?           .setText("\(self.aircrewData[i].fcSimInstructor)")
-                    page1?.annotation(at: page1dict["fc_nvg_\(i)"]!)?               .setText("\(self.aircrewData[i].fcNVG)")
-                    page1?.annotation(at: page1dict["fc_combat_time_\(i)"]!)?       .setText("\(self.aircrewData[i].fcCombatTime)")
-                    page1?.annotation(at: page1dict["fc_combat_srty_\(i)"]!)?       .setText("\(self.aircrewData[i].fcCombatSorties)")
-                    page1?.annotation(at: page1dict["fc_combat_spt_time_\(i)"]!)?   .setText("\(self.aircrewData[i].fcCombatSupportTime)")
-                    page1?.annotation(at: page1dict["fc_combat_spt_srty_\(i)"]!)?   .setText("\(self.aircrewData[i].fcCombatSupportSorties)")
-                    page1?.annotation(at: page1dict["resv_status_\(i)"]!)?          .setText("\(self.aircrewData[i].reserveStatus)")
+                    page1?.annotation(at: page1dict["ft_prim_\(i)"]!)?              .setText(self.aircrewData[i].ftPrimary)
+                    page1?.annotation(at: page1dict["ft_sec_\(i)"]!)?               .setText(self.aircrewData[i].ftSecondary)
+                    page1?.annotation(at: page1dict["ft_instr_\(i)"]!)?             .setText(self.aircrewData[i].ftInstructor)
+                    page1?.annotation(at: page1dict["ft_eval_\(i)"]!)?              .setText(self.aircrewData[i].ftEvaluator)
+                    page1?.annotation(at: page1dict["ft_other_\(i)"]!)?             .setText(self.aircrewData[i].ftOther)
+                    page1?.annotation(at: page1dict["ft_total_time_\(i)"]!)?        .setText(self.aircrewData[i].ftTotalTime)
+                    page1?.annotation(at: page1dict["ft_total_srty_\(i)"]!)?        .setText(self.aircrewData[i].ftTotalSorties)
+                    page1?.annotation(at: page1dict["fc_night_\(i)"]!)?             .setText(self.aircrewData[i].fcNight)
+                    page1?.annotation(at: page1dict["fc_ins_\(i)"]!)?               .setText(self.aircrewData[i].fcInstructor)
+                    page1?.annotation(at: page1dict["fc_sim_ins_\(i)"]!)?           .setText(self.aircrewData[i].fcSimInstructor)
+                    page1?.annotation(at: page1dict["fc_nvg_\(i)"]!)?               .setText(self.aircrewData[i].fcNVG)
+                    page1?.annotation(at: page1dict["fc_combat_time_\(i)"]!)?       .setText(self.aircrewData[i].fcCombatTime)
+                    page1?.annotation(at: page1dict["fc_combat_srty_\(i)"]!)?       .setText(self.aircrewData[i].fcCombatSorties)
+                    page1?.annotation(at: page1dict["fc_combat_spt_time_\(i)"]!)?   .setText(self.aircrewData[i].fcCombatSupportTime)
+                    page1?.annotation(at: page1dict["fc_combat_spt_srty_\(i)"]!)?   .setText(self.aircrewData[i].fcCombatSupportSorties)
+                    page1?.annotation(at: page1dict["resv_status_\(i)"]!)?          .setText(self.aircrewData[i].reserveStatus)
                 }
                 
             }
@@ -241,6 +243,25 @@ extension Form781 {
 }
 
 extension PDFAnnotation{
+    
+    func setText( _ value: Int16){
+        let page = self.page
+        page?.removeAnnotation(self)
+        self.setValue("\(value)", forAnnotationKey: .widgetValue)
+        page?.addAnnotation(self)
+    }
+    
+    func setText( _ value: Float){
+        let page = self.page
+        page?.removeAnnotation(self)
+        
+        let string  = String(format: "%.1f", value)
+        
+        
+        self.setValue(string, forAnnotationKey: .widgetValue)
+        page?.addAnnotation(self)
+    }
+ 
     func setText(_ string: String?){
         guard let string = string, !string.isEmpty  else {
             return
