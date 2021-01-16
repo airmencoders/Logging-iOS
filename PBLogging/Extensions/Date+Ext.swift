@@ -53,20 +53,6 @@ extension Date{
         dateFormatter.dateFormat = "HHmm"
         return(dateFormatter.string(from:self))
     }
-// If we are going to allow for text date entry, we should support multiple formats (like 0.1.0)
-//    static func dateFromString(_ dateStr: String) -> Date? {
-//        let dateFormatter = DateFormatter()
-//        let formats = ["d/M/y", "d-M-y", "d.M.y", "d M y", "M/d/y", "M-d-y", "M.d.y", "M d y"]
-//
-//        for format in formats {
-//            dateFormatter.dateFormat = format
-//            if let date = dateFormatter.date(from: dateStr) {
-//                return date
-//            }
-//        }
-//
-//        return nil
-//    }
 
     func string() -> String {
         let formatter = DateFormatter()
