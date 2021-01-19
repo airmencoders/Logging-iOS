@@ -14,16 +14,16 @@ struct Main781FormHeaderView: View {
     var form: Form781
     
     var body: some View {
-      
-        HStack{
+        HStack {
             Spacer()
             NavigationLink(
                 destination: PDFPreviewView(form: form),
                 label: {
-                    HStack{
+                    HStack {
                         Image(systemName:"doc")
                         Text("Preview PDF")
-                    }.padding()
+                    }
+                    .padding()
                 }).disabled(!isPreviewEnabled)
         }
     }

@@ -13,7 +13,6 @@ struct AllAircrewView: View {
     @State var members: [AircrewData]
     
     var body: some View {
-        
         //        NavigationView {
         ScrollView {
             ForEach(members, id: \.self) { member in
@@ -30,7 +29,7 @@ struct AllAircrewView: View {
                             trailing: Button {
                                 //print("do stuff")
                                 add()
-                            }label: {
+                            } label: {
                                 HStack{
                                     Spacer()
                                     Image(systemName: "plus")

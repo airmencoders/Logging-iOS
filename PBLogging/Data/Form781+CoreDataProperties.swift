@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Form781 {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Form781> {
@@ -42,7 +41,6 @@ extension Form781 {
     @NSManaged public var unitCharged_: String?
     @NSManaged public var aircrewData_: NSSet?
     @NSManaged public var flights_: NSSet?
-
 }
 
 // MARK: Generated accessors for aircrewData_
@@ -59,7 +57,6 @@ extension Form781 {
 
     @objc(removeAircrewData_:)
     @NSManaged public func removeFromAircrewData_(_ values: NSSet)
-
 }
 
 // MARK: Generated accessors for flights_
@@ -76,9 +73,7 @@ extension Form781 {
 
     @objc(removeFlights_:)
     @NSManaged public func removeFromFlights_(_ values: NSSet)
-
 }
 
 extension Form781 : Identifiable {
-
 }

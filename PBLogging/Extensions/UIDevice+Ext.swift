@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 extension UIDevice{
     
     // A Combine Framework based Orientation Change Publisher that can be subscried to from anywhere.

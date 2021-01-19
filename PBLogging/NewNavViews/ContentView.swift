@@ -13,7 +13,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            
             ContentHeaderView()
             FormNavigationView().alertProvider()
             Spacer()

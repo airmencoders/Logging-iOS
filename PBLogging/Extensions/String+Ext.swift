@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+    
     func double(for obj: Any?) -> String {
         var retVal: String?
         let formatter = NumberFormatter()
@@ -20,7 +21,6 @@ extension String {
         }
         
         return retVal!
-        
     }
     
     func float(for obj: Any?) -> String {
@@ -35,6 +35,5 @@ extension String {
         }
         
         return retVal!
-        
     }
 }

@@ -11,18 +11,18 @@ struct SingleFlightRowView: View {
     
     var flight: Flight
     
-    @State var missionNumber: String = ""
-    @State var missionSymbol: String = ""
-    @State var fromICAO: String = ""
-    @State var toICAO: String = ""
-    @State var takeOffTime: String = ""
-    @State var landTime: String = ""
-    @State var totalTime: String = ""
-    @State var touchAndGo: String = ""
-    @State var fullStop: String = ""
-    @State var totalLandings: String = ""
-    @State var sorties: String = ""
-    @State var specialUse: String = ""
+    @State var missionNumber    = ""
+    @State var missionSymbol    = ""
+    @State var fromICAO         = ""
+    @State var toICAO           = ""
+    @State var takeOffTime      = ""
+    @State var landTime         = ""
+    @State var totalTime        = ""
+    @State var touchAndGo       = ""
+    @State var fullStop         = ""
+    @State var totalLandings    = ""
+    @State var sorties          = ""
+    @State var specialUse       = ""
     
     var body: some View {
         VStack(spacing: 15) {
@@ -48,19 +48,19 @@ struct SingleFlightRowView: View {
         .cornerRadius(20)
         .shadow(radius: 5, x: 1, y: 2)
         
-        .onAppear{
-            missionNumber = flight.missionNumber
-            missionSymbol = flight.missionSymbol
-            fromICAO = flight.fromICAO
-            toICAO = flight.toICAO
-            //            takeOffTime = flight.takeOffTime
-            //            landTime = flight.landTime
-            //            totalTime = flight.totalTime
-            //            touchAndGo = flight.touchAndGo
-            //            fullStop = flight.fullStop
-            //            totalLandings = flight.totalLandings
-            //            sorties = flight.sorties
-            specialUse = flight.specialUse
+        .onAppear {
+            missionNumber   = flight.missionNumber
+            missionSymbol   = flight.missionSymbol
+            fromICAO        = flight.fromICAO
+            toICAO          = flight.toICAO
+            takeOffTime     = flight.takeOffTime.string24HourTime()
+            landTime        = flight.landTime.string24HourTime()
+            totalTime       = String(format: "%.1f", flight.totalTime)
+            touchAndGo      = String(format: "%i",   flight.touchAndGo)
+            fullStop        = String(format: "%i",   flight.fullStop)
+            totalLandings   = String(format: "%i",   flight.totalLandings)
+            sorties         = String(format: "%i",   flight.sorties)
+            specialUse      = flight.specialUse
             print("appear")
         }
     }

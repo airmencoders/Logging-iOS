@@ -15,7 +15,6 @@ extension Form781{
         set {
             flights_ = Set(newValue) as NSSet
         }
-
     }
     
     public var aircrewData: [AircrewData] {
@@ -27,6 +26,7 @@ extension Form781{
             aircrewData_ = Set(newValue) as NSSet
         }
     }
+    
     public var armsAuditInitials: String {
         get {
             return armsAuditInitials_ ?? ""
@@ -52,8 +52,8 @@ extension Form781{
         set {
             extractCertificationBranch_ = newValue
         }
-        
     }
+    
     public var extractCertificationDSN: String {
         get {
             return extractCertificationDSN_ ?? ""
@@ -61,8 +61,8 @@ extension Form781{
         set {
             extractCertificationDSN_ = newValue
         }
-        
     }
+    
     public var extractCertificationPrintName: String {
         get {
             return extractCertificationPrintName_ ?? ""
@@ -71,6 +71,7 @@ extension Form781{
             extractCertificationPrintName_ = newValue
         }
     }
+    
     public var extractCertificationRank: String {
         get {
             return extractCertificationRank_ ?? ""
@@ -79,6 +80,7 @@ extension Form781{
             extractCertificationRank_ = newValue
         }
     }
+    
     public var flightAuthNum: String {
         get {
             return flightAuthNum_ ?? ""
@@ -96,6 +98,7 @@ extension Form781{
             harmLocation_ = newValue
         }
     }
+    
     public var id: UUID {
         get {
             return id_!
@@ -104,6 +107,7 @@ extension Form781{
             id_ = newValue
         }
     }
+    
     public var issuingUnit: String {
         get {
             return issuingUnit_ ?? ""
@@ -112,6 +116,7 @@ extension Form781{
             issuingUnit_ = newValue
         }
     }
+    
     public var maintenanceReview: String {
         get {
             return maintenanceReview_ ?? ""
@@ -120,6 +125,7 @@ extension Form781{
             maintenanceReview_ = newValue
         }
     }
+    
     public var mds: String {
         get {
             return mds_ ?? ""
@@ -128,6 +134,7 @@ extension Form781{
             mds_ = newValue
         }
     }
+    
     public var remarks: String {
         get {
             return remarks_ ?? ""
@@ -136,6 +143,7 @@ extension Form781{
             remarks_ = newValue
         }
     }
+    
     public var sarmReview: String {
         get {
             return sarmReview_ ?? ""
@@ -144,6 +152,7 @@ extension Form781{
             sarmReview_ = newValue
         }
     }
+    
     public var serialNumber: String {
         get {
             return serialNumber_ ?? ""
@@ -152,6 +161,7 @@ extension Form781{
             serialNumber_ = newValue
         }
     }
+    
     public var unitCharged: String {
         get {
             return unitCharged_ ?? ""
@@ -160,4 +170,4 @@ extension Form781{
             unitCharged_ = newValue
         }
     }
-} // End
+}

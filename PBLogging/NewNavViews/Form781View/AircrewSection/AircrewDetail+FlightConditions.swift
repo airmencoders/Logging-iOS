@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AircrewDetail_FlightConditions: View {
     
+    var member: AircrewData
+    
     @State var fcNight                  = ""
     @State var fcInstructor             = ""
     @State var fcSimInstructor          = ""
@@ -17,14 +19,9 @@ struct AircrewDetail_FlightConditions: View {
     @State var fcCombatSorties          = ""
     @State var fcCombatSupportTime      = ""
     @State var fcCombatSupportSorties   = ""
- 
-    var member: AircrewData
-
-    @State var test: String = ""
-        
+         
     var body: some View {
         HStack(alignment: .bottom) {
-            // Flight time section
             TextFieldWithLabel(label: "Night\n(P/S/I/E)",       placeholder: "0", userInput: $fcNight)
             TextFieldWithLabel(label: "Ins\n(P/I/E)",           placeholder: "0", userInput: $fcInstructor)
             TextFieldWithLabel(label: "Sim Ins\n(P/S/I/E)",     placeholder: "0", userInput: $fcSimInstructor)
@@ -33,7 +30,8 @@ struct AircrewDetail_FlightConditions: View {
             TextFieldWithLabel(label: "Combat\nSorty",          placeholder: "0", userInput: $fcCombatSorties)
             TextFieldWithLabel(label: "Combat Spt\nTime",       placeholder: "0", userInput: $fcCombatSupportTime)
             TextFieldWithLabel(label: "Combat Spt\nSorty",      placeholder: "0", userInput: $fcCombatSupportSorties)
-        }.onAppear {
+        }
+        .onAppear {
            fcNight                  = String(format: "%.1f", member.fcNight)
            fcInstructor             = String(format: "%.1f", member.fcInstructor)
            fcSimInstructor          = String(format: "%.1f", member.fcSimInstructor)
@@ -43,7 +41,6 @@ struct AircrewDetail_FlightConditions: View {
            fcCombatSupportTime      = String(format: "%.1f", member.fcCombatSupportTime)
            fcCombatSupportSorties   = String(format: "%i",   member.fcCombatSupportSorties)
         }
-         
     }
 }
 

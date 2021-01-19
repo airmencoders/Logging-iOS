@@ -10,6 +10,7 @@ import SwiftUI
 struct AircrewDetail_FlightTime: View {
     
     var member: AircrewData
+    
     @State var ftPrimary        = ""
     @State var ftSecondary      = ""
     @State var ftInstructor     = ""
@@ -20,7 +21,6 @@ struct AircrewDetail_FlightTime: View {
 
     var body: some View {
         HStack {
-            // Flight time section
             TextFieldWithLabel(label: "Primary",    placeholder: "0", userInput: $ftPrimary)
             TextFieldWithLabel(label: "Secondary",  placeholder: "0", userInput: $ftSecondary)
             TextFieldWithLabel(label: "Instructor", placeholder: "0", userInput: $ftInstructor)
@@ -29,15 +29,14 @@ struct AircrewDetail_FlightTime: View {
             TextFieldWithLabel(label: "Time",       placeholder: "0", userInput: $ftTotalTime)
             TextFieldWithLabel(label: "Sorty",      placeholder: "0", userInput: $ftTotalSorties)
         }
-  
-        .onAppear{
-            ftEvaluator =       String(format: "%.1f", member.ftEvaluator)
-            ftInstructor =      String(format: "%.1f", member.ftInstructor)
-            ftOther =           String(format: "%.1f", member.ftOther)
-            ftPrimary =         String(format: "%.1f", member.ftPrimary)
-            ftSecondary =       String(format: "%.1f", member.ftSecondary)
-            ftTotalSorties =    String(format: "%i",   member.ftTotalSorties)
-            ftTotalTime =       String(format: "%.1f", member.ftTotalTime)
+        .onAppear {
+            ftEvaluator     = String(format: "%.1f", member.ftEvaluator)
+            ftInstructor    = String(format: "%.1f", member.ftInstructor)
+            ftOther         = String(format: "%.1f", member.ftOther)
+            ftPrimary       = String(format: "%.1f", member.ftPrimary)
+            ftSecondary     = String(format: "%.1f", member.ftSecondary)
+            ftTotalSorties  = String(format: "%i",   member.ftTotalSorties)
+            ftTotalTime     = String(format: "%.1f", member.ftTotalTime)
         }
     }
     

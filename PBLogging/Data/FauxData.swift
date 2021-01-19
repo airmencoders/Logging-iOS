@@ -9,21 +9,18 @@ struct FauxData{
     
     static let icaos = ["RJSM", "KTIK", "KNGB", "RJTY", "KSKA", "KPDX", "PHIK", "RJTA", "RJTZ", "KADW", "KAFF", "KBKF", "KCHS", "KDMA", "KEDW", "KHIF", "KHMN", "KIAB", "KLFI", "KLSV", "KSSC", "KSUU"]
     
-    static let dates: [Date] =  {
+    static let dates: [Date] = {
         
         var dates = [Date]()
-        for i in 1..<8{
+        for i in 1..<8 {
             let stringDate = "20\(14 + i)-\(i)-\(i * 2)"
             let date = Date(stringDate)
             dates.append(date)
         }
         return dates
-        
     }()
     
     static let dateTimePairs: [(Date, Date)] = {
-        
-        
         
         let pairs = [ (Date.fromDateTimeString("2020-02-12 0523"), Date.fromDateTimeString("2020-02-12 0923")),
                       (Date.fromDateTimeString("2020-02-12 1223"), Date.fromDateTimeString("2020-02-12 2323")),
@@ -59,7 +56,7 @@ struct FauxData{
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         var dates = [Date]()
         
-        for i in 1..<24{
+        for i in 1..<24 {
             let hour = String(format: "%02d", i)
             let minute = String(format: "%02d", i + 12)
             
@@ -75,7 +72,6 @@ struct FauxData{
             dates.append(thisDate!)
         }
         return dates
-        
     }()
     
     static let mds = ["C017A", "C005M", "C130H", "KC135A", "KC046", "F035A", "F022A"]
@@ -89,7 +85,7 @@ struct FauxData{
     static let flightAuthNum: [String] = {
         
         var auths = [String]()
-        for i in 0..<7{
+        for i in 0..<7 {
             auths.append("\(14 + i)-0\(i * 123))")
         }
         return auths
@@ -98,7 +94,7 @@ struct FauxData{
     static let serialNumbers: [String] = {
         
         var serials = [String]()
-        for i in 0..<7{
+        for i in 0..<7 {
             serials.append("\(i + 2)-\(i * 11)")
         }
         return serials
@@ -109,19 +105,18 @@ struct FauxData{
     static let socials: [String] = {
         var socials = [String]()
         
-        for i in 10..<(10 + 35){
+        for i in 10..<(10 + 35) {
             socials.append("\(i)\(i+1)")
         }
         
         return socials
-        
     }()
     
     static let flightAuthDutyCodes: [String] = {
         var codes = [String]()
         var knownCodes = ["XK", "IP B", "MP A", "IPB", "FPLC", "IL B", "XT", "EP", "IP", "MP", "FPQ", "FPC", "FPN", "UP", "EL", "IL", "ML", "FL", "UL", "ML1", "ML2", "ML1C", "ML1B"]
         knownCodes = Array(Set(knownCodes))
-        for i in 0..<(10 + 35){
+        for i in 0..<(10 + 35) {
             codes.append(knownCodes[i % knownCodes.count])
         }
         return codes
@@ -129,7 +124,7 @@ struct FauxData{
     
     static let flightOrgs: [String] = {
         var orgs = [String]()
-        for i in 10..<(10 + 35){
+        for i in 10..<(10 + 35) {
             orgs.append("00\(i)")
         }
         return orgs

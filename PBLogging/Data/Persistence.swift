@@ -50,7 +50,8 @@ struct PersistenceController {
             }
         })
     }
-    static func addFakeRecordsForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+    
+    static func addFakeRecordsForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         var counter = 0
         
         for i in 0..<4 {
@@ -108,7 +109,6 @@ struct PersistenceController {
                 newMember.reserveStatus             = 3
                 
                 newMember.form781 = newForm
-                
             }
         }
         
@@ -122,11 +122,10 @@ struct PersistenceController {
             
             //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
             AlertProvider.shared.showAlertWithTitle(title: "Context Save Error", message: "\(nsError), \(nsError.userInfo). Please screenshot and send to the dev team.")
-            
         }
     }
 
-    static func newRecordForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+    static func newRecordForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         let newForm = Form781(context: context)
         newForm.date = Date()
         do {
@@ -136,7 +135,6 @@ struct PersistenceController {
             let nsError = error as NSError
             //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
             AlertProvider.shared.showAlertWithTitle(title: "Context Save Error", message: "\(nsError), \(nsError.userInfo). Please screenshot and send to the dev team.")
-
         }
     }
 }
@@ -146,10 +144,7 @@ extension UIWindow {
     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             PersistenceController.addFakeRecordsForContext()
-            
         }
     }
 }
 #endif
-
-

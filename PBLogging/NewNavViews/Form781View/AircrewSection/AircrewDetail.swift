@@ -9,14 +9,14 @@ import SwiftUI
 
 struct AircrewDetail: View {
     
-    @State var flyingOrganization: String = ""
-    @State var ssanLast4: String = ""
-    @State var lastName: String = ""
-    @State var flightAuthDutyCode: String = ""
-    @State var reserveStatus: Int16 = 0
+    @State var flyingOrganization   = ""
+    @State var ssanLast4            = ""
+    @State var lastName             = ""
+    @State var flightAuthDutyCode   = ""
+    @State var reserveStatus        = ""
     
-    @State var test: String = ""
-
+    @State var test                 = ""
+    
     var member: AircrewData
     
     var body: some View {
@@ -32,9 +32,8 @@ struct AircrewDetail: View {
                         TextFieldWithLabel(label: "Flight Auth Duty Code", placeholder: "Flight Auth", userInput: $flightAuthDutyCode)
                     }
                     HStack {
-        //                TextField("Res Status", value: $reserveStatus, formatter: NumberFormatter())
                         TextFieldWithLabel(label: "Grand Total Time", placeholder: "0.0", userInput: $test)
-                        TextFieldWithLabel(label: "Reserve Status", placeholder: "Res Status", userInput: $test)
+                        TextFieldWithLabel(label: "Reserve Status", placeholder: "Res Status", userInput: $reserveStatus)
                     }
                     .padding(.top)
                 }
@@ -70,11 +69,11 @@ struct AircrewDetail: View {
             Spacer()
         }
         .onAppear{
-            flyingOrganization = member.flyingOrganization
-            ssanLast4 = member.ssanLast4
-            lastName = member.lastName
-            flightAuthDutyCode = member.flightAuthDutyCode
-            reserveStatus = member.reserveStatus
+            flyingOrganization  = member.flyingOrganization
+            ssanLast4           = member.ssanLast4
+            lastName            = member.lastName
+            flightAuthDutyCode  = member.flightAuthDutyCode
+            reserveStatus       = String(format: "%i", member.reserveStatus)
         }
         .navigationBarTitle("Aircrew Detail")
     }

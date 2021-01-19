@@ -27,12 +27,11 @@ struct AllFlightsView: View {
                             trailing: Button {
                                 add()
                                 
-                            }label: {
+                            } label: {
                                 HStack{
                                     Spacer()
                                     Image(systemName: "plus")
                                 }
-                                
                             })
         // .navigationBarItems(trailing: EditButton())
     }
@@ -67,7 +66,6 @@ struct AllFlightsView_Previews: PreviewProvider {
         
         flights = Array((flights?.prefix(numberOfFlights))!)
         return flights!
-        
     }()
     
     static var previews: some View {

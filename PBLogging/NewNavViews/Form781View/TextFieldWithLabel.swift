@@ -24,6 +24,7 @@ struct TextFieldWithLabel: View {
         }
     }
 }
+
 struct TextFieldWithLabel_Previews: PreviewProvider {
     static var previews: some View {
         TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: .constant("ABCDEFG"))

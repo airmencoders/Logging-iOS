@@ -19,7 +19,7 @@ extension Form781 {
         return Form781pdfFiller(form781: self).pdfDocument()
     }
 
-    func printPDF(){
+    func printPDF() {
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "AFTO Form 781"
         printInfo.outputType = .grayscale
@@ -32,7 +32,7 @@ extension Form781 {
             NSLog(completed ? "Completed print" : "Print not complete")
             if let error = error {
                 NSLog("Print Error: \(error.localizedDescription)")
-            }else{
+            } else {
                 NSLog("no Print error")
             }
         }
@@ -78,9 +78,8 @@ extension Form781 {
     }
     
     // TODO: DECOMPOSE THIS OUT FOR TESTS
-    func generatePDF(completionHandler: @escaping (Result<URL, PDFGenError>) -> Void)  {
-    
-        
+    func generatePDF(completionHandler: @escaping (Result<URL, PDFGenError>) -> Void) {
+            
         guard let path = Bundle.main.path(forResource: "fillable781v3", ofType: "pdf") else {
             completionHandler(.failure(.formNotFound))
             return
@@ -95,22 +94,21 @@ extension Form781 {
         
         var pageAnnotationDictionaries = [[String : CGPoint]]()
         
-        for i in 0..<pdf.pageCount{
+        for i in 0..<pdf.pageCount {
             
             var annotationDictionary = [String : CGPoint]()
             let page = pdf.page(at: i)
             
             // go through every annotation on the page and fill the dictionary with the field name and origin
-            for annotation in page!.annotations{
+            for annotation in page!.annotations {
                 annotationDictionary[annotation.fieldName!] = annotation.bounds.origin
                 
             }
             //add page annotation dictionary
             pageAnnotationDictionaries.append(annotationDictionary)
-            
         }
         
-        DispatchQueue.global(qos: .userInitiated).async{
+        DispatchQueue.global(qos: .userInitiated).async {
                
             let page0 = pdf.page(at:0)
             
@@ -135,9 +133,9 @@ extension Form781 {
                 page0?.annotation(at: page0dict["to_icao_\(i)"]!)?          .setText(self.flights[i].toICAO)
                 
                 //TODO: REPAIR THIS
-               page0?.annotation(at: page0dict["take_off_time_\(i)"]!)?    .setText(self.flights[i].takeOffTime.string24HourTime())
-               page0?.annotation(at: page0dict["land_time_\(i)"]!)?        .setText(self.flights[i].landTime.string24HourTime())
-           
+                page0?.annotation(at: page0dict["take_off_time_\(i)"]!)?    .setText(self.flights[i].takeOffTime.string24HourTime())
+                page0?.annotation(at: page0dict["land_time_\(i)"]!)?        .setText(self.flights[i].landTime.string24HourTime())
+                
                 let totalTimeString = self.flights[i].takeOffTime.stringDecimalHoursTill(date: self.flights[i].landTime)
                 
                 page0?.annotation(at: page0dict["total_time_\(i)"]!)?       .setText(totalTimeString)
@@ -154,7 +152,7 @@ extension Form781 {
             
             //Fill out crew member section
             //zeroeth to max on front page
-            for i in 0..<min(self.aircrewData.count, 15){
+            for i in 0..<min(self.aircrewData.count, 15) {
                 page0?.annotation(at: page0dict["organization_\(i)"]!)?         .setText(self.aircrewData[i].flyingOrganization)
                 page0?.annotation(at: page0dict["ssan_\(i)"]!)?                 .setText(self.aircrewData[i].ssanLast4)
                 page0?.annotation(at: page0dict["last_name_\(i)"]!)?            .setText(self.aircrewData[i].lastName)
@@ -180,11 +178,11 @@ extension Form781 {
                 
             }
              
-            if self.aircrewData.count > 14{
+            if self.aircrewData.count > 14 {
                 let page1 = pdf.page(at:1)
                 let page1dict =  pageAnnotationDictionaries[1]
                  
-                for i in 15..<min(self.aircrewData.count, 35){
+                for i in 15..<min(self.aircrewData.count, 35) {
                     
                     page1?.annotation(at: page1dict["organization_\(i)"]!)?         .setText(self.aircrewData[i].flyingOrganization)
                     page1?.annotation(at: page1dict["ssan_\(i)"]!)?                 .setText(self.aircrewData[i].ssanLast4)
@@ -207,7 +205,6 @@ extension Form781 {
                     page1?.annotation(at: page1dict["fc_combat_spt_srty_\(i)"]!)?   .setText(self.aircrewData[i].fcCombatSupportSorties)
                     page1?.annotation(at: page1dict["resv_status_\(i)"]!)?          .setText(self.aircrewData[i].reserveStatus)
                 }
-                
             }
             
             let data = pdf.dataRepresentation()
@@ -224,45 +221,38 @@ extension Form781 {
                     completionHandler(.success(savePath))
                 }
                 
-            }catch{
+            } catch {
                 print("Complete Failure.")
                 DispatchQueue.main.async {
                     completionHandler(.failure(.couldNotFillOut))
                     return
                 }
-                
             }
-            
-            
         }
-         
-      
-        
     }
     
 }
 
-extension PDFAnnotation{
+extension PDFAnnotation {
     
-    func setText( _ value: Int16){
+    func setText( _ value: Int16) {
         let page = self.page
         page?.removeAnnotation(self)
         self.setValue("\(value)", forAnnotationKey: .widgetValue)
         page?.addAnnotation(self)
     }
     
-    func setText( _ value: Float){
+    func setText( _ value: Float) {
         let page = self.page
         page?.removeAnnotation(self)
         
         let string  = String(format: "%.1f", value)
         
-        
         self.setValue(string, forAnnotationKey: .widgetValue)
         page?.addAnnotation(self)
     }
  
-    func setText(_ string: String?){
+    func setText(_ string: String?) {
         guard let string = string, !string.isEmpty  else {
             return
         }
@@ -272,6 +262,3 @@ extension PDFAnnotation{
         page?.addAnnotation(self)
     }
 }
- 
-
- 

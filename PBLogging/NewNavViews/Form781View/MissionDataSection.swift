@@ -19,17 +19,18 @@ import SwiftUI
  */
 
 struct MissionDataSection: View {
+    
     @Environment(\.managedObjectContext) private var moc
 
     var form: Form781
 
-    @State private var date: String = ""
-    @State private var mds: String = ""
-    @State private var serialNumber: String = ""
-    @State private var unitCharged: String = ""
-    @State private var harmLocation: String = ""
-    @State private var issuingUnit: String = ""
-    @State private var flightAuthNum: String = ""
+    @State private var date              = ""
+    @State private var mds               = ""
+    @State private var serialNumber      = ""
+    @State private var unitCharged       = ""
+    @State private var harmLocation      = ""
+    @State private var issuingUnit       = ""
+    @State private var flightAuthNum     = ""
 
     var body: some View {
         Section(header: Text("Mission Data").font(.headline)) {

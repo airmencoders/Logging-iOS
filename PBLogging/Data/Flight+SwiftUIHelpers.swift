@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 extension Flight {
 
     public var fromICAO: String{
@@ -15,6 +16,7 @@ extension Flight {
             fromICAO_ = newValue
         }
     }
+    
     public var id: UUID {
         get {
             return id_!
@@ -22,6 +24,7 @@ extension Flight {
             id_ = newValue
         }
     }
+    
     public var landTime: Date{
         get {
             return landTime_ ?? Date()
@@ -29,6 +32,7 @@ extension Flight {
             landTime_ = newValue
         }
     }
+    
     public var missionNumber: String {
         get {
             return missionNumber_ ?? ""
@@ -36,6 +40,7 @@ extension Flight {
             missionNumber_ = newValue
         }
     }
+    
     public var missionSymbol: String {
         get {
             return missionSymbol_ ?? ""
@@ -43,6 +48,7 @@ extension Flight {
             missionSymbol_ = newValue
         }
     }
+    
     public var pilotReviewInitials: String {
         get {
             return pilotReviewInitials_ ?? ""
@@ -58,6 +64,7 @@ extension Flight {
             specialUse_ = newValue
         }
     }
+    
     public var takeOffTime: Date {
         get {
             return takeOffTime_ ?? Date()
@@ -65,6 +72,7 @@ extension Flight {
             takeOffTime_ = newValue
         }
     }
+    
     public var toICAO: String {
         get {
             return toICAO_ ?? ""

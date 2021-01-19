@@ -12,9 +12,9 @@ struct ContentHeaderView: View {
     @State var isInfoModalShown = false
     
     var body: some View {
-        HStack{
+        HStack {
             Spacer()
-            Button{
+            Button {
                 if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
                     UIApplication.shared.open(url)
                 }
@@ -32,10 +32,10 @@ struct ContentHeaderView: View {
 //                    .padding()
 //            }
             
-        } .sheet(isPresented: $isInfoModalShown) {
+        }
+        .sheet(isPresented: $isInfoModalShown) {
             InfoModalView(isDisplayed: $isInfoModalShown)
         }
-        
     }
 }
 

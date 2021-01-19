@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension AircrewData {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<AircrewData> {
@@ -38,9 +37,7 @@ extension AircrewData {
     @NSManaged public var reserveStatus: Int16
     @NSManaged public var ssanLast4_: String?
     @NSManaged public var form781: Form781?
-
 }
 
 extension AircrewData : Identifiable {
-
 }

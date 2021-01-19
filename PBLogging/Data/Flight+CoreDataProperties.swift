@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Flight {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Flight> {
@@ -32,9 +31,7 @@ extension Flight {
     @NSManaged public var totalTime: Float
     @NSManaged public var touchAndGo: Int16
     @NSManaged public var form781: Form781?
-
 }
 
 extension Flight : Identifiable {
-
 }

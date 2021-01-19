@@ -9,21 +9,22 @@ import SwiftUI
 
 struct SingleAircrewRowView: View {
     
-    @State var flyingOrg: String = ""
-    @State var ssan: String = ""
-    @State var lastName: String = ""
+    @State var flyingOrg    = ""
+    @State var ssan         = ""
+    @State var lastName     = ""
     
     var member: AircrewData
     
     var body: some View {
-        HStack{
+        HStack {
             TextField("Org", text: $flyingOrg)
             TextField("SSAN", text: $ssan)
             TextField("Last Name", text: $lastName)
-        }.onAppear{
-            flyingOrg = member.flyingOrganization
-            ssan = member.ssanLast4
-            lastName = member.lastName
+        }
+        .onAppear {
+            flyingOrg   = member.flyingOrganization
+            ssan        = member.ssanLast4
+            lastName    = member.lastName
         }
     }
 }

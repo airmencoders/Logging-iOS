@@ -12,15 +12,15 @@ struct PDFPreviewView: View {
     var form: Form781
     
     var body: some View {
-        ZStack{
-            if pdfURL != nil{
-                VStack{
-                    HStack{
+        ZStack {
+            if pdfURL != nil {
+                VStack {
+                    HStack {
                         Spacer()
                         Button {
                             self.isSharing = true
                         } label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: "square.and.arrow.up")
                                 Text("Share")
                             }
@@ -45,22 +45,21 @@ struct PDFPreviewView: View {
                         .colorInvert()
                             .colorMultiply(.pblPrimary)
                             .blur(radius: isReady ? 0.0 : 3.0)
-                    }else{
+                    } else {
                         PDFRepView(url:pdfURL!)
                             .padding()
                             .blur(radius: isReady ? 0.0 : 3.0)
                     }
-                       
                     
                 }.sheet(isPresented: $isSharing, onDismiss: nil, content: {
                     ActivityViewController(activityItems: [pdfURL!])
                 })
                 
-                
-            }else{
+            } else {
                 ActivityIndicator(isAnimating: true)
             }
-        }.onAppear{
+        }
+        .onAppear {
             print("do the stuff")
             form.generatePDF() { result in
                 switch result {
@@ -74,9 +73,9 @@ struct PDFPreviewView: View {
                 }
             }
         }
-        
     }
-    func printPDF(){
+    
+    func printPDF() {
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = pdfURL!.lastPathComponent  // force unwrap as function won't be available unless the pdf is already generated correctly
         printInfo.outputType = .grayscale
@@ -114,7 +113,6 @@ struct PDFRepView : UIViewRepresentable {
     var darkMode: Bool = true
     
     func makeUIView(context: Context) -> UIView {
-        
         let pdfView = PDFView()
         pdfView.document = PDFDocument(url: url)
         return pdfView
@@ -124,10 +122,9 @@ struct PDFRepView : UIViewRepresentable {
         let pdfView = uiView as! PDFView
         pdfView.document = PDFDocument(url: url)
         pdfView.autoScales = true
-        if darkMode{
+        if darkMode {
             pdfView.backgroundColor = UIColor.init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         }
-       
     }
     
 }

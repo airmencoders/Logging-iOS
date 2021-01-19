@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Main781FormView : View {
+struct Main781FormView: View {
     
     var form: Form781
     
@@ -19,9 +19,7 @@ struct Main781FormView : View {
     @State var isPreviewEnabled = true
     
     var body: some View {
-        
         VStack {
-             
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
@@ -54,7 +52,7 @@ struct Main781FormView : View {
             
             Spacer()
         }
-        .onAppear{
+        .onAppear {
             remarks = form.remarks
             flights = form.flights
             aircrew = form.aircrewData

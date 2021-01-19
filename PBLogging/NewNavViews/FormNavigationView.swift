@@ -18,7 +18,6 @@ struct FormNavigationView: View {
     private var forms: FetchedResults<Form781>
     
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 VStack {
@@ -40,7 +39,6 @@ struct FormNavigationView: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
 
 struct FormNavigationView_Previews: PreviewProvider {
     static var previews: some View {

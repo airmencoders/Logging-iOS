@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct Form781Card: View {
+    
     var form: Form781
 
-    @State var formDate: String = ""
-    @State var mds: String = ""
-    @State var serialNumber: String = ""
+    @State var formDate      = ""
+    @State var mds           = ""
+    @State var serialNumber  = ""
 
     var body: some View {
         ZStack {

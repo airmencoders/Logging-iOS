@@ -8,9 +8,8 @@
 import Foundation
 
 extension AircrewData {
-    
 
-    public var flightAuthDutyCode: String{
+    public var flightAuthDutyCode: String {
         get {
             return flightAuthDutyCode_ ?? ""
         }
@@ -18,7 +17,8 @@ extension AircrewData {
             flightAuthDutyCode_ = newValue
         }
     }
-    public var flyingOrganization: String{
+    
+    public var flyingOrganization: String {
         get {
             return flyingOrganization_ ?? ""
         }
@@ -27,7 +27,7 @@ extension AircrewData {
         }
     }
   
-    public var id: UUID{
+    public var id: UUID {
         get {
             return id_!
         }
@@ -35,7 +35,7 @@ extension AircrewData {
             id_ = newValue
         }
     }
-    public var lastName: String{
+    public var lastName: String {
         get {
             return lastName_ ?? ""
         }
@@ -44,7 +44,7 @@ extension AircrewData {
         }
     }
     
-    public var ssanLast4: String{
+    public var ssanLast4: String {
         get {
             return ssanLast4_ ?? ""
         }
@@ -61,4 +61,4 @@ extension AircrewData {
 //            form781_ = Set(newValue) as NSSet
 //        }
 //    }
-}// End
+}

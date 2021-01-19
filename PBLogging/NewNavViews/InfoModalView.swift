@@ -13,12 +13,11 @@ struct InfoModalView: View {
     
     var body: some View {
         VStack {
-            
             Button("Dismiss") {
                 isDisplayed = false
             }
             Spacer()
-            Button{
+            Button {
                 if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
                     UIApplication.shared.open(url)
                 }

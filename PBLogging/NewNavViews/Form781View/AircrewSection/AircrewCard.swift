@@ -12,17 +12,16 @@ struct AircrewCard: View {
     var member: AircrewData
     
     var body: some View {
-        ZStack{
+        ZStack {
             Rectangle()
                 .foregroundColor(.pblBackground)
                 .cornerRadius(10.0)
-
                 .frame(width: 700, height: 100, alignment: .center)
                 //.shadow(color: Color("primary"), radius: 5, x: 5, y: 5)
                 .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 1, y: 2)
                 .padding()
             VStack(alignment: .leading) {
-                HStack(spacing: 5){
+                HStack(spacing: 5) {
                     Image(systemName: "person")
                         .padding(.leading, 10)
                     Text(member.flyingOrganization)
@@ -53,7 +52,7 @@ struct AircrewCard: View {
                 }
                 .frame(width: 600)
             }
-        .frame(width: 700, height: 50)
+            .frame(width: 700, height: 50)
             .foregroundColor(.pblPrimary)
         }
     }
