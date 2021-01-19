@@ -16,62 +16,40 @@ struct Form781Card: View {
     @State var serialNumber  = ""
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(.pblBackground)
-                .cornerRadius(10.0)
-                .frame(width: 700, height: 100, alignment: .center)
-                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 1, y: 2)
-                .padding()
-
+        HStack {
             VStack(alignment: .leading) {
-                // Row 1
-                HStack(spacing: 5){
-                    Image(systemName: "calendar")
-                        .padding(.leading, 10)
-                    Text(formDate)
-                        .frame(width: 160, height: 24, alignment: .leading)
-                        .padding(.leading, 1)
-                    Image(systemName: "square.and.arrow.up")
-                    Text("Last Shared:   21 Jul 2020")
-                    Spacer()
-                }
-                .padding(1)
-
-                // Row 2
-                HStack (spacing: 5) {
-                    Image(systemName: "airplane")
-                        .padding(.leading, 10)
-                    Text(mds)
-                        .frame(width: 160, height: 24, alignment: .leading)
-                        .padding(.leading, 1)
-                    Image(systemName: "envelope")
-                    Text("Last Emailed: 22 Jul 2020")
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .padding(.trailing, 20)
-                }
-                .padding(1)
-
-                // Row 3
-                HStack(spacing: 5) {
-                    Image(systemName: "number")
-                        .padding(.leading, 10)
-                    //TouchAndGoes()
-                    Text(serialNumber)
-                        .frame(width: 160, height: 24, alignment: .leading)
-                        .padding(.leading, 1)
-                // ATTN: Get the complete state from the form (when we can)
-    //                Image(systemName: form.isComplete ? "checkmark.circle" : "circle")
-                    Image(systemName: "circle")
-                    Text("Complete")
-                    Spacer()
-                }
-                .padding(1)
+                Text("AFTO FORM 781")
+                    .font(.pblBold(size: 18))
+                IconText(image: "calendar", text: "21 Jul 2020")
             }
-            .frame(width: 700, height: 100)
-            .foregroundColor(Color("primary"))
+            Spacer()
+            VStack {
+                Image(systemName: "square.and.arrow.up")
+                Image(systemName: "envelope")
+            }
+            VStack(alignment: .leading) {
+                Text("Last shared:")
+                Text("Last emailed:")
+            }
+            VStack {
+                Text("21 Jul 2020")
+                    .font(.pblRegular(size: 16))
+                Text("21 Jul 2020")
+                    .font(.pblRegular(size: 16))
+            } 
+            Spacer()
+            // ATTN: Get the complete state from the form (when we can)
+            // Image(systemName: form.isComplete ? "checkmark.circle" : "circle")
+            IconText(image: "circle", text: "Complete")
+            Spacer()
+            Image(systemName: "chevron.right")
         }
+        .padding()
+        .background(Color.pblBackground)
+        .foregroundColor(.pblPrimary)
+        .cornerRadius(10)
+        .shadow(radius: 5, x: 1, y: 2)
+        
         .onAppear() {
             formDate = form.date?.string() ?? "Date Unknown"
             mds = form.mds

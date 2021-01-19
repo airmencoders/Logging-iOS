@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Font{
+extension Font {
     
     public static func pblBold(size: CGFloat) -> Font {
         return Font.custom("DMSans-Bold", size: size)

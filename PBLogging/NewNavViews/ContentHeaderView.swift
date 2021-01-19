@@ -13,14 +13,25 @@ struct ContentHeaderView: View {
     
     var body: some View {
         HStack {
+            Image("PB_Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 50)
             Spacer()
             Button {
                 if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
                     UIApplication.shared.open(url)
                 }
             } label: {
-                Image(systemName: "info.circle")
-                    .padding()
+                HStack {
+                    Text("Help Center")
+                        .font(.pblBold(size: 18))
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 18)
+                }
+                .padding()
             }
             
 /* To Return the Information Modal View, uncomment bellow, and Delete Button above.*/
@@ -33,6 +44,8 @@ struct ContentHeaderView: View {
 //            }
             
         }
+        .background(Color.pblNotBlack)
+        .foregroundColor(.white)
         .sheet(isPresented: $isInfoModalShown) {
             InfoModalView(isDisplayed: $isInfoModalShown)
         }

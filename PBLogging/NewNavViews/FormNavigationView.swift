@@ -20,18 +20,18 @@ struct FormNavigationView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(spacing: 30) {
                     ForEach(forms, id: \.self) { form in
                         NavigationLink(
                             destination: Main781FormView(form: form),
                             label: { Form781Card(form: form) })
                     }
                 }
-                Spacer()
+                .padding()
             }
-            .navigationBarTitle(Text("AFTO Form 781s"))
+            .navigationBarTitle(Text("Mission Forms"))
             .navigationBarItems(trailing:
-                                    TextAndIconButton(text: "New Form", size: 18.0, icon: "plus.circle")
+                                    TextAndIconButton(text: "New Form", size: 24.0, icon: "plus.circle")
                                     {
                         PersistenceController.newRecordForContext()
                                     })
