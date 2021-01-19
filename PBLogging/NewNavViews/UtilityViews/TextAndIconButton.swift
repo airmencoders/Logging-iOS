@@ -10,7 +10,7 @@ import SwiftUI
 struct TextAndIconButton: View {
     
     let text: String
-    var color: Color = .pblPrimary
+    var color: Color = .pblSecondary
     var size: CGFloat = 12.0
     let icon: String
     let action: () -> Void

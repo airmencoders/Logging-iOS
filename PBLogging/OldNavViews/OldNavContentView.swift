@@ -10,7 +10,6 @@ import SwiftUI
 struct OldNavContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HeaderView()
             BodyView()
         }.alertProvider()
     }

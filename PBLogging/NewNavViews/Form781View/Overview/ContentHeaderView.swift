@@ -1,5 +1,5 @@
 //
-//  HeaderView.swift
+//  ContentHeaderView.swift
 //  Logging
 //
 //  Created by John Bethancourt on 1/13/21.
@@ -33,18 +33,8 @@ struct ContentHeaderView: View {
                 }
                 .padding()
             }
-            
-/* To Return the Information Modal View, uncomment bellow, and Delete Button above.*/
-            
-//            Button{
-//                isInfoModalShown.toggle()
-//            } label: {
-//                Image(systemName: "info.circle")
-//                    .padding()
-//            }
-            
         }
-        .background(Color.pblNotBlack)
+        .background(Color.black)
         .foregroundColor(.white)
         .sheet(isPresented: $isInfoModalShown) {
             InfoModalView(isDisplayed: $isInfoModalShown)

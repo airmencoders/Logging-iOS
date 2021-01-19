@@ -17,7 +17,6 @@
 		4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84000825AE57F80089AAB7 /* Form781+PDF.swift */; };
 		4D8F555E25B0CA0200D2254A /* MissionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F555D25B0CA0200D2254A /* MissionDataSection.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
-		4DB8EFFF259F17050012F02B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8EFFE259F17050012F02B /* HeaderView.swift */; };
 		4DB8F004259F1E190012F02B /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8F003259F1E190012F02B /* BodyView.swift */; };
 		4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FD8259ED18300C98EB8 /* AppDelegate.swift */; };
 		4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FDA259ED18300C98EB8 /* SceneDelegate.swift */; };
@@ -115,7 +114,6 @@
 		4D84000825AE57F80089AAB7 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
 		4D8F555D25B0CA0200D2254A /* MissionDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataSection.swift; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
-		4DB8EFFE259F17050012F02B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4DB8F003259F1E190012F02B /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
 		4DD13FD5259ED18300C98EB8 /* Logging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD13FD8259ED18300C98EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				7FF0FE7A25A64CC700097C66 /* RegularText.swift */,
 				7FF0FE9D25A7AB3600097C66 /* BoldTextField.swift */,
 				7FF0FEBA25A8D06000097C66 /* RegularTextField.swift */,
-				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 				7FF0FE8225A64D9200097C66 /* ListHeaderText.swift */,
 			);
 			path = Misc;
@@ -252,6 +249,27 @@
 				7FF0FE8A25A775DC00097C66 /* GrandTotalsView.swift */,
 			);
 			path = FormViews;
+			sourceTree = "<group>";
+		};
+		4DBDD02A25B78FFE00C7C3DB /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */,
+				BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */,
+				BFBAF98325AFAEF200BBFBD8 /* FormNavigationView.swift */,
+				BFBAF96825AFAA3C00BBFBD8 /* Form781Card.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		4DBDD02E25B790AC00C7C3DB /* UtilityViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */,
+				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
+				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
+			);
+			path = UtilityViews;
 			sourceTree = "<group>";
 		};
 		4DD13FCC259ED18300C98EB8 = {
@@ -340,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				4DD13FDC259ED18300C98EB8 /* OldNavContentView.swift */,
-				4DB8EFFE259F17050012F02B /* HeaderView.swift */,
 				4DB8F003259F1E190012F02B /* BodyView.swift */,
 				4D8A8F2125A5325500D197FD /* SideViews */,
 				4D8A8F2925A5357F00D197FD /* FormViews */,
@@ -431,12 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				BFBAF98B25AFB53300BBFBD8 /* Form781View */,
-				BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */,
-				BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */,
-				BFBAF98325AFAEF200BBFBD8 /* FormNavigationView.swift */,
-				BFBAF96825AFAA3C00BBFBD8 /* Form781Card.swift */,
-				BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */,
-				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
+				4DBDD02E25B790AC00C7C3DB /* UtilityViews */,
 			);
 			path = NewNavViews;
 			sourceTree = "<group>";
@@ -444,6 +456,7 @@
 		BFBAF98B25AFB53300BBFBD8 /* Form781View */ = {
 			isa = PBXGroup;
 			children = (
+				4DBDD02A25B78FFE00C7C3DB /* Overview */,
 				BFBAF99C25AFBD5800BBFBD8 /* PDFPreview */,
 				BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */,
 				BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */,
@@ -658,7 +671,6 @@
 				7F83DAC925A4CC5D00D5860C /* FormHeaderView.swift in Sources */,
 				7FF0FE7625A64B0B00097C66 /* FlightTimeCellView.swift in Sources */,
 				13549C0325B103210000C875 /* String+Ext.swift in Sources */,
-				4DB8EFFF259F17050012F02B /* HeaderView.swift in Sources */,
 				BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BF982CD025A54E3D00C14019 /* Persistence.swift in Sources */,

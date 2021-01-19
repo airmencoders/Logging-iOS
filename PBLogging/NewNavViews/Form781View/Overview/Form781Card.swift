@@ -45,8 +45,8 @@ struct Form781Card: View {
             Image(systemName: "chevron.right")
         }
         .padding()
-        .background(Color.pblBackground)
-        .foregroundColor(.pblPrimary)
+        .background(Color.pblDefault)
+        .foregroundColor(Color.pblSecondary)
         .cornerRadius(10)
         .shadow(radius: 5, x: 1, y: 2)
         
