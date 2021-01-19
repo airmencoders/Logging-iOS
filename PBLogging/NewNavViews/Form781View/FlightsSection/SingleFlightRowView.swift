@@ -68,13 +68,7 @@ struct SingleFlightRowView: View {
 
 struct SingleFlightRowView_Previews: PreviewProvider {
     
-    static let previewController = PersistenceController.preview
-    
-    static let flight: Flight = {
-        var flight = Flight(context: previewController.container.viewContext)
-        flight.missionNumber = "ABCDEFG"
-        return flight
-    }()
+    static let flight = FakeData.flights.randomElement()!
     
     static var previews: some View {
         SingleFlightRowView(flight: flight)

@@ -70,10 +70,10 @@ struct MissionDataSection: View {
         // Does Core Data do this for me?
         // In other words, if I assign the variable with the
         // same value, is the object dirtied or not?
-        if form.mds != mds {
-            form.mds = mds
-            try? self.moc.save()
-        }
+        
+        //I think so, but this PersistenceController saveContext method checks for changes before saving so won't thrash unless needed
+        form.mds = mds
+        PersistenceController.saveContext()
     }
 }
 

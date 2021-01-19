@@ -30,14 +30,8 @@ struct SingleAircrewRowView: View {
 }
 
 struct SingleAircrewRowView_Previews: PreviewProvider {
-    
-    static let previewController = PersistenceController.preview
-    
-    static let member: AircrewData = {
-        var member = AircrewData(context: previewController.container.viewContext)
-        member.lastName = "Smith"
-        return member
-    }()
+        
+    static let member = FakeData.crew.randomElement()!
     
     static var previews: some View {
         SingleAircrewRowView(member: member)

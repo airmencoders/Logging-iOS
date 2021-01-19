@@ -50,19 +50,12 @@ struct AircrewDetailFlightTime: View {
 
 struct AircrewDetailFlightTime_Previews: PreviewProvider {
     
-    static let previewController = PersistenceController.preview
-    
-    static let data: AircrewData = {
-        let data = AircrewData(context: previewController.container.viewContext)
-        data.ftPrimary = 1.1
-        data.ftSecondary = 2.0
-        return data
-    }()
-    
+    static let member = FakeData.crew.randomElement()!
+
     static var previews: some View {
-        AircrewDetailFlightTime(member: data)
+        AircrewDetailFlightTime(member: member)
             .previewLayout(.sizeThatFits)
-        AircrewDetailFlightTime(member: data)
+        AircrewDetailFlightTime(member: member)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

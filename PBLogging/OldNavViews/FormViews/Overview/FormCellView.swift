@@ -32,7 +32,7 @@ struct FormCellView: View {
                 HStack {
                     Button {
                         moc.delete(form)
-                        try? moc.save()
+                        PersistenceController.saveContext()
                     } label: {
                         Image(systemName: "minus.circle")
                             .padding()

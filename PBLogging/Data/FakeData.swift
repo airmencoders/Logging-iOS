@@ -3,9 +3,44 @@
 //  PBLogging
 //
 
-import Foundation
+import UIKit
+import CoreData
 
-struct FauxData{
+enum FakeData{
+    
+    static let flights: [Flight] = {
+        
+        let numberOfFlights = 5
+        
+        let previewController = PersistenceController.preview
+        
+        FakeData.addFakeRecordsForContext(previewController.container.viewContext)
+        
+        let flightsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Flight")
+        
+        var flights = try? (previewController.container.viewContext.fetch(flightsFetch) as! [Flight])
+        
+        flights = Array((flights?.prefix(numberOfFlights))!)
+        return flights!
+        
+    }()
+    
+    static let crew: [AircrewData] = {
+        
+        let numberOfCrew = 5
+        
+        let previewController = PersistenceController.preview
+        
+        FakeData.addFakeRecordsForContext(previewController.container.viewContext)
+        
+        let crewFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AircrewData")
+        
+        var crew = try? (previewController.container.viewContext.fetch(crewFetch) as! [AircrewData])
+        
+        crew = Array((crew?.prefix(numberOfCrew))!)
+        return crew!
+        
+    }()
     
     static let icaos = ["RJSM", "KTIK", "KNGB", "RJTY", "KSKA", "KPDX", "PHIK", "RJTA", "RJTZ", "KADW", "KAFF", "KBKF", "KCHS", "KDMA", "KEDW", "KHIF", "KHMN", "KIAB", "KLFI", "KLSV", "KSSC", "KSUU"]
     
@@ -130,4 +165,80 @@ struct FauxData{
         return orgs
     }()
     
+    static func addFakeRecordsForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+        var counter = 0
+        
+        for i in 0..<4 {
+            
+            let newForm             = Form781(context: context)
+            newForm.date            = FakeData.dates[i]
+            newForm.mds             = FakeData.mds[i]
+            newForm.issuingUnit     = FakeData.issuingUnits[i]
+            newForm.harmLocation    = FakeData.harmLocations[i]
+            newForm.unitCharged     = FakeData.unitCharged[i]
+            newForm.flightAuthNum   = FakeData.flightAuthNum[i]
+            newForm.serialNumber    = FakeData.serialNumbers[i]
+            
+            for x in 0..<4 {
+                let newFlight           = Flight(context: context)
+                newFlight.fromICAO      = FakeData.icaos[counter]
+                newFlight.toICAO        = FakeData.icaos[counter + 1]
+                newFlight.missionNumber = "\(x * i)"
+                newFlight.missionSymbol = "234"
+                newFlight.fullStop      = 1
+                newFlight.touchAndGo    = 2
+                newFlight.takeOffTime   = FakeData.dateTimePairs[counter + x].0
+                newFlight.landTime      = FakeData.dateTimePairs[counter + x].1
+                newFlight.form781       = newForm
+                counter += 1
+            }
+            
+            var crewCounter: Float = 0
+            for x in 0..<35 {
+                crewCounter = Float(x) + 0.1
+                let newMember                   = AircrewData(context: context)
+                newMember.lastName              = FakeData.lastNames[x]
+                newMember.ssanLast4             = FakeData.socials[x]
+                newMember.flightAuthDutyCode    = FakeData.flightAuthDutyCodes[x]
+                newMember.flyingOrganization    = FakeData.flightOrgs[x]
+                                                              
+                newMember.ftPrimary             = crewCounter ; crewCounter += 0.1
+                newMember.ftSecondary           = crewCounter ; crewCounter += 0.1
+                newMember.ftInstructor          = crewCounter ; crewCounter += 0.1
+                newMember.ftEvaluator           = crewCounter ; crewCounter += 0.1
+                newMember.ftOther               = crewCounter ; crewCounter += 0.1
+                newMember.ftTotalTime           = newMember.ftPrimary + newMember.ftSecondary + newMember.ftInstructor + newMember.ftEvaluator + newMember.ftOther
+                
+                newMember.ftTotalSorties        = Int16(x % 5) + 1
+                
+                newMember.fcNight               = crewCounter ; crewCounter += 0.1
+                newMember.fcInstructor          = crewCounter ; crewCounter += 0.1
+                newMember.fcSimInstructor       = crewCounter ; crewCounter += 0.1
+                newMember.fcNVG                 = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatTime          = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatSorties       = Int16(x % 5) + 1
+                
+                newMember.fcCombatSupportTime       = crewCounter ; crewCounter += 0.1
+                newMember.fcCombatSupportSorties    = Int16(x % 5) + 2
+                newMember.reserveStatus             = 3
+                
+                newMember.form781 = newForm
+                
+            }
+        }
+        PersistenceController.saveContext(context)
+ 
+    }
+    
 }
+
+#if DEBUG
+extension UIWindow {
+    open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            FakeData.addFakeRecordsForContext()
+            
+        }
+    }
+}
+#endif

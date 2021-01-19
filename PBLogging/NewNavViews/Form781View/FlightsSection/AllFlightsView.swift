@@ -48,31 +48,17 @@ struct AllFlightsView: View {
     }
 }
 
-// TODO: Repair preview
 struct AllFlightsView_Previews: PreviewProvider {
-    
-    static let previewController = PersistenceController.preview
-    
-    static let flights: [Flight] = {
         
-        let numberOfFlights = 5
+    static let flights: [Flight] = FakeData.flights
+      
+    let flightsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Flight")
         
-        let previewController = PersistenceController.preview
-        PersistenceController.addFakeRecordsForContext(previewController.container.viewContext)
-        
-        let flightsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Flight")
-        
-        var flights = try? (previewController.container.viewContext.fetch(flightsFetch) as! [Flight])
-        
-        flights = Array((flights?.prefix(numberOfFlights))!)
-        return flights!
-    }()
-    
     static var previews: some View {
         
         AllFlightsView(flights: flights)
             .previewLayout(.sizeThatFits)
-            .environment(\.managedObjectContext, previewController.container.viewContext)
+             
         AllFlightsView(flights: flights)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)

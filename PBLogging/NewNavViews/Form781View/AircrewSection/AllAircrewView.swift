@@ -52,23 +52,8 @@ struct AllAircrewView: View {
 }
 
 struct AllAircrewView_Previews: PreviewProvider {
-    
-    static let previewController = PersistenceController.preview
-    
-    static let members: [AircrewData] = {
         
-        let numberOfMembers = 5
-        
-        let previewController = PersistenceController.preview
-        PersistenceController.addFakeRecordsForContext(previewController.container.viewContext)
-        
-        let aircrewFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AircrewData")
-        
-        var members = try? (previewController.container.viewContext.fetch(aircrewFetch) as! [AircrewData])
-        
-        members = Array((members?.prefix(numberOfMembers))!)
-        return members!
-    }()
+    static let members = FakeData.crew
     
     static var previews: some View {
         AllAircrewView(members: members)
