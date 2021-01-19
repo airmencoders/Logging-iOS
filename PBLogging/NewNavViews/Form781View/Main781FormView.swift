@@ -82,9 +82,8 @@ struct Main781FormView_Previews: PreviewProvider {
     
     static var previews: some View {
         Main781FormView(form: form)
-            .previewLayout(.sizeThatFits)
+            .iPadPro9_7(isDark: false)
         Main781FormView(form: form)
-            .previewLayout(.sizeThatFits)
-            .preferredColorScheme(.dark)
+            .iPadPro9_7(isDark: true)
     }
 }
