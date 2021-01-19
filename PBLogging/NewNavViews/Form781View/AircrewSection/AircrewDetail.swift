@@ -47,7 +47,7 @@ struct AircrewDetail: View {
             Section(header: Text("Flight Time")
                                 .font(.pblBold(size: 20))
                                 .foregroundColor(.pblPrimary)) {
-                AircrewDetail_FlightTime(member: member)
+                AircrewDetailFlightTime(member: member)
                     .padding()
                     .background(Color.pblBackground)
                     .cornerRadius(20)
@@ -59,7 +59,7 @@ struct AircrewDetail: View {
             Section(header: Text("Flight Conditions")
                                 .font(.pblBold(size: 20))
                                 .foregroundColor(.pblPrimary)) {
-                AircrewDetail_FlightConditions(member: member)
+                AircrewDetailFlightConditions(member: member)
                     .padding()
                     .background(Color.pblBackground)
                     .cornerRadius(20)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AircrewDetail_FlightTime: View {
+struct AircrewDetailFlightTime: View {
     
     var member: AircrewData
     
@@ -48,7 +48,7 @@ struct AircrewDetail_FlightTime: View {
     }
 }
 
-struct AircrewDetail_FlightTime_Previews: PreviewProvider {
+struct AircrewDetailFlightTime_Previews: PreviewProvider {
     
     static let previewController = PersistenceController.preview
     
@@ -60,9 +60,9 @@ struct AircrewDetail_FlightTime_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        AircrewDetail_FlightTime(member: data)
+        AircrewDetailFlightTime(member: data)
             .previewLayout(.sizeThatFits)
-        AircrewDetail_FlightTime(member: data)
+        AircrewDetailFlightTime(member: data)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }
