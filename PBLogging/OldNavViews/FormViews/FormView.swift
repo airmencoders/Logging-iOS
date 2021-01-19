@@ -32,14 +32,9 @@ struct FormView: View {
                     Spacer()
                     TextAndIconButton(text: "SHARE", icon: "square.and.arrow.up") {
                         print("Me Share one day")
-//                        if let form781 = forms.first {
-//                           form781.popoverSharePDF(from: self, sourceRect: .frame)
-//                        }
                     }
                     TextAndIconButton(text: "PRINT", icon: "printer.fill") {
-                        if let form781 = forms.first {
-                            form781.printPDF()
-                        }
+
                     }
                 } else {
                     BoldText(text: "Overview", size: 18)
