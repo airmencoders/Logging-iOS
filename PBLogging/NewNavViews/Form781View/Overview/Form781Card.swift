@@ -15,11 +15,11 @@ struct Form781Card: View {
     @State var formDate      = ""
     @State var mds           = ""
     @State var serialNumber  = ""
-
-    // We need the uninitialized state to differentiate between
-    // the the starting 'rotation' and all others.
-    @State var isLandscape: Bool?
-
+    let labelWidth: CGFloat  = 222
+  
+    //faceDown, faceUp, and Unknown could be reported at launch, so screen bounds is more reliable
+    @State var isLandscape = UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.height
+ 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -28,25 +28,27 @@ struct Form781Card: View {
                 IconText(image: "calendar", text: "21 Jul 2020")
             }
             Spacer()
-            if isLandscape != nil && isLandscape! {
-                IconText(image: "square.and.arrow.up", text: "Last shared: " + "21 Jul 2020")
+            if isLandscape {
+                CardLabel(image: "square.and.arrow.up", labelText: "Last Shared:", mutableText: "21 Jul 2020")
+                    .namespacedMatchedGeometryEffect(id: "shared")
+                    .frame(width:labelWidth)
                 Spacer()
-                IconText(image: "envelope", text: "Last emailed: " + "22 Jul 2020")
+                CardLabel(image: "envelope", labelText: "Last Emailed:", mutableText: "22 Jul 2020", imagePadding: -1.5)
+                        .namespacedMatchedGeometryEffect(id: "emailed")
+                    .frame(width:labelWidth)
+                
+                
            } else {
                 VStack {
-                    Image(systemName: "square.and.arrow.up")
-                    Image(systemName: "envelope")
+                    CardLabel(image: "square.and.arrow.up", labelText: "Last Shared:", mutableText: "21 Jul 2020")
+                        .frame(width:labelWidth)
+                        .namespacedMatchedGeometryEffect(id: "shared")
+                    Spacer()
+                    CardLabel(image: "envelope", labelText: "Last Emailed:", mutableText: "22 Jul 2020", imagePadding: -1.5)
+                        .namespacedMatchedGeometryEffect(id: "emailed")
+                        .frame(width:labelWidth)
                 }
-                VStack(alignment: .leading) {
-                    Text("Last shared:")
-                    Text("Last emailed:")
-                }
-                VStack {
-                    Text("21 Jul 2020")
-                        .font(.pblRegular(size: 16))
-                    Text("21 Jul 2020")
-                        .font(.pblRegular(size: 16))
-                }
+                
             }
             Spacer()
             // ATTN: Get the complete state from the form (when we can)
@@ -54,7 +56,7 @@ struct Form781Card: View {
             IconText(image: "circle", text: "Complete")
             Spacer()
             Image(systemName: "chevron.right")
-        }
+        }.namespaced()
         .padding()
         .background(Color.pblDefault)
         .foregroundColor(Color.pblSecondary)
@@ -65,16 +67,14 @@ struct Form781Card: View {
             mds = form.mds
             serialNumber = form.serialNumber
         }
-        .onReceive(orientationChanged) { event in
+        .onReceive(orientationChanged) { _ in
             withAnimation(.smooth()) {
-                // We get called on launch and the screen bounds are correct.
-                if isLandscape == nil {
-                    isLandscape = UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.height
-                } else {
-                    // When we get called on a device rotation, screen bounds
-                    // are still what they were, not what they will be.
-                    isLandscape = UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width
+                //faceDown, faceUp, and Unknown will have no effect
+                // only portrait or landscape orientations will cause a change
+                if UIDevice.current.orientation.isLandscape || UIDevice.current.orientation.isPortrait{
+                    isLandscape = UIDevice.current.orientation.isLandscape
                 }
+                
             }
         }
     }
@@ -90,5 +90,27 @@ struct Form781Card_Previews: PreviewProvider {
         Form781Card(form:form)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
+    }
+}
+
+
+struct CardLabel: View {
+    
+    let image: String
+    let labelText: String
+    let mutableText: String
+    var imagePadding: CGFloat = 0.0
+    
+    var body: some View {
+        HStack {
+            Image(systemName: image)
+                .padding(.horizontal, imagePadding)
+            Text(labelText)
+                .font(.pblRegular(size: 16))
+            Spacer()
+            Text(mutableText)
+                .font(.pblRegular(size: 16))
+                
+        }
     }
 }

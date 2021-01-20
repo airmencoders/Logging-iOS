@@ -85,6 +85,7 @@
 		BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF9B325AFC57500BBFBD8 /* SingleFlightRowView.swift */; };
 		BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */; };
 		D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2223E5525B7691C00B6A33F /* PreviewMods.swift */; };
+		D2223E8225B7FBBE00B6A33F /* NamespaceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2223E8125B7FBBE00B6A33F /* NamespaceWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,7 @@
 		BFBAF9B325AFC57500BBFBD8 /* SingleFlightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFlightRowView.swift; sourceTree = "<group>"; };
 		BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PBLStyle.swift"; sourceTree = "<group>"; };
 		D2223E5525B7691C00B6A33F /* PreviewMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMods.swift; sourceTree = "<group>"; };
+		D2223E8125B7FBBE00B6A33F /* NamespaceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +451,7 @@
 		BF5C1F2225A6835A0075404C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D2223E8125B7FBBE00B6A33F /* NamespaceWrapper.swift */,
 				D2223E5525B7691C00B6A33F /* PreviewMods.swift */,
 				BF5C1F2325A683690075404C /* AlertProvider.swift */,
 			);
@@ -707,6 +710,7 @@
 				138304A125B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift in Sources */,
 				BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */,
 				4DFF497125A5776900C65720 /* AircrewListView.swift in Sources */,
+				D2223E8225B7FBBE00B6A33F /* NamespaceWrapper.swift in Sources */,
 				BF982CD525A54E5900C14019 /* FakeData.swift in Sources */,
 				BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */,
 				7FF0FE7125A648FE00097C66 /* FlightTimeListView.swift in Sources */,
