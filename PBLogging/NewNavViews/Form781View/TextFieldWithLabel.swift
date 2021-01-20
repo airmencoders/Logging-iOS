@@ -16,11 +16,9 @@ struct TextFieldWithLabel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(label)
-                .font(.pblBold(size: 12))
-                .foregroundColor(.pblPrimary)
+                .fontFormLabel()
             TextField(placeholder, text: $userInput)
-                .font(.pblRegular(size: 16))
-                .foregroundColor(.pblPrimary)
+                .fontFormInput()
         }
     }
 }

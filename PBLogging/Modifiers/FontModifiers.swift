@@ -13,7 +13,7 @@ struct PageHeadingModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom("DMSans-Bold", size: 52))
+            .font(.custom("DMSans-Bold", size: 40))
             .foregroundColor(color)
     }
 }
@@ -22,7 +22,7 @@ struct SectionHeadingModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
-            .font(.custom("DMSans-Bold", size: 31))
+            .font(.custom("DMSans-Bold", size: 24))
             .foregroundColor(.pblSecondary)
     }
 }
@@ -31,7 +31,7 @@ struct FormInputModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
-            .font(.custom("DMSans-Regular", size: 23))
+            .font(.custom("DMSans-Regular", size: 18))
             .foregroundColor(.pblSecondary)
             //.autocapitalization(.allCharacters)
     }
@@ -41,7 +41,7 @@ struct FormLabelModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
-            .font(.custom("DMSans-Bold", size: 16))
+            .font(.custom("DMSans-Bold", size: 12))
             .foregroundColor(.pblTertiary)
             //.autocapitalization(.allCharacters)
     }
@@ -51,7 +51,7 @@ struct FormMessageModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
-            .font(.custom("DMSans-Bold", size: 16))
+            .font(.custom("DMSans-Bold", size: 12))
             .foregroundColor(.pblSecondary)
     }
 }
@@ -106,12 +106,13 @@ struct FontModifiers_Previews: PreviewProvider {
             .previewDisplayName("H2 - Section Heading - Dark")
             .preferredColorScheme(.dark)
         
-        Text("Hello World")
+        Text("HELLO WORLD")
+            .tracking(2)
             .fontFormInput()
             .padding()
             .previewLayout(.sizeThatFits)
             .previewDisplayName("H3 - Form Input - Light")
-        Text("Hello World")
+        Text("HELLO WORLD")
             .fontFormInput()
             .padding()
             .previewLayout(.sizeThatFits)

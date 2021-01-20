@@ -33,27 +33,36 @@ struct MissionDataSection: View {
     @State private var flightAuthNum     = ""
 
     var body: some View {
-        Section(header: Text("Mission Data").font(.headline)) {
-            TextField("Date", text: $date)
-            TextField("MDS", text: $mds, onEditingChanged: { beginEdit in
-                // This fires on becoming or resigning first responder.
-                // ATTN: But not when the form is dismissed
-                if !beginEdit {
+        Section(header: Text("Mission Data").fontSectionHeading()) {
+            HStack {
+                TextFieldWithLabel(label: "DATE (DD/MMM/YYYY)", placeholder: "15 JAN 2020", userInput: $date)
+                Image(systemName: "calendar")
+                    .foregroundColor(.pblSecondary)
+            }
+            VStack(alignment: .leading, spacing: 5) {
+                Text("MISSION DESIGN SYSTEM")
+                    .fontFormLabel()
+                TextField("MDS", text: $mds, onEditingChanged: { beginEdit in
+                    // This fires on becoming or resigning first responder.
+                    // ATTN: But not when the form is dismissed
+                    if !beginEdit {
+                        updateMDSInCoreData()
+                    }
+                })
+                .fontFormInput()
+                .onDisappear() {
+                    // We do not appear to resign first responder when the
+                    // user navigates back to the parent level.
+                    // This updates the form in core data, but it not picked up
+                    // by the parent.
                     updateMDSInCoreData()
                 }
-            })
-            .onDisappear() {
-                // We do not appear to resign first responder when the
-                // user navigates back to the parent level.
-                // This updates the form in core data, but it not picked up
-                // by the parent.
-                updateMDSInCoreData()
             }
-            TextField("SERIAL NUMBER", text: $serialNumber)
-            TextField("UNIT CHARGED FOR FLYING HOURS", text: $unitCharged)
-            TextField("HARM LOCATION", text: $harmLocation)
-            TextField("ISSUING UNIT", text: $issuingUnit)
-            TextField("FLIGHT AUTH #", text: $flightAuthNum)
+            TextFieldWithLabel(label: "SERIAL NUMBER", placeholder: "01-0193", userInput: $serialNumber)
+            TextFieldWithLabel(label: "UNIT CHARGED FOR FLYING HOURS", placeholder: "437 AW (HQ AMC)/DKFX", userInput: $unitCharged)
+            TextFieldWithLabel(label: "HARM LOCATION", placeholder: "JB CHARLESTON", userInput: $harmLocation)
+            TextFieldWithLabel(label: "FLIGHT AUTH #", placeholder: "21-0048", userInput: $flightAuthNum)
+            TextFieldWithLabel(label: "ISSUING UNIT", placeholder: "00 16AS", userInput: $issuingUnit)
         }
         .onAppear() {
             date = form.date?.string() ?? "Date Unknown"

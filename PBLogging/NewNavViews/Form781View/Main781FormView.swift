@@ -14,8 +14,8 @@ struct Main781FormView: View {
     @State var remarks:         String = ""
     @State var flights:         [Flight] = [Flight]()
     @State var aircrew:         [AircrewData] = [AircrewData]()
-    @State var datePicker =     Date()
-    @State var datePickerDown = Date()
+    @State var datePicker       = Date()
+    @State var datePickerDown   = Date()
     @State var isPreviewEnabled = true
     
     var body: some View {
@@ -23,23 +23,25 @@ struct Main781FormView: View {
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
-                Section(header: Text("Flights").font(.headline)) {
+                Section(header: Text("Flight Seq").fontSectionHeading()) {
                     NavigationLink(
                         destination: AllFlightsView(flights: flights),
                         label: {
-                            Text("Flights")
+                            Text("FLIGHT SEQ")
+                                .fontFormInput()
                         })
                 }
                 
-                Section(header: Text("Aircrew").font(.headline)) {
+                Section(header: Text("Aircrew List").fontSectionHeading()) {
                     NavigationLink(
                         destination: AllAircrewView(members: aircrew),
                         label: {
-                            Text("Aircrew")
+                            Text("AIRCREW LIST")
+                                .fontFormInput()
                         })
                 }
                 
-                Section(header: Text("Remarks").font(.headline)) {
+                Section(header: Text("Remarks").fontSectionHeading()) {
                     TextField("REMARKS", text:$remarks)
                     DatePicker("Take Off Time", selection: $datePicker, displayedComponents: [.hourAndMinute])
                         .environment(\.locale, .init(identifier: "en_GB"))
