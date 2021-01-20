@@ -44,7 +44,7 @@ struct SingleFlightRowView: View {
             }
         }
         .padding()
-        .background(Color.pblBackground)
+        .background(Color.pblDefault)
         .cornerRadius(20)
         .shadow(radius: 5, x: 1, y: 2)
         

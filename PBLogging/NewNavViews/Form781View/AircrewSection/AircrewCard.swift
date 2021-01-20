@@ -14,11 +14,11 @@ struct AircrewCard: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.pblBackground)
+                .foregroundColor(.pblDefault)
                 .cornerRadius(10.0)
                 .frame(width: 700, height: 100, alignment: .center)
                 //.shadow(color: Color("primary"), radius: 5, x: 5, y: 5)
-                .shadow(color: Color("primary").opacity(0.33), radius: 5, x: 1, y: 2)
+                .shadow(color: Color.black.opacity(0.33), radius: 5, x: 1, y: 2)
                 .padding()
             VStack(alignment: .leading) {
                 HStack(spacing: 5) {
@@ -53,7 +53,7 @@ struct AircrewCard: View {
                 .frame(width: 600)
             }
             .frame(width: 700, height: 50)
-            .foregroundColor(.pblPrimary)
+            .foregroundColor(.pblSecondary)
         }
     }
 }

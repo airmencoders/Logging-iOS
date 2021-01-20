@@ -23,7 +23,10 @@ struct Main781FormView: View {
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
-                Section(header: Text("Flight Seq").fontSectionHeading()) {
+                    .listRowBackground(Color.pblDefault)
+
+                Section(header: Text("Flight Seq")
+                            .fontSectionHeading()) {
                     NavigationLink(
                         destination: AllFlightsView(flights: flights),
                         label: {
@@ -31,8 +34,10 @@ struct Main781FormView: View {
                                 .fontFormInput()
                         })
                 }
+                .listRowBackground(Color.pblDefault)
                 
-                Section(header: Text("Aircrew List").fontSectionHeading()) {
+                Section(header: Text("Aircrew List")
+                            .fontSectionHeading()) {
                     NavigationLink(
                         destination: AllAircrewView(members: aircrew),
                         label: {
@@ -40,8 +45,10 @@ struct Main781FormView: View {
                                 .fontFormInput()
                         })
                 }
+                .listRowBackground(Color.pblDefault)
                 
-                Section(header: Text("Remarks").fontSectionHeading()) {
+                Section(header: Text("Remarks")
+                            .fontSectionHeading()) {
                     TextField("REMARKS", text:$remarks)
                     DatePicker("Take Off Time", selection: $datePicker, displayedComponents: [.hourAndMinute])
                         .environment(\.locale, .init(identifier: "en_GB"))
@@ -49,12 +56,14 @@ struct Main781FormView: View {
                         .environment(\.locale, .init(identifier: "en_GB"))
                     
                 }
+                .listRowBackground(Color.pblDefault)
                 .navigationBarTitle(Text("Current Form"))
             }
             
             Spacer()
         }
         .onAppear {
+            UITableView.appearance().backgroundColor = .clear
             remarks = form.remarks
             flights = form.flights
             aircrew = form.aircrewData
