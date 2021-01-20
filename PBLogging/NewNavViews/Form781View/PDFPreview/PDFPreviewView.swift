@@ -143,3 +143,14 @@ struct ActivityViewController: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
     
 }
+ struct PDFPreviewView_Previews: PreviewProvider {
+     
+     static let form = FakeData.form781s.randomElement()!
+
+     static var previews: some View {
+        PDFPreviewView(form:form)
+            .iPadPro9_7(isDark: false)
+        PDFPreviewView(form:form)
+            .iPadPro9_7(isDark: true)
+     }
+ }

@@ -50,9 +50,7 @@ struct AllFlightsView: View {
 
 struct AllFlightsView_Previews: PreviewProvider {
         
-    static let flights: [Flight] = FakeData.flights
-      
-    let flightsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Flight")
+    static let flights = FakeData.flights
         
     static var previews: some View {
         

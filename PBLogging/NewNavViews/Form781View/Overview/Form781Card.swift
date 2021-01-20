@@ -60,15 +60,7 @@ struct Form781Card: View {
 
 struct Form781Card_Previews: PreviewProvider {
     
-    static let previewController = PersistenceController.preview
-    
-    static let form: Form781 = {
-        let form = Form781(context: previewController.container.viewContext)
-        form.date = Date()
-        form.mds = "C0017A"
-        form.serialNumber = "1324"
-        return form 
-    }()
+    static let form = FakeData.form781s.randomElement()!
 
     static var previews: some View {
         Form781Card(form:form)

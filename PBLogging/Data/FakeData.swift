@@ -8,6 +8,23 @@ import CoreData
 
 enum FakeData{
     
+    static let form781s: [Form781] = {
+        
+        let numberOfForms = 5
+        
+        let previewController = PersistenceController.preview
+        
+        FakeData.addFakeRecordsForContext(previewController.container.viewContext)
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Form781")
+        
+        var forms = try? (previewController.container.viewContext.fetch(fetchRequest) as! [Form781])
+        
+        forms = Array((forms?.prefix(numberOfForms))!)
+        
+        return forms!
+    }()
+    
     static let flights: [Flight] = {
         
         let numberOfFlights = 5

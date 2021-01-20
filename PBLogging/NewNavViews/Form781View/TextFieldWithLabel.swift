@@ -29,8 +29,10 @@ struct TextFieldWithLabel_Previews: PreviewProvider {
     static var previews: some View {
         TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: .mock("ABCDEFG"))
             .previewLayout(.sizeThatFits)
+            .padding()
         TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: .mock("ABCDEFG"))
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
+            .padding()
     }
 }

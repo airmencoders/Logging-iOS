@@ -79,19 +79,7 @@ struct MissionDataSection: View {
 
 struct MissionDataSection_Previews: PreviewProvider {
     
-    static let previewController = PersistenceController.preview
-    
-    static let form: Form781 = {
-        let form = Form781(context: previewController.container.viewContext)
-        form.date = Date()
-        form.mds = "C0017A"
-        form.serialNumber = "1324"
-        form.unitCharged = "Pass The Buck Unit"
-        form.harmLocation = "No Harm / No Foul"
-        form.issuingUnit = "Let me tell you about my issues"
-        form.flightAuthNum = "1"
-        return form
-    }()
+    static let form = FakeData.form781s.randomElement()!
     
     static var previews: some View {
         Form {
