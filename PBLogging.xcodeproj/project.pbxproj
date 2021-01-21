@@ -272,6 +272,7 @@
 				BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */,
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
+				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
 			);
 			path = UtilityViews;
 			sourceTree = "<group>";
@@ -391,6 +392,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		4DDB426125B8DD7C00B121F8 /* CurrentForm */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */,
+				BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */,
+				4D8F555D25B0CA0200D2254A /* MissionDataSection.swift */,
+			);
+			path = CurrentForm;
+			sourceTree = "<group>";
+		};
 		4DFF496325A559A000C65720 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,7 +472,9 @@
 		BFBAF95725AFA93A00BBFBD8 /* NewNavViews */ = {
 			isa = PBXGroup;
 			children = (
+				4DBDD02A25B78FFE00C7C3DB /* Overview */,
 				BFBAF98B25AFB53300BBFBD8 /* Form781View */,
+				BFBAF99C25AFBD5800BBFBD8 /* PDFPreview */,
 				4DBDD02E25B790AC00C7C3DB /* UtilityViews */,
 			);
 			path = NewNavViews;
@@ -470,14 +483,9 @@
 		BFBAF98B25AFB53300BBFBD8 /* Form781View */ = {
 			isa = PBXGroup;
 			children = (
-				4DBDD02A25B78FFE00C7C3DB /* Overview */,
-				BFBAF99C25AFBD5800BBFBD8 /* PDFPreview */,
-				BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */,
-				BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */,
+				4DDB426125B8DD7C00B121F8 /* CurrentForm */,
 				BFBAF9AD25AFC54000BBFBD8 /* FlightsSection */,
 				BFBAF9A725AFC4D900BBFBD8 /* AircrewSection */,
-				4D8F555D25B0CA0200D2254A /* MissionDataSection.swift */,
-				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
 			);
 			path = Form781View;
 			sourceTree = "<group>";
