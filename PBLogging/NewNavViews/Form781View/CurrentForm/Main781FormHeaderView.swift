@@ -21,10 +21,10 @@ struct Main781FormHeaderView: View {
                 label: {
                     HStack {
                         Text("Print PDF")
-                            .fontSectionHeading()
+                            .fontFormInput()
                         Image(systemName: "printer")
-                            .foregroundColor(.pblSecondary)
                     }
+                    .foregroundColor(.pblSecondary)
                     .padding()
                 }).disabled(!isPreviewEnabled)
         }

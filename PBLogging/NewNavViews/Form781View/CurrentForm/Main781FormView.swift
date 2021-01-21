@@ -20,7 +20,6 @@ struct Main781FormView: View {
     
     var body: some View {
         VStack {
-            Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
                     .listRowBackground(Color.pblDefault)
@@ -60,9 +59,10 @@ struct Main781FormView: View {
                     
                 }
                 .listRowBackground(Color.pblDefault)
-                .sectionHeaderStyle()
-                .navigationBarTitle(Text("Current Form"))
             }
+            .sectionHeaderStyle()
+            .navigationBarTitle(Text("TBD"))
+            .navigationBarItems(trailing: Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form))
             Spacer()
         }
         .onAppear {

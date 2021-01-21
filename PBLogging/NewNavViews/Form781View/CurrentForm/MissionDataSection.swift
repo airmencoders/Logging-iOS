@@ -66,7 +66,8 @@ struct MissionDataSection: View {
                 .padding()
                 .overlay (
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.pblDefault, lineWidth: 2)
+                        .stroke(Color.pblTertiary, lineWidth: 2)
+                        .opacity(0.3)
                 )
 
                 Spacer()
@@ -79,7 +80,8 @@ struct MissionDataSection: View {
                 .padding()
                 .overlay (
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.pblDefault, lineWidth: 2)
+                        .stroke(Color.pblTertiary, lineWidth: 2)
+                        .opacity(0.3)
                 )
            }
         }

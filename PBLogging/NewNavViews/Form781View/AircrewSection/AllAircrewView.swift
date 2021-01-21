@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AllAircrewView: View {
-    
+
     @State var members: [AircrewData]
     
     var body: some View {
@@ -25,8 +25,7 @@ struct AllAircrewView: View {
         } 
         .navigationBarTitle(Text("Aircrew"))
         // .navigationBarItems(trailing: EditButton())
-        .navigationBarItems(leading: EditButton(),
-                            trailing: Button {
+        .navigationBarItems(trailing: Button {
                                 //print("do stuff")
                                 add()
                             } label: {

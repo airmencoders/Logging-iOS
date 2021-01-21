@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AllFlightsView: View {
-    
+
     @State var flights: [Flight]
         
     var body: some View {
@@ -23,17 +23,15 @@ struct AllFlightsView: View {
         }
         .padding(.top)
         .navigationBarTitle(Text("Flight Seq"))
-        .navigationBarItems(leading: EditButton(),
-                            trailing: Button {
+        .navigationBarItems(trailing: Button {
                                 add()
-                                
-                            } label: {
+                             } label: {
                                 HStack{
                                     Spacer()
                                     Image(systemName: "plus")
                                 }
                             })
-        // .navigationBarItems(trailing: EditButton())
+        // .navigationBarItems(leading: EditButton()) this only works on lists, so we need a new edit way.
     }
     
     func add(){
