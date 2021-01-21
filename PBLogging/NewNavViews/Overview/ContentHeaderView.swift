@@ -23,15 +23,11 @@ struct ContentHeaderView: View {
                     UIApplication.shared.open(url)
                 }
             } label: {
-                HStack {
-                    Text("Help Center")
-                        .font(.pblBold(size: 18))
                     Image(systemName: "info.circle")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 18)
-                }
-                .padding()
+                        .frame(height: 25)
+                        .padding()
             }
         }
         .background(Color.black)

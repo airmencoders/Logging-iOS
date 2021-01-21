@@ -24,6 +24,7 @@ struct Main781FormView: View {
             Form {
                 MissionDataSection(form: form)
                     .listRowBackground(Color.pblDefault)
+                    .sectionHeaderStyle()
 
                 Section(header: Text("Flight Seq")
                             .fontSectionHeading()) {
@@ -35,6 +36,7 @@ struct Main781FormView: View {
                         })
                 }
                 .listRowBackground(Color.pblDefault)
+                .sectionHeaderStyle()
                 
                 Section(header: Text("Aircrew List")
                             .fontSectionHeading()) {
@@ -46,6 +48,7 @@ struct Main781FormView: View {
                         })
                 }
                 .listRowBackground(Color.pblDefault)
+                .sectionHeaderStyle()
                 
                 Section(header: Text("Remarks")
                             .fontSectionHeading()) {
@@ -57,9 +60,9 @@ struct Main781FormView: View {
                     
                 }
                 .listRowBackground(Color.pblDefault)
+                .sectionHeaderStyle()
                 .navigationBarTitle(Text("Current Form"))
             }
-            
             Spacer()
         }
         .onAppear {

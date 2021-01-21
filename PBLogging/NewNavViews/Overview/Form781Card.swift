@@ -36,8 +36,6 @@ struct Form781Card: View {
                 CardLabel(image: "envelope", labelText: "Last Emailed:", mutableText: "22 Jul 2020", imagePadding: -1.5)
                         .namespacedMatchedGeometryEffect(id: "emailed")
                     .frame(width:labelWidth)
-                
-                
            } else {
                 VStack {
                     CardLabel(image: "square.and.arrow.up", labelText: "Last Shared:", mutableText: "21 Jul 2020")
@@ -48,7 +46,6 @@ struct Form781Card: View {
                         .namespacedMatchedGeometryEffect(id: "emailed")
                         .frame(width:labelWidth)
                 }
-                
             }
             Spacer()
             // ATTN: Get the complete state from the form (when we can)
@@ -56,7 +53,8 @@ struct Form781Card: View {
             IconText(image: "circle", text: "Complete")
             Spacer()
             Image(systemName: "chevron.right")
-        }.namespaced()
+        }
+        .namespaced()
         .padding()
         .background(Color.pblDefault)
         .foregroundColor(Color.pblSecondary)
@@ -74,7 +72,6 @@ struct Form781Card: View {
                 if UIDevice.current.orientation.isLandscape || UIDevice.current.orientation.isPortrait{
                     isLandscape = UIDevice.current.orientation.isLandscape
                 }
-                
             }
         }
     }
@@ -93,7 +90,6 @@ struct Form781Card_Previews: PreviewProvider {
     }
 }
 
-
 struct CardLabel: View {
     
     let image: String
@@ -110,7 +106,6 @@ struct CardLabel: View {
             Spacer()
             Text(mutableText)
                 .font(.pblRegular(size: 16))
-                
         }
     }
 }

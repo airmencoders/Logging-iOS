@@ -22,7 +22,7 @@ struct AllFlightsView: View {
             }
         }
         .padding(.top)
-        .navigationBarTitle(Text("Flights"))
+        .navigationBarTitle(Text("Flight Seq"))
         .navigationBarItems(leading: EditButton(),
                             trailing: Button {
                                 add()

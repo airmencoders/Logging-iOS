@@ -23,6 +23,7 @@ struct AircrewDetail: View {
         VStack(alignment: .leading) {
             Section(header: Text("Member Info")
                                 .font(.pblBold(size: 20))
+                                .padding(.top)
                                 .foregroundColor(.pblPrimary)) {
                 VStack {
                     HStack {
@@ -38,7 +39,7 @@ struct AircrewDetail: View {
                     .padding(.top)
                 }
                 .padding()
-                .background(Color.pblBackground)
+                .background(Color.pblDefault)
                 .cornerRadius(20)
                 .shadow(radius: 4, x: 1, y: 2)
             }
@@ -46,10 +47,11 @@ struct AircrewDetail: View {
 
             Section(header: Text("Flight Time")
                                 .font(.pblBold(size: 20))
+                                .padding(.top)
                                 .foregroundColor(.pblPrimary)) {
                 AircrewDetailFlightTime(member: member)
                     .padding()
-                    .background(Color.pblBackground)
+                    .background(Color.pblDefault)
                     .cornerRadius(20)
                     .shadow(radius: 4, x: 1, y: 2)
                     .multilineTextAlignment(.leading)
@@ -58,10 +60,11 @@ struct AircrewDetail: View {
 
             Section(header: Text("Flight Conditions")
                                 .font(.pblBold(size: 20))
+                                .padding(.top)
                                 .foregroundColor(.pblPrimary)) {
                 AircrewDetailFlightConditions(member: member)
                     .padding()
-                    .background(Color.pblBackground)
+                    .background(Color.pblDefault)
                     .cornerRadius(20)
                     .shadow(radius: 4, x: 1, y: 2)
             }
