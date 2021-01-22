@@ -200,9 +200,9 @@ enum FakeData{
             // some shared , some not, to test treatment of optional dates
             if i == 0 {
                 newForm.lastShared      = FakeData.dateTimePairs[4 + i].0
-                newForm.lastEmailed      = FakeData.dateTimePairs[6 + i].1
+                newForm.lastPrinted      = FakeData.dateTimePairs[6 + i].1
             }else if i % 2 == 0 {
-                newForm.lastEmailed      = FakeData.dateTimePairs[4 + i].1
+                newForm.lastPrinted      = FakeData.dateTimePairs[4 + i].1
             }else{
                 newForm.lastShared      = FakeData.dateTimePairs[4 + i].0
             }

@@ -27,20 +27,20 @@ struct Form781Card: View {
             if isLandscape != nil && isLandscape! {
                 IconText(image: "square.and.arrow.up", text: "Last shared: " + "\(form.lastShared?.string() ?? "Never")")
                 Spacer()
-                IconText(image: "envelope", text: "Last emailed: " + "\(form.lastEmailed?.string() ?? "Never")")
+                IconText(image: "printer", text: "Last printed: " + "\(form.lastPrinted?.string() ?? "Never")")
             } else {
                 VStack {
                     Image(systemName: "square.and.arrow.up")
-                    Image(systemName: "envelope")
+                    Image(systemName: "printer")
                 }
                 VStack(alignment: .leading) {
                     Text("Last shared:")
-                    Text("Last emailed:")
+                    Text("Last printed:")
                 }
                 VStack (alignment: .leading){
                     Text(form.lastShared?.string() ?? "Never")
                         .font(.pblRegular(size: 16))
-                    Text(form.lastEmailed?.string() ?? "Never")
+                    Text(form.lastPrinted?.string() ?? "Never")
                         .font(.pblRegular(size: 16))
                 }
             }

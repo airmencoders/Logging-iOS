@@ -62,7 +62,7 @@
         <attribute name="id_" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="issuingUnit_" optional="YES" attributeType="String"/>
-        <attribute name="lastEmailed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastPrinted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastShared" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="maintenanceReview_" optional="YES" attributeType="String"/>
         <attribute name="mds_" attributeType="String" defaultValueString="&quot;&quot;"/>

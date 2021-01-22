@@ -34,7 +34,7 @@ extension Form781 {
     @NSManaged public var id_: UUID?
     @NSManaged public var issuingUnit_: String?
     @NSManaged public var isComplete: Bool
-    @NSManaged public var lastEmailed: Date?
+    @NSManaged public var lastPrinted: Date?
     @NSManaged public var lastShared: Date?
     @NSManaged public var maintenanceReview_: String?
     @NSManaged public var mds_: String?
