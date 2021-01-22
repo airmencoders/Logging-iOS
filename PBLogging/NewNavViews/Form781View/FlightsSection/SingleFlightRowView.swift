@@ -9,60 +9,62 @@ import SwiftUI
 
 struct SingleFlightRowView: View {
     
-    var flight: Flight
+    @ObservedObject var flight: Flight
     
-    @State var missionNumber    = ""
-    @State var missionSymbol    = ""
-    @State var fromICAO         = ""
-    @State var toICAO           = ""
-    @State var takeOffTime      = ""
-    @State var landTime         = ""
-    @State var totalTime        = ""
-    @State var touchAndGo       = ""
-    @State var fullStop         = ""
-    @State var totalLandings    = ""
-    @State var sorties          = ""
-    @State var specialUse       = ""
-    
+    var width:  CGFloat = 100
+    var height: CGFloat = 40
     var body: some View {
-        VStack(spacing: 15) {
+        VStack (alignment: .leading){
             HStack {
-                TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: $missionNumber)
-                TextFieldWithLabel(label: "Mission Symbol", placeholder: "Mission Number", userInput: $missionSymbol)
-                TextFieldWithLabel(label: "From ICAO", placeholder: "From ICAO", userInput: $fromICAO)
-                TextFieldWithLabel(label: "To ICAO", placeholder: "To ICAO", userInput: $toICAO)
-                TextFieldWithLabel(label: "Take Off Time (Z)", placeholder: "Take Off Time", userInput: $takeOffTime)
-                TextFieldWithLabel(label: "Land Time (Z)", placeholder: "Land Time", userInput: $landTime)
+                TextFieldWithLabel(label: "Mission Number", placeholder: "Mission Number", userInput: $flight.missionNumber)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Mission Symbol", placeholder: "Mission Symbol", userInput: $flight.missionSymbol)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "From ICAO", placeholder: "From ICAO", userInput: $flight.fromICAO, color: flight.fromICAO.isValidICAO() ? .pblPrimary : .pblErrorFG)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "To ICAO", placeholder: "To ICAO", userInput: $flight.toICAO, color: flight.toICAO.isValidICAO() ? .pblPrimary : .pblErrorFG)
+                    .frame(width: width, height: height, alignment: .center)
+                    
+                VStack(alignment:.leading ){
+                    Text("Take Off Time (Z)")
+                        .font(.pblBold(size: 12))
+                        .foregroundColor(.pblPrimary)
+                    DatePicker("", selection: $flight.takeOffTime, displayedComponents: [.hourAndMinute])
+                        .environment(\.locale, .init(identifier: "en_GB"))
+                        .frame(width: 70, height: 20)
+                }
+                VStack(alignment:.leading ){
+                    Text("Land Time (Z)")
+                        .font(.pblBold(size: 12))
+                        .foregroundColor(.pblPrimary)
+                    DatePicker("", selection: $flight.landTime, displayedComponents: [.hourAndMinute])
+                        .environment(\.locale, .init(identifier: "en_GB"))
+                        .frame(width: 70, height: 20)
+                }
+                
             }
             HStack {
-                TextFieldWithLabel(label: "Total Time", placeholder: "0", userInput: $totalTime)
-                TextFieldWithLabel(label: "Touch And Go", placeholder: "Touch And Go", userInput: $touchAndGo)
-                TextFieldWithLabel(label: "Full Stop", placeholder: "Full Stop", userInput: $fullStop)
-                TextFieldWithLabel(label: "Total", placeholder: "0", userInput: $totalLandings)
-                TextFieldWithLabel(label: "Sorties", placeholder: "Sorties", userInput: $sorties)
-                TextFieldWithLabel(label: "Special Use", placeholder: "Special Use", userInput: $specialUse)
+                TextFieldWithLabel(label: "Total Time", placeholder: "0", userInput: $flight.totalTimeString)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Touch And Go", placeholder: "Touch And Go", userInput: $flight.touchAndGoString)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Full Stop", placeholder: "Full Stop", userInput: $flight.fullStopString)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Total", placeholder: "0", userInput: $flight.totalLandingsString)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Sorties", placeholder: "Sorties", userInput: $flight.sortiesString)
+                    .frame(width: width, height: height, alignment: .center)
+                TextFieldWithLabel(label: "Special Use", placeholder: "Special Use", userInput: $flight.specialUse)
+                    .frame(width: width, height: height, alignment: .center)
             }
+        }
+        .onDisappear{
+            PersistenceController.saveContext()
         }
         .padding()
-        .background(Color.pblDefault)
+        .background(Color.pblBackground)
         .cornerRadius(20)
         .shadow(radius: 5, x: 1, y: 2)
-        
-        .onAppear {
-            missionNumber   = flight.missionNumber
-            missionSymbol   = flight.missionSymbol
-            fromICAO        = flight.fromICAO
-            toICAO          = flight.toICAO
-            takeOffTime     = flight.takeOffTime.string24HourTime()
-            landTime        = flight.landTime.string24HourTime()
-            totalTime       = String(format: "%.1f", flight.totalTime)
-            touchAndGo      = String(format: "%i",   flight.touchAndGo)
-            fullStop        = String(format: "%i",   flight.fullStop)
-            totalLandings   = String(format: "%i",   flight.totalLandings)
-            sorties         = String(format: "%i",   flight.sorties)
-            specialUse      = flight.specialUse
-            print("appear")
-        }
     }
 }
 

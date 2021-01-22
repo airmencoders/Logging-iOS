@@ -12,7 +12,7 @@ extension Date{
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        let date = dateStringFormatter.date(from: dateString)!
+        let date = dateStringFormatter.date(from: dateString) ?? .empty()
         self.init(timeInterval:0, since:date)
     }
     
@@ -21,6 +21,12 @@ extension Date{
         dateStringFormatter.dateFormat = "yyyy-MM-dd HHmm"
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         return dateStringFormatter.date(from: dateTimeString)!
+    }
+    
+    static func empty() -> Date {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "HHmm"
+        return dateStringFormatter.date(from: "0000")!
     }
     
     func stringDecimalHoursTill(date: Date) -> String {

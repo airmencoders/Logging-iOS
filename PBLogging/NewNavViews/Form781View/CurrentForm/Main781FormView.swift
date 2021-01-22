@@ -9,13 +9,7 @@ import SwiftUI
 
 struct Main781FormView: View {
     
-    var form: Form781
-    
-    @State var remarks:         String = ""
-    @State var flights:         [Flight] = [Flight]()
-    @State var aircrew:         [AircrewData] = [AircrewData]()
-    @State var datePicker       = Date()
-    @State var datePickerDown   = Date()
+    @ObservedObject var form: Form781
     @State var isPreviewEnabled = true
     
     var body: some View {
@@ -25,38 +19,28 @@ struct Main781FormView: View {
                     .listRowBackground(Color.pblDefault)
                     .sectionHeaderStyle()
 
-                Section(header: Text("Flight Seq")
-                            .fontSectionHeading()) {
+                Section(header: Text("Flight Seq").font(.headline)) {
                     NavigationLink(
-                        destination: AllFlightsView(flights: flights),
+                        destination: AllFlightsView(form: form),
                         label: {
-                            Text("FLIGHT SEQ")
-                                .fontFormInput()
+                            Text("Flights")
                         })
                 }
                 .listRowBackground(Color.pblDefault)
                 .sectionHeaderStyle()
                 
-                Section(header: Text("Aircrew List")
-                            .fontSectionHeading()) {
+                Section(header: Text("Aircrew").font(.headline)) {
                     NavigationLink(
-                        destination: AllAircrewView(members: aircrew),
+                        destination: AllAircrewView(form: form),
                         label: {
-                            Text("AIRCREW LIST")
-                                .fontFormInput()
+                            Text("Aircrew")
                         })
                 }
                 .listRowBackground(Color.pblDefault)
                 .sectionHeaderStyle()
                 
-                Section(header: Text("Remarks")
-                            .fontSectionHeading()) {
-                    TextField("REMARKS", text:$remarks)
-                    DatePicker("Take Off Time", selection: $datePicker, displayedComponents: [.hourAndMinute])
-                        .environment(\.locale, .init(identifier: "en_GB"))
-                    DatePicker("Land Time", selection: $datePickerDown, displayedComponents: [.hourAndMinute])
-                        .environment(\.locale, .init(identifier: "en_GB"))
-                    
+                Section(header: Text("Remarks").font(.headline)) {
+                    TextField("REMARKS", text:$form.remarks)
                 }
                 .listRowBackground(Color.pblDefault)
             }
@@ -64,21 +48,9 @@ struct Main781FormView: View {
             .navigationBarTitle(Text("TBD"))
             .navigationBarItems(trailing: Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form))
             Spacer()
+        }.onDisappear{
+            PersistenceController.saveContext()
         }
-        .onAppear {
-            UITableView.appearance().backgroundColor = .clear
-            remarks = form.remarks
-            flights = form.flights
-            aircrew = form.aircrewData
-        }
-    }
-    
-    func deleteAircrew(at offsets: IndexSet) {
-        aircrew.remove(atOffsets: offsets)
-    }
-    
-    func deleteFlight(at offsets: IndexSet) {
-        aircrew.remove(atOffsets: offsets)
     }
 }
 

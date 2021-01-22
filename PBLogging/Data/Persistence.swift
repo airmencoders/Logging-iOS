@@ -51,11 +51,14 @@ struct PersistenceController {
     }
   
     static func saveContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
-        
+        NSLog("**************************************")
+        NSLog(#function)
         guard context.hasChanges else { return }
         
         do {
             try context.save()
+            NSLog("There were changes to the context so it saved")
+            NSLog("**************************************")
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             let nsError = error as NSError

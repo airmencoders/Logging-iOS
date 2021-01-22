@@ -63,7 +63,7 @@ struct SideView: View {
                 .padding(.horizontal)
                 ScrollView {
                     ForEach(forms) { form in
-                        SideViewButton(text: form.date?.string() ?? "No Date", action: {
+                        SideViewButton(text: form.date.string() , action: {
                             //currentForm = form
                         })
                     }

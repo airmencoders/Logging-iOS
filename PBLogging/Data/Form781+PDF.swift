@@ -65,7 +65,12 @@ extension Form781 {
             
             let page0dict = pageAnnotationDictionaries[0]
             
-            page0?.annotation(at: page0dict["date"]!)?          .setText(self.date?.string())
+            var dateString = ""
+            if let date = self.date_ {
+                dateString = date.string()
+            }
+            
+            page0?.annotation(at: page0dict["date"]!)?          .setText(dateString)
             page0?.annotation(at: page0dict["mds"]!)?           .setText(self.mds)
             page0?.annotation(at: page0dict["serial"]!)?        .setText(self.serialNumber)
             page0?.annotation(at: page0dict["unit_charged"]!)?  .setText(self.unitCharged)

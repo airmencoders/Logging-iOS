@@ -9,37 +9,21 @@ import SwiftUI
 
 struct AircrewDetailFlightConditions: View {
     
-    var member: AircrewData
+    @ObservedObject var member: AircrewData
     
-    @State var fcNight                  = ""
-    @State var fcInstructor             = ""
-    @State var fcSimInstructor          = ""
-    @State var fcNVG                    = ""
-    @State var fcCombatTime             = ""
-    @State var fcCombatSorties          = ""
-    @State var fcCombatSupportTime      = ""
-    @State var fcCombatSupportSorties   = ""
-         
     var body: some View {
         HStack(alignment: .bottom) {
-            TextFieldWithLabel(label: "Night\n(P/S/I/E)",       placeholder: "0", userInput: $fcNight)
-            TextFieldWithLabel(label: "Ins\n(P/I/E)",           placeholder: "0", userInput: $fcInstructor)
-            TextFieldWithLabel(label: "Sim Ins\n(P/S/I/E)",     placeholder: "0", userInput: $fcSimInstructor)
-            TextFieldWithLabel(label: "NVG",                    placeholder: "0", userInput: $fcNVG)
-            TextFieldWithLabel(label: "Combat\nTime",           placeholder: "0", userInput: $fcCombatTime)
-            TextFieldWithLabel(label: "Combat\nSorty",          placeholder: "0", userInput: $fcCombatSorties)
-            TextFieldWithLabel(label: "Combat Spt\nTime",       placeholder: "0", userInput: $fcCombatSupportTime)
-            TextFieldWithLabel(label: "Combat Spt\nSorty",      placeholder: "0", userInput: $fcCombatSupportSorties)
+            TextFieldWithLabel(label: "Night\n(P/S/I/E)",       placeholder: "0", userInput: $member.fcNightString)
+            TextFieldWithLabel(label: "Ins\n(P/I/E)",           placeholder: "0", userInput: $member.fcInstructorString)
+            TextFieldWithLabel(label: "Sim Ins\n(P/S/I/E)",     placeholder: "0", userInput: $member.fcSimInstructorString)
+            TextFieldWithLabel(label: "NVG",                    placeholder: "0", userInput: $member.fcNVGString)
+            TextFieldWithLabel(label: "Combat\nTime",           placeholder: "0", userInput: $member.fcCombatTimeString)
+            TextFieldWithLabel(label: "Combat\nSorty",          placeholder: "0", userInput: $member.fcCombatSortiesString)
+            TextFieldWithLabel(label: "Combat Spt\nTime",       placeholder: "0", userInput: $member.fcCombatSupportTimeString)
+            TextFieldWithLabel(label: "Combat Spt\nSorty",      placeholder: "0", userInput: $member.fcCombatSupportSortiesString)
         }
-        .onAppear {
-           fcNight                  = String(format: "%.1f", member.fcNight)
-           fcInstructor             = String(format: "%.1f", member.fcInstructor)
-           fcSimInstructor          = String(format: "%.1f", member.fcSimInstructor)
-           fcNVG                    = String(format: "%.1f", member.fcNVG)
-           fcCombatTime             = String(format: "%.1f", member.fcCombatTime)
-           fcCombatSorties          = String(format: "%i",   member.fcCombatSorties)
-           fcCombatSupportTime      = String(format: "%.1f", member.fcCombatSupportTime)
-           fcCombatSupportSorties   = String(format: "%i",   member.fcCombatSupportSorties)
+        .onDisappear{
+            PersistenceController.saveContext()
         }
     }
 }

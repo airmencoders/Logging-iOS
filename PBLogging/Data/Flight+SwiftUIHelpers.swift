@@ -13,7 +13,7 @@ extension Flight {
         get {
             return fromICAO_ ?? ""
         } set {
-            fromICAO_ = newValue
+            fromICAO_ = newValue.enforcedICAO()
         }
     }
     
@@ -27,7 +27,7 @@ extension Flight {
     
     public var landTime: Date{
         get {
-            return landTime_ ?? Date()
+            return landTime_ ?? Date.empty()
         } set {
             landTime_ = newValue
         }
@@ -67,7 +67,7 @@ extension Flight {
     
     public var takeOffTime: Date {
         get {
-            return takeOffTime_ ?? Date()
+            return takeOffTime_ ?? Date.empty()
         } set {
             takeOffTime_ = newValue
         }
@@ -77,7 +77,64 @@ extension Flight {
         get {
             return toICAO_ ?? ""
         } set {
-            toICAO_ = newValue
+            toICAO_ = newValue.enforcedICAO()
+        }
+    }
+    
+    public var touchAndGoString: String {
+        get {
+            return "\(touchAndGo)"
+        } set {
+            touchAndGo = Int16(newValue) ?? 0
+        }
+    }
+    public var fullStopString: String {
+        get {
+            return "\(fullStop)"
+        } set {
+            fullStop = Int16(newValue) ?? 0
+        }
+    }
+    public var takeOffTimeString: String {
+        get {
+            return takeOffTime.string24HourTime()
+        } set {
+            takeOffTime = Date(newValue)
+        }
+    }
+    public var landTimeString: String {
+        get {
+            return landTime.string24HourTime()
+        } set {
+            takeOffTime = Date(newValue)
+        }
+    }
+    
+    public var sortiesString: String {
+        get {
+            return "\(sorties)"
+        }
+        set{
+            sorties = Int16(newValue) ?? 0
+        }
+    }
+    
+    public var totalLandingsString: String {
+        get {
+            return "\(totalLandings)"
+        }
+        set{
+            totalLandings = Int16(newValue) ?? 0
+        }
+    }
+    
+    public var totalTimeString: String {
+        get {
+            return landTime.stringDecimalHoursTill(date: takeOffTime)
+        } set {
+            totalTime = Float(landTime.stringDecimalHoursTill(date: takeOffTime)) ?? 0.0
         }
     }
 }
+
+

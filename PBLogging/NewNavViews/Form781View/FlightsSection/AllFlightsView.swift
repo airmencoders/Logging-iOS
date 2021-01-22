@@ -9,13 +9,14 @@ import SwiftUI
 import CoreData
 
 struct AllFlightsView: View {
-
-    @State var flights: [Flight]
+    
+    @ObservedObject var form: Form781
+    @Environment(\.managedObjectContext) private var moc
         
     var body: some View {
         List {
             VStack(spacing: 30) {
-                ForEach(flights, id: \.self) { flight in
+                ForEach(form.flights, id: \.self) { flight in
                     SingleFlightRowView(flight: flight)
                 }
                 .onDelete(perform: delete)
@@ -35,27 +36,27 @@ struct AllFlightsView: View {
     }
     
     func add(){
-        /// MAKE VIA Managed Object Context
-        //        let flight = Flight(missionNumber: "", missionSymbol: "", fromICAO: "", toICAO: "")
-        //        flights.append(flight)
+        let flight: Flight = Flight(context: moc)
+        flight.form781 = form
+        PersistenceController.saveContext()
     }
     
     func delete(at offsets: IndexSet) {
-        flights.remove(atOffsets: offsets)
+        form.flights.remove(atOffsets: offsets)
         // SAVE MOC HERE?
     }
 }
 
 struct AllFlightsView_Previews: PreviewProvider {
         
-    static let flights = FakeData.flights
+    static let form = FakeData.form781s.randomElement()!
         
     static var previews: some View {
         
-        AllFlightsView(flights: flights)
+        AllFlightsView(form: form)
             .previewLayout(.sizeThatFits)
              
-        AllFlightsView(flights: flights)
+        AllFlightsView(form: form)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

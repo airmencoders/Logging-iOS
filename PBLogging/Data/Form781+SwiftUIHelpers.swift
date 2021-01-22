@@ -27,6 +27,15 @@ extension Form781{
         }
     }
     
+    public var date : Date {
+        get {
+            return date_ ?? Date()
+        }
+        set {
+            date_ = newValue
+        }
+    }
+    
     public var armsAuditInitials: String {
         get {
             return armsAuditInitials_ ?? ""

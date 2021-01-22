@@ -10,12 +10,13 @@ import CoreData
 
 struct AllAircrewView: View {
 
-    @State var members: [AircrewData]
+    @ObservedObject var form: Form781
+    @Environment(\.managedObjectContext) private var moc
     
     var body: some View {
         //        NavigationView {
         ScrollView {
-            ForEach(members, id: \.self) { member in
+            ForEach(form.aircrewData, id: \.self) { member in
                 NavigationLink (
                     destination: AircrewDetail(member: member),
                     label: { AircrewCard(member: member) })
@@ -39,25 +40,24 @@ struct AllAircrewView: View {
     }
     
     func add(){
-        // TODO: Create aircrew member with MOC... might be as easy as cre
-        //        let aircrewMember = AircrewData(flyingOrg: "", ssan: "", lastName: "")
-        //        members.append(aircrewMember)
+        let member = AircrewData(context: moc)
+        member.form781 = form
+        PersistenceController.saveContext()
     }
     
     func delete(at offsets: IndexSet) {
         // TODO: Delete aircrew member with MOC it might be as easy as removing it from the array and then saving the moc.
-        //members.remove(atOffsets: offsets)
-    }
+     }
 }
 
 struct AllAircrewView_Previews: PreviewProvider {
         
-    static let members = FakeData.crew
+    static let form = FakeData.form781s.randomElement()!
     
     static var previews: some View {
-        AllAircrewView(members: members)
+        AllAircrewView(form: form)
             .previewLayout(.sizeThatFits)
-        AllAircrewView(members: members)
+        AllAircrewView(form: form)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

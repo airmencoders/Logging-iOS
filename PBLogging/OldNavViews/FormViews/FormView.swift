@@ -21,7 +21,7 @@ struct FormView: View {
         VStack(alignment: .leading) {
             // ATTN: Get the date from the current form.
             //("Just to demo, remove once you guys start using actual data")
-            RegularText(text: currentView != .overview ? "Mission \(forms.first?.date?.string() ?? "nada")" : "", size: 16, color: .white)
+            RegularText(text:  "Nada", size: 16, color: .white)
                 .padding()
                 .frame(maxWidth: .infinity, idealHeight: 60, alignment: .leading)
                 .background(Color.pblSlate)

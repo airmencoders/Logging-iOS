@@ -19,7 +19,7 @@ extension Form781 {
     @NSManaged public var armsAuditInitials_: String?
     @NSManaged public var armsInputDate: Date?
     @NSManaged public var armsInputInitials_: String?
-    @NSManaged public var date: Date?
+    @NSManaged public var date_: Date?
     @NSManaged public var extractCertificationBranch_: String?
     @NSManaged public var extractCertificationDSN_: String?
     @NSManaged public var extractCertificationPrintName_: String?
@@ -33,6 +33,9 @@ extension Form781 {
     @NSManaged public var harmLocation_: String?
     @NSManaged public var id_: UUID?
     @NSManaged public var issuingUnit_: String?
+    @NSManaged public var isComplete: Bool
+    @NSManaged public var lastEmailed: Date?
+    @NSManaged public var lastShared: Date?
     @NSManaged public var maintenanceReview_: String?
     @NSManaged public var mds_: String?
     @NSManaged public var remarks_: String?

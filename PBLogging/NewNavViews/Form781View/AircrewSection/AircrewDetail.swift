@@ -9,15 +9,7 @@ import SwiftUI
 
 struct AircrewDetail: View {
     
-    @State var flyingOrganization   = ""
-    @State var ssanLast4            = ""
-    @State var lastName             = ""
-    @State var flightAuthDutyCode   = ""
-    @State var reserveStatus        = ""
-    
-    @State var test                 = ""
-    
-    var member: AircrewData
+    @ObservedObject var member: AircrewData
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,14 +19,15 @@ struct AircrewDetail: View {
                                 .foregroundColor(.pblPrimary)) {
                 VStack {
                     HStack {
-                        TextFieldWithLabel(label: "Flying Organization", placeholder: "Flying Org", userInput: $flyingOrganization)
-                        TextFieldWithLabel(label: "SSAN (Last 4)", placeholder: "0000", userInput: $ssanLast4)
-                        TextFieldWithLabel(label: "Last Name", placeholder: "Last Name", userInput: $lastName)
-                        TextFieldWithLabel(label: "Flight Auth Duty Code", placeholder: "Flight Auth", userInput: $flightAuthDutyCode)
+                        TextFieldWithLabel(label: "Flying Organization", placeholder: "Flying Org", userInput: $member.flyingOrganization)
+                        TextFieldWithLabel(label: "SSAN (Last 4)", placeholder: "0000", userInput: $member.ssanLast4)
+                        TextFieldWithLabel(label: "Last Name", placeholder: "Last Name", userInput: $member.lastName)
+                        TextFieldWithLabel(label: "Flight Auth Duty Code", placeholder: "Flight Auth", userInput: $member.flightAuthDutyCode)
                     }
                     HStack {
-                        TextFieldWithLabel(label: "Grand Total Time", placeholder: "0.0", userInput: $test)
-                        TextFieldWithLabel(label: "Reserve Status", placeholder: "Res Status", userInput: $reserveStatus)
+                        //TODO: Figure out what goes here?
+                        //TextFieldWithLabel(label: "Grand Total Time", placeholder: "0.0", userInput: $member.tot)
+                        TextFieldWithLabel(label: "Reserve Status", placeholder: "Res Status", userInput: $member.reserveStatusString)
                     }
                     .padding(.top)
                 }
@@ -71,12 +64,8 @@ struct AircrewDetail: View {
             .padding(.horizontal)
             Spacer()
         }
-        .onAppear{
-            flyingOrganization  = member.flyingOrganization
-            ssanLast4           = member.ssanLast4
-            lastName            = member.lastName
-            flightAuthDutyCode  = member.flightAuthDutyCode
-            reserveStatus       = String(format: "%i", member.reserveStatus)
+        .onDisappear{
+            PersistenceController.saveContext()
         }
         .navigationBarTitle("Aircrew Detail")
     }

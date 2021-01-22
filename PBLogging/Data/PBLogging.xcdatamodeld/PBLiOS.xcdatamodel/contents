@@ -47,7 +47,7 @@
         <attribute name="armsAuditInitials_" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="armsInputDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="armsInputInitials_" attributeType="String" defaultValueString="&quot;&quot;"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="extractCertificationBranch_" optional="YES" attributeType="String"/>
         <attribute name="extractCertificationDSN_" optional="YES" attributeType="String"/>
         <attribute name="extractCertificationPrintName_" optional="YES" attributeType="String"/>
@@ -60,7 +60,10 @@
         <attribute name="grandTotalTouchAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="harmLocation_" optional="YES" attributeType="String"/>
         <attribute name="id_" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="issuingUnit_" optional="YES" attributeType="String"/>
+        <attribute name="lastEmailed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastShared" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="maintenanceReview_" optional="YES" attributeType="String"/>
         <attribute name="mds_" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="remarks_" optional="YES" attributeType="String"/>
@@ -73,6 +76,6 @@
     <elements>
         <element name="AircrewData" positionX="843.16796875" positionY="3596.83203125" width="128" height="359"/>
         <element name="Flight" positionX="1162.77734375" positionY="3489.28515625" width="128" height="269"/>
-        <element name="Form781" positionX="1106.4921875" positionY="3474.62890625" width="128" height="419"/>
+        <element name="Form781" positionX="1106.4921875" positionY="3474.62890625" width="128" height="464"/>
     </elements>
 </model>

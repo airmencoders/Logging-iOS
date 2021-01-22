@@ -12,13 +12,25 @@ struct TextFieldWithLabel: View {
     let label: String
     let placeholder: String
     @Binding var userInput: String
+    var color = Color.pblPrimary
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(label)
-                .fontFormLabel()
-            TextField(placeholder, text: $userInput)
-                .fontFormInput()
+                .font(.pblBold(size: 12))
+                .foregroundColor(.pblPrimary)
+            TextField(placeholder, text: $userInput, onEditingChanged: { editingBegan in
+                let editingEnded = !editingBegan
+                
+                if editingEnded {
+                    PersistenceController.saveContext()
+                    NSLog("**************************************")
+                    NSLog("TextField edit ended")
+                    NSLog("**************************************")
+                }
+            })
+                .font(.pblRegular(size: 16))
+                .foregroundColor(color)
         }
     }
 }

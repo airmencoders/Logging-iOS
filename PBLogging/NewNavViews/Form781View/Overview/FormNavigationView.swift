@@ -12,7 +12,7 @@ struct FormNavigationView: View {
     @Environment(\.managedObjectContext) private var moc
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Form781.date, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Form781.date_, ascending: false)],
         animation: .default)
     
     private var forms: FetchedResults<Form781>
