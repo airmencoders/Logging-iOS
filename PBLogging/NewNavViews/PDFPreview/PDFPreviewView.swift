@@ -1,4 +1,8 @@
- 
+//
+//  PDFPreviewView.swift
+//  Logging
+//
+
 import SwiftUI
 import PDFKit
 
@@ -37,12 +41,12 @@ struct PDFPreviewView: View {
                         }
                         .padding(.trailing)
                     }
-                   
+                    
                     if colorScheme == .dark {
                         PDFRepView(url:pdfURL!, darkMode: true)
                             .padding()
-                        // Inverts the black and white on the form to give a black background with white text
-                        .colorInvert()
+                            // Inverts the black and white on the form to give a black background with white text
+                            .colorInvert()
                             .colorMultiply(.pblPrimary)
                             .blur(radius: isReady ? 0.0 : 3.0)
                     } else {
@@ -51,20 +55,20 @@ struct PDFPreviewView: View {
                             .blur(radius: isReady ? 0.0 : 3.0)
                     }
                     
-                }.sheet(isPresented: $isSharing, onDismiss: nil, content: {
-                    ActivityViewController(activityItems: [pdfURL!])
-                })
+                }
+                .sheet(isPresented: $isSharing) {
+                    ShareView(activityItems: [pdfURL!], callback: afterShare(_:_:_:_:))
+                }
                 
             } else {
                 ActivityIndicator(isAnimating: true)
             }
         }
         .onAppear {
-            print("do the stuff")
             form.generatePDF() { result in
                 switch result {
                 case .success(let url):
-                   pdfURL = url
+                    pdfURL = url
                     withAnimation (Animation.easeInOut(duration: 0.6).delay(0.2)){
                         isReady = true
                     }
@@ -74,7 +78,23 @@ struct PDFPreviewView: View {
             }
         }
     }
-    
+    func afterShare(_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void{
+        
+        if let error = error {
+            // TODO: Figure out what kind of errors can happen here and handle approprately vs this:
+            AlertProvider.shared.showAlertWithTitle(title: "Share error", message: "\(error), \(error.localizedDescription). Please screenshot and send to the dev team.")
+            return
+        }
+        if completed {
+            if activityType == UIActivity.ActivityType.print{
+                form.lastPrinted = Date()
+                NSLog("Form Last Printed: \(String(describing: form.lastPrinted))")
+            }else{
+                form.lastShared = Date()
+                NSLog("Form Last Shared: \(String(describing: form.lastShared))")
+            }
+        }
+    }
     func printPDF() {
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = pdfURL!.lastPathComponent  // force unwrap as function won't be available unless the pdf is already generated correctly
@@ -128,29 +148,44 @@ struct PDFRepView : UIViewRepresentable {
     }
     
 }
-
-struct ActivityViewController: UIViewControllerRepresentable {
+struct ShareView: UIViewControllerRepresentable {
     
-    var activityItems: [Any]
-    var applicationActivities: [UIActivity]? = nil
+    //TODO: Exclude more activities or set only the specific activities we require
+    let excludedActivityTypes: [UIActivity.ActivityType]? = [.postToWeibo, .postToFlickr, .postToTwitter, .postToVimeo, .postToFacebook, .postToTencentWeibo, .assignToContact]
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]? = nil
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
-        controller.excludedActivityTypes = [.postToWeibo, .postToFlickr, .postToTwitter, .postToVimeo, .postToFacebook, .postToTencentWeibo, .markupAsPDF, .assignToContact, .openInIBooks, .saveToCameraRoll]
+    typealias CallbackType = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void
+    var callback: CallbackType?
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(
+            activityItems: activityItems,
+            applicationActivities: applicationActivities)
+        controller.completionWithItemsHandler = callback
+        controller.excludedActivityTypes = excludedActivityTypes
         return controller
     }
-    
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
-    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        // nothing
+    }
 }
- struct PDFPreviewView_Previews: PreviewProvider {
-     
-     static let form = FakeData.form781s.randomElement()!
+struct ShareView_Previews: PreviewProvider {
+    // TODO: Have preview show a share sheet preview
+    static let url = URL(fileURLWithPath: Bundle.main.path(forResource: "fillable781v3", ofType: "pdf")!)
+    static var previews: some View {
+        ShareView(activityItems: [url])
+    }
+}
 
-     static var previews: some View {
+struct PDFPreviewView_Previews: PreviewProvider {
+    
+    static let form = FakeData.form781s.randomElement()!
+    
+    static var previews: some View {
         PDFPreviewView(form:form)
             .iPadPro9_7(isDark: false)
         PDFPreviewView(form:form)
             .iPadPro9_7(isDark: true)
-     }
- }
+    }
+}
