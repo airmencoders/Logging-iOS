@@ -14,6 +14,7 @@ struct Main781FormView: View {
     
     var body: some View {
         VStack {
+            Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
                     .listRowBackground(Color.pblDefault)
@@ -46,7 +47,6 @@ struct Main781FormView: View {
             }
             .sectionHeaderStyle()
             .navigationBarTitle(Text("TBD"))
-            .navigationBarItems(trailing: Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form))
             Spacer()
         }.onDisappear{
             PersistenceController.saveContext()
