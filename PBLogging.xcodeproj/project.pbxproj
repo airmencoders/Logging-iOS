@@ -26,6 +26,7 @@
 		4DD13FF3259ED18700C98EB8 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FF2259ED18700C98EB8 /* LoggingTests.swift */; };
 		4DD13FFE259ED18700C98EB8 /* LoggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FFD259ED18700C98EB8 /* LoggingUITests.swift */; };
 		4DE18EF025A38E3C0027A580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */; };
+		4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -106,6 +107,7 @@
 		4DD13FFD259ED18700C98EB8 /* LoggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUITests.swift; sourceTree = "<group>"; };
 		4DD13FFF259ED18700C98EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifiers.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		4DB3178025BA4E9400DB1201 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */,
 				4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */,
 			);
 			path = Modifiers;
@@ -568,6 +571,7 @@
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
 				1383049225B0CDDB00DFBBCE /* AircrewCard.swift in Sources */,
 				BF982CE325A54ECF00C14019 /* Form781+CoreDataProperties.swift in Sources */,
+				4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */,
 				138304A125B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift in Sources */,
 				4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */,
 				BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */,
