@@ -15,10 +15,9 @@ struct TextFieldWithLabel: View {
     var color = Color.pblPrimary
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 0) {
             Text(label)
-                .font(.pblBold(size: 12))
-                .foregroundColor(.pblPrimary)
+                .fontFormLabel()
             TextField(placeholder, text: $userInput, onEditingChanged: { editingBegan in
                 let editingEnded = !editingBegan
                 
@@ -29,8 +28,7 @@ struct TextFieldWithLabel: View {
                     NSLog("**************************************")
                 }
             })
-                .font(.pblRegular(size: 16))
-                .foregroundColor(color)
+                .fontFormInput()
         }
     }
 }

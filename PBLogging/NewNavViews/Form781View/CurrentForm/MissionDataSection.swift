@@ -25,53 +25,39 @@ struct MissionDataSection: View {
     @ObservedObject var form: Form781
 
     var body: some View {
-        Section (header: Text("Mission Data").font(.headline)) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Date")
-                        .font(.pblBold(size: 12))
-                        .foregroundColor(.pblPrimary)
-                    HStack(alignment: .bottom) {
-                        DatePicker("", selection: $form.date, displayedComponents: [.date])
-                            .accentColor(.pblPrimary)
-                            .environment(\.locale, .init(identifier: "en_GB"))
-                            .frame(width:100)
-                          Spacer()
-                        
+        Section (header: Text("Mission Data").fontSectionHeading()) {
+            VStack(alignment: .leading, spacing: 8) {
+                Group {
+                    HStack{
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("DATE")
+                                .fontFormLabel()
+                            
+                            DatePicker("", selection: $form.date, displayedComponents: [.date])
+                                .accentColor(.pblPrimary)
+                                .environment(\.locale, .init(identifier: "en_GB"))
+                                .frame(width:100)
+                        }
+                        Spacer()
                         Image(systemName: "calendar")
                             .padding(.trailing)
                             .padding(.bottom, 4.0)
                             .foregroundColor(.pblSecondary)
                     }
-                    Text("MISSION DESIGN SYSTEM")
-                        .font(.pblBold(size: 12))
-                        .foregroundColor(.pblPrimary)
-                    TextField("MDS", text: $form.mds)
-                        .foregroundColor(.pblPrimary)
+                    Divider()
+                    TextFieldWithLabel(label: "MISSION DESIGN SYSTEM", placeholder: "MDS", userInput: $form.mds)
+                    Divider()
                     TextFieldWithLabel(label: "SERIAL NUMBER", placeholder: "01-0193", userInput: $form.serialNumber)
+                    Divider()
                     TextFieldWithLabel(label: "UNIT CHARGED FOR FLYING HOURS", placeholder: "437 AW (HQ AMC)/DKFX", userInput: $form.unitCharged)
-                }
-                .padding()
-                .overlay (
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.pblTertiary, lineWidth: 2)
-                        .opacity(0.3)
-                )
-
-                Spacer()
-
-                VStack(alignment: .leading, spacing: 5) {
+                    Divider()
                     TextFieldWithLabel(label: "HARM LOCATION", placeholder: "JB CHARLESTON", userInput: $form.harmLocation)
-                    TextFieldWithLabel(label: "FLIGHT AUTH #", placeholder: "21-0048", userInput: $form.flightAuthNum)
-                    TextFieldWithLabel(label: "ISSUING UNIT", placeholder: "00 16AS", userInput: $form.issuingUnit)
                 }
-                .padding()
-                .overlay (
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.pblTertiary, lineWidth: 2)
-                        .opacity(0.3)
-                )
-           }
+                Divider()
+                TextFieldWithLabel(label: "FLIGHT AUTH #", placeholder: "21-0048", userInput: $form.flightAuthNum)
+                Divider()
+                TextFieldWithLabel(label: "ISSUING UNIT", placeholder: "00 16AS", userInput: $form.issuingUnit)
+            }
         }
     }
 }

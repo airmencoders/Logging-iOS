@@ -14,7 +14,7 @@ struct AircrewCard: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.pblBackground)
+                .foregroundColor(.pblDefault)
                 .cornerRadius(10.0)
                 .frame(width: 700, height: 100, alignment: .center)
                 //.shadow(color: Color("primary"), radius: 5, x: 5, y: 5)

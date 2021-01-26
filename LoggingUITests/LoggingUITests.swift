@@ -8,9 +8,15 @@
 import XCTest
 
 class LoggingUITests: XCTestCase {
+    
+    private var app: XCUIApplication!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        self.app = XCUIApplication()
+        self.app.launchArguments.append("CLEAR_CORE_DATA")
+        self.app.launch()
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -24,12 +30,24 @@ class LoggingUITests: XCTestCase {
 
     func testExample() throws {
         // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
-        app.launch()
+        
+//        self.app.terminate()
+//        self.app = XCUIApplication()
+//        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
+//        self.app.launch()
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testAddForm() throws {
+                        
+        self.app.buttons["addFormButton"].tap()
+        
+        let formCount = self.app.scrollViews["formsScrollView"].descendants(matching: .button).count
+        
+        XCTAssertEqual(1, formCount,
+                       "Form was not added")
     }
 
     func testLaunchPerformance() throws {

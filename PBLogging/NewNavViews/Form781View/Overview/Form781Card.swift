@@ -53,7 +53,7 @@ struct Form781Card: View {
         .background(Color.pblDefault)
         .foregroundColor(Color.pblSecondary)
         .cornerRadius(10)
-        .shadow(radius: 5, x: 1, y: 2)
+        .shadow(radius: 3, x: 1, y: 3)
         .onReceive(orientationChanged) { event in
             withAnimation(.smooth()) {
                 // We get called on launch and the screen bounds are correct.

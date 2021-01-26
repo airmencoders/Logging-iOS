@@ -50,7 +50,7 @@ struct PersistenceController {
         })
     }
   
-    static func saveContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+    static func saveContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         NSLog("**************************************")
         NSLog(#function)
         guard context.hasChanges else { return }
@@ -65,7 +65,6 @@ struct PersistenceController {
             //Temporary. Want to have a Jira component send or at least an email message or mattermrost hook to send errors directly
             AlertProvider.shared.showAlertWithTitle(title: "Context Save Error", message: "\(nsError), \(nsError.userInfo). Please screenshot and send to the dev team.")
         }
-        
     }
     
     static func newRecordForContext(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){

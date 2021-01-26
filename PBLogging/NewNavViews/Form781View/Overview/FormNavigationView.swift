@@ -29,12 +29,14 @@ struct FormNavigationView: View {
                 }
                 .padding()
             }
+            .accessibility(identifier: "formsScrollView")
             .navigationBarTitle(Text("Mission Forms"))
             .navigationBarItems(trailing:
                                     TextAndIconButton(text: "New Form", size: 24.0, icon: "plus.circle")
                                     {
                         PersistenceController.newRecordForContext()
-                                    })
+                                    }
+                                    .accessibility(identifier: "addFormButton"))
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

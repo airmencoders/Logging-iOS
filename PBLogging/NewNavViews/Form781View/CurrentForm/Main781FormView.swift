@@ -17,38 +17,49 @@ struct Main781FormView: View {
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
             Form {
                 MissionDataSection(form: form)
-                    .listRowBackground(Color.pblDefault)
                     .sectionHeaderStyle()
+                    .listRowBackground(Color.pblDefault)
 
-                Section(header: Text("Flight Seq").font(.headline)) {
+                Section(header: Text("Flight Seq").fontSectionHeading()) {
                     NavigationLink(
                         destination: AllFlightsView(form: form),
                         label: {
-                            Text("Flights")
+                            Text("FLIGHT SEQ")
+                                .fontFormInput()
                         })
                 }
-                .listRowBackground(Color.pblDefault)
                 .sectionHeaderStyle()
+                .listRowBackground(Color.pblDefault)
                 
-                Section(header: Text("Aircrew").font(.headline)) {
+                Section(header: Text("Aircrew List").fontSectionHeading()) {
                     NavigationLink(
                         destination: AllAircrewView(form: form),
                         label: {
-                            Text("Aircrew")
+                            Text("AIRCREW LIST")
+                                .fontFormInput()
                         })
                 }
-                .listRowBackground(Color.pblDefault)
                 .sectionHeaderStyle()
+                .listRowBackground(Color.pblDefault)
                 
-                Section(header: Text("Remarks").font(.headline)) {
-                    TextField("REMARKS", text:$form.remarks)
+                Section(header: Text("Aircrew Data").fontSectionHeading()) {
+                    NavigationLink(
+                        destination: AllAircrewView(form: form),
+                        label: {
+                            Text("AIRCREW DATA")
+                                .fontFormInput()
+                        })
                 }
+                .sectionHeaderStyle()
                 .listRowBackground(Color.pblDefault)
             }
-            .sectionHeaderStyle()
             .navigationBarTitle(Text("TBD"))
+            .onAppear {
+               UITableView.appearance().backgroundColor = .clear
+            }
             Spacer()
-        }.onDisappear{
+        }
+        .onDisappear {
             PersistenceController.saveContext()
         }
     }

@@ -27,9 +27,14 @@ extension View {
     }
 }
 
-//struct SectionHeaderModifier_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Text("")
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
+struct SectionHeaderModifier_Previews: PreviewProvider {
+    static var previews: some View {
+        Form {
+            Section(header: Text("Section Header").fontSectionHeading()) {
+                Text("Testing")
+            }
+            .sectionHeaderStyle()
+        }
+            .previewLayout(.sizeThatFits)
+    }
+}
