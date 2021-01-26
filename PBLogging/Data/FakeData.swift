@@ -258,6 +258,15 @@ enum FakeData{
  
     }
     
+    static func clearCoreData(_ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Form781")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+        } catch let error as NSError {
+            fatalError("COULD NOT CLEAR CORE DATA \(error.localizedDescription)")
+        }
+    }
 }
 
 #if DEBUG

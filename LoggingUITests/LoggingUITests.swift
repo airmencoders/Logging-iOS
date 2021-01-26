@@ -25,6 +25,7 @@ class LoggingUITests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
         app.launch()
 
         // Use recording to get started writing UI tests.

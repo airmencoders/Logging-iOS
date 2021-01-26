@@ -12,7 +12,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //FOR UI TESTS - clears core data and injects fake data
+        if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA") {
+            FakeData.clearCoreData()
+            FakeData.addFakeRecordsForContext()
+        }else if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA") {
+            FakeData.clearCoreData()
+        }
         return true
     }
 
