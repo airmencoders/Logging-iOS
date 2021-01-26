@@ -29,6 +29,7 @@
 		4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */; };
 		4DF7C79C25BF4A0000EB1E5C /* PBLMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C79B25BF4A0000EB1E5C /* PBLMath.swift */; };
 		4DF7C7A125BF4A9700EB1E5C /* PBLMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C7A025BF4A9700EB1E5C /* PBLMathTests.swift */; };
+		4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -112,6 +113,7 @@
 		4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifiers.swift; sourceTree = "<group>"; };
 		4DF7C79B25BF4A0000EB1E5C /* PBLMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBLMath.swift; sourceTree = "<group>"; };
 		4DF7C7A025BF4A9700EB1E5C /* PBLMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBLMathTests.swift; sourceTree = "<group>"; };
+		4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtTests.swift"; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				4DD13FF4259ED18700C98EB8 /* Info.plist */,
 				4DD13FF2259ED18700C98EB8 /* LoggingTests.swift */,
 				4DF7C7A025BF4A9700EB1E5C /* PBLMathTests.swift */,
+				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
 			);
 			path = LoggingTests;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 			files = (
 				4DF7C7A125BF4A9700EB1E5C /* PBLMathTests.swift in Sources */,
 				4DD13FF3259ED18700C98EB8 /* LoggingTests.swift in Sources */,
+				4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
