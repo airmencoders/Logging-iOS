@@ -20,7 +20,7 @@ struct Main781FormHeaderView: View {
                 destination: PDFPreviewView(form: form),
                 label: {
                     HStack {
-                        Text("Default")
+                        Text("Preview")
                             .fontSectionHeading()
                         Image(systemName: "printer")
                     }

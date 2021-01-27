@@ -27,27 +27,66 @@ class LoggingUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        
-//        self.app.terminate()
-//        self.app = XCUIApplication()
-//        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
-//        self.app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
-    func testAddForm() throws {
-                        
+    func testAddForms() throws {
+        
+        let originalFormCount = self.app.scrollViews["formsScrollView"].descendants(matching: .button).count
+                
         self.app.buttons["addFormButton"].tap()
         
-        let formCount = self.app.scrollViews["formsScrollView"].descendants(matching: .button).count
+        var currentFormCount = self.app.scrollViews["formsScrollView"].descendants(matching: .button).count
         
-        XCTAssertEqual(1, formCount,
+        XCTAssertEqual(originalFormCount + 1, currentFormCount,
                        "Form was not added")
+                        
+        self.app.buttons["addFormButton"].tap()
+        self.app.buttons["addFormButton"].tap()
+        
+        currentFormCount = self.app.scrollViews["formsScrollView"].descendants(matching: .button).count
+        
+        XCTAssertEqual(originalFormCount + 3, currentFormCount,
+                       "Forms were not added")
+    }
+    
+    func testNavigation() {
+        
+        self.app.terminate()
+        self.app = XCUIApplication()
+        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
+        self.app.launch()
+        
+        // Overview > Mission Data
+        self.app.scrollViews["formsScrollView"].descendants(matching: .button).firstMatch.tap()
+        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
+        
+        // Mission Data > Overview
+        self.app.navigationBars.buttons["Mission Forms"].tap()
+        XCTAssert(self.app.buttons["addFormButton"].exists)
+        
+        // Overview > Mission Data > Flight Seq
+        self.app.scrollViews["formsScrollView"].descendants(matching: .button).firstMatch.tap()
+        self.app.buttons["FLIGHT SEQ"].tap()
+        XCTAssert(self.app.buttons["Add Flight SEQ"].exists)
+        
+        // Flight Seq > Mission Data
+        self.app.navigationBars.buttons["TBD"].tap()
+        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
+
+        // Mission Data > Aircrew List
+        self.app.buttons["AIRCREW LIST"].tap()
+        XCTAssert(self.app.buttons["Add Aircrew"].exists)
+        
+        // Aircrew List > Mission Data
+        self.app.navigationBars.buttons["TBD"].tap()
+        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
+
+        // Mission Data > Aircrew Data
+//        self.app.buttons["AIRCREW DATA"].tap()
+//        XCTAssert(self.app.buttons["Add Aircrew"].exists)
+        
+        // Aircrew Data > Mission Data
+//        self.app.navigationBars.buttons["TBD"].tap()
+//        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
     }
 
     func testLaunchPerformance() throws {

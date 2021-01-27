@@ -29,7 +29,8 @@ struct AllFlightsView: View {
                              } label: {
                                 HStack{
                                     Spacer()
-                                    Image(systemName: "plus")
+                                    Text("Add Flight SEQ")
+                                    Image(systemName: "plus.circle")
                                 }
                             })
         // .navigationBarItems(leading: EditButton()) this only works on lists, so we need a new edit way.

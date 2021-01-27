@@ -32,7 +32,8 @@ struct AllAircrewView: View {
                             } label: {
                                 HStack{
                                     Spacer()
-                                    Image(systemName: "plus")
+                                    Text("Add Aircrew")
+                                    Image(systemName: "plus.circle")
                                 }
                             })
         //        }
