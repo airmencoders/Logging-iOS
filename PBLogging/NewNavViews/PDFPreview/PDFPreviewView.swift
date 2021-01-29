@@ -86,10 +86,7 @@ struct PDFPreviewView: View {
             return
         }
         if completed {
-            if activityType == UIActivity.ActivityType.print{
-                form.lastPrinted = Date()
-                NSLog("Form Last Printed: \(String(describing: form.lastPrinted))")
-            }else{
+            if activityType?.rawValue == "com.mattermost.rn.MattermostShare" || activityType == UIActivity.ActivityType.mail {
                 form.lastShared = Date()
                 NSLog("Form Last Shared: \(String(describing: form.lastShared))")
             }
@@ -150,8 +147,7 @@ struct PDFRepView : UIViewRepresentable {
 }
 struct ShareView: UIViewControllerRepresentable {
     
-    //TODO: Exclude more activities or set only the specific activities we require
-    let excludedActivityTypes: [UIActivity.ActivityType]? = [.postToWeibo, .postToFlickr, .postToTwitter, .postToVimeo, .postToFacebook, .postToTencentWeibo, .assignToContact]
+    let excludedActivityTypes: [UIActivity.ActivityType]? = [.postToWeibo, .postToFlickr, .postToTwitter, .postToVimeo, .postToFacebook, .postToTencentWeibo, .assignToContact, .message, .print, .assignToContact]
     let activityItems: [Any]
     let applicationActivities: [UIActivity]? = nil
     
@@ -171,7 +167,6 @@ struct ShareView: UIViewControllerRepresentable {
     }
 }
 struct ShareView_Previews: PreviewProvider {
-    // TODO: Have preview show a share sheet preview
     static let url = URL(fileURLWithPath: Bundle.main.path(forResource: "fillable781v3", ofType: "pdf")!)
     static var previews: some View {
         ShareView(activityItems: [url])
