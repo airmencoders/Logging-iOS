@@ -32,6 +32,7 @@
 		4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */; };
 		7F36014F25C20069009FF74E /* FlightSeqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36014E25C20069009FF74E /* FlightSeqView.swift */; };
 		7F36015725C231BB009FF74E /* FlightSeqGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36015625C231BB009FF74E /* FlightSeqGrid.swift */; };
+		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -118,6 +119,7 @@
 		4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtTests.swift"; sourceTree = "<group>"; };
 		7F36014E25C20069009FF74E /* FlightSeqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSeqView.swift; sourceTree = "<group>"; };
 		7F36015625C231BB009FF74E /* FlightSeqGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSeqGrid.swift; sourceTree = "<group>"; };
+		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 		BFBAF9A725AFC4D900BBFBD8 /* AircrewSection */ = {
 			isa = PBXGroup;
 			children = (
+				7F36016125C365AE009FF74E /* AircrewListView.swift */,
 				BFBAF9A225AFC42800BBFBD8 /* AllAircrewView.swift */,
 				1383049125B0CDDB00DFBBCE /* AircrewCard.swift */,
 				1383049625B0E31200DFBBCE /* AircrewDetail.swift */,
@@ -591,6 +594,7 @@
 				4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */,
 				7F36015725C231BB009FF74E /* FlightSeqGrid.swift in Sources */,
 				138304A125B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift in Sources */,
+				7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */,
 				4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */,
 				BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */,
 				BF982CD525A54E5900C14019 /* FakeData.swift in Sources */,

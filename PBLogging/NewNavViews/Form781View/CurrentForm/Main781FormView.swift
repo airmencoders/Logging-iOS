@@ -33,7 +33,7 @@ struct Main781FormView: View {
                 
                 Section(header: Text("Aircrew List").fontSectionHeading()) {
                     NavigationLink(
-                        destination: AllAircrewView(form: form),
+                        destination: AircrewListView(form: form),
                         label: {
                             Text("AIRCREW LIST")
                                 .fontFormInput()
