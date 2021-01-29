@@ -27,7 +27,7 @@ enum FakeData{
     
     static let flights: [Flight] = {
         
-        let numberOfFlights = 5
+        let numberOfFlights = 6
         
         let previewController = PersistenceController.preview
         

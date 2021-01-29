@@ -22,7 +22,7 @@ struct Main781FormView: View {
 
                 Section(header: Text("Flight Seq").fontSectionHeading()) {
                     NavigationLink(
-                        destination: AllFlightsView(form: form),
+                        destination: FlightSeqView(form: form),
                         label: {
                             Text("FLIGHT SEQ")
                                 .fontFormInput()
