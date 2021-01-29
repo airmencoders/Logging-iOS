@@ -10,11 +10,11 @@ import SwiftUI
 struct Main781FormView: View {
     
     @ObservedObject var form: Form781
-    @State var isPreviewEnabled = true
+    @State private var selectPreview: Int? = 0
     
     var body: some View {
         VStack {
-            Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
+            Main781FormHeaderView(selectPreview: $selectPreview, form: form)
             Form {
                 MissionDataSection(form: form)
                     .sectionHeaderStyle()
@@ -57,6 +57,11 @@ struct Main781FormView: View {
             .onAppear {
                UITableView.appearance().backgroundColor = .clear
             }
+            .navigationBarItems(trailing:
+                TextAndIconButton(text: "Preview", size: 20.0, icon: "printer") {
+                    selectPreview = 1
+                }
+                .accessibility(identifier: "previewButton"))   // Can be used for UI Unit Testing.
             Spacer()
         }
         .onDisappear {

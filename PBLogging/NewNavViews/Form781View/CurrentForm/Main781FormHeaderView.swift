@@ -8,35 +8,20 @@
 import SwiftUI
 
 struct Main781FormHeaderView: View {
-    
-    @Binding var isPreviewEnabled: Bool
-    
+
+    @Binding var selectPreview: Int?
+
     var form: Form781
-    
+
     var body: some View {
-        HStack {
-            Spacer()
-            NavigationLink(
-                destination: PDFPreviewView(form: form),
-                label: {
-                    HStack {
-                        Text("Preview")
-                            .fontSectionHeading()
-                        Image(systemName: "printer")
-                    }
-                    .foregroundColor(.pblSecondary)
-                    .padding()
-                }).disabled(!isPreviewEnabled)
-        }
+        NavigationLink(
+            destination: PDFPreviewView(form: form),
+            tag: 1,
+            selection: $selectPreview,
+            label: {
+                EmptyView()
+            })
     }
 }
 
-struct Main781FormHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        Main781FormHeaderView(isPreviewEnabled:.constant(true), form: Form781())
-            .previewLayout(.sizeThatFits)
-        Main781FormHeaderView(isPreviewEnabled:.constant(true), form: Form781())
-            .previewLayout(.sizeThatFits)
-            .preferredColorScheme(.dark)
-    }
-}
+// There is no need for Main781FormHeaderView_Previews because there is no visible view
