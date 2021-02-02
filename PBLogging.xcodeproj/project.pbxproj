@@ -15,6 +15,7 @@
 		138520A825B9F10D00C0733B /* DateFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */; };
 		13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */; };
 		13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */; };
+		13F47EFA25C9AC770082E8BC /* Form781Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F47EF925C9AC770082E8BC /* Form781Test.swift */; };
 		4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84000825AE57F80089AAB7 /* Form781+PDF.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
 		4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */; };
@@ -96,6 +97,7 @@
 		138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFieldWithLabel.swift; sourceTree = "<group>"; };
 		13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AircrewData+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
+		13F47EF925C9AC770082E8BC /* Form781Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781Test.swift; sourceTree = "<group>"; };
 		4D84000825AE57F80089AAB7 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderModifier.swift; sourceTree = "<group>"; };
@@ -182,6 +184,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13F47EF025C9AB250082E8BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		4DB3178025BA4E9400DB1201 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +285,7 @@
 				4DD13FF2259ED18700C98EB8 /* LoggingTests.swift */,
 				4DF7C7A025BF4A9700EB1E5C /* PBLMathTests.swift */,
 				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
+				13F47EF925C9AC770082E8BC /* Form781Test.swift */,
 			);
 			path = LoggingTests;
 			sourceTree = "<group>";
@@ -311,6 +321,7 @@
 		4DD14011259ED23900C98EB8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				13F47EF025C9AB250082E8BC /* Services */,
 				BF982CDC25A54ECF00C14019 /* Form781+CoreDataClass.swift */,
 				BF982CDD25A54ECF00C14019 /* Form781+CoreDataProperties.swift */,
 				BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */,
@@ -632,6 +643,7 @@
 				4DF7C7A125BF4A9700EB1E5C /* PBLMathTests.swift in Sources */,
 				4DD13FF3259ED18700C98EB8 /* LoggingTests.swift in Sources */,
 				4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */,
+				13F47EFA25C9AC770082E8BC /* Form781Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
