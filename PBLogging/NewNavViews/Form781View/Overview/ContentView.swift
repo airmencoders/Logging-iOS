@@ -10,11 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showInfo = false
+    @ObservedObject var headerButtonViews = HeaderButtonViews()
     
     var body: some View {
         VStack {
-            ContentHeaderView()
-            FormNavigationView().alertProvider()
+            ContentHeaderView(buttonText: $headerButtonViews.viewText, currentView: $headerButtonViews.currentView)
+            FormNavigationView(buttonText: $headerButtonViews.viewText, currentView: $headerButtonViews.currentView).alertProvider()
                 .padding(.horizontal)
         }
         .accentColor(Color("primary"))

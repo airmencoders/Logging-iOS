@@ -10,6 +10,8 @@ import SwiftUI
 struct AircrewListView: View {
     
     @ObservedObject var form: Form781
+    @Binding var buttonText: String
+    @Binding var currentView: PBLView
         
     var body: some View {
         VStack {
@@ -51,6 +53,10 @@ struct AircrewListView: View {
             .cornerRadius(10)
         }
         .padding(.horizontal)
+        .onAppear {
+            currentView = .aircrewList
+            buttonText = "Aircrew List"
+        }
         .onDisappear{
             PersistenceController.saveContext()
         }
@@ -82,9 +88,9 @@ struct AircrewListView_Previews: PreviewProvider {
     static let form = FakeData.form781s.randomElement()!
 
     static var previews: some View {
-        AircrewListView(form: form)
+        AircrewListView(form: form, buttonText: .mock("Aircrew List"), currentView: .mock(.aircrewList))
             .previewLayout(.sizeThatFits)
-        AircrewListView(form: form)
+        AircrewListView(form: form, buttonText: .mock("Aircrew List"), currentView: .mock(.aircrewList))
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

@@ -38,6 +38,7 @@
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
 		7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */; };
 		7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DABE25A4C44A00D5860C /* BoldText.swift */; };
+		7F910D1225C9E5C100151CA5 /* HeaderButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F910D1125C9E5C100151CA5 /* HeaderButtonViews.swift */; };
 		7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */; };
 		7FF0FF0725B74A3D00097C66 /* IconText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0FF0625B74A3D00097C66 /* IconText.swift */; };
 		BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */; };
@@ -125,6 +126,7 @@
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndIconButton.swift; sourceTree = "<group>"; };
 		7F83DABE25A4C44A00D5860C /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
+		7F910D1125C9E5C100151CA5 /* HeaderButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButtonViews.swift; sourceTree = "<group>"; };
 		7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLabel.swift; sourceTree = "<group>"; };
 		7FF0FF0625B74A3D00097C66 /* IconText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconText.swift; sourceTree = "<group>"; };
 		BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Form781+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				D2223E5525B7691C00B6A33F /* PreviewMods.swift */,
 				BF5C1F2325A683690075404C /* AlertProvider.swift */,
 				4DF7C79B25BF4A0000EB1E5C /* PBLMath.swift */,
+				7F910D1125C9E5C100151CA5 /* HeaderButtonViews.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */,
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
 				7F36014F25C20069009FF74E /* FlightSeqView.swift in Sources */,
+				7F910D1225C9E5C100151CA5 /* HeaderButtonViews.swift in Sources */,
 				1383049225B0CDDB00DFBBCE /* AircrewCard.swift in Sources */,
 				BF982CE325A54ECF00C14019 /* Form781+CoreDataProperties.swift in Sources */,
 				4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */,

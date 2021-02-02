@@ -84,7 +84,7 @@ extension View {
 }
 /// See: https://www.swiftbysundell.com/articles/getting-the-most-out-of-xcode-previews/
 /// Allows to use .mock(value) in previews instead of .constant
-/// Mocked values can be changed in the live prevew
+/// Mocked values can be changed in the live preview
 extension Binding {
     static func mock(_ value: Value) -> Self {
         var value = value

@@ -12,6 +12,9 @@ struct Main781FormView: View {
     @ObservedObject var form: Form781
     @State var isPreviewEnabled = true
     
+    @Binding var buttonText: String
+    @Binding var currentView: PBLView
+    
     var body: some View {
         VStack {
             Main781FormHeaderView(isPreviewEnabled: $isPreviewEnabled, form: form)
@@ -22,7 +25,7 @@ struct Main781FormView: View {
 
                 Section(header: Text("Flight Seq").fontSectionHeading()) {
                     NavigationLink(
-                        destination: FlightSeqView(form: form),
+                        destination: FlightSeqView(buttonText: $buttonText, currentView: $currentView, form: form),
                         label: {
                             Text("FLIGHT SEQ")
                                 .fontFormInput()
@@ -33,7 +36,7 @@ struct Main781FormView: View {
                 
                 Section(header: Text("Aircrew List").fontSectionHeading()) {
                     NavigationLink(
-                        destination: AircrewListView(form: form),
+                        destination: AircrewListView(form: form, buttonText: $buttonText, currentView: $currentView),
                         label: {
                             Text("AIRCREW LIST")
                                 .fontFormInput()
@@ -55,7 +58,9 @@ struct Main781FormView: View {
             }
             .navigationBarTitle(Text("TBD"))
             .onAppear {
-               UITableView.appearance().backgroundColor = .clear
+                UITableView.appearance().backgroundColor = .clear
+                currentView = .form781
+                buttonText = "Form781"
             }
             Spacer()
         }
@@ -66,13 +71,13 @@ struct Main781FormView: View {
 }
 
 struct Main781FormView_Previews: PreviewProvider {
-    
+
     static let form = FakeData.form781s.randomElement()!
-    
+
     static var previews: some View {
-        Main781FormView(form: form)
+        Main781FormView(form: form, buttonText: .mock("Form781"), currentView: .mock(.form781))
             .iPadPro9_7(isDark: false)
-        Main781FormView(form: form)
+        Main781FormView(form: form, buttonText: .mock("Form781"), currentView: .mock(.form781))
             .iPadPro9_7(isDark: true)
     }
 }
