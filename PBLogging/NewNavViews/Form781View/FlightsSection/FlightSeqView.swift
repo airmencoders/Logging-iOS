@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FlightSeqView: View {
     
-    @Binding var buttonText: String
     @Binding var currentView: PBLView
     
     @ObservedObject var form: Form781
@@ -37,7 +36,6 @@ struct FlightSeqView: View {
         }
         .onAppear {
             currentView = .flightSeq
-            buttonText = "Flight Seq"
         }
     }
 }
@@ -47,9 +45,9 @@ struct FlightSeqView_Previews: PreviewProvider {
     static let form = FakeData.form781s.randomElement()!
 
     static var previews: some View {
-        FlightSeqView(buttonText: .mock("Flight Seq"), currentView: .mock(.flightSeq), form: form)
+        FlightSeqView(currentView: .mock(.flightSeq), form: form)
             .previewLayout(.sizeThatFits)
-        FlightSeqView(buttonText: .mock("Flight Seq"), currentView: .mock(.flightSeq), form: form)
+        FlightSeqView(currentView: .mock(.flightSeq), form: form)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

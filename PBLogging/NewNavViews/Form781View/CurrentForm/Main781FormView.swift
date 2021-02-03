@@ -12,7 +12,6 @@ struct Main781FormView: View {
     @ObservedObject var form: Form781
     @State var isPreviewEnabled = true
     
-    @Binding var buttonText: String
     @Binding var currentView: PBLView
     
     var body: some View {
@@ -25,7 +24,7 @@ struct Main781FormView: View {
 
                 Section(header: Text("Flight Seq").fontSectionHeading()) {
                     NavigationLink(
-                        destination: FlightSeqView(buttonText: $buttonText, currentView: $currentView, form: form),
+                        destination: FlightSeqView(currentView: $currentView, form: form),
                         label: {
                             Text("FLIGHT SEQ")
                                 .fontFormInput()
@@ -36,7 +35,7 @@ struct Main781FormView: View {
                 
                 Section(header: Text("Aircrew List").fontSectionHeading()) {
                     NavigationLink(
-                        destination: AircrewListView(form: form, buttonText: $buttonText, currentView: $currentView),
+                        destination: AircrewListView(form: form, currentView: $currentView),
                         label: {
                             Text("AIRCREW LIST")
                                 .fontFormInput()
@@ -60,7 +59,6 @@ struct Main781FormView: View {
             .onAppear {
                 UITableView.appearance().backgroundColor = .clear
                 currentView = .form781
-                buttonText = "Form781"
             }
             Spacer()
         }
@@ -75,9 +73,9 @@ struct Main781FormView_Previews: PreviewProvider {
     static let form = FakeData.form781s.randomElement()!
 
     static var previews: some View {
-        Main781FormView(form: form, buttonText: .mock("Form781"), currentView: .mock(.form781))
+        Main781FormView(form: form, currentView: .mock(.form781))
             .iPadPro9_7(isDark: false)
-        Main781FormView(form: form, buttonText: .mock("Form781"), currentView: .mock(.form781))
+        Main781FormView(form: form, currentView: .mock(.form781))
             .iPadPro9_7(isDark: true)
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentHeaderView: View {
     
     @State var isInfoModalShown = false
-    @Binding var buttonText: String
     @Binding var currentView: PBLView
     
     var body: some View {
@@ -20,17 +19,6 @@ struct ContentHeaderView: View {
                 .scaledToFit()
                 .frame(height: 50)
             Spacer()
-            
-//            Button {
-//                self.buttonText = "Form781"
-//            } label: {
-//                Image(systemName: "circle")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(height: 25)
-//                    .padding()
-//            }
-            
             Button {
                 switch currentView {
                 case .overview: print("You are on: Overview Page")
@@ -41,8 +29,18 @@ struct ContentHeaderView: View {
                 }
             } label: {
                 HStack {
-                    Text(buttonText)
-                        .font(.pblBold(size: 18))
+                    switch currentView {
+                    case .overview: Text("Overview")
+                                        .font(.pblBold(size: 18))
+                    case .form781: Text("Form 781")
+                                        .font(.pblBold(size: 18))
+                    case .flightSeq: Text("Flight Sequence")
+                                        .font(.pblBold(size: 18))
+                    case .aircrewList: Text("Aircrew List")
+                                        .font(.pblBold(size: 18))
+                    default: Text("Error: On default")
+                                        .font(.pblBold(size: 18))
+                    }
                     Image(systemName: "questionmark.circle")
                             .resizable()
                             .scaledToFit()
@@ -73,9 +71,9 @@ struct ContentHeaderView: View {
 
 struct ContentHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentHeaderView(buttonText: .constant("Overview"), currentView: .constant(.overview))
+        ContentHeaderView(currentView: .constant(.overview))
             .previewLayout(.sizeThatFits)
-        ContentHeaderView(buttonText: .constant("Overview"), currentView: .constant(.overview))
+        ContentHeaderView(currentView: .constant(.overview))
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FormNavigationView: View {
     
-    @Binding var buttonText: String
     @Binding var currentView: PBLView
     
     @Environment(\.managedObjectContext) private var moc
@@ -26,7 +25,7 @@ struct FormNavigationView: View {
                 VStack(spacing: 30) {
                     ForEach(forms, id: \.self) { form in
                         NavigationLink(
-                            destination: Main781FormView(form: form, buttonText: $buttonText, currentView: $currentView),
+                            destination: Main781FormView(form: form, currentView: $currentView),
                             label: { Form781Card(form: form) })
                     }
                 }
@@ -42,7 +41,6 @@ struct FormNavigationView: View {
                                     .accessibility(identifier: "addFormButton"))
             .onAppear {
                 currentView = .overview
-                buttonText = "Overview"
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -54,11 +52,11 @@ struct FormNavigationView_Previews: PreviewProvider {
         
         let previewController = PersistenceController.preview
         
-        FormNavigationView(buttonText: .mock("Overview"), currentView: .mock(.overview))
+        FormNavigationView(currentView: .mock(.overview))
             .environment(\.managedObjectContext, previewController.container.viewContext)
             .previewLayout(.sizeThatFits)
         
-        FormNavigationView(buttonText: .mock("Overview"), currentView: .mock(.overview))
+        FormNavigationView(currentView: .mock(.overview))
             .environment(\.managedObjectContext, previewController.container.viewContext)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)

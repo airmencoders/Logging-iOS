@@ -9,9 +9,7 @@ import SwiftUI
 
 class HeaderButtonViews: ObservableObject {
     
-    @Published var viewText: String = "Overview"
     @Published var currentView: PBLView = .overview
-    
 }
 
 enum PBLView {
