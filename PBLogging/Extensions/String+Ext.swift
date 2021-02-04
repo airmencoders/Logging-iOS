@@ -42,33 +42,4 @@ extension String {
         let digits = Set("0123456789")
         return Set(self).isSubset(of: digits)
     }
-    
-// Not used, so commenting out for now.
-//    func double(for obj: Any?) -> String {
-//        var retVal: String?
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        
-//        if let dbl = obj as? Double {
-//            retVal = formatter.string(from: NSNumber(value: dbl))
-//        } else {
-//            retVal = nil
-//        }
-//        
-//        return retVal!
-//    }
-//    
-//    func float(for obj: Any?) -> String {
-//        var retVal: String?
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        
-//        if let dbl = obj as? Float {
-//            retVal = formatter.string(from: NSNumber(value: dbl))
-//        } else {
-//            retVal = nil
-//        }
-//        
-//        return retVal!
-//    }
 }
