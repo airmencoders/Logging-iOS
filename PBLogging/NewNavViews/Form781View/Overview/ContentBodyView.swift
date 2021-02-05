@@ -36,6 +36,8 @@ struct EventCard: View {
 struct EventLabel: View {
     var index: Int
 
+    @ObservedObject var flightData = FlightData.shared
+
     @State private var showEditEvent = false
     @State private var eventName = "Mission #"
     @State private var eventDate = Date()
@@ -44,8 +46,8 @@ struct EventLabel: View {
     var body: some View {
         Button(action: _displayEditEvent) {
             VStack(alignment: .leading) {
-                Text(FlightData.shared.events[index].name)
-                Text(FlightData.shared.events[index].date.string())
+                Text(flightData.events[index].name)
+                Text(flightData.events[index].date.string())
             }
         }
         .padding(.leading)
@@ -58,8 +60,8 @@ struct EventLabel: View {
     }
 
     private func _displayEditEvent() {
-        eventName = FlightData.shared.events[index].name
-        eventDate = FlightData.shared.events[index].date
+        eventName = flightData.events[index].name
+        eventDate = flightData.events[index].date
         canceled = true
         showEditEvent = true
     }
@@ -71,7 +73,7 @@ struct EventLabel: View {
         }
 
         let newEvent = FlightEvent(name: newName, date: newDate)
-        FlightData.shared.events[index] = newEvent
+        flightData.events[index] = newEvent
     }
 }
 
@@ -111,7 +113,7 @@ struct ContentBodyView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 30) {
-                    ForEach(FlightData.shared.events.indices, id: \.self) { index in
+                    ForEach(flightData.events.indices, id: \.self) { index in
                         EventCard(index: index)
                     }
                 }
@@ -140,7 +142,7 @@ struct ContentBodyView: View {
         }
 
         let newEvent = FlightEvent(name: newName, date: newDate)
-        FlightData.shared.events.append(newEvent)
+        flightData.events.append(newEvent)
     }
 }
 
