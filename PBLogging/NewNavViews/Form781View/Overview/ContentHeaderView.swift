@@ -21,13 +21,16 @@ struct ContentHeaderView: View {
                 .font(.pblRegular(size: 12))
                 .foregroundColor(Color.gray)
             Spacer()
+
             Button(action: openPuckboardLoggingConfluenceInSafari) {
+                Text("Release Notes")
+                    .font(.pblBold(size: 20))
                 Image(systemName: "info.circle")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 25)
-                    .padding()
+                    .frame(height: 20)
             }
+            .padding()
         }
         .background(Color.black)
         .foregroundColor(.white)
