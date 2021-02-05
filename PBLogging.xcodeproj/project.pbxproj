@@ -16,6 +16,7 @@
 		13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */; };
 		13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */; };
 		4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84000825AE57F80089AAB7 /* Form781+PDF.swift */; };
+		4D8F32F325CB696100CB441E /* ContentBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F32F225CB696100CB441E /* ContentBodyView.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
 		4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */; };
 		4DB3178F25BA516F00DB1201 /* MissionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */; };
@@ -97,6 +98,7 @@
 		13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AircrewData+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		4D84000825AE57F80089AAB7 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
+		4D8F32F225CB696100CB441E /* ContentBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBodyView.swift; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderModifier.swift; sourceTree = "<group>"; };
 		4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDataSection.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */,
 				BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */,
+				4D8F32F225CB696100CB441E /* ContentBodyView.swift */,
 				BFBAF98325AFAEF200BBFBD8 /* FormNavigationView.swift */,
 				BFBAF96825AFAA3C00BBFBD8 /* Form781Card.swift */,
 			);
@@ -603,6 +606,7 @@
 				BF982CE425A54ECF00C14019 /* AircrewData+CoreDataClass.swift in Sources */,
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
+				4D8F32F325CB696100CB441E /* ContentBodyView.swift in Sources */,
 				BFBAF99525AFB90600BBFBD8 /* Main781FormHeaderView.swift in Sources */,
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */,
