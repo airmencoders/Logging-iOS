@@ -59,7 +59,6 @@
 		BFBAF95C25AFA98A00BBFBD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */; };
 		BFBAF96925AFAA3C00BBFBD8 /* Form781Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF96825AFAA3C00BBFBD8 /* Form781Card.swift */; };
 		BFBAF97125AFAC3900BBFBD8 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */; };
-		BFBAF97F25AFADD600BBFBD8 /* InfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */; };
 		BFBAF98425AFAEF200BBFBD8 /* FormNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF98325AFAEF200BBFBD8 /* FormNavigationView.swift */; };
 		BFBAF98D25AFB54D00BBFBD8 /* Main781FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */; };
 		BFBAF99525AFB90600BBFBD8 /* Main781FormHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */; };
@@ -147,7 +146,6 @@
 		BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFBAF96825AFAA3C00BBFBD8 /* Form781Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781Card.swift; sourceTree = "<group>"; };
 		BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
-		BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalView.swift; sourceTree = "<group>"; };
 		BFBAF98325AFAEF200BBFBD8 /* FormNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormNavigationView.swift; sourceTree = "<group>"; };
 		BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main781FormView.swift; sourceTree = "<group>"; };
 		BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main781FormHeaderView.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
-				BFBAF97E25AFADD600BBFBD8 /* InfoModalView.swift */,
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 			);
@@ -616,7 +613,6 @@
 				BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */,
 				BFBAF97125AFAC3900BBFBD8 /* ContentHeaderView.swift in Sources */,
 				138520A825B9F10D00C0733B /* DateFieldWithLabel.swift in Sources */,
-				BFBAF97F25AFADD600BBFBD8 /* InfoModalView.swift in Sources */,
 				7FF0FF0725B74A3D00097C66 /* IconText.swift in Sources */,
 				BF982CE225A54ECF00C14019 /* Form781+CoreDataClass.swift in Sources */,
 				1383049C25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift in Sources */,
