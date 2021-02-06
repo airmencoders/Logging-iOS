@@ -9,7 +9,6 @@
 //  pushing from a single View to multiple Views.
 
 import SwiftUI
-import Combine
 
 // One card, two pushes to edit screens
 // This is the main point of this sample code.
@@ -17,19 +16,44 @@ import Combine
 // views for editing data from a single card.
 struct EventCard: View {
     var index: Int
+    @State private var pushToSortie: Int? = 0
 
     var body: some View {
-        HStack {
-            // The EventLabel view will push to a sheet to edit the event data.
-            EventLabel(index: index)
-            Spacer()
-            // The SortieLink will push to a NavigationLink for the Sortie data
-            SortieLink(index: index)
+        ZStack {
+            Button(action: {
+                pushToSortie = 1
+            }) {
+                HStack {
+                    Spacer()
+                    // SortieLink will push to a NavigationLink for the Sortie data
+                    // SortieLink(index: index)
+                    Image(systemName: "chevron.right")
+                        .padding()
+                    NavigationLink(
+                        destination: SortieView(index: index),
+                        tag: 1,
+                        selection: $pushToSortie,
+                        label: {
+                            // Note: The NavigationLink does not have a view because
+                            // we are using pushToSortie to trigger the navigation
+                            // view push. So the button (the whole card) is what is
+                            // triggering the view push.
+                            EmptyView()
+                    })
+                }
+                .padding()
+                .background(Color.pblDefault)
+                .foregroundColor(Color.pblSecondary)
+                .cornerRadius(10)
+            }
+            // Set the label on top of the button. This is so the tap on the
+            // label will not activate the card button.
+            HStack {
+                // The EventLabel view will push to a sheet to edit the event data.
+                EventLabel(index: index)
+                Spacer()
+            }
         }
-        .padding()
-        .background(Color.pblDefault)
-        .foregroundColor(Color.pblSecondary)
-        .cornerRadius(10)
     }
 }
 
@@ -77,6 +101,7 @@ struct EventLabel: View {
     }
 }
 
+// This is only used if we are pushing from the chevron and not the whole card.
 struct SortieLink: View {
     var index: Int
 
