@@ -179,12 +179,12 @@ struct EventView: View {
     @Binding var canceled: Bool
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             HStack {
                 TextFieldWithLabel(label: "Event Title", placeholder: "Mission #", userInput: $eventName)
                 Spacer()
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("DATE")
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Date")
                         .fontFormLabel()
 
                     DatePicker("", selection: $eventDate, displayedComponents: [.date])
@@ -193,9 +193,9 @@ struct EventView: View {
                         .frame(width:100)
                 }
             }
-
             Spacer()
             HStack {
+                Spacer()
                 Button("Cancel") {
                     canceled = true
                     presentation.wrappedValue.dismiss()
@@ -207,8 +207,9 @@ struct EventView: View {
                 }
                 .padding()
             }
+            Spacer()
         }
-        .frame(width: 400, height: 200, alignment: .topLeading)
+        .frame(width: 300, height: 200, alignment: .top)
     }
 }
 
