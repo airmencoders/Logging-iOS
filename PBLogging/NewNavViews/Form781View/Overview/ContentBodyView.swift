@@ -7,6 +7,8 @@
 //  The data store, etc. is not the focus here.
 //  Was just trying to see different ways of
 //  pushing from a single View to multiple Views.
+//  Also the modal wrapper has been factored out
+//  into it's on file.
 
 import SwiftUI
 
@@ -51,10 +53,10 @@ struct ContentBodyView: View {
             .navigationViewStyle(StackNavigationViewStyle())
 
             if showEditEvent {
-                AddEditEvent(showModal: $showEditEvent,
-                             eventIndex: eventIndex,
-                             eventName: $eventName,
-                             eventDate: $eventDate)
+                PBLModalWrapper(content: AddEditEventContent(eventName: $eventName,
+                                                             eventDate: $eventDate,
+                                                             showModal: $showEditEvent,
+                                                             eventIndex: eventIndex))
             }
         }
     }
@@ -144,10 +146,10 @@ struct EventLabel: View {
                 .padding(.trailing)
             }
             if showEditEvent {
-                AddEditEvent(showModal: $showEditEvent,
-                             eventIndex: index,
-                             eventName: $eventName,
-                             eventDate: $eventDate)
+                PBLModalWrapper(content: AddEditEventContent(eventName: $eventName,
+                                                             eventDate: $eventDate,
+                                                             showModal: $showEditEvent,
+                                                             eventIndex: index))
             }
         }
     }
@@ -174,7 +176,18 @@ struct SortieLink: View {
     }
 }
 
-struct AddEditEventContent: View {
+struct SortieView: View {
+    var index: Int
+
+    var body: some View {
+        Text("Sortie for \(FlightData.shared.events[index].name)")
+    }
+}
+
+struct AddEditEventContent: PBLModalContent {
+    let contentWidth: CGFloat = 280
+    let contentHeight: CGFloat = 120
+
     @ObservedObject var flightData = FlightData.shared
 
     @Binding var eventName: String
@@ -220,61 +233,6 @@ struct AddEditEventContent: View {
                 .padding(.leading)
             }
         }
-        .frame(width: 280, height: 120)
-    }
-}
-
-struct SortieView: View {
-    var index: Int
-
-    var body: some View {
-        Text("Sortie for \(FlightData.shared.events[index].name)")
-    }
-}
-
-struct AddEditEvent: View {
-    @Binding var showModal: Bool
-    var eventIndex: Int
-    @Binding var eventName: String
-    @Binding var eventDate: Date
-    
-    let bodyWidth: CGFloat = 380.0
-    let bodyHeight: CGFloat = 180.0
-    let strokeWidth: CGFloat = 2.0
-    let cornerRadius: CGFloat = 6.0
-
-    var body: some View {
-        ZStack(alignment: .center) {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .frame(width: bodyWidth, height: bodyHeight)
-                .foregroundColor(Color.pblBackground)
-                .overlay(RoundedRectangle(cornerRadius: cornerRadius)
-                            .stroke(Color.secondary, lineWidth: strokeWidth))
-                .shadow(color: Color.secondary, radius: 3)
-
-            // Clip out the shadow on the inside of the dialog.
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .frame(width: bodyWidth - strokeWidth, height: bodyHeight - strokeWidth)
-                .foregroundColor(Color.pblBackground)
-
-            AddEditEventContent(eventName: $eventName,
-                                eventDate: $eventDate,
-                                showModal: $showModal,
-                                eventIndex: eventIndex)
-        }
-        .padding()
-    }
-}
-
-struct AddEditEvent_Previews: PreviewProvider {
-    @State static var showModal: Bool = true
-    static var eventIndex: Int = -1
-    @State static var eventName: String = "Mission 007"
-    @State static var eventDate: Date = Date()
-
-    static var previews: some View {
-        AddEditEvent(showModal: $showModal, eventIndex: eventIndex, eventName: $eventName, eventDate: $eventDate)
-            .preferredColorScheme(.light)
-            .previewLayout(.sizeThatFits)
+        .frame(width: contentWidth, height: contentHeight)
     }
 }
