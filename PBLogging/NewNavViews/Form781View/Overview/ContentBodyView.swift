@@ -10,6 +10,71 @@
 
 import SwiftUI
 
+// Just a little nothing. Will replace with real data one day.
+struct FlightEvent: Hashable {
+    var name: String
+    var date: Date
+}
+
+class FlightData: ObservableObject {
+    static var shared = FlightData()
+
+    @Published var events: [FlightEvent] = []
+}
+
+struct ContentBodyView: View {
+
+    @ObservedObject var flightData = FlightData.shared
+
+    @State private var showEditEvent: Bool = false
+    @State private var eventIndex: Int = -1
+    @State private var eventName: String = "Mission #"
+    @State private var eventDate: Date = Date()
+
+    var body: some View {
+        ZStack {
+            NavigationView {
+                ScrollView {
+                    VStack(spacing: 30) {
+                        ForEach(flightData.events.indices, id: \.self) { index in
+                            EventCard(index: index)
+                        }
+                    }
+                    .padding()
+                }
+                .navigationBarTitle(Text("Events"))
+                .navigationBarItems(trailing: TextAndIconButton(text: "Add Event",
+                                                                size: 24.0,
+                                                                icon: "plus.circle",
+                                                                action: _displayAddEvent))
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+
+            if showEditEvent {
+                AddEditEvent(showModal: $showEditEvent,
+                             eventIndex: eventIndex,
+                             eventName: $eventName,
+                             eventDate: $eventDate)
+            }
+        }
+    }
+
+    private func _displayAddEvent() {
+        eventName = "Mission #"
+        eventDate = Date()
+        eventIndex = -1
+        withAnimation() {
+            showEditEvent = true
+        }
+    }
+}
+
+struct ContentBodyView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentBodyView()
+    }
+}
+
 // One card, two pushes to edit screens
 // This is the main point of this sample code.
 // I just wanted to see how we could push to multiple
@@ -65,39 +130,34 @@ struct EventLabel: View {
     @State private var showEditEvent = false
     @State private var eventName = "Mission #"
     @State private var eventDate = Date()
-    @State private var canceled = true
 
     var body: some View {
-        Button(action: _displayEditEvent) {
-            VStack(alignment: .leading) {
-                Text(flightData.events[index].name)
-                Text(flightData.events[index].date.string())
+        ZStack {
+            VStack {
+                Button(action: _displayEditEvent) {
+                    VStack(alignment: .leading) {
+                        Text(flightData.events[index].name)
+                        Text(flightData.events[index].date.string())
+                    }
+                }
+                .padding(.leading)
+                .padding(.trailing)
+            }
+            if showEditEvent {
+                AddEditEvent(showModal: $showEditEvent,
+                             eventIndex: index,
+                             eventName: $eventName,
+                             eventDate: $eventDate)
             }
         }
-        .padding(.leading)
-        .padding(.trailing)
-        .sheet(isPresented: $showEditEvent, onDismiss: {
-            _handleEditEvent(addEvent: !canceled, newName: eventName, newDate: eventDate)
-        }, content: {
-            EventView(eventName: $eventName, eventDate: $eventDate, canceled: $canceled)
-        })
     }
 
     private func _displayEditEvent() {
         eventName = flightData.events[index].name
         eventDate = flightData.events[index].date
-        canceled = true
-        showEditEvent = true
-    }
-
-    private func _handleEditEvent(addEvent: Bool, newName: String, newDate: Date) {
-        showEditEvent = false
-        guard addEvent else {
-            return
+        withAnimation() {
+            showEditEvent = true
         }
-
-        let newEvent = FlightEvent(name: newName, date: newDate)
-        flightData.events[index] = newEvent
     }
 }
 
@@ -114,69 +174,13 @@ struct SortieLink: View {
     }
 }
 
-struct FlightEvent: Hashable {
-    var name: String
-    var date: Date
-}
-
-class FlightData: ObservableObject {
-    static var shared = FlightData()
-
-    @Published var events: [FlightEvent] = []
-}
-
-struct ContentBodyView: View {
-
+struct AddEditEventContent: View {
     @ObservedObject var flightData = FlightData.shared
-
-    @State private var showAddEvent = false
-    @State private var eventName = "Mission #"
-    @State private var eventDate = Date()
-    @State private var canceled = true
-
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 30) {
-                    ForEach(flightData.events.indices, id: \.self) { index in
-                        EventCard(index: index)
-                    }
-                }
-                .padding()
-            }
-            .navigationBarTitle(Text("Events"))
-            .navigationBarItems(trailing:
-                                    TextAndIconButton(text: "Add Event", size: 24.0, icon: "plus.circle", action: _displayAddEvent))
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $showAddEvent, onDismiss: {
-            _handleNewEvent(addEvent: !canceled, newName: eventName, newDate: eventDate)
-        }, content: {
-            EventView(eventName: $eventName, eventDate: $eventDate, canceled: $canceled)
-        })
-    }
-
-    private func _displayAddEvent() {
-        showAddEvent = true
-    }
-
-    private func _handleNewEvent(addEvent: Bool, newName: String, newDate: Date) {
-        showAddEvent = false
-        guard addEvent else {
-            return
-        }
-
-        let newEvent = FlightEvent(name: newName, date: newDate)
-        flightData.events.append(newEvent)
-    }
-}
-
-struct EventView: View {
-    @Environment(\.presentationMode) var presentation
 
     @Binding var eventName: String
     @Binding var eventDate: Date
-    @Binding var canceled: Bool
+    @Binding var showModal: Bool
+    var eventIndex: Int
 
     var body: some View {
         VStack {
@@ -197,13 +201,21 @@ struct EventView: View {
             HStack {
                 Spacer()
                 Button("Cancel") {
-                    canceled = true
-                    presentation.wrappedValue.dismiss()
+                    withAnimation() {
+                        showModal = false
+                    }
                 }
                 .padding()
                 Button("OK") {
-                    canceled = false
-                    presentation.wrappedValue.dismiss()
+                    withAnimation() {
+                        let newEvent = FlightEvent(name: eventName, date: eventDate)
+                        if eventIndex < 0 {
+                            flightData.events.append(newEvent)
+                        } else {
+                            flightData.events[eventIndex] = newEvent
+                        }
+                        showModal = false
+                    }
                 }
                 .padding()
             }
@@ -221,8 +233,27 @@ struct SortieView: View {
     }
 }
 
-struct ContentBodyView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentBodyView()
+struct AddEditEvent: View {
+    @Binding var showModal: Bool
+    var eventIndex: Int
+    @Binding var eventName: String
+    @Binding var eventDate: Date
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            RoundedRectangle(cornerRadius: 8)
+                .frame(width: 380, height: 180)
+                .foregroundColor(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray.opacity(0.2), lineWidth: 1))
+                .shadow(color: Color.gray.opacity(0.4), radius: 4)
+
+            AddEditEventContent(eventName: $eventName,
+                                eventDate: $eventDate,
+                                showModal: $showModal,
+                                eventIndex: eventIndex)
+                .padding()
+        }
+        .padding()
     }
 }
