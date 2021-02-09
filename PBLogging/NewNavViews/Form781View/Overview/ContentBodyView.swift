@@ -205,7 +205,7 @@ struct AddEditEventContent: View {
                         showModal = false
                     }
                 }
-                .padding()
+                .padding(.trailing)
                 Button("OK") {
                     withAnimation() {
                         let newEvent = FlightEvent(name: eventName, date: eventDate)
@@ -217,11 +217,10 @@ struct AddEditEventContent: View {
                         showModal = false
                     }
                 }
-                .padding()
+                .padding(.leading)
             }
-            Spacer()
         }
-        .frame(width: 300, height: 200, alignment: .top)
+        .frame(width: 280, height: 120)
     }
 }
 
@@ -238,22 +237,44 @@ struct AddEditEvent: View {
     var eventIndex: Int
     @Binding var eventName: String
     @Binding var eventDate: Date
+    
+    let bodyWidth: CGFloat = 380.0
+    let bodyHeight: CGFloat = 180.0
+    let strokeWidth: CGFloat = 2.0
+    let cornerRadius: CGFloat = 6.0
 
     var body: some View {
-        ZStack(alignment: .top) {
-            RoundedRectangle(cornerRadius: 8)
-                .frame(width: 380, height: 180)
-                .foregroundColor(Color.white)
-                .overlay(RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray.opacity(0.2), lineWidth: 1))
-                .shadow(color: Color.gray.opacity(0.4), radius: 4)
+        ZStack(alignment: .center) {
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .frame(width: bodyWidth, height: bodyHeight)
+                .foregroundColor(Color.pblBackground)
+                .overlay(RoundedRectangle(cornerRadius: cornerRadius)
+                            .stroke(Color.secondary, lineWidth: strokeWidth))
+                .shadow(color: Color.secondary, radius: 3)
+
+            // Clip out the shadow on the inside of the dialog.
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .frame(width: bodyWidth - strokeWidth, height: bodyHeight - strokeWidth)
+                .foregroundColor(Color.pblBackground)
 
             AddEditEventContent(eventName: $eventName,
                                 eventDate: $eventDate,
                                 showModal: $showModal,
                                 eventIndex: eventIndex)
-                .padding()
         }
         .padding()
+    }
+}
+
+struct AddEditEvent_Previews: PreviewProvider {
+    @State static var showModal: Bool = true
+    static var eventIndex: Int = -1
+    @State static var eventName: String = "Mission 007"
+    @State static var eventDate: Date = Date()
+
+    static var previews: some View {
+        AddEditEvent(showModal: $showModal, eventIndex: eventIndex, eventName: $eventName, eventDate: $eventDate)
+            .preferredColorScheme(.light)
+            .previewLayout(.sizeThatFits)
     }
 }
