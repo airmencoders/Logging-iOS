@@ -18,11 +18,11 @@ struct EventID: View {
     var body: some View {
         VStack(spacing: 0) {
             Divider()
-            Cell_label(text: "Event ID", color: Color.gray, alignment: "center")
+            CellLabel(text: "Event ID", color: Color.gray, alignment: "center")
             Divider()
                 .padding(.bottom, 12)
             ForEach(sampleIDs, id:\.id) { item in
-                Cell_label(text: item.item, color: Color.black, alignment: "center")
+                CellLabel(text: item.item, color: Color.black, alignment: "center")
                 
                 Divider()
             }

@@ -27,7 +27,7 @@ struct ScrollDemo: View {
                     ScrollView(.horizontal) {
                         HStack(spacing: 50) {
                             ForEach(0..<numberOfPersonnel) {
-                                Cell_label(text: "Person \($0)", color: Color.black, alignment: "center")
+                                CellLabel(text: "Person \($0)", color: Color.black, alignment: "center")
                             }
                         }
                     }

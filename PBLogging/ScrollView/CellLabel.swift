@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Cell_label: View {
+struct CellLabel: View {
     var text: String
     var color: Color
     var alignment: String
@@ -28,8 +28,8 @@ struct Cell_label: View {
     }
 }
 
-struct Cell_label_Previews: PreviewProvider {
+struct CellLabel_Previews: PreviewProvider {
     static var previews: some View {
-        Cell_label(text: "Sample Text", color: Color.black, alignment: "center")
+        CellLabel(text: "Sample Text", color: Color.black, alignment: "center")
     }
 }

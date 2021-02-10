@@ -25,11 +25,11 @@ struct EventTitles: View {
     var body: some View {
         VStack(spacing: 0) {
             Divider()
-            Cell_label(text: "Event Description", color: Color.gray, alignment: "leading")
+            CellLabel(text: "Event Description", color: Color.gray, alignment: "leading")
             Divider()
                 .padding(.bottom, 12)
             ForEach(descriptions, id:\.id) { item in
-                Cell_label(text: item.title, color: Color.black, alignment: "leading")
+                CellLabel(text: item.title, color: Color.black, alignment: "leading")
                 
                 Divider()
             }

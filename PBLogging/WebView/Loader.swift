@@ -12,7 +12,11 @@ struct Loader: View {
     
     var body: some View {
         ZStack {
-            Rectangle().frame(width:160, height: 135).background(Color.black).cornerRadius(8).opacity(0.6).shadow(color: .black, radius: 16)
+            Rectangle().frame(width:160, height: 135)
+                .background(Color.black)
+                .cornerRadius(8)
+                .opacity(0.6)
+                .shadow(color: .black, radius: 16)
             VStack {
                 Circle()
                     .trim(from: 0.3, to: 1)
