@@ -23,7 +23,8 @@ struct FormNavigationView: View {
                 VStack(spacing: 30) {
                     ForEach(forms, id: \.self) { form in
                         NavigationLink(
-                            destination: Main781FormView(form: form),
+                            //destination: Main781FormView(form: form),
+                            destination: FormTabView(form: form),
                             label: { Form781Card(form: form) })
                     }
                 }

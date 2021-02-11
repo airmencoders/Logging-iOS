@@ -50,7 +50,6 @@ struct AircrewListView: View {
             .background(Color.pblDefault)
             .cornerRadius(10)
         }
-        .padding(.horizontal)
         .onDisappear{
             PersistenceController.saveContext()
         }
