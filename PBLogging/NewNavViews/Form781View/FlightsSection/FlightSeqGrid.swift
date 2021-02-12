@@ -18,20 +18,20 @@ struct FlightSeqGrid: View {
                     Text("FLIGHT SEQ")
                         .font(.pblBold(size: 16))
                         .foregroundColor(.pblTertiary)
-                    FlightLabel(label: "MISSION NUMBER")
-                    FlightLabel(label: "MISSION SYMBOL")
-                    FlightLabel(label: "FROM")
-                    FlightLabel(label: "TO")
-                    FlightLabel(label: "TAKE OFF TIME")
-                    FlightLabel(label: "LAND TIME")
-                    FlightLabel(label: "TOTAL TIME", color: .pblSecondary)
-                    FlightLabel(label: "TOUCH & GO", color: .pblSecondary)
+                    FlightLabel3(label: "MISSION NUMBER")
+                    FlightLabel3(label: "MISSION SYMBOL")
+                    FlightLabel3(label: "FROM")
+                    FlightLabel3(label: "TO")
+                    FlightLabel3(label: "TAKE OFF TIME")
+                    FlightLabel3(label: "LAND TIME")
+                    FlightLabel3(label: "TOTAL TIME", color: .pblSecondary)
+                    FlightLabel3(label: "TOUCH & GO", color: .pblSecondary)
                 }
                 Group {
-                    FlightLabel(label: "FULL STOP", color: .pblSecondary)
-                    FlightLabel(label: "TOTAL", color: .pblSecondary)
-                    FlightLabel(label: "SORTIES", color: .pblSecondary)
-                    FlightLabel(label: "SPECIAL USE", color: .pblSecondary)
+                    FlightLabel3(label: "FULL STOP", color: .pblSecondary)
+                    FlightLabel3(label: "TOTAL", color: .pblSecondary)
+                    FlightLabel3(label: "SORTIES", color: .pblSecondary)
+                    FlightLabel3(label: "SPECIAL USE", color: .pblSecondary)
                 }
             }
             .padding()
@@ -112,7 +112,7 @@ struct GrandTotalLabel: View {
     }
 }
 
-struct FlightLabel: View {
+struct FlightLabel3: View {
     
     let label: String
     var color = Color.pblTertiary
@@ -121,7 +121,7 @@ struct FlightLabel: View {
         VStack(alignment: .leading) {
             Divider()
             Text(label)
-                .font(.pblBold(size: 16))
+                .font(.pblBold(size: 18))
                 .foregroundColor(color)
         }
         .frame(maxHeight: .infinity)

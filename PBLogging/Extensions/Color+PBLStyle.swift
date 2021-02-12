@@ -23,6 +23,7 @@ extension Color {
     public static let pblGray       = Color("PBLGray")
     public static let pblBackground = Color("background")
     public static let pblDefault    = Color("default")
+    public static let pblElevated   = Color("elevated")
     
     public static let pblErrorFG    = Color("error_fg")
 }
