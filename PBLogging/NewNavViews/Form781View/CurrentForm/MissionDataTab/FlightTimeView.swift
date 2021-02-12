@@ -108,7 +108,7 @@ struct FlightTimeView: View {
                     FlightColumn(form: form, title: "INSTR")
                     FlightColumn(form: form, title: "EVAL")
                     FlightColumn(form: form, title: "OTHER")
-                    FlightColumn(form: form, title: "TIME", backgroundColor: .pblTertiary)
+                    FlightColumn(form: form, title: "TIME", backgroundColor: .pblElevated)
                 }
             }
         }

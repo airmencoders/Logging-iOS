@@ -205,11 +205,10 @@
 			isa = PBXGroup;
 			children = (
 				7FB30E1E25D1CCF700797B4A /* FormTabView.swift */,
-				7FB30E3425D44A0700797B4A /* MissionDataView.swift */,
-				7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */,
-				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
-				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
-				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
+				7FBE15AE25D5CFB5009A0DEF /* MissionDataTab */,
+				7F03C0B425D5D17000F7AA5B /* TrainingEventsTab */,
+				7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */,
+				7F03C0B625D5D18800F7AA5B /* SortieCommentsTab */,
 				BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */,
 				BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */,
 				4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */,
@@ -343,6 +342,27 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		7F03C0B425D5D17000F7AA5B /* TrainingEventsTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TrainingEventsTab;
+			sourceTree = "<group>";
+		};
+		7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MissionSortieInfoTab;
+			sourceTree = "<group>";
+		};
+		7F03C0B625D5D18800F7AA5B /* SortieCommentsTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SortieCommentsTab;
+			sourceTree = "<group>";
+		};
 		7F83DA7325A3B17400D5860C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +371,19 @@
 				7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7FBE15AE25D5CFB5009A0DEF /* MissionDataTab */ = {
+			isa = PBXGroup;
+			children = (
+				7FB30E3425D44A0700797B4A /* MissionDataView.swift */,
+				7F36016125C365AE009FF74E /* AircrewListView.swift */,
+				7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */,
+				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
+				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
+				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
+			);
+			path = MissionDataTab;
 			sourceTree = "<group>";
 		};
 		BF5C1F2225A6835A0075404C /* Utilities */ = {
@@ -397,7 +430,6 @@
 		BFBAF9A725AFC4D900BBFBD8 /* AircrewSection */ = {
 			isa = PBXGroup;
 			children = (
-				7F36016125C365AE009FF74E /* AircrewListView.swift */,
 				BFBAF9A225AFC42800BBFBD8 /* AllAircrewView.swift */,
 				1383049125B0CDDB00DFBBCE /* AircrewCard.swift */,
 				1383049625B0E31200DFBBCE /* AircrewDetail.swift */,
