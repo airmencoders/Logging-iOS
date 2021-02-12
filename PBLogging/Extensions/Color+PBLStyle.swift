@@ -27,3 +27,9 @@ extension Color {
     
     public static let pblErrorFG    = Color("error_fg")
 }
+
+extension UIColor {
+    
+    public static let pblSecondaryUIColor  = UIColor(named: "secondary")
+    public static let pblElevatedUIColor = UIColor(named: "elevated")
+}

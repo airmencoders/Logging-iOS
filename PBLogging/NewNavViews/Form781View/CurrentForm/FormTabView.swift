@@ -25,7 +25,7 @@ struct FormTabView: View {
                 .tabItem {
                     Text("Mission Sortie Info")
                 }
-            AircrewListView(form: form)
+            SortieCommentsView()
                 .tabItem {
                     Text("Sortie Comments")
                 }
