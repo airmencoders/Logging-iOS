@@ -22,6 +22,10 @@ struct PBLModalDialog<Content: PBLModalContent >: View {
 
     var body: some View {
         ZStack(alignment: .center) {
+            Rectangle()
+                .foregroundColor(.white)
+                .opacity(0.2)
+                .frame(width: .infinity, height: .infinity)
             RoundedRectangle(cornerRadius: cornerRadius)
                 .frame(width: content.contentWidth + frameAdjustment,
                        height: content.contentHeight + frameAdjustment)

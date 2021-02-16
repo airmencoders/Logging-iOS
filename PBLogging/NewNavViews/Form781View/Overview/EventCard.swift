@@ -21,9 +21,6 @@ struct EventCard: View {
                 }
             }) {
                 HStack {
-//                    Spacer()
-//                    Image(systemName: "chevron.right")
-//                        .padding()
                     NavigationLink(
                         destination: FormTabView(form: form),
                         tag: 1,
@@ -36,7 +33,7 @@ struct EventCard: View {
                             EmptyView()
                     })
                 }
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 75, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                 .padding()
                 .background(Color.pblDefault)
                 .foregroundColor(Color.pblSecondary)
@@ -59,57 +56,21 @@ struct EventCard: View {
 
         @State private var eventName: String = ""
         @State private var eventDate: Date = Date()
-        @State private var dialogIsDisplayed: Bool = false
 
         var body: some View {
-            ZStack {
-                VStack {
-                    Button {
-                        _displayEditEvent()
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(form.harmLocation)
-                            HStack {
-                                Image(systemName: "calendar")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 16)
+            VStack(alignment: .leading) {
+                Text(form.harmLocation)
+                HStack {
+                    Image(systemName: "calendar")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 16)
 
-                                Text(form.date.string())
-                            }
-                        }
-                    }
-                    .padding(.leading)
-                    .padding(.trailing)
-                }
-                .foregroundColor(Color.pblSecondary)
-
-                if dialogIsDisplayed {
-                    Spacer()
-                    PBLModalDialog(content: EventDialogContent(eventName: $eventName,
-                                                               eventDate: $eventDate) { button in
-                        dialogIsDisplayed = false
-                        disableButtons = false
-                        if button == "OK" {
-                            form.harmLocation = eventName
-                            form.date = eventDate
-                            PersistenceController.saveContext()
-                        }
-                    })
+                    Text(form.date.string())
                 }
             }
-        }
-
-        private func _displayEditEvent() {
-            if disableButtons {
-                return
-            }
-            eventName = form.harmLocation
-            eventDate = form.date
-            disableButtons = true
-            withAnimation() {
-                dialogIsDisplayed = true
-            }
+            .padding(.leading)
+            .foregroundColor(Color.pblSecondary)
         }
     }
 }
