@@ -10,15 +10,16 @@ import SwiftUI
 struct EventCard: View {
 
     @ObservedObject var form: Form781
-    @Binding var disableButtons: Bool
+//    @Binding var disableButtons: Bool
     @State private var pushToSortie: Int? = 0
 
     var body: some View {
         ZStack {
             Button(action: {
-                if !disableButtons {
-                    pushToSortie = 1
-                }
+                pushToSortie = 1
+//                if !disableButtons {
+//                    pushToSortie = 1
+//                }
             }) {
                 HStack {
 //                    Spacer()
@@ -46,7 +47,8 @@ struct EventCard: View {
             // label will not activate the card button.
             HStack {
                 // The EventLabel view will push to a sheet to edit the event data.
-                EventLabel(form: form, disableButtons: $disableButtons)
+//                EventLabel(form: form, disableButtons: $disableButtons)
+                EventLabel(form: form)
                 Spacer()
             }
         }
@@ -55,7 +57,7 @@ struct EventCard: View {
     struct EventLabel: View {
 
         @ObservedObject var form: Form781
-        @Binding var disableButtons: Bool
+//        @Binding var disableButtons: Bool
 
         @State private var eventName: String = ""
         @State private var eventDate: Date = Date()
@@ -83,30 +85,16 @@ struct EventCard: View {
                     .padding(.trailing)
                 }
                 .foregroundColor(Color.pblSecondary)
-
-                if dialogIsDisplayed {
-                    Spacer()
-                    PBLModalDialog(content: EventDialogContent(eventName: $eventName,
-                                                               eventDate: $eventDate) { button in
-                        dialogIsDisplayed = false
-                        disableButtons = false
-                        if button == "OK" {
-                            form.harmLocation = eventName
-                            form.date = eventDate
-                            PersistenceController.saveContext()
-                        }
-                    })
-                }
             }
         }
 
         private func _displayEditEvent() {
-            if disableButtons {
-                return
-            }
+//            if disableButtons {
+//                return
+//            }
             eventName = form.harmLocation
             eventDate = form.date
-            disableButtons = true
+//            disableButtons = true
             withAnimation() {
                 dialogIsDisplayed = true
             }
@@ -119,6 +107,7 @@ struct EventCard_Previews: PreviewProvider {
     @State static var displayed = false
 
     static var previews: some View {
-        EventCard(form:form, disableButtons: $displayed)
+//        EventCard(form:form, disableButtons: $displayed)
+        EventCard(form:form)
     }
 }

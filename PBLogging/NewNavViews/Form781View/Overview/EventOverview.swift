@@ -17,57 +17,35 @@ struct EventOverview: View {
     private var forms: FetchedResults<Form781>
     @State private var eventName: String = ""
     @State private var eventDate: Date = Date()
-    @State private var dialogIsDisplayed: Bool = false
-    @State private var disableButtons: Bool = false
-
-     init() {
-        if #available(iOS 14, *) {
-            
-        } else {
-            UITableView.appearance().tableFooterView = UIView()
-        }
-        
-        UITableView.appearance().separatorStyle = .none
-    }
-
+    
     var body: some View {
         ZStack {
             NavigationView {
 //                 ScrollView {
-                VStack(spacing: 30) {
-                    List {
-                        ForEach(forms, id: \.self) { form in
-                            EventCard(form: form, disableButtons: $disableButtons)
+                    VStack(spacing: 30) {
+                        List {
+                            ForEach(forms, id: \.self) { form in
+                                EventCard(form: form)
+                            }
+                            .onDelete(perform: deleteEvent)
                         }
-                        .onDelete(perform: deleteEvent)
+                        .padding()
                     }
-                    .padding()
-                }
-                .accessibility(identifier: "eventsScrollView")
+//                 }
+//                .accessibility(identifier: "eventsScrollView")
                 .navigationBarTitle(Text("Events"))
                 .navigationBarItems(trailing:
                                         HStack {
                                             TextAndIconButton(text: "Add Event",
                                                               size: 24.0,
                                                               icon: "plus") {
-                                                              displayAddEvent()
-                                                          }
-                                                          .accessibility(identifier: "addEventButton")
+                                                          addEvent()
+                                                        }
+                                                        .accessibility(identifier: "addEventButton")
                                             EditButton()
                                         })
             }
             .navigationViewStyle(StackNavigationViewStyle())
-
-            if dialogIsDisplayed {
-                PBLModalDialog(content: EventDialogContent(eventName: $eventName,
-                                                           eventDate: $eventDate) { button in
-                    dialogIsDisplayed = false
-                    disableButtons = false
-                    if button == "OK" {
-                        PersistenceController.newEvent(name: eventName, date: eventDate)
-                    }
-                })
-            }
         }
     }
 
@@ -83,16 +61,10 @@ struct EventOverview: View {
         }
     }
 
-    private func displayAddEvent() {
-        if disableButtons {
-            return
-        }
+    private func addEvent() {
         eventName = "SpaceLab"
         eventDate = Date()
-        disableButtons = true
-        withAnimation() {
-            dialogIsDisplayed = true
-        }
+        PersistenceController.newEvent(name: eventName, date: eventDate)
     }
 }
 

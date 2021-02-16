@@ -79,25 +79,25 @@ class LoggingUITests: XCTestCase {
         }
     }
 
-    func testAddEvents() throws {
-
-        let originalFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-
-        self.app.buttons["addEventButton"].tap()
-        self.app.buttons["editEventButton"].tap()
-
-        var currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-
-        // We have two buttons on each card.
-        XCTAssertEqual(originalFormCount + 2, currentFormCount, "Event was not added")
-
-        self.app.buttons["addEventButton"].tap()
-        self.app.buttons["editEventButton"].tap()
-        self.app.buttons["addEventButton"].tap()
-        self.app.buttons["editEventButton"].tap()
-
-        currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-
-        XCTAssertEqual(originalFormCount + 6, currentFormCount, "Events were not added")
-    }
+//    func testAddEvents() throws {
+//
+//        let originalFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
+//
+//        self.app.buttons["addEventButton"].tap()
+//        self.app.buttons["editEventButton"].tap()
+//
+//        var currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
+//
+//        // We have two buttons on each card.
+//        XCTAssertEqual(originalFormCount + 2, currentFormCount, "Event was not added")
+//
+//        self.app.buttons["addEventButton"].tap()
+//        self.app.buttons["editEventButton"].tap()
+//        self.app.buttons["addEventButton"].tap()
+//        self.app.buttons["editEventButton"].tap()
+//
+//        currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
+//
+//        XCTAssertEqual(originalFormCount + 6, currentFormCount, "Events were not added")
+//    }
 }

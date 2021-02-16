@@ -15,10 +15,8 @@
 		138520A825B9F10D00C0733B /* DateFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */; };
 		13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */; };
 		13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */; };
-		4D8288CC25D478B70042EE12 /* PBLModalDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288CB25D478B70042EE12 /* PBLModalDialog.swift */; };
 		4D8288D425D482590042EE12 /* EventOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288D325D482590042EE12 /* EventOverview.swift */; };
 		4D8288D925D4838D0042EE12 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288D825D4838D0042EE12 /* EventCard.swift */; };
-		4D8288E425D49A130042EE12 /* EventDialogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288E325D49A130042EE12 /* EventDialogContent.swift */; };
 		4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84000825AE57F80089AAB7 /* Form781+PDF.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
 		4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */; };
@@ -104,10 +102,8 @@
 		138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFieldWithLabel.swift; sourceTree = "<group>"; };
 		13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AircrewData+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
-		4D8288CB25D478B70042EE12 /* PBLModalDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBLModalDialog.swift; sourceTree = "<group>"; };
 		4D8288D325D482590042EE12 /* EventOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOverview.swift; sourceTree = "<group>"; };
 		4D8288D825D4838D0042EE12 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
-		4D8288E325D49A130042EE12 /* EventDialogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDialogContent.swift; sourceTree = "<group>"; };
 		4D84000825AE57F80089AAB7 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderModifier.swift; sourceTree = "<group>"; };
@@ -236,7 +232,6 @@
 				BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */,
 				4D8288D325D482590042EE12 /* EventOverview.swift */,
 				4D8288D825D4838D0042EE12 /* EventCard.swift */,
-				4D8288E325D49A130042EE12 /* EventDialogContent.swift */,
 			);
 			name = Overview;
 			path = Form781View/Overview;
@@ -247,7 +242,6 @@
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
-				4D8288CB25D478B70042EE12 /* PBLModalDialog.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 			);
 			path = UtilityViews;
@@ -305,7 +299,6 @@
 				4DD13FF2259ED18700C98EB8 /* LoggingTests.swift */,
 				4DF7C7A025BF4A9700EB1E5C /* PBLMathTests.swift */,
 				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
-				13F47EF925C9AC770082E8BC /* Form781Test.swift */,
 			);
 			path = LoggingTests;
 			sourceTree = "<group>";
@@ -656,7 +649,6 @@
 				1383049725B0E31200DFBBCE /* AircrewDetail.swift in Sources */,
 				7FB30E4525D483FD00797B4A /* MissionDataAndFlightSeqView.swift in Sources */,
 				4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */,
-				4D822BFD25D5D610009C79BF /* EventDialogContent.swift in Sources */,
 				BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */,
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
 				7F36014F25C20069009FF74E /* FlightSeqView.swift in Sources */,
@@ -679,7 +671,6 @@
 				BFBAF99525AFB90600BBFBD8 /* Main781FormHeaderView.swift in Sources */,
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */,
-				4D822BF325D5D5F6009C79BF /* EventOverview.swift in Sources */,
 				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,
 				BFBAF99E25AFBD9C00BBFBD8 /* PDFPreviewView.swift in Sources */,
 				4D8288D925D4838D0042EE12 /* EventCard.swift in Sources */,
@@ -689,9 +680,7 @@
 				7FF0FF0725B74A3D00097C66 /* IconText.swift in Sources */,
 				BF982CE225A54ECF00C14019 /* Form781+CoreDataClass.swift in Sources */,
 				1383049C25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift in Sources */,
-				4D8288CC25D478B70042EE12 /* PBLModalDialog.swift in Sources */,
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
-				4D8288E425D49A130042EE12 /* EventDialogContent.swift in Sources */,
 				BFBAF9A325AFC42800BBFBD8 /* AllAircrewView.swift in Sources */,
 				13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,
@@ -707,7 +696,6 @@
 				4DF7C7A125BF4A9700EB1E5C /* PBLMathTests.swift in Sources */,
 				4DD13FF3259ED18700C98EB8 /* LoggingTests.swift in Sources */,
 				4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */,
-				13F47EFA25C9AC770082E8BC /* Form781Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
