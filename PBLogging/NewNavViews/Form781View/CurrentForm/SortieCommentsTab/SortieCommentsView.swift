@@ -24,20 +24,6 @@ struct SortieCommentsView: View {
     }
 }
 
-struct TextView: UIViewRepresentable {
-    
-    typealias UIViewType = UITextView
-    var configuration = { (view: UIViewType) in }
-    
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIViewType {
-        UIViewType()
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<Self>) {
-        configuration(uiView)
-    }
-}
-
 struct SortieCommentsView_Previews: PreviewProvider {
     static var previews: some View {
         SortieCommentsView()
