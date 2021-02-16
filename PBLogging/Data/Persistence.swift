@@ -72,4 +72,12 @@ struct PersistenceController {
         newForm.date = Date()
         PersistenceController.saveContext(context)
     }
+
+    // ATTN: We are making a Form781 for the moment, but we can hook this up to the new Core Data model when it's ready.
+    static func newEvent(name: String, date: Date, _ context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+        let newForm = Form781(context: context)
+        newForm.harmLocation = name
+        newForm.date = date
+        PersistenceController.saveContext(context)
+    }
 }

@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ContentHeaderView()
-            FormNavigationView().alertProvider()
+            EventOverview().alertProvider()
                 .padding(.horizontal)
         }
         .accentColor(Color("primary"))
