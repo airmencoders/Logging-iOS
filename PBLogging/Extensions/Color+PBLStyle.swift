@@ -32,5 +32,6 @@ extension UIColor {
     
     public static let pblPrimaryUIColor     = UIColor(named: "primary")
     public static let pblSecondaryUIColor   = UIColor(named: "secondary")
+    public static let pblDefaultUIColor     = UIColor(named: "default")
     public static let pblElevatedUIColor    = UIColor(named: "elevated")
 }

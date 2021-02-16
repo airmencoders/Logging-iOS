@@ -13,12 +13,12 @@ struct PBLToggleStyleSwitch: ToggleStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             ZStack(alignment: configuration.isOn ? .trailing : .leading) {
-                RoundedRectangle(cornerRadius: width / 2)
+                Capsule()
                     .frame(width: width, height: width / 2)
-                    .foregroundColor(configuration.isOn ? Color.pblPrimary : .gray)
+                    .foregroundColor(configuration.isOn ? Color.pblPrimary : .pblElevated)
 
-                RoundedRectangle(cornerRadius: width / 2)
-                    .frame(width: (width / 2) - 4, height: width / 2 - 6)
+                Circle()
+                    .frame(width: width / 2 - 6, height: width / 2 - 6)
                     .padding(4)
                     .foregroundColor(.white)
             }
@@ -38,9 +38,9 @@ struct PBLToggleStyleChip: ToggleStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 20)
+            Capsule()
                 .frame(width: width, height: 40)
-                .foregroundColor(configuration.isOn ? Color.pblPrimary : .gray)
+                .foregroundColor(configuration.isOn ? Color.pblPrimary : .pblDefault)
 
             HStack {
                 Image(systemName: "checkmark")

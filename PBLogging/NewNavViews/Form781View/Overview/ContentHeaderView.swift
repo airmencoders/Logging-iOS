@@ -12,37 +12,70 @@ struct ContentHeaderView: View {
     @State var displayVersion = "Version: Unknown"
     
     var body: some View {
-        HStack {
-            Image("PB_Logo")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 50)
-            Text(displayVersion)
-                .font(.pblRegular(size: 12))
-                .foregroundColor(Color.gray)
-            Spacer()
-
-            Button(action: openPuckboardLoggingConfluenceInSafari) {
-                Text("Release Notes")
-                    .font(.pblBold(size: 20))
-                Image(systemName: "info.circle")
+        VStack(spacing: 0) {
+            HStack {
+                Image("PB_Logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 20)
+                    .frame(height: 50)
+                Text(displayVersion)
+                    .font(.pblRegular(size: 12))
+                    .foregroundColor(Color.gray)
+                Spacer()
+                shareButton
+                printButton
+                infoButton
             }
-            .padding()
+            .foregroundColor(.pblPrimary)
+            Divider()
         }
-        .background(Color.black)
-        .foregroundColor(.white)
         .onAppear(perform: updateVersionAndBuildNumber)
     }
     
-    func openPuckboardLoggingConfluenceInSafari(){
+    var shareButton: some View {
+        Button(action: openShareMenu) {
+            Image(systemName: "square.and.arrow.up")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 27)
+        }
+        .padding()
+    }
+    
+    var printButton: some View {
+        Button(action: openPrintPreview) {
+            Image(systemName: "printer")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 25)
+        }
+        .padding()
+    }
+    
+    var infoButton: some View {
+        Button(action: openPuckboardLoggingConfluenceInSafari) {
+            Image(systemName: "info.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 25)
+        }
+        .padding()
+    }
+    
+    func openShareMenu() {
+        
+    }
+    
+    func openPrintPreview() {
+        
+    }
+    
+    func openPuckboardLoggingConfluenceInSafari() {
         let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging")!
         UIApplication.shared.open(url)
     }
     
-    func updateVersionAndBuildNumber(){
+    func updateVersionAndBuildNumber() {
         let version: String?     = Bundle.main.infoDictionary?["CFBundleShortVersionString"]   as? String
         let buildNumber: String? = Bundle.main.infoDictionary?["CFBundleVersion"]              as? String
         let displayString        = "Version \(version ?? "") - Build \(buildNumber ?? "")"
