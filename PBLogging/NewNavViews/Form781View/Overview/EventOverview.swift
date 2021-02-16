@@ -33,24 +33,28 @@ struct EventOverview: View {
     var body: some View {
         ZStack {
             NavigationView {
-                // ScrollView {
-                List {
-                    VStack(spacing: 30) {
+//                 ScrollView {
+                VStack(spacing: 30) {
+                    List {
                         ForEach(forms, id: \.self) { form in
                             EventCard(form: form, disableButtons: $disableButtons)
                         }
-                        .onDelete(deleteEvent)
+                        .onDelete(perform: deleteEvent)
                     }
                     .padding()
                 }
                 .accessibility(identifier: "eventsScrollView")
                 .navigationBarTitle(Text("Events"))
-                .navigationBarItems(trailing: TextAndIconButton(text: "Add Event",
-                                                          size: 24.0,
-                                                          icon: "plus") {
+                .navigationBarItems(trailing:
+                                        HStack {
+                                            TextAndIconButton(text: "Add Event",
+                                                              size: 24.0,
+                                                              icon: "plus") {
                                                               displayAddEvent()
                                                           }
-                                                          .accessibility(identifier: "addEventButton"))
+                                                          .accessibility(identifier: "addEventButton")
+                                            EditButton()
+                                        })
             }
             .navigationViewStyle(StackNavigationViewStyle())
 

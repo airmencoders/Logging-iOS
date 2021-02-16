@@ -21,9 +21,9 @@ struct EventCard: View {
                 }
             }) {
                 HStack {
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .padding()
+//                    Spacer()
+//                    Image(systemName: "chevron.right")
+//                        .padding()
                     NavigationLink(
                         destination: FormTabView(form: form),
                         tag: 1,
@@ -36,6 +36,7 @@ struct EventCard: View {
                             EmptyView()
                     })
                 }
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 75, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                 .padding()
                 .background(Color.pblDefault)
                 .foregroundColor(Color.pblSecondary)
