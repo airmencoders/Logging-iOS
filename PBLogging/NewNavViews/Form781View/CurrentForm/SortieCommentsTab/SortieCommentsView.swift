@@ -15,7 +15,7 @@ struct SortieCommentsView: View {
             GeometryReader { geometry in
                 TextView() { representedTextView in
                     representedTextView.textColor = .pblSecondaryUIColor
-                    representedTextView.backgroundColor = .pblElevatedUIColor
+                    representedTextView.backgroundColor = .pblDefaultUIColor
                 }
                 .frame(height: geometry.size.height * 0.75)
                 .cornerRadius(5)

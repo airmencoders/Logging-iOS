@@ -13,18 +13,31 @@ struct MissionDataView: View {
     @State var isPreviewEnabled = true
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 50) {
-                AircrewListView(form: form)
-                MissionDataAndFlightSeqView(form: form)
-                FlightTimeView(form: form)
-                FlightConditionsView(form: form)
+        GeometryReader { geometry in
+            ScrollView {
+                VStack(spacing: 50) {
+                    AircrewListView(form: form)
+                    MissionDataAndFlightSeqView(form: form)
+                    FlightTimeView(form: form)
+                    FlightConditionsView(form: form)
+                    VStack(alignment: .leading) {
+                        Text("781 Remarks")
+                            .fontSectionHeading()
+                        TextView() { representedTextView in
+                            representedTextView.textColor = .pblSecondaryUIColor
+                            representedTextView.backgroundColor = .pblDefaultUIColor
+                        }
+                        .frame(height: geometry.size.height * 0.3)
+                        .cornerRadius(5)
+                        .padding(.bottom)
+                    }
+                }
+                .navigationBarTitle(Text("TBD"))
+                .onAppear {
+                    UITableView.appearance().backgroundColor = .clear
+                }
+                Spacer()
             }
-            .navigationBarTitle(Text("TBD"))
-            .onAppear {
-                UITableView.appearance().backgroundColor = .clear
-            }
-            Spacer()
         }
         .onDisappear {
             PersistenceController.saveContext()
