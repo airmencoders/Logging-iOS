@@ -18,7 +18,7 @@ struct PBLToggleStyleSwitch: ToggleStyle {
                     .foregroundColor(configuration.isOn ? Color.pblPrimary : .pblElevated)
 
                 Circle()
-                    .frame(width: width / 2 - 6, height: width / 2 - 6)
+                    .frame(width: (width / 2) - 6, height: (width / 2) - 6)
                     .padding(4)
                     .foregroundColor(.white)
             }
@@ -60,25 +60,28 @@ struct PBLToggleStyleChip: ToggleStyle {
     }
 }
 
-//struct ToggleStyle_Ext_Previews: PreviewProvider {
-//
-//    @Binding var toggleSelected: Bool
-//
-//    static var previews: some View {
-//        Toggle(isOn: $toggleSelected, label: {
-//            Text("TEST")
-//                .font(.pblBold(size: 14))
-//                .foregroundColor(.pblSecondary)
-//                .layoutPriority(1)
-//        })
-//        .toggleStyle(PBLToggleStyleSwitch())
-//
-//        Toggle(isOn: $toggleSelected, label: {
-//            Text("TEST")
-//                .font(.pblBold(size: 14))
-//                .foregroundColor(.pblSecondary)
-//                .layoutPriority(1)
-//        })
-//        .toggleStyle(PBLToggleStyleChip())
-//    }
-//}
+struct ToggleStyle_Ext_Previews: PreviewProvider {
+   
+    static var previews: some View {
+        
+        Toggle(isOn: .mock(true), label: {
+            Text("TEST")
+                .font(.pblBold(size: 14))
+                .foregroundColor(.pblSecondary)
+                .layoutPriority(1)
+        })
+        .padding()
+        .previewLayout(.sizeThatFits)
+        .toggleStyle(PBLToggleStyleSwitch())
+        
+        Toggle(isOn: .mock(false), label: {
+            Text("TEST")
+                .font(.pblBold(size: 14))
+                .foregroundColor(.pblSecondary)
+                .layoutPriority(1)
+        })
+        .padding()
+        .previewLayout(.sizeThatFits)
+        .toggleStyle(PBLToggleStyleChip())
+    }
+}
