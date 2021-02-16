@@ -10,7 +10,6 @@ import SwiftUI
 struct EventCard: View {
 
     @ObservedObject var form: Form781
-//    @Binding var disableButtons: Bool
     @State private var pushToSortie: Int? = 0
 
     var body: some View {
@@ -41,7 +40,6 @@ struct EventCard: View {
             // label will not activate the card button.
             HStack {
                 // The EventLabel view will push to a sheet to edit the event data.
-//                EventLabel(form: form, disableButtons: $disableButtons)
                 EventLabel(form: form)
                 Spacer()
             }
@@ -78,7 +76,7 @@ struct EventCard_Previews: PreviewProvider {
     @State static var displayed = false
 
     static var previews: some View {
-//        EventCard(form:form, disableButtons: $displayed)
         EventCard(form:form)
     }
 }
+ 
