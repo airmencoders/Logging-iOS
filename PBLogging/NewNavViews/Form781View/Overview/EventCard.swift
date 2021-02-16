@@ -17,9 +17,6 @@ struct EventCard: View {
         ZStack {
             Button(action: {
                 pushToSortie = 1
-//                if !disableButtons {
-//                    pushToSortie = 1
-//                }
             }) {
                 HStack {
                     NavigationLink(
@@ -54,7 +51,6 @@ struct EventCard: View {
     struct EventLabel: View {
 
         @ObservedObject var form: Form781
-//        @Binding var disableButtons: Bool
 
         @State private var eventName: String = ""
         @State private var eventDate: Date = Date()

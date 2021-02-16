@@ -24,12 +24,12 @@ struct EventOverview: View {
                 VStack(spacing: 30) {
                     List {
                         ForEach(forms, id: \.self) { form in
-                            EventCard(form: form, disableButtons: $disableButtons)
+                            EventCard(form: form)
                         }
-                        .padding()
+                        .onDelete(perform: deleteEvent)
                     }
-//                 }
-//                .accessibility(identifier: "eventsScrollView")
+                    .padding()
+                }
                 .navigationBarTitle(Text("Events"))
                 .navigationBarItems(trailing:
                                         HStack {
