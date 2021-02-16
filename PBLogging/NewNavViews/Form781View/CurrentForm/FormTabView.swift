@@ -21,7 +21,7 @@ struct FormTabView: View {
                 .tabItem {
                     Text("Training Events")
                 }
-            AircrewListView(form: form)
+            MissionSortieInfoView()
                 .tabItem {
                     Text("Mission Sortie Info")
                 }
@@ -30,9 +30,8 @@ struct FormTabView: View {
                     Text("Sortie Comments")
                 }
         }
-        //.accentColor(.black)
         .onAppear() {
-            UITabBar.appearance().barTintColor = .white
+            UITabBar.appearance().barTintColor = .systemBackground
         }
     }
 }
@@ -42,5 +41,7 @@ struct FormTabView_Previews: PreviewProvider {
 
     static var previews: some View {
         FormTabView(form: form)
+        FormTabView(form: form)
+            .preferredColorScheme(.dark)
     }
 }

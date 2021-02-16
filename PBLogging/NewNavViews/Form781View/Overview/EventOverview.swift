@@ -21,13 +21,10 @@ struct EventOverview: View {
     var body: some View {
         ZStack {
             NavigationView {
-//                 ScrollView {
-                    VStack(spacing: 30) {
-                        List {
-                            ForEach(forms, id: \.self) { form in
-                                EventCard(form: form)
-                            }
-                            .onDelete(perform: deleteEvent)
+                VStack(spacing: 30) {
+                    List {
+                        ForEach(forms, id: \.self) { form in
+                            EventCard(form: form, disableButtons: $disableButtons)
                         }
                         .padding()
                     }
