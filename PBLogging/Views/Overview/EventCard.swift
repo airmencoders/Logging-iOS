@@ -10,40 +10,21 @@ import SwiftUI
 struct EventCard: View {
 
     @ObservedObject var form: Form781
-    @State private var pushToSortie: Int? = 0
 
     var body: some View {
-        ZStack {
-            Button(action: {
-                pushToSortie = 1
-            }) {
+        NavigationLink(
+            destination: RecentSortiesList(form: form),
+            label: {
                 HStack {
-                    NavigationLink(
-                        destination: FormTabView(form: form),
-                        tag: 1,
-                        selection: $pushToSortie,
-                        label: {
-                            // Note: The NavigationLink does not have a view because
-                            // we are using pushToSortie to trigger the navigation
-                            // view push. So the button (the whole card) is what is
-                            // triggering the view push.
-                            EmptyView()
-                    })
+                    EventLabel(form: form)
+                    Spacer()
                 }
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-                .padding()
-                .background(Color.pblDefault)
-                .foregroundColor(Color.pblSecondary)
-                .cornerRadius(10)
-            }
-            // Set the label on top of the button. This is so the tap on the
-            // label will not activate the card button.
-            HStack {
-                // The EventLabel view will push to a sheet to edit the event data.
-                EventLabel(form: form)
-                Spacer()
-            }
-        }
+        })
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+        .padding()
+        .background(Color.pblDefault)
+        .foregroundColor(Color.pblSecondary)
+        .cornerRadius(10)
     }
 
     struct EventLabel: View {

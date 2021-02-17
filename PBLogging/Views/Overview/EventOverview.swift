@@ -15,35 +15,31 @@ struct EventOverview: View {
         animation: .default)
 
     private var forms: FetchedResults<Form781>
-    @State private var eventName: String = ""
-    @State private var eventDate: Date = Date()
     
     var body: some View {
-        ZStack {
-            NavigationView {
-                VStack(spacing: 30) {
-                    List {
-                        ForEach(forms, id: \.self) { form in
-                            EventCard(form: form)
-                        }
-                        .onDelete(perform: deleteEvent)
+        NavigationView {
+            VStack(spacing: 30) {
+                List {
+                    ForEach(forms, id: \.self) { form in
+                        EventCard(form: form)
                     }
-                    .padding()
+                    .onDelete(perform: deleteEvent)
                 }
-                .navigationBarTitle(Text("Events"))
-                .navigationBarItems(trailing:
-                                        HStack {
-                                            TextAndIconButton(text: "Add Event",
-                                                              size: 24.0,
-                                                              icon: "plus") {
-                                                          addEvent()
-                                                        }
-                                                        .accessibility(identifier: "addEventButton")
-                                            EditButton()
-                                        })
+                .padding()
             }
-            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitle(Text("Events"))
+            .navigationBarItems(trailing:
+                                    HStack {
+                                        TextAndIconButton(text: "Add Event",
+                                                          size: 24.0,
+                                                          icon: "plus") {
+                                                      addEvent()
+                                                    }
+                                                    .accessibility(identifier: "addEventButton")
+                                        EditButton()
+                                    })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     private func deleteEvent(on offset: IndexSet) {
@@ -59,8 +55,8 @@ struct EventOverview: View {
     }
 
     private func addEvent() {
-        eventName = "SpaceLab"
-        eventDate = Date()
+        let eventName = "Event \(forms.count + 1)"
+        let eventDate = Date()
         PersistenceController.newEvent(name: eventName, date: eventDate)
     }
 }

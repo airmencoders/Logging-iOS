@@ -15,7 +15,7 @@ struct ContentView: View {
         VStack {
             ContentHeaderView()
             EventOverview().alertProvider()
-                .padding(.horizontal)
+                //.padding(.horizontal)
         }
         .accentColor(Color("primary"))
         .foregroundColor(Color("primary"))
