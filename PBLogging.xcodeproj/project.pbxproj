@@ -8,21 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
-		1383049225B0CDDB00DFBBCE /* AircrewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1383049125B0CDDB00DFBBCE /* AircrewCard.swift */; };
-		1383049725B0E31200DFBBCE /* AircrewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1383049625B0E31200DFBBCE /* AircrewDetail.swift */; };
-		1383049C25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1383049B25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift */; };
-		138304A125B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138304A025B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift */; };
 		138520A825B9F10D00C0733B /* DateFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */; };
 		13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */; };
 		13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
-		4D8288CC25D478B70042EE12 /* PBLModalDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288CB25D478B70042EE12 /* PBLModalDialog.swift */; };
-		4D8288D425D482590042EE12 /* EventOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288D325D482590042EE12 /* EventOverview.swift */; };
-		4D8288D925D4838D0042EE12 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8288D825D4838D0042EE12 /* EventCard.swift */; };
 		4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84000825AE57F80089AAB7 /* Form781+PDF.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
 		4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */; };
-		4DB3178F25BA516F00DB1201 /* MissionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */; };
+		4DCD426425DC83A200EB6FF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426325DC83A200EB6FF3 /* ContentView.swift */; };
+		4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */; };
+		4DCD426E25DC83BD00EB6FF3 /* EventOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426D25DC83BD00EB6FF3 /* EventOverview.swift */; };
+		4DCD427325DC83C600EB6FF3 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD427225DC83C600EB6FF3 /* EventCard.swift */; };
 		4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FD8259ED18300C98EB8 /* AppDelegate.swift */; };
 		4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FDA259ED18300C98EB8 /* SceneDelegate.swift */; };
 		4DD13FE2259ED18600C98EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD13FE1259ED18600C98EB8 /* Assets.xcassets */; };
@@ -40,8 +36,6 @@
 		7F03C0DE25D7304F00F7AA5B /* TrainingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0DD25D7304F00F7AA5B /* TrainingEventsView.swift */; };
 		7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0E225D7347D00F7AA5B /* TextView.swift */; };
 		7F03C0EB25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */; };
-		7F36014F25C20069009FF74E /* FlightSeqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36014E25C20069009FF74E /* FlightSeqView.swift */; };
-		7F36015725C231BB009FF74E /* FlightSeqGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36015625C231BB009FF74E /* FlightSeqGrid.swift */; };
 		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
@@ -71,14 +65,7 @@
 		BF982CE625A54ECF00C14019 /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CE025A54ECF00C14019 /* Flight+CoreDataClass.swift */; };
 		BF982CE725A54ECF00C14019 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CE125A54ECF00C14019 /* Flight+CoreDataProperties.swift */; };
 		BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CEE25A54EFE00C14019 /* Date+Ext.swift */; };
-		BFBAF95C25AFA98A00BBFBD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */; };
-		BFBAF97125AFAC3900BBFBD8 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */; };
-		BFBAF98D25AFB54D00BBFBD8 /* Main781FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */; };
-		BFBAF99525AFB90600BBFBD8 /* Main781FormHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */; };
 		BFBAF99E25AFBD9C00BBFBD8 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF99D25AFBD9C00BBFBD8 /* PDFPreviewView.swift */; };
-		BFBAF9A325AFC42800BBFBD8 /* AllAircrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF9A225AFC42800BBFBD8 /* AllAircrewView.swift */; };
-		BFBAF9AF25AFC56300BBFBD8 /* AllFlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF9AE25AFC56300BBFBD8 /* AllFlightsView.swift */; };
-		BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAF9B325AFC57500BBFBD8 /* SingleFlightRowView.swift */; };
 		BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */; };
 		D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2223E5525B7691C00B6A33F /* PreviewMods.swift */; };
 /* End PBXBuildFile section */
@@ -102,19 +89,16 @@
 
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		1383049125B0CDDB00DFBBCE /* AircrewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewCard.swift; sourceTree = "<group>"; };
-		1383049625B0E31200DFBBCE /* AircrewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewDetail.swift; sourceTree = "<group>"; };
-		1383049B25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewDetailFlightTime.swift; sourceTree = "<group>"; };
-		138304A025B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewDetailFlightConditions.swift; sourceTree = "<group>"; };
 		138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFieldWithLabel.swift; sourceTree = "<group>"; };
 		13B0A4E625A78054007304DB /* AircrewData+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AircrewData+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
 		13B0A4E725A78054007304DB /* Flight+SwiftUIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+SwiftUIHelpers.swift"; sourceTree = "<group>"; };
-		4D8288D325D482590042EE12 /* EventOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOverview.swift; sourceTree = "<group>"; };
-		4D8288D825D4838D0042EE12 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		4D84000825AE57F80089AAB7 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		4DB3178125BA4E9400DB1201 /* SectionHeaderModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderModifier.swift; sourceTree = "<group>"; };
-		4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDataSection.swift; sourceTree = "<group>"; };
+		4DCD426325DC83A200EB6FF3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = PBLogging/Views/Overview/ContentView.swift; sourceTree = SOURCE_ROOT; };
+		4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentHeaderView.swift; path = PBLogging/Views/Overview/ContentHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		4DCD426D25DC83BD00EB6FF3 /* EventOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventOverview.swift; path = PBLogging/Views/Overview/EventOverview.swift; sourceTree = SOURCE_ROOT; };
+		4DCD427225DC83C600EB6FF3 /* EventCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCard.swift; path = PBLogging/Views/Overview/EventCard.swift; sourceTree = SOURCE_ROOT; };
 		4DD13FD5259ED18300C98EB8 /* Logging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD13FD8259ED18300C98EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD13FDA259ED18300C98EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,8 +123,6 @@
 		7F03C0DD25D7304F00F7AA5B /* TrainingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEventsView.swift; sourceTree = "<group>"; };
 		7F03C0E225D7347D00F7AA5B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToggleStyle+Ext.swift"; sourceTree = "<group>"; };
-		7F36014E25C20069009FF74E /* FlightSeqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSeqView.swift; sourceTree = "<group>"; };
-		7F36015625C231BB009FF74E /* FlightSeqGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSeqGrid.swift; sourceTree = "<group>"; };
 		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -170,14 +152,7 @@
 		BF982CE025A54ECF00C14019 /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF982CE125A54ECF00C14019 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF982CEE25A54EFE00C14019 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
-		BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main781FormView.swift; sourceTree = "<group>"; };
-		BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main781FormHeaderView.swift; sourceTree = "<group>"; };
 		BFBAF99D25AFBD9C00BBFBD8 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
-		BFBAF9A225AFC42800BBFBD8 /* AllAircrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAircrewView.swift; sourceTree = "<group>"; };
-		BFBAF9AE25AFC56300BBFBD8 /* AllFlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFlightsView.swift; sourceTree = "<group>"; };
-		BFBAF9B325AFC57500BBFBD8 /* SingleFlightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFlightRowView.swift; sourceTree = "<group>"; };
 		BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PBLStyle.swift"; sourceTree = "<group>"; };
 		D2223E5525B7691C00B6A33F /* PreviewMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,13 +182,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13F47EF025C9AB250082E8BC /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		4DB3178025BA4E9400DB1201 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +191,7 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		4DB3178D25BA516F00DB1201 /* CurrentForm */ = {
+		4DB3178D25BA516F00DB1201 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
 				7FB30E1E25D1CCF700797B4A /* FormTabView.swift */,
@@ -231,31 +199,30 @@
 				7F03C0B425D5D17000F7AA5B /* TrainingEventsTab */,
 				7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */,
 				7F03C0B625D5D18800F7AA5B /* SortieCommentsTab */,
-				BFBAF98C25AFB54D00BBFBD8 /* Main781FormView.swift */,
-				BFBAF99425AFB90600BBFBD8 /* Main781FormHeaderView.swift */,
-				4DB3178E25BA516F00DB1201 /* MissionDataSection.swift */,
 			);
-			path = CurrentForm;
+			path = TabViews;
 			sourceTree = "<group>";
 		};
 		4DBDD02A25B78FFE00C7C3DB /* Overview */ = {
 			isa = PBXGroup;
 			children = (
-				BFBAF95B25AFA98A00BBFBD8 /* ContentView.swift */,
-				BFBAF97025AFAC3900BBFBD8 /* ContentHeaderView.swift */,
-				4D8288D325D482590042EE12 /* EventOverview.swift */,
-				4D8288D825D4838D0042EE12 /* EventCard.swift */,
+				4DCD426325DC83A200EB6FF3 /* ContentView.swift */,
+				4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */,
+				4DCD426D25DC83BD00EB6FF3 /* EventOverview.swift */,
+				4DCD427225DC83C600EB6FF3 /* EventCard.swift */,
 			);
 			name = Overview;
-			path = Form781View/Overview;
+			path = Overview;
 			sourceTree = "<group>";
 		};
 		4DBDD02E25B790AC00C7C3DB /* UtilityViews */ = {
 			isa = PBXGroup;
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
+				138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */,
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
+				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
 			);
 			path = UtilityViews;
 			sourceTree = "<group>";
@@ -284,7 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD1400E259ED1DB00C98EB8 /* App */,
-				BFBAF95725AFA93A00BBFBD8 /* NewNavViews */,
+				BFBAF95725AFA93A00BBFBD8 /* Views */,
 				4DD14011259ED23900C98EB8 /* Data */,
 				BFDD329225A4FE70000FE732 /* Extensions */,
 				4DD13FE9259ED18600C98EB8 /* Info.plist */,
@@ -347,7 +314,6 @@
 		4DD14011259ED23900C98EB8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				13F47EF025C9AB250082E8BC /* Services */,
 				BF982CDC25A54ECF00C14019 /* Form781+CoreDataClass.swift */,
 				BF982CDD25A54ECF00C14019 /* Form781+CoreDataProperties.swift */,
 				BF4056F825A555D700872E70 /* Form781+SwiftUIHelpers.swift */,
@@ -425,27 +391,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		BFBAF95725AFA93A00BBFBD8 /* NewNavViews */ = {
+		BFBAF95725AFA93A00BBFBD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				4DBDD02A25B78FFE00C7C3DB /* Overview */,
 				BFBAF99C25AFBD5800BBFBD8 /* PDFPreview */,
-				BFBAF98B25AFB53300BBFBD8 /* Form781View */,
+				4DB3178D25BA516F00DB1201 /* TabViews */,
 				4DBDD02E25B790AC00C7C3DB /* UtilityViews */,
 			);
-			path = NewNavViews;
-			sourceTree = "<group>";
-		};
-		BFBAF98B25AFB53300BBFBD8 /* Form781View */ = {
-			isa = PBXGroup;
-			children = (
-				4DB3178D25BA516F00DB1201 /* CurrentForm */,
-				BFBAF9AD25AFC54000BBFBD8 /* FlightsSection */,
-				BFBAF9A725AFC4D900BBFBD8 /* AircrewSection */,
-				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
-				138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */,
-			);
-			path = Form781View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BFBAF99C25AFBD5800BBFBD8 /* PDFPreview */ = {
@@ -454,29 +408,6 @@
 				BFBAF99D25AFBD9C00BBFBD8 /* PDFPreviewView.swift */,
 			);
 			path = PDFPreview;
-			sourceTree = "<group>";
-		};
-		BFBAF9A725AFC4D900BBFBD8 /* AircrewSection */ = {
-			isa = PBXGroup;
-			children = (
-				BFBAF9A225AFC42800BBFBD8 /* AllAircrewView.swift */,
-				1383049125B0CDDB00DFBBCE /* AircrewCard.swift */,
-				1383049625B0E31200DFBBCE /* AircrewDetail.swift */,
-				1383049B25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift */,
-				138304A025B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift */,
-			);
-			path = AircrewSection;
-			sourceTree = "<group>";
-		};
-		BFBAF9AD25AFC54000BBFBD8 /* FlightsSection */ = {
-			isa = PBXGroup;
-			children = (
-				7F36014E25C20069009FF74E /* FlightSeqView.swift */,
-				7F36015625C231BB009FF74E /* FlightSeqGrid.swift */,
-				BFBAF9AE25AFC56300BBFBD8 /* AllFlightsView.swift */,
-				BFBAF9B325AFC57500BBFBD8 /* SingleFlightRowView.swift */,
-			);
-			path = FlightsSection;
 			sourceTree = "<group>";
 		};
 		BFDD329225A4FE70000FE732 /* Extensions */ = {
@@ -652,12 +583,11 @@
 				13549C0325B103210000C875 /* String+Ext.swift in Sources */,
 				BF4056F925A555D700872E70 /* Form781+SwiftUIHelpers.swift in Sources */,
 				7F03C0C125D5DFD800F7AA5B /* SortieCommentsView.swift in Sources */,
+				4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BF982CD025A54E3D00C14019 /* Persistence.swift in Sources */,
 				4D84000925AE57F80089AAB7 /* Form781+PDF.swift in Sources */,
-				BFBAF95C25AFA98A00BBFBD8 /* ContentView.swift in Sources */,
 				4DF7C79C25BF4A0000EB1E5C /* PBLMath.swift in Sources */,
-				BFBAF98D25AFB54D00BBFBD8 /* Main781FormView.swift in Sources */,
 				7FB30E5525D4852800797B4A /* FlightConditionsView.swift in Sources */,
 				BF982CE725A54ECF00C14019 /* Flight+CoreDataProperties.swift in Sources */,
 				7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */,
@@ -665,24 +595,19 @@
 				7FB30E1F25D1CCF700797B4A /* FormTabView.swift in Sources */,
 				D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */,
 				BF982CE525A54ECF00C14019 /* AircrewData+CoreDataProperties.swift in Sources */,
-				4DB3178F25BA516F00DB1201 /* MissionDataSection.swift in Sources */,
-				1383049725B0E31200DFBBCE /* AircrewDetail.swift in Sources */,
+				4DCD427325DC83C600EB6FF3 /* EventCard.swift in Sources */,
 				7FB30E4525D483FD00797B4A /* MissionDataAndFlightSeqView.swift in Sources */,
 				4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */,
 				BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */,
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
-				7F36014F25C20069009FF74E /* FlightSeqView.swift in Sources */,
-				1383049225B0CDDB00DFBBCE /* AircrewCard.swift in Sources */,
+				4DCD426425DC83A200EB6FF3 /* ContentView.swift in Sources */,
 				7F03C0DE25D7304F00F7AA5B /* TrainingEventsView.swift in Sources */,
 				BF982CE325A54ECF00C14019 /* Form781+CoreDataProperties.swift in Sources */,
 				4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */,
-				7F36015725C231BB009FF74E /* FlightSeqGrid.swift in Sources */,
-				138304A125B0EDE000DFBBCE /* AircrewDetailFlightConditions.swift in Sources */,
 				7FB30E5A25D4854000797B4A /* FlightViewStructures.swift in Sources */,
 				7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */,
-				4D8288D425D482590042EE12 /* EventOverview.swift in Sources */,
+				4DCD426E25DC83BD00EB6FF3 /* EventOverview.swift in Sources */,
 				4DB3178225BA4E9400DB1201 /* SectionHeaderModifier.swift in Sources */,
-				BFBAF9B425AFC57500BBFBD8 /* SingleFlightRowView.swift in Sources */,
 				BF982CD525A54E5900C14019 /* FakeData.swift in Sources */,
 				BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */,
 				BF982CE625A54ECF00C14019 /* Flight+CoreDataClass.swift in Sources */,
@@ -690,25 +615,19 @@
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
 				4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
-				BFBAF99525AFB90600BBFBD8 /* Main781FormHeaderView.swift in Sources */,
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				13B0A4E925A78054007304DB /* Flight+SwiftUIHelpers.swift in Sources */,
 				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,
 				BFBAF99E25AFBD9C00BBFBD8 /* PDFPreviewView.swift in Sources */,
-				4D8288D925D4838D0042EE12 /* EventCard.swift in Sources */,
 				BF982CC825A54B0500C14019 /* PBLogging.xcdatamodeld in Sources */,
-				BFBAF97125AFAC3900BBFBD8 /* ContentHeaderView.swift in Sources */,
 				138520A825B9F10D00C0733B /* DateFieldWithLabel.swift in Sources */,
 				7F03C0D625D72F4E00F7AA5B /* SortieInfoBlockView.swift in Sources */,
 				7FF0FF0725B74A3D00097C66 /* IconText.swift in Sources */,
 				BF982CE225A54ECF00C14019 /* Form781+CoreDataClass.swift in Sources */,
-				1383049C25B0EDC800DFBBCE /* AircrewDetailFlightTime.swift in Sources */,
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
-				BFBAF9A325AFC42800BBFBD8 /* AllAircrewView.swift in Sources */,
 				7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */,
 				13B0A4E825A78054007304DB /* AircrewData+SwiftUIHelpers.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,
-				BFBAF9AF25AFC56300BBFBD8 /* AllFlightsView.swift in Sources */,
 				7FB30E3525D44A0700797B4A /* MissionDataView.swift in Sources */,
 				7F03C0EB25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift in Sources */,
 			);
