@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct RecentSortiesList: View {
-    @ObservedObject var form: Form781
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var dataController: DataController
+    
+    @ObservedObject var event: Event
     
     var body: some View {
         VStack(spacing: 30) {
             List {
-                ForEach(form.flights, id: \.self) { sortie in
-                    SortieCard(form: form, sortie: sortie)
+                ForEach(event.sorties) { sortie in
+                    SortieCard(sortie: sortie)
                 }
             }
         }
@@ -24,24 +28,52 @@ struct RecentSortiesList: View {
                                     TextAndIconButton(text: "Add Sortie",
                                                       size: 24.0,
                                                       icon: "plus") {
-                                                  addSortie()
-                                                }
-                                                .accessibility(identifier: "addSortieButton")
+                                        withAnimation{
+                                            addSortie()
+                                        }
+                                        
+                                    }
+                                    .accessibility(identifier: "addSortieButton")
                                 })
     }
-
+    
     func addSortie() {
         print("Add Sortie")
+         
+        let newSortie = Sortie(context: viewContext)
+        
+        // if there was a previous sortie:
+        // copy the landing ICAO from the last sortie to the takeOff ICAO of the new sortie
+        // copy mds, serialNumber, flightAuthNumber, and issuing unit from previous sortie
+        // copy the information from the last crewlines, to the new sortie crewLines
+        if let previousSortie = event.sorties.last {
+            newSortie.takeoffICAO = previousSortie.landICAO
+            newSortie.mds = previousSortie.mds
+            newSortie.serialNumber = previousSortie.serialNumber
+            newSortie.flightAuthNumber = previousSortie.flightAuthNumber
+            newSortie.issuingUnit = previousSortie.issuingUnit
+            
+            for crewLine in previousSortie.crewLines {
+                let newCrewLine = CrewLine(context: viewContext)
+                newCrewLine.flightAuthDutyCode = crewLine.flightAuthDutyCode
+                newCrewLine.person = crewLine.person
+                newCrewLine.reserveStatus = crewLine.reserveStatus
+                newCrewLine.sortie = newSortie
+                newCrewLine.flightTime = FlightTime(context: viewContext)
+            }
+        }
+        newSortie.event = event
+        dataController.save()
     }
 }
 
 struct RecentSortiesList_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
-
+    
     static var previews: some View {
-        RecentSortiesList(form: form)
+        let event = SampleData.event
+        RecentSortiesList(event: event)
             .previewLayout(.sizeThatFits)
-        RecentSortiesList(form: form)
+        RecentSortiesList(event: event)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

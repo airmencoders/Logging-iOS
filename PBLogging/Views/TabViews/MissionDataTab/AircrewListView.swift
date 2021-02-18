@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AircrewListView: View {
-    
-    @ObservedObject var form: Form781
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var dataController: DataController
+    @ObservedObject var sortie: Sortie
         
     var body: some View {
         VStack {
@@ -18,7 +19,7 @@ struct AircrewListView: View {
                     .fontSectionHeading()
                 Spacer()
                 Button {
-                    print("Add Aircrew")
+                    addAircrew()
                 } label: {
                     Text("Add Aircrew")
                     Image(systemName: "plus.circle")
@@ -39,10 +40,10 @@ struct AircrewListView: View {
                 .fontFormLabel()
                 ScrollView {
                     VStack {
-                        ForEach(form.aircrewData, id: \.self) { crewMember in
-                            AircrewRow(crewMember: crewMember)
+                        ForEach(sortie.crewLines) { crewLine in
+                            AircrewRow(crewLine: crewLine)
                         }
-                        //.onDelete(perform: delete)
+                        .onDelete(perform: deleteSelectedAircrew)
                     }
                 }
             }
@@ -51,39 +52,56 @@ struct AircrewListView: View {
             .cornerRadius(10)
         }
         .onDisappear{
-            PersistenceController.saveContext()
+            dataController.save()
         }
+    }
+    func deleteSelectedAircrew(offsets: IndexSet) {
+        for offset in offsets {
+            let itemToDelete = sortie.crewLines[offset]
+            dataController.delete(itemToDelete)
+            dataController.save()
+        }
+    }
+    func addAircrew() {
+        let crewLine = CrewLine(context: viewContext)
+        crewLine.sortie = sortie
+        dataController.save()
     }
 }
 
 struct AircrewRow: View {
     
-    @ObservedObject var crewMember: AircrewData
+    @ObservedObject var crewLine: CrewLine
     
     var body: some View {
         VStack{
             HStack {
-                TextField("LAST NAME", text: $crewMember.lastName)
-                TextField("SSN (LAST 4)", text: $crewMember.ssanLast4)
-                TextField("FLYING ORG", text: $crewMember.flyingOrganization)
-                TextField("FLIGHT AUTH DUTY CODE", text: $crewMember.flightAuthDutyCode)
+                TextField("LAST NAME", text: $crewLine.person.lastName)
+                TextField("SSN (LAST 4)", text: $crewLine.person.last4)
+                TextField("FLYING ORG", text: $crewLine.flyingOrganization)
+                TextField("FLIGHT AUTH DUTY CODE", text: $crewLine.flightAuthDutyCode)
             }
             .fontFormInput()
             .autocapitalization(.allCharacters)
             .padding(.vertical, 5)
-            Divider()
+                Divider()
         }
     }
 }
 
 struct AircrewListView_Previews: PreviewProvider {
-    
-    static let form = FakeData.form781s.randomElement()!
-
+     
     static var previews: some View {
-        AircrewListView(form: form)
+        
+        let dataController = SampleData.previewDataController
+        let sortie = SampleData.sortie
+        AircrewListView(sortie: sortie)
+            .environmentObject(dataController)
+
             .previewLayout(.sizeThatFits)
-        AircrewListView(form: form)
+        AircrewListView(sortie: sortie)
+            .environmentObject(dataController)
+
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

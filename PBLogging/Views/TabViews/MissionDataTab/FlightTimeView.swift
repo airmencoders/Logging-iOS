@@ -9,8 +9,8 @@ import SwiftUI
 
 struct FlightTimeView: View {
     
-    @ObservedObject var form: Form781
-    @State private var loadmasters = 0
+    @ObservedObject var sortie: Sortie
+ 
     let labelSize: CGFloat = 18
     
     var body: some View {
@@ -55,14 +55,12 @@ struct FlightTimeView: View {
                     .stroke()
                     .foregroundColor(.pblPrimary)
                 HStack {
-                    Text("\(loadmasters)")
-                    Stepper("", value: $loadmasters, in: 0...10)
+                    Text("\(sortie.numLoadmastersRequired)")
+                    Stepper("", value: $sortie.numLoadmastersRequired, in: 0...10)
                 }
                 .font(.pblRegular(size: 18))
                 .padding()
             }
-//                Spacer()
-//                    .layoutPriority(1)
         }
     }
     
@@ -72,8 +70,8 @@ struct FlightTimeView: View {
                 FlightLabel(label: "AIRCREW", alignment: .leading, weight: .pblBold(size: labelSize))
                 FlightLabel(label: "GHOST TIME", textColor: .pblTertiary, backgroundColor: .pblTertiary, alignment: .leading, weight: .pblBold(size: labelSize))
                 
-                ForEach(form.aircrewData, id: \.self) { crewMember in
-                    FlightLabel(label: crewMember.lastName, alignment: .leading)
+                ForEach(sortie.crewLines) { crewLine in
+                    FlightLabel(label: crewLine.person.lastName, alignment: .leading)
                     Divider()
                 }
                 
@@ -92,7 +90,7 @@ struct FlightTimeView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.pblSecondary)
                         FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-                        ForEach(form.aircrewData, id: \.self) { crewMember in
+                        ForEach(sortie.crewLines) { crewLine in
                             FlightLabel(label: "0")
                             Divider()
                         }
@@ -103,12 +101,12 @@ struct FlightTimeView: View {
                     .background(Color.pblDefault)
                     .cornerRadius(5)
                     
-                    FlightColumn(form: form, title: "PRIM")
-                    FlightColumn(form: form, title: "SEC")
-                    FlightColumn(form: form, title: "INSTR")
-                    FlightColumn(form: form, title: "EVAL")
-                    FlightColumn(form: form, title: "OTHER")
-                    FlightColumn(form: form, title: "TIME", backgroundColor: .pblElevated)
+                    FlightColumn(sortie: sortie, title: "PRIM")
+                    FlightColumn(sortie: sortie, title: "SEC")
+                    FlightColumn(sortie: sortie, title: "INSTR")
+                    FlightColumn(sortie: sortie, title: "EVAL")
+                    FlightColumn(sortie: sortie, title: "OTHER")
+                    FlightColumn(sortie: sortie, title: "TIME", backgroundColor: .pblElevated)
                 }
             }
         }
@@ -116,12 +114,12 @@ struct FlightTimeView: View {
 }
 
 struct FlightTimeView_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
-    
+ 
     static var previews: some View {
-        FlightTimeView(form: form)
+        let sortie = SampleData.sortie
+        FlightTimeView(sortie: sortie)
             .previewLayout(.sizeThatFits)
-        FlightTimeView(form: form)
+        FlightTimeView(sortie: sortie)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

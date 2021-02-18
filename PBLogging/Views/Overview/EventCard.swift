@@ -9,14 +9,14 @@ import SwiftUI
 
 struct EventCard: View {
 
-    @ObservedObject var form: Form781
+    @ObservedObject var event: Event
 
     var body: some View {
         NavigationLink(
-            destination: RecentSortiesList(form: form),
+            destination: RecentSortiesList(event: event),
             label: {
                 HStack {
-                    EventLabel(form: form)
+                    EventLabel(event: event)
                     Spacer()
                 }
         })
@@ -29,21 +29,26 @@ struct EventCard: View {
 
     struct EventLabel: View {
 
-        @ObservedObject var form: Form781
+        @ObservedObject var event: Event
 
         @State private var eventName: String = ""
         @State private var eventDate: Date = Date()
 
         var body: some View {
             VStack(alignment: .leading) {
-                Text(form.harmLocation)
+                // TODO:  Repair
+                Text(event.name)
                 HStack {
                     Image(systemName: "calendar")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 16)
-
-                    Text(form.date.string())
+                    if let date = event.sorties.first?.takeoffTime {
+                        Text(date.string())
+                    }else{
+                        Text("")
+                    }
+                 
                 }
             }
             .padding(.leading)
@@ -53,11 +58,11 @@ struct EventCard: View {
 }
 
 struct EventCard_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
-    @State static var displayed = false
-
+    
     static var previews: some View {
-        EventCard(form:form)
+        let event = SampleData.event
+        EventCard(event:event)
+            .previewLayout(.sizeThatFits)
     }
 }
  

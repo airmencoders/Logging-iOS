@@ -9,7 +9,9 @@ import SwiftUI
 
 struct FlightConditionsView: View {
     
-    @ObservedObject var form: Form781
+    @EnvironmentObject var dataController: DataController
+    
+    @ObservedObject var sortie: Sortie
     let labelSize: CGFloat = 18
     let titleHeight: CGFloat = 80
     
@@ -28,8 +30,8 @@ struct FlightConditionsView: View {
                     .frame(minHeight: titleHeight)
                 FlightLabel(label: "GHOST TIME", textColor: .pblTertiary, backgroundColor: .pblTertiary, alignment: .leading, weight: .pblBold(size: labelSize))
                 
-                ForEach(form.aircrewData, id: \.self) { crewMember in
-                    FlightLabel(label: crewMember.lastName, alignment: .leading)
+                ForEach(sortie.crewLines) { crewLine in
+                    FlightLabel(label: crewLine.person.lastName, alignment: .leading)
                     Divider()
                 }
                 
@@ -50,7 +52,8 @@ struct FlightConditionsView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.pblSecondary)
                         FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-                        ForEach(form.aircrewData, id: \.self) { crewMember in
+                        ForEach(sortie.crewLines) { crewLine in
+                            // # TODO: Implement
                             FlightLabel(label: "0")
                             Divider()
                         }
@@ -61,13 +64,13 @@ struct FlightConditionsView: View {
                     .background(Color.pblDefault)
                     .cornerRadius(5)
                     
-                    FlightColumn(form: form, title: "NIGHT", titleHeight: titleHeight)
-                    FlightColumn(form: form, title: "INS", titleHeight: titleHeight)
-                    FlightColumn(form: form, title: "SIM INS", titleHeight: titleHeight)
-                    FlightColumn(form: form, title: "NVG", titleHeight: titleHeight)
-                    FlightCombatColumn(form: form, title: "COMBAT", titleHeight: titleHeight)
-                    FlightCombatColumn(form: form, title: "COMBAT SUPPORT", titleHeight: titleHeight)
-                    FlightColumn(form: form, title: "RESV\nSTATUS", titleHeight: titleHeight)
+                    FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)
+                    FlightColumn(sortie: sortie, title: "INS", titleHeight: titleHeight)
+                    FlightColumn(sortie: sortie, title: "SIM INS", titleHeight: titleHeight)
+                    FlightColumn(sortie: sortie, title: "NVG", titleHeight: titleHeight)
+                    FlightCombatColumn(sortie: sortie, title: "COMBAT", titleHeight: titleHeight)
+                    FlightCombatColumn(sortie: sortie, title: "COMBAT SUPPORT", titleHeight: titleHeight)
+                    FlightColumn(sortie: sortie, title: "RESV\nSTATUS", titleHeight: titleHeight)
                 }
             }
         }
@@ -76,7 +79,7 @@ struct FlightConditionsView: View {
 
 struct FlightCombatColumn: View {
     
-    @ObservedObject var form: Form781
+    @ObservedObject var sortie: Sortie
     let title: String
     var titleHeight: CGFloat
     var backgroundColor = Color.pblDefault
@@ -95,7 +98,8 @@ struct FlightCombatColumn: View {
             .frame(maxWidth: .infinity, minHeight: titleHeight)
             .foregroundColor(.pblSecondary)
             FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-            ForEach(form.aircrewData, id: \.self) { crewMember in
+            ForEach(sortie.crewLines) { crewLine in
+                // # TODO: Implement
                 FlightLabel(label: "0")
                 Divider()
             }
@@ -109,12 +113,14 @@ struct FlightCombatColumn: View {
 }
 
 struct FlightConditionsView_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
     
     static var previews: some View {
-        FlightConditionsView(form: form)
+        let sortie = SampleData.sortie
+        
+        FlightConditionsView(sortie: sortie)
             .previewLayout(.sizeThatFits)
-        FlightConditionsView(form: form)
+        
+        FlightConditionsView(sortie: sortie)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

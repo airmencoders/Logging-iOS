@@ -20,17 +20,7 @@ struct DateFieldWithLabel: View {
             Text(label)
                 .font(.pblBold(size: 12))
                 .foregroundColor(.pblPrimary)
-            TextField(placeholder, text: $userInput, onEditingChanged: { editingBegan in
-                let editingEnded = !editingBegan
-                
-                if editingEnded {
-                    PersistenceController.saveContext()
-                    NSLog("**************************************")
-                    NSLog("TextField edit ended")
-                    NSLog("**************************************")
-                    
-                }
-            })
+            TextField(placeholder, text: $userInput)
                 .font(.pblRegular(size: 16))
                 .foregroundColor(color)
         }

@@ -18,16 +18,7 @@ struct TextFieldWithLabel: View {
         VStack(alignment: .leading, spacing: 0) {
             Text(label)
                 .fontFormLabel()
-            TextField(placeholder, text: $userInput, onEditingChanged: { editingBegan in
-                let editingEnded = !editingBegan
-                
-                if editingEnded {
-                    PersistenceController.saveContext()
-                    NSLog("**************************************")
-                    NSLog("TextField edit ended")
-                    NSLog("**************************************")
-                }
-            })
+            TextField(placeholder, text: $userInput)
                 .fontFormInput()
         }
     }

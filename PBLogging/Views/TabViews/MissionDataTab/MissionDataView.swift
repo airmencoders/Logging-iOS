@@ -9,24 +9,22 @@ import SwiftUI
 
 struct MissionDataView: View {
     
-    @ObservedObject var form: Form781
-    @State var isPreviewEnabled = true
+    @EnvironmentObject var dataController: DataController
+    
+    @ObservedObject var sortie: Sortie
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 50) {
-                    AircrewListView(form: form)
-                    MissionDataAndFlightSeqView(form: form)
-                    FlightTimeView(form: form)
-                    FlightConditionsView(form: form)
+                    AircrewListView(sortie: sortie)
+                    MissionDataAndFlightSeqView(sortie: sortie)
+                    FlightTimeView(sortie: sortie)
+                    FlightConditionsView(sortie: sortie)
                     VStack(alignment: .leading) {
                         Text("781 Remarks")
                             .fontSectionHeading()
-                        TextView() { representedTextView in
-                            representedTextView.textColor = .pblSecondaryUIColor
-                            representedTextView.backgroundColor = .pblDefaultUIColor
-                        }
+                        TextView(text: $sortie.comments)
                         .frame(height: geometry.size.height * 0.3)
                         .cornerRadius(5)
                         .padding(.bottom)
@@ -40,19 +38,25 @@ struct MissionDataView: View {
             }
         }
         .onDisappear {
-            PersistenceController.saveContext()
+            dataController.save()
         }
     }
 }
 
 struct MissionDataView_Previews: PreviewProvider {
     
-    static let form = FakeData.form781s.randomElement()!
+     
     
     static var previews: some View {
-        MissionDataView(form: form)
+        
+        let dataController = SampleData.previewDataController
+        let sortie = SampleData.sortie
+
+        MissionDataView(sortie: sortie)
+            .environmentObject(dataController)
             .iPadPro9_7(isDark: false)
-        MissionDataView(form: form)
+        MissionDataView(sortie: sortie)
+            .environmentObject(dataController)
             .iPadPro9_7(isDark: true)
     }
 }

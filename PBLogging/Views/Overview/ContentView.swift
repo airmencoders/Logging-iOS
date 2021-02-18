@@ -14,8 +14,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ContentHeaderView()
-            EventOverview().alertProvider()
-                //.padding(.horizontal)
+            EventsOverview()
+                .alertProvider()
         }
         .accentColor(Color("primary"))
         .foregroundColor(Color("primary"))
@@ -33,14 +33,19 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
-    static let previewController = PersistenceController.preview
-    
+        
     static var previews: some View {
+        let dataController = SampleData.previewDataController
+
         ContentView()
-            .environment(\.managedObjectContext, previewController.container.viewContext)
+            .environmentObject(dataController)
+            .environment(\.managedObjectContext, dataController.container.viewContext)
+            .iPadPro9_7(isDark: true)
+        
         ContentView()
-            .environment(\.managedObjectContext, previewController.container.viewContext)
-            .preferredColorScheme(.dark)
-    }
+            .environmentObject(dataController)
+            .environment(\.managedObjectContext, dataController.container.viewContext)
+            .iPadPro12_9(isDark: false)
+        
+      }
 }

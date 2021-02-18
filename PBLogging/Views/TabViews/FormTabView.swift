@@ -9,15 +9,15 @@ import SwiftUI
 
 struct FormTabView: View {
     
-    @ObservedObject var form: Form781
+    @ObservedObject var sortie: Sortie
     
     var body: some View {
         TabView {
-            MissionDataView(form: form)
+            MissionDataView(sortie: sortie)
                 .tabItem {
                     Text("Mission Data")
                 }
-            AircrewListView(form: form)
+            AircrewListView(sortie: sortie)
                 .tabItem {
                     Text("Training Events")
                 }
@@ -25,7 +25,7 @@ struct FormTabView: View {
                 .tabItem {
                     Text("Mission Sortie Info")
                 }
-            SortieCommentsView()
+            SortieCommentsView(sortie: sortie)
                 .tabItem {
                     Text("Sortie Comments")
                 }
@@ -37,11 +37,11 @@ struct FormTabView: View {
 }
 
 struct FormTabView_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
-
+ 
     static var previews: some View {
-        FormTabView(form: form)
-        FormTabView(form: form)
+        let sortie = SampleData.sortie
+        FormTabView(sortie: sortie)
+        FormTabView(sortie: sortie)
             .preferredColorScheme(.dark)
     }
 }

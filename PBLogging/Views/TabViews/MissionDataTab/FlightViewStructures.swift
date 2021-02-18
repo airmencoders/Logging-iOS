@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FlightColumn: View {
     
-    @ObservedObject var form: Form781
+    @ObservedObject var sortie: Sortie
     let title: String
     var titleHeight: CGFloat = 48
     var backgroundColor = Color.pblDefault
@@ -23,7 +23,7 @@ struct FlightColumn: View {
                 .foregroundColor(.pblSecondary)
                 .multilineTextAlignment(.center)
             FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-            ForEach(form.aircrewData, id: \.self) { crewMember in
+            ForEach(sortie.crewLines, id: \.self) { crewLine in
                 FlightLabel(label: "0")
                 Divider()
             }
@@ -55,12 +55,13 @@ struct FlightLabel: View {
 }
 
 struct FlightColumn_Previews: PreviewProvider {
-    static let form = FakeData.form781s.randomElement()!
-
+  
     static var previews: some View {
-        FlightColumn(form: form, title: "OTHER")
+        let sortie = SampleData.sortie
+        
+        FlightColumn(sortie: sortie, title: "OTHER")
             .previewLayout(.sizeThatFits)
-        FlightColumn(form: form, title: "OTHER")
+        FlightColumn(sortie: sortie, title: "OTHER")
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }
