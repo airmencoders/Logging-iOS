@@ -20,7 +20,7 @@ struct SortieCard: View {
             label: {
                 SortieContents
             })
-            .frame(minWidth: 0, minHeight: 250)
+            .frame(minWidth: 0, minHeight: 200)
             .padding(.trailing)
             .background(Color.pblDefault)
             .cornerRadius(10)
@@ -56,12 +56,16 @@ private struct BodyContent: View {
                 Image(systemName: "calendar")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 16)
-                
+                    .frame(minWidth: 8, idealWidth: 16, maxWidth: 16, minHeight: 8, idealHeight: 16, maxHeight: 16)
                 Text(form.date.string())
+                    .layoutPriority(1)
+                    .lineLimit(1)
                     .font(.pblBold(size: 16))
+                    .minimumScaleFactor(0.3)
+                Spacer()
             }
-            HStack(alignment: .top, spacing: 30) {
+            .frame(width: viewWidth * 0.32)
+            HStack(alignment: .top, spacing: viewWidth * 0.05) {
                 ContentColumn(imageName: "doc.on.doc", title: "Sortie Summary", leftColumnLabels: ["Serial Number:", "Mission Number:", "Mission Symbol:", "Special Use:"], rightColumnLabels: [form.serialNumber, sortie.missionNumber, sortie.missionSymbol, sortie.specialUse])
                     .frame(width: viewWidth * 0.32)
                 ContentColumn(imageName: "location", title: "Location", leftColumnLabels: ["From:", "To:"], rightColumnLabels: [sortie.fromICAO, sortie.toICAO])
@@ -89,17 +93,20 @@ private struct ContentColumn: View {
                 Image(systemName: imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 18)
+                    .frame(minWidth: 8, idealWidth: 18, maxWidth: 18, minHeight: 8, idealHeight: 18, maxHeight: 18)
                 Text(title)
+                    .lineLimit(1)
                     .font(.pblBold(size: 14))
+                    .minimumScaleFactor(0.5)
             }
             Rectangle()
                 .frame(height: 1)
-            HStack(alignment: .top) {
+            HStack(alignment: .firstTextBaseline, spacing: 2) {
                 TextColumn(labels: leftColumnLabels, isBold: false)
                 TextColumn(labels: rightColumnLabels)
             }
         }
+        .minimumScaleFactor(0.5)
     }
 }
 
@@ -109,12 +116,14 @@ struct TextColumn: View {
     var isBold = true
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 1) {
             ForEach(labels, id: \.self) { label in
                 if isBold {
                     Text(label).font(.pblBold(size: 14))
+                        .lineLimit(1)
                 } else {
                     Text(label).font(.pblRegular(size: 14))
+                        .lineLimit(1)
                 }
             }
         }
