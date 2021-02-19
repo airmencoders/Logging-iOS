@@ -19,7 +19,7 @@ class DataController: ObservableObject {
         container.loadPersistentStores { _, error in
 
             if let error = error {
-               AlertProvider.shared.showAlertWithTitle(title: "Load Persistent Store Error", message: "\(error), \(error.localizedDescription). The app will most likely not functin correctly. Please screenshot and send to the dev team.")
+               AlertProvider.shared.showAlertWithTitle(title: "Load Persistent Store Error", message: "\(error), \(error.localizedDescription). The app will most likely not function correctly. Please screenshot and send to the dev team.")
             }
         }
     }

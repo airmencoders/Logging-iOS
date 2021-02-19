@@ -12,22 +12,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //FOR UI TESTS - clears core data and injects fake data
-         
-        if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA") {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let sceneDelegate = windowScene.delegate as? SceneDelegate
-            else { return true}
-            sceneDelegate.dataController.deleteAllEvents()
-            SampleData.loadMockData1(viewContext: sceneDelegate.dataController.container.viewContext)
-            
-        }else if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA") {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let sceneDelegate = windowScene.delegate as? SceneDelegate
-            else { return true }
-            sceneDelegate.dataController.deleteAllEvents()
-            sceneDelegate.dataController.save()
-        }
+        
         return true
     }
     
