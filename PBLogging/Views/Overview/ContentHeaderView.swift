@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentHeaderView: View {
     
     @State var displayVersion = "Version: Unknown"
+    @State var shouldDisplayActionSheet = false
+    @State var shouldShowCollector = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -25,19 +27,64 @@ struct ContentHeaderView: View {
                 shareButton
                 printButton
                 infoButton
+                    .actionSheet(isPresented: $shouldDisplayActionSheet, content: {
+                        actionSheet
+                    })
             }
             .foregroundColor(.pblPrimary)
             Divider()
         }
+        .sheet(isPresented: $shouldShowCollector) {
+            bugCollector
+        }
         .onAppear(perform: updateVersionAndBuildNumber)
+    }
+    
+    var bugCollector: some View {
+        ZStack(alignment: .trailing) {
+            CollectorWebView()
+            
+            VStack{
+                Button{
+                    shouldShowCollector = false
+                } label: {
+                    Image(systemName: "xmark.circle")
+                        .font(.title)
+                        .padding(.top, 12)
+                    
+                }
+                Spacer()
+                // invisible button to overlay the webform's close button
+                // dismisses the sheet view rather than doing nothing via the web page
+                Button{
+                    shouldShowCollector = false
+                } label: {
+                    Text("")
+                        .frame(width: 70, height: 50)
+                        .background(Color.blue.opacity(0.0001))
+                }
+            }
+            
+        }
+    }
+    
+    var actionSheet: ActionSheet {
+        
+        ActionSheet(title: Text("Info"), message: Text("What would you like to do?"), buttons: [
+            .default(Text("View Release Notes")){
+                openConfluenceInSafari()
+            },
+            .default(Text("Submit a Problem")){
+                shouldShowCollector = true
+            },
+            .cancel()
+        ])
+        
     }
     
     var shareButton: some View {
         Button(action: openShareMenu) {
             Image(systemName: "square.and.arrow.up")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 27)
         }
         .padding()
     }
@@ -45,19 +92,15 @@ struct ContentHeaderView: View {
     var printButton: some View {
         Button(action: openPrintPreview) {
             Image(systemName: "printer")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 25)
         }
         .padding()
     }
     
     var infoButton: some View {
-        Button(action: openPuckboardLoggingConfluenceInSafari) {
+        Button{
+            shouldDisplayActionSheet.toggle()
+        } label: {
             Image(systemName: "info.circle")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 25)
         }
         .padding()
     }
@@ -70,7 +113,8 @@ struct ContentHeaderView: View {
         
     }
     
-    func openPuckboardLoggingConfluenceInSafari() {
+    func openConfluenceInSafari() {
+        
         let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging")!
         UIApplication.shared.open(url)
     }

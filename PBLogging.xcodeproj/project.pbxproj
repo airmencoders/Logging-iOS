@@ -92,6 +92,7 @@
 		BFDB3C1125DDF6FF000A16ED /* MissionEventTypes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3BFB25DDF6FF000A16ED /* MissionEventTypes+CoreDataProperties.swift */; };
 		BFDB3C1225DDF6FF000A16ED /* FlightConditions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3BFC25DDF6FF000A16ED /* FlightConditions+CoreDataClass.swift */; };
 		BFDB3C1325DDF6FF000A16ED /* FlightConditions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3BFD25DDF6FF000A16ED /* FlightConditions+CoreDataProperties.swift */; };
+		BFDB3C7325DF5C67000A16ED /* CollectorWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3C7225DF5C67000A16ED /* CollectorWebView.swift */; };
 		BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */; };
 		D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2223E5525B7691C00B6A33F /* PreviewMods.swift */; };
 /* End PBXBuildFile section */
@@ -205,6 +206,7 @@
 		BFDB3BFB25DDF6FF000A16ED /* MissionEventTypes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionEventTypes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BFDB3BFC25DDF6FF000A16ED /* FlightConditions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlightConditions+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BFDB3BFD25DDF6FF000A16ED /* FlightConditions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlightConditions+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BFDB3C7225DF5C67000A16ED /* CollectorWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectorWebView.swift; sourceTree = "<group>"; };
 		BFDD329325A4FE83000FE732 /* Color+PBLStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+PBLStyle.swift"; sourceTree = "<group>"; };
 		D2223E5525B7691C00B6A33F /* PreviewMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
+				BFDB3C7225DF5C67000A16ED /* CollectorWebView.swift */,
 				138520A725B9F10D00C0733B /* DateFieldWithLabel.swift */,
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
@@ -742,6 +745,7 @@
 				7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,
 				7FB30E3525D44A0700797B4A /* MissionDataView.swift in Sources */,
+				BFDB3C7325DF5C67000A16ED /* CollectorWebView.swift in Sources */,
 				BFDB3BFF25DDF6FF000A16ED /* SortieType+CoreDataProperties.swift in Sources */,
 				7F03C0EB25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift in Sources */,
 				BFDB3C1225DDF6FF000A16ED /* FlightConditions+CoreDataClass.swift in Sources */,
