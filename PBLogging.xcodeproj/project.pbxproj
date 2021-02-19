@@ -34,6 +34,8 @@
 		7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0E225D7347D00F7AA5B /* TextView.swift */; };
 		7F03C0EB25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */; };
 		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
+		7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E513025E0584800B59CBF /* Binding+OnChange.swift */; };
+		7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB925E062EB00821D5D /* ThickDivider.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -148,6 +150,8 @@
 		7F03C0E225D7347D00F7AA5B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToggleStyle+Ext.swift"; sourceTree = "<group>"; };
 		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
+		7F3E513025E0584800B59CBF /* Binding+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+OnChange.swift"; sourceTree = "<group>"; };
+		7F510EB925E062EB00821D5D /* ThickDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDivider.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				7FF0FF0625B74A3D00097C66 /* IconText.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
+				7F510EB925E062EB00821D5D /* ThickDivider.swift */,
 			);
 			path = UtilityViews;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				13549C0225B103210000C875 /* String+Ext.swift */,
 				7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */,
 				BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */,
+				7F3E513025E0584800B59CBF /* Binding+OnChange.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -699,6 +705,7 @@
 				BFDB3C0825DDF6FF000A16ED /* FlightTime+CoreDataClass.swift in Sources */,
 				7FB30E4D25D4846300797B4A /* FlightTimeView.swift in Sources */,
 				7FB30E1F25D1CCF700797B4A /* FormTabView.swift in Sources */,
+				7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */,
 				BFDB3C0F25DDF6FF000A16ED /* MissionEventRecord+CoreDataProperties.swift in Sources */,
 				D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */,
 				4DCD427325DC83C600EB6FF3 /* EventCard.swift in Sources */,
@@ -743,6 +750,7 @@
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
 				4DCD42B225DC9B0000EB6FF3 /* RecentSortiesList.swift in Sources */,
 				7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */,
+				7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,
 				7FB30E3525D44A0700797B4A /* MissionDataView.swift in Sources */,
 				BFDB3C7325DF5C67000A16ED /* CollectorWebView.swift in Sources */,

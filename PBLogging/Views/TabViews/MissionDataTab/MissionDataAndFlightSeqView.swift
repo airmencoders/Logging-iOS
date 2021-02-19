@@ -10,6 +10,8 @@ import SwiftUI
 struct MissionDataAndFlightSeqView: View {
     
     @ObservedObject var sortie: Sortie
+    @State var isTakeoffICAOValid = false
+    @State var isLandICAOValid = false
     
     var body: some View {
         HStack {
@@ -24,30 +26,19 @@ struct MissionDataAndFlightSeqView: View {
                 .fontSectionHeading()
             VStack(alignment: .leading) {
                 Group {
-                    HStack{
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("DATE")
-                                .fontFormLabel()
-                            // TODO: Discuss with Rachael concerning sorties having full date/times as opposed to just times.
-                            DatePicker("", selection: .constant(Date()), displayedComponents: [.date])
-                                .accentColor(.pblPrimary)
-                                .environment(\.locale, .init(identifier: "en_GB"))
-                                .frame(width:100)
-                        }
-                    }
-                    Divider()
-                    TextFieldWithLabel(label: "MISSION DESIGN SYSTEM", placeholder: "MDS", userInput: $sortie.mds)
-                    Divider()
+                    TextFieldWithLabel(label: "MISSION DESIGN SERIES", placeholder: "MDS", userInput: $sortie.mds)
+                    ThickDivider()
                     TextFieldWithLabel(label: "SERIAL NUMBER", placeholder: "01-0193", userInput: $sortie.serialNumber)
-                    Divider()
+                    ThickDivider()
                     TextFieldWithLabel(label: "UNIT CHARGED FOR FLYING HOURS", placeholder: "437 AW (HQ AMC)/DKFX", userInput: $sortie.unitCharged)
-                    Divider()
+                    ThickDivider()
                     TextFieldWithLabel(label: "HARM LOCATION", placeholder: "JB CHARLESTON", userInput: $sortie.harmLocation)
                 }
-                Divider()
+                ThickDivider()
                 TextFieldWithLabel(label: "FLIGHT AUTH #", placeholder: "21-0048", userInput: $sortie.flightAuthNumber)
-                Divider()
+                ThickDivider()
                 TextFieldWithLabel(label: "ISSUING UNIT", placeholder: "00 16AS", userInput: $sortie.issuingUnit)
+                ThickDivider()
             }
             .padding()
             .background(Color.pblDefault)
@@ -61,35 +52,47 @@ struct MissionDataAndFlightSeqView: View {
                 .fontSectionHeading()
             VStack(alignment: .leading) {
                 Group {
-                    
-                    ///Need to fix all of the userInputs after data model refactored
-                    
-                    TextFieldWithLabel(label: "TAIL NUMBER", placeholder: "TQ1243", userInput: $sortie.mds)
-                    Divider()
-                    TextFieldWithLabel(label: "MISSION NUMBER", placeholder: "AUN08TA10190", userInput: $sortie.mds)
-                    Divider()
-                    TextFieldWithLabel(label: "MISSION SYMBOL", placeholder: "N10A", userInput: $sortie.serialNumber)
-                    Divider()
-                    TextFieldWithLabel(label: "FROM", placeholder: "KCHS", userInput: $sortie.unitCharged)
-                    Divider()
-                    TextFieldWithLabel(label: "TO", placeholder: "KXNO", userInput: $sortie.harmLocation)
+                    TextFieldWithLabel(label: "MISSION NUMBER", placeholder: "AUN08TA10190", userInput: $sortie.missionNumber)
+                    ThickDivider()
+                    TextFieldWithLabel(label: "MISSION SYMBOL", placeholder: "N10A", userInput: $sortie.missionSymbol)
+                    ThickDivider()
+                    TextFieldWithLabel(label: "FROM", placeholder: "KCHS", userInput: $sortie.takeoffICAO.onChange{ validateTakeoffICAO() })
+                    ThickDivider()
+                        .background(icaoColor(for: sortie.takeoffICAO))
+                    TextFieldWithLabel(label: "TO", placeholder: "KXNO", userInput: $sortie.landICAO.onChange{ validateLandICAO() })
                 }
-                Divider()
-                TextFieldWithLabel(label: "TAKE OFF TIME", placeholder: "0146", userInput: $sortie.flightAuthNumber)
-                Divider()
-                TextFieldWithLabel(label: "LAND TIME", placeholder: "9325", userInput: $sortie.issuingUnit)
+                ThickDivider()
+                    .background(icaoColor(for: sortie.landICAO))
+                TextFieldWithLabel(label: "TAKE OFF TIME", placeholder: "0146", userInput: .constant("1234"))
+                ThickDivider()
+                TextFieldWithLabel(label: "LAND TIME", placeholder: "9325", userInput: .constant("1234"))
+                ThickDivider()
             }
-            //.frame(minHeight: 449)
             .padding()
             .background(Color.pblDefault)
             .cornerRadius(10)
         }
     }
+    
+    func icaoColor(for icao: String) -> Color {
+        if icao.isEmpty { return Color.clear }
+        return icao.isValidICAO() ? Color.green : Color.red
+    }
+    
+    func validateLandICAO() {
+        sortie.landICAO = sortie.landICAO.enforcedICAO()
+        isLandICAOValid = sortie.landICAO.isExactlyFourCharacters()
+        print(isLandICAOValid.description)
+    }
+    
+    func validateTakeoffICAO() {
+        sortie.takeoffICAO = sortie.takeoffICAO.enforcedICAO()
+        isTakeoffICAOValid = sortie.takeoffICAO.isExactlyFourCharacters()
+        print(isTakeoffICAOValid.description)
+    }
 }
 
 struct MissionDataAndFlightSeqView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         let sortie = SampleData.sortie
         
