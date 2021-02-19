@@ -19,6 +19,7 @@ struct RecentSortiesList: View {
             List {
                 ForEach(event.sorties) { sortie in
                     SortieCard(sortie: sortie)
+                        .accessibility(identifier: "sortieCard")
                 }
             }
         }
@@ -36,7 +37,7 @@ struct RecentSortiesList: View {
                                     .accessibility(identifier: "addSortieButton")
                                 })
     }
-    
+
     func addSortie() {
         print("Add Sortie")
          

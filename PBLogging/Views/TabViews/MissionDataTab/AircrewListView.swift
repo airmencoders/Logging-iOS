@@ -25,7 +25,8 @@ struct AircrewListView: View {
                     Image(systemName: "plus.circle")
                 }
                 .fontSectionHeading()
-            }
+                .accessibility(identifier: "addAircrewButton")
+           }
             VStack {
                 HStack {
                     Text("LAST NAME")
@@ -46,6 +47,7 @@ struct AircrewListView: View {
                         .onDelete(perform: deleteSelectedAircrew)
                     }
                 }
+                .accessibility(identifier: "aircrewList")
             }
             .padding()
             .background(Color.pblDefault)

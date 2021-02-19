@@ -24,6 +24,7 @@ struct EventsOverview: View {
                 List {
                     ForEach(events) { event in
                         EventCard(event: event)
+                            .accessibility(identifier: "eventCard")
                     }
                     .onDelete(perform: deleteSelectedEvents)
                 }

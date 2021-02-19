@@ -29,75 +29,109 @@ class LoggingUITests: XCTestCase {
     }
 
     // TODO: Add this back when the views settle down.
-//    func testNavigation() {
-//
-//        self.app.terminate()
-//        self.app = XCUIApplication()
-//        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
-//        self.app.launch()
-//
-//        // Overview > Mission Data
-//        self.app.scrollViews["eventsScrollView"].descendants(matching: .button).firstMatch.tap()
-//        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
-//
-//        // Mission Data > Overview
-//        self.app.navigationBars.buttons["Events"].tap()
-//        XCTAssert(self.app.buttons["addEventButton"].exists)
-//
-//        // Overview > Mission Data > Flight Seq
-//        self.app.scrollViews["eventsScrollView"].descendants(matching: .button).firstMatch.tap()
-//        self.app.buttons["FLIGHT SEQ"].tap()
-//        XCTAssert(self.app.buttons["Add Flight SEQ"].exists)
-//
-//        // Flight Seq > Mission Data
-//        self.app.navigationBars.buttons["TBD"].tap()
-//        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
-//
-//        // Mission Data > Aircrew List
-//        self.app.buttons["AIRCREW LIST"].tap()
-//        XCTAssert(self.app.buttons["Add Aircrew"].exists)
-//
-//        // Aircrew List > Mission Data
-//        self.app.navigationBars.buttons["TBD"].tap()
-//        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
-//
-//        // Mission Data > Aircrew Data
-////        self.app.buttons["AIRCREW DATA"].tap()
-////        XCTAssert(self.app.buttons["Add Aircrew"].exists)
-//
-//        // Aircrew Data > Mission Data
-////        self.app.navigationBars.buttons["TBD"].tap()
-////        XCTAssert(self.app.staticTexts["SERIAL NUMBER"].exists)
-//    }
+    func testNavigation() {
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        self.app.terminate()
+        self.app = XCUIApplication()
+        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
+        self.app.launch()
+
+        // Events > Recent Sorties
+        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+        XCTAssert(self.app.staticTexts["Recent Sorties"].exists)
+
+        // Recent Sorties > Events
+        self.app.navigationBars.buttons["Events"].tap()
+        XCTAssert(self.app.buttons["addEventButton"].exists)
+
+        // Events > Recent Sorties > Mission Data
+        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+        self.self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
+        XCTAssert(self.app.buttons["Add Aircrew"].exists)
+
+        // Mission Data > Training Events
+        self.app.tabBars.buttons["Training Events"].tap()
+        // TODO: Add tests for Training Events when it's ready.
+//        XCTAssert(self.app.staticTexts["Training Events"].exists)
+
+        // Training Events > Mission Sortie Info
+        self.app.tabBars.buttons["Mission Sortie Info"].tap()
+        XCTAssert(self.app.staticTexts["Mission Sortie Info"].exists)
+
+        // Mission Sortie Info > Sortie Comments
+        self.app.tabBars.buttons["Sortie Comments"].tap()
+        XCTAssert(self.app.staticTexts["Sortie Comments"].exists)
     }
 
-//    func testAddEvents() throws {
-//
-//        let originalFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-//
-//        self.app.buttons["addEventButton"].tap()
-//        self.app.buttons["editEventButton"].tap()
-//
-//        var currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-//
-//        // We have two buttons on each card.
-//        XCTAssertEqual(originalFormCount + 2, currentFormCount, "Event was not added")
-//
-//        self.app.buttons["addEventButton"].tap()
-//        self.app.buttons["editEventButton"].tap()
-//        self.app.buttons["addEventButton"].tap()
-//        self.app.buttons["editEventButton"].tap()
-//
-//        currentFormCount = self.app.scrollViews["eventsScrollView"].descendants(matching: .button).count
-//
-//        XCTAssertEqual(originalFormCount + 6, currentFormCount, "Events were not added")
+//    func testLaunchPerformance() throws {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTApplicationLaunchMetric()]) {
+//                XCUIApplication().launch()
+//            }
+//        }
 //    }
+
+    func testAddEvents() throws {
+
+        let originalEventCount = self.app.buttons.matching(identifier: "eventCard").count
+
+        self.app.buttons["addEventButton"].tap()
+
+        var currentSortieCount = self.app.buttons.matching(identifier: "eventCard").count
+
+        XCTAssertEqual(originalEventCount + 1, currentSortieCount, "Event was not added")
+
+        self.app.buttons["addEventButton"].tap()
+        self.app.buttons["addEventButton"].tap()
+
+        currentSortieCount = self.app.buttons.matching(identifier: "eventCard").count
+
+        XCTAssertEqual(originalEventCount + 3, currentSortieCount, "Events were not added")
+    }
+
+    func testAddSorties() throws {
+
+        self.app.buttons["addEventButton"].tap()
+        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+
+        let originalSortieCount = self.app.buttons.matching(identifier: "sortieCard").count
+
+        self.app.buttons["addSortieButton"].tap()
+
+        var currentSortieCount = self.app.buttons.matching(identifier: "sortieCard").count
+
+        XCTAssertEqual(originalSortieCount + 1, currentSortieCount, "Sortie was not added")
+
+        self.app.buttons["addSortieButton"].tap()
+        self.app.buttons["addSortieButton"].tap()
+
+        currentSortieCount = self.app.buttons.matching(identifier: "sortieCard").count
+
+        XCTAssertEqual(originalSortieCount + 3, currentSortieCount, "Sorties were not added")
+    }
+
+    func testAddAircrew() throws {
+
+        self.app.buttons["addEventButton"].tap()
+        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+
+        self.app.buttons["addSortieButton"].tap()
+        self.self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
+
+        let originalAircrewCount = self.app.scrollViews["aircrewList"].descendants(matching: .textField).matching(identifier: "LAST NAME").count
+
+        self.app.buttons["addAircrewButton"].tap()
+
+        var currentAircrewCount = self.app.scrollViews["aircrewList"].descendants(matching: .textField).matching(identifier: "LAST NAME").count
+
+        XCTAssertEqual(originalAircrewCount + 1, currentAircrewCount, "Aircrew was not added")
+
+        self.app.buttons["addAircrewButton"].tap()
+        self.app.buttons["addAircrewButton"].tap()
+
+        currentAircrewCount = self.app.scrollViews["aircrewList"].descendants(matching: .textField).matching(identifier: "LAST NAME").count
+
+        XCTAssertEqual(originalAircrewCount + 3, currentAircrewCount, "Aircrew were not added")
+    }
 }
