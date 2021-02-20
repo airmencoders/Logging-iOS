@@ -21,7 +21,7 @@ struct FormTabView: View {
                 .tabItem {
                     Text("Training Events")
                 }
-            MissionSortieInfoView()
+            MissionSortieInfoView(sortie: sortie)
                 .tabItem {
                     Text("Mission Sortie Info")
                 }

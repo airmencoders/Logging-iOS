@@ -8,18 +8,35 @@
 import SwiftUI
 
 struct MissionSortieInfoView: View {
-    
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var sortie: Sortie
+
     var body: some View {
-        ScrollView {
+        // TODO: These items are not being added when we make a new Sortie object.
+        // They are also not in the Sample data. This is probably not the best
+        // place to do this, but I am not sure where is.
+        if sortie.fuel == nil {
+            sortie.fuel = Fuel(context: viewContext)
+        }
+
+        if sortie.metrics == nil {
+            sortie.metrics = Metrics(context: viewContext)
+        }
+
+        if sortie.sortieType == nil {
+            sortie.sortieType = SortieType(context: viewContext)
+        }
+
+        return ScrollView {
             VStack(alignment: .leading, spacing: 40) {
                 Text("Mission Sortie Info")
                     .fontSectionHeading()
-                HStack {
-                    SortieInfoBlockView(title: "FUEL (KLBS)", labels: ["RAMP", "LAND", "AIR REFUEL", "AUX POWER UNIT HOURS", "TAKEOFF CENTER OF GRAVITY"])
-                    SortieInfoBlockView(title: "AIRLAND", labels: ["AIRLAND WEIGHT", "NUMBER OF PASSENGERS", "NUMBER OF AIRLAND PALLETS", "NUMBER OF ROLLING STOCK", "TAKEOFF CENTER OF GRAVITY"])
+                HStack(alignment: .top) {
+                    SortieFuelInfoView(sortie: sortie)
+                    SortieAirlandInfoView(sortie: sortie)
                 }
-                SortieInfoBlockView(title: "AIRDROP", labels: ["AIRDROP WEIGHT", "NUMBER OF JUMPERS", "NUMBER OF AIRDROP PALLETS", "NUMBER OF \"HEAVIES\""])
-                SortieTypeView()
+                SortieAirdropInfoView(sortie: sortie)
+                SortieTypeView(sortieType: sortie.sortieType!)
             }
         }
     }
@@ -27,9 +44,15 @@ struct MissionSortieInfoView: View {
 
 struct MissionSortieInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        MissionSortieInfoView()
+        let dataController = SampleData.previewDataController
+        let sortie = SampleData.sortie
+
+        MissionSortieInfoView(sortie: sortie)
+            .environmentObject(dataController)
             .previewLayout(.sizeThatFits)
-        MissionSortieInfoView()
+
+        MissionSortieInfoView(sortie: sortie)
+            .environmentObject(dataController)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }
