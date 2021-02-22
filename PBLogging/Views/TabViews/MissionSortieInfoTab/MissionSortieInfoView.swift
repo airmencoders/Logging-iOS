@@ -12,21 +12,7 @@ struct MissionSortieInfoView: View {
     @ObservedObject var sortie: Sortie
 
     var body: some View {
-        // TODO: These items are not being added when we make a new Sortie object.
-        // They are also not in the Sample data. This is probably not the best
-        // place to do this, but I am not sure where is.
-        if sortie.fuel == nil {
-            sortie.fuel = Fuel(context: viewContext)
-        }
-
-        if sortie.metrics == nil {
-            sortie.metrics = Metrics(context: viewContext)
-        }
-
-        if sortie.sortieType == nil {
-            sortie.sortieType = SortieType(context: viewContext)
-        }
-
+    
         return ScrollView {
             VStack(alignment: .leading, spacing: 40) {
                 Text("Mission Sortie Info")
@@ -36,7 +22,7 @@ struct MissionSortieInfoView: View {
                     SortieAirlandInfoView(sortie: sortie)
                 }
                 SortieAirdropInfoView(sortie: sortie)
-                SortieTypeView(sortieType: sortie.sortieType!)
+                SortieTypeView(sortieType: sortie.sortieType)
             }
         }
     }

@@ -16,12 +16,12 @@ extension FlightConditions {
         return NSFetchRequest<FlightConditions>(entityName: "FlightConditions")
     }
 
-    @NSManaged public var combatSupportTime: Float
-    @NSManaged public var combatTime: Float
-    @NSManaged public var instruments: Float
-    @NSManaged public var night: Float
-    @NSManaged public var nvg: Float
-    @NSManaged public var simInstruments: Float
+    @NSManaged public var combatSupportTime: Double
+    @NSManaged public var combatTime: Double
+    @NSManaged public var instruments: Double
+    @NSManaged public var night: Double
+    @NSManaged public var nvg: Double
+    @NSManaged public var simInstruments: Double
     @NSManaged public var crewLine: CrewLine?
 
 }

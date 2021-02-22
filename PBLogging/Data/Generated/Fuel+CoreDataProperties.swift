@@ -16,9 +16,9 @@ extension Fuel {
         return NSFetchRequest<Fuel>(entityName: "Fuel")
     }
 
-    @NSManaged public var airRefuel: Float
-    @NSManaged public var land: Float
-    @NSManaged public var ramp: Float
+    @NSManaged public var airRefuel: Double
+    @NSManaged public var land: Double
+    @NSManaged public var ramp: Double
     @NSManaged public var sortie: Sortie?
 
 }

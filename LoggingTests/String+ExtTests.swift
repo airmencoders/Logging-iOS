@@ -88,4 +88,68 @@ class String_ExtTests: XCTestCase {
         let isDigits = "123456"
         XCTAssertTrue(isDigits.isDigits)
     }
+    func testCharactersAfterLastOccurrenceOf(){
+        var testString = "0.000".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 3)
+        testString = "0.0".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 1)
+        testString = "0.02".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 2)
+        testString = "0.034".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 3)
+        testString = "1.0234".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 4)
+        testString = "0.02555".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 5)
+        testString = "0.".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 0)
+        testString = ".".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, nil)
+        testString = ".0".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 1)
+        testString = "10".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, nil)
+        testString = "130.203.02333.023".charactersAfterLastOccurrenceOf(".")
+        XCTAssertEqual(testString, 3)
+    }
+    
+    func testReplaceLastOccurrenceOfString(){
+        var testString = "ThexDogxJumpedxOverxThexMoonx"
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "ThexDogxJumpedxOverxThexMoon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "ThexDogxJumpedxOverxThe Moon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "ThexDogxJumpedxOver The Moon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "ThexDogxJumped Over The Moon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "ThexDog Jumped Over The Moon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "The Dog Jumped Over The Moon ")
+        testString.replaceLastOccurrenceOfString("x", with: " ")
+        XCTAssertEqual(testString, "The Dog Jumped Over The Moon ")
+         
+    }
+    
+    func testEnforceDecimalNumber(){
+        var testString = "0.00"
+        XCTAssertEqual(testString.enforceDecimalNumber(), "0.0")
+        
+        testString = "ABCD"
+        XCTAssertEqual(testString.enforceDecimalNumber(), "")
+        
+        testString = "0.0.0"
+        XCTAssertEqual(testString.enforceDecimalNumber(), "0.0")
+        
+        testString = "2.b"
+        XCTAssertEqual(testString.enforceDecimalNumber(), "2.")
+        
+        testString = "23.."
+        XCTAssertEqual(testString.enforceDecimalNumber(), "23.")
+        
+        testString = ".1"
+        XCTAssertEqual(testString.enforceDecimalNumber(), "0.1")
+        
+    }
 }

@@ -14,7 +14,6 @@ struct MissionDataView: View {
     @ObservedObject var sortie: Sortie
     
     var body: some View {
-        GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 50) {
                     AircrewListView(sortie: sortie)
@@ -25,9 +24,12 @@ struct MissionDataView: View {
                         Text("781 Remarks")
                             .fontSectionHeading()
                         TextView(text: $sortie.comments)
-                        .frame(height: geometry.size.height * 0.3)
+                            .background(Color.defaultBackground)
+                        .frame(height: 100)
                         .cornerRadius(5)
-                        .padding(.bottom)
+                            .border(Color.gray)
+                        .padding()
+                            
                     }
                 }
                 .navigationBarTitle(Text("TBD"))
@@ -36,7 +38,6 @@ struct MissionDataView: View {
                 }
                 Spacer()
             }
-        }
         .onDisappear {
             dataController.save()
         }
@@ -44,8 +45,6 @@ struct MissionDataView: View {
 }
 
 struct MissionDataView_Previews: PreviewProvider {
-    
-     
     
     static var previews: some View {
         

@@ -12,7 +12,6 @@ extension Color {
     public static let pblPrimary    = Color("primary")
     public static let pblSecondary  = Color("secondary")
     public static let pblTertiary   = Color("tertiary")
-
     public static let pblSlate      = Color("slate")
     public static let pblSlateBG    = Color("slateBG")
     public static let pblFog        = Color("fog")
@@ -24,8 +23,8 @@ extension Color {
     public static let pblBackground = Color("background")
     public static let pblDefault    = Color("default")
     public static let pblElevated   = Color("elevated")
-    
     public static let pblErrorFG    = Color("error_fg")
+    public static let defaultBackground   = Color("defaultBackground")
 }
 
 extension UIColor {

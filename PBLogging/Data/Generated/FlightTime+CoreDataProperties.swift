@@ -16,12 +16,12 @@ extension FlightTime {
         return NSFetchRequest<FlightTime>(entityName: "FlightTime")
     }
 
-    @NSManaged public var evaluator: Float
-    @NSManaged public var instructor: Float
-    @NSManaged public var other: Float
-    @NSManaged public var primary: Float
-    @NSManaged public var secondary: Float
-    @NSManaged public var totalTime: Float
+    @NSManaged public var evaluator: Double
+    @NSManaged public var instructor: Double
+    @NSManaged public var other: Double
+    @NSManaged public var primary: Double
+    @NSManaged public var secondary: Double
+    @NSManaged public var totalTime: Double
     @NSManaged public var crewLine: CrewLine?
 
 }

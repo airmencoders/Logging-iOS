@@ -17,13 +17,11 @@ struct SortieAirlandInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                ///To Do: figure out using geometry reader based on screen size, not parent view
                 .frame(width: 280)
                 .background(Color.pblDefault)
                 .cornerRadius(10)
 
-                SortieAirlandEditFields(sortie: sortie, metrics: sortie.metrics!)
-                ///To Do: figure out using geometry reader based on screen size, not parent view
+                SortieAirlandEditFields(sortie: sortie)
                 .frame(width: 86)
                 .background(Color.pblDefault)
                 .cornerRadius(10)
@@ -54,8 +52,14 @@ struct SortieAirlandInfoView: View {
 }
 
 struct SortieAirlandEditFields: View {
+    
     @ObservedObject var sortie: Sortie
     @ObservedObject var metrics: Metrics
+    
+    init(sortie: Sortie){
+        _sortie = ObservedObject(wrappedValue: sortie)
+        _metrics = ObservedObject(wrappedValue: sortie.metrics)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

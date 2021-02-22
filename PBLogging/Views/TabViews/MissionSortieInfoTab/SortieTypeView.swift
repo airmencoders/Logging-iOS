@@ -54,10 +54,10 @@ struct SortieTypeView_Previews: PreviewProvider {
     static var previews: some View {
         let sortie = SampleData.sortie
 
-        SortieTypeView(sortieType: sortie.sortieType!)
+        SortieTypeView(sortieType: sortie.sortieType)
             .previewLayout(.sizeThatFits)
 
-        SortieTypeView(sortieType: sortie.sortieType!)
+        SortieTypeView(sortieType: sortie.sortieType)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

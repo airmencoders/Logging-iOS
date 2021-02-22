@@ -94,4 +94,43 @@ extension Sortie {
         }
     }
     
+    public var metrics: Metrics {
+        get {
+            guard let metrics = metrics_ else {
+                let newMetrics = Metrics(context: self.managedObjectContext!)
+                newMetrics.sortie = self
+                metrics_ = newMetrics
+                return newMetrics
+            }
+            return metrics
+        }
+        set { metrics_ = newValue }
+    }
+    
+    public var sortieType: SortieType {
+        get {
+            guard let sortieType = sortieType_ else {
+                let newSortieType = SortieType(context: self.managedObjectContext!)
+                newSortieType.sortie = self
+                sortieType_ = newSortieType
+                return newSortieType
+            }
+            return sortieType
+        }
+        set { sortieType_ = newValue }
+    }
+    
+    public var fuel: Fuel {
+        get {
+            guard let fuel = fuel_ else {
+                let newFuel = Fuel(context: self.managedObjectContext!)
+                newFuel.sortie = self
+                fuel_ = newFuel
+                return newFuel
+            }
+            return fuel
+        }
+        set { fuel_ = newValue }
+    }
+    
 }

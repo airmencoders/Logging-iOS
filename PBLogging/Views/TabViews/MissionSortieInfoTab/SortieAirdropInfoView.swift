@@ -17,13 +17,11 @@ struct SortieAirdropInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                ///To Do: figure out using geometry reader based on screen size, not parent view
                 .frame(width: 280)
                 .background(Color.pblDefault)
                 .cornerRadius(10)
 
-                SortieAirdropEditFields(metrics: sortie.metrics!)
-                ///To Do: figure out using geometry reader based on screen size, not parent view
+                SortieAirdropEditFields(metrics: sortie.metrics)
                 .frame(width: 86)
                 .background(Color.pblDefault)
                 .cornerRadius(10)

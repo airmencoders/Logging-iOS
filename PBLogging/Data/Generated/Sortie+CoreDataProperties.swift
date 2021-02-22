@@ -16,7 +16,8 @@ extension Sortie {
         return NSFetchRequest<Sortie>(entityName: "Sortie")
     }
 
-    @NSManaged public var auxillaryPowerUnitHours: Float
+    @NSManaged public var auxiliaryPowerUnitHours: Double
+    @NSManaged public var comments_: String?
     @NSManaged public var flightAuthNumber_: String?
     @NSManaged public var harmLocation_: String?
     @NSManaged public var id: UUID?
@@ -31,16 +32,15 @@ extension Sortie {
     @NSManaged public var numTouchAndGoes: Int16
     @NSManaged public var serialNumber_: String?
     @NSManaged public var specialUse_: String?
-    @NSManaged public var takeoffCenterOfGravity: Float
+    @NSManaged public var takeoffCenterOfGravity: Double
     @NSManaged public var takeoffICAO_: String?
     @NSManaged public var takeoffTime: Date?
     @NSManaged public var unitCharged_: String?
-    @NSManaged public var comments_: String?
     @NSManaged public var crewLines_: NSSet?
     @NSManaged public var event: Event?
-    @NSManaged public var fuel: Fuel?
-    @NSManaged public var metrics: Metrics?
-    @NSManaged public var sortieType: SortieType?
+    @NSManaged public var fuel_: Fuel?
+    @NSManaged public var metrics_: Metrics?
+    @NSManaged public var sortieType_: SortieType?
 
 }
 

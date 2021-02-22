@@ -17,13 +17,11 @@ struct SortieFuelInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                ///To Do: figure out using geometry reader based on screen size, not parent view
                 .frame(width: 280)
                 .background(Color.pblDefault)
                 .cornerRadius(10)
 
-                SortieFuelEditFields(sortie: sortie, fuel: sortie.fuel!)
-                ///To Do: figure out using geometry reader based on screen size, not parent view
+                SortieFuelEditFields(sortie: sortie)
                 .frame(width: 86)
                 .background(Color.pblDefault)
                 .cornerRadius(10)
@@ -54,29 +52,61 @@ struct SortieFuelInfoView: View {
 }
 
 struct SortieFuelEditFields: View {
+    
     @ObservedObject var sortie: Sortie
     @ObservedObject var fuel: Fuel
-
+    @State var rampFuel: String
+    @State var landFuel: String
+    @State var airRefuel: String
+    @State var auxPower: String
+    @State var cog: String
+    
+    init(sortie: Sortie){
+        _sortie     = ObservedObject(wrappedValue: sortie)
+        _fuel       = ObservedObject(wrappedValue: sortie.fuel)
+        _rampFuel   = State(wrappedValue: sortie.fuel.ramp == 0 ? "" : "\(sortie.fuel.ramp)")
+        _landFuel   = State(wrappedValue: sortie.fuel.land == 0 ? "" : "\(sortie.fuel.land)")
+        _airRefuel  = State(wrappedValue: sortie.fuel.airRefuel == 0 ? "" : "\(sortie.fuel.airRefuel)")
+        _auxPower   = State(wrappedValue: sortie.auxiliaryPowerUnitHours == 0 ? "" : "\(sortie.auxiliaryPowerUnitHours)")
+        _cog        = State(wrappedValue: sortie.takeoffCenterOfGravity == 0 ? "" : "\(sortie.takeoffCenterOfGravity)")
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            TextField("", value: $fuel.ramp, formatter: NumberFormatter())
-                .padding()
-            Divider()
-            TextField("", value: $fuel.land, formatter: NumberFormatter())
-                .padding()
-            Divider()
-            TextField("", value: $fuel.airRefuel, formatter: NumberFormatter())
-                .padding()
-            Divider()
-            TextField("", value: $sortie.auxillaryPowerUnitHours, formatter: NumberFormatter())
-                .padding()
-            Divider()
-            TextField("", value: $sortie.takeoffCenterOfGravity, formatter: NumberFormatter())
+            TextField("", text: $rampFuel.onChange { enforceAndUpdate(&fuel.ramp, with: &rampFuel) })
+                 .padding()
+            ThickDivider()
+                .background(getValidationColor(for: rampFuel))
+            TextField("", text: $landFuel.onChange { enforceAndUpdate(&fuel.land, with: &landFuel) })
+                 .padding()
+            ThickDivider()
+                .background(getValidationColor(for: landFuel))
+            TextField("", text: $airRefuel.onChange { enforceAndUpdate(&fuel.airRefuel, with: &airRefuel) })
+                 .padding()
+            ThickDivider()
+                .background(getValidationColor(for: airRefuel))
+            TextField("", text: $auxPower.onChange{ enforceAndUpdate(&sortie.auxiliaryPowerUnitHours, with: &auxPower) })
+                 .padding()
+            ThickDivider()
+                .background(getValidationColor(for: auxPower))
+            TextField("", text: $cog.onChange{ enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &cog) })
                 .padding()
         }
+        .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))
         .foregroundColor(.pblSecondary)
     }
+    func getValidationColor(for item: String) -> Color? {
+        if item.isEmpty {return nil}
+        return Double(item) == nil ? Color.red : Color.green
+    }
+    func enforceAndUpdate(_ item: inout Double ,with stateObject: inout String){
+        stateObject = stateObject.enforceDecimalNumber(maxDecimalPlaces: 1)
+        if let doubleValue = Double(stateObject) {
+            item = doubleValue
+        }
+    }
+        
 }
 struct SortieFuelInfoView_Previews: PreviewProvider {
     static var previews: some View {

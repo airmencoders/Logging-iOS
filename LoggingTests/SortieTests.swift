@@ -78,5 +78,16 @@ class SortieTests: XCTestCase {
         XCTAssertEqual(sortie.flightTimeString, "26328.5")
     
     }
+    
+    func testSortieAutoAccessors() {
+        
+        let context =  DataController(inMemory: true).container.viewContext
+        let sortie = Sortie(context: context)
+        
+        XCTAssertNotNil(sortie.fuel)
+        XCTAssertNotNil(sortie.metrics)
+        XCTAssertNotNil(sortie.sortieType)
+     
+    }
 
 }
