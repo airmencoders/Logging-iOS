@@ -70,11 +70,14 @@ struct SortieAirdropEditFields: View {
     }
 }
 
-
 struct SortieAirdropInfoView_Previews: PreviewProvider {
     static var previews: some View {
         let sortie = SampleData.sortie
 
         SortieAirdropInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+        SortieAirdropInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

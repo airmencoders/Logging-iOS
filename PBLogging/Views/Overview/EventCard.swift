@@ -45,10 +45,9 @@ struct EventCard: View {
                         .frame(height: 16)
                     if let date = event.sorties.first?.takeoffTime {
                         Text(date.string())
-                    }else{
+                    } else {
                         Text("")
                     }
-                 
                 }
             }
             .padding(.leading)
@@ -65,4 +64,3 @@ struct EventCard_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
- 

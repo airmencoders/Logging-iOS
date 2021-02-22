@@ -14,32 +14,33 @@ struct MissionDataView: View {
     @ObservedObject var sortie: Sortie
     
     var body: some View {
-            ScrollView {
-                VStack(spacing: 50) {
-                    AircrewListView(sortie: sortie)
-                    MissionDataAndFlightSeqView(sortie: sortie)
-                    FlightTimeView(sortie: sortie)
-                    FlightConditionsView(sortie: sortie)
-                    VStack(alignment: .leading) {
-                        Text("781 Remarks")
-                            .fontSectionHeading()
-                        TextView(text: $sortie.comments)
-                            .background(Color.defaultBackground)
-                        .frame(height: 100)
-                        .cornerRadius(5)
-                            .border(Color.gray)
-                        .padding()
-                            
-                    }
-                }
-                .navigationBarTitle(Text("TBD"))
-                .onAppear {
-                    UITableView.appearance().backgroundColor = .clear
-                }
-                Spacer()
+        ScrollView {
+            VStack(spacing: 50) {
+                AircrewListView(sortie: sortie)
+                MissionDataAndFlightSeqView(sortie: sortie)
+                FlightTimeView(sortie: sortie)
+                FlightConditionsView(sortie: sortie)
+                remarks
             }
+            .navigationBarTitle(Text("TBD"))
+            .onAppear {
+                UITableView.appearance().backgroundColor = .clear
+            }
+            Spacer()
+        }
         .onDisappear {
             dataController.save()
+        }
+    }
+    
+    var remarks: some View {
+        VStack(alignment: .leading) {
+            Text("781 Remarks")
+                .fontSectionHeading()
+            TextView(text: $sortie.comments)
+                .frame(height: 100)
+                .cornerRadius(5)
+                .border(Color.gray)
         }
     }
 }

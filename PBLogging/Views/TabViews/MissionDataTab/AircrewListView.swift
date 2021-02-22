@@ -8,55 +8,69 @@
 import SwiftUI
 
 struct AircrewListView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
     @ObservedObject var sortie: Sortie
         
     var body: some View {
         VStack {
-            HStack {
-                Text("Aircrew")
-                    .fontSectionHeading()
-                Spacer()
-                Button {
-                    addAircrew()
-                } label: {
-                    Text("Add Aircrew")
-                    Image(systemName: "plus.circle")
-                }
-                .fontSectionHeading()
-                .accessibility(identifier: "addAircrewButton")
-           }
-            VStack {
-                HStack {
-                    Text("LAST NAME")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("SSN (LAST 4)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("FLYING ORG")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("FLIGHT AUTH DUTY CODE")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .fontFormLabel()
-                ScrollView {
-                    VStack {
-                        ForEach(sortie.crewLines) { crewLine in
-                            AircrewRow(crewLine: crewLine)
-                        }
-                        .onDelete(perform: deleteSelectedAircrew)
-                    }
-                }
-                .accessibility(identifier: "aircrewList")
-            }
-            .padding()
-            .background(Color.pblDefault)
-            .cornerRadius(10)
+            header
+            aircrewList
         }
         .onDisappear{
             dataController.save()
         }
     }
+    
+    var header: some View {
+        HStack {
+            Text("Aircrew")
+                .fontSectionHeading()
+            Spacer()
+            addAircrewButton
+       }
+    }
+    
+    var addAircrewButton: some View {
+        Button {
+            addAircrew()
+        } label: {
+            Text("Add Aircrew")
+            Image(systemName: "plus.circle")
+        }
+        .fontSectionHeading()
+        .accessibility(identifier: "addAircrewButton")
+    }
+    
+    var aircrewList: some View {
+        VStack {
+            HStack {
+                Text("LAST NAME")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("SSN (LAST 4)")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("FLYING ORG")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("FLIGHT AUTH DUTY CODE")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .fontFormLabel()
+            ScrollView {
+                VStack {
+                    ForEach(sortie.crewLines) { crewLine in
+                        AircrewRow(crewLine: crewLine)
+                    }
+                    .onDelete(perform: deleteSelectedAircrew)
+                }
+            }
+            .accessibility(identifier: "aircrewList")
+        }
+        .padding()
+        .background(Color.pblDefault)
+        .cornerRadius(10)
+    }
+    
     func deleteSelectedAircrew(offsets: IndexSet) {
         for offset in offsets {
             let itemToDelete = sortie.crewLines[offset]
@@ -64,6 +78,7 @@ struct AircrewListView: View {
             dataController.save()
         }
     }
+    
     func addAircrew() {
         let crewLine = CrewLine(context: viewContext)
         crewLine.sortie = sortie
@@ -97,13 +112,13 @@ struct AircrewListView_Previews: PreviewProvider {
         
         let dataController = SampleData.previewDataController
         let sortie = SampleData.sortie
+        
         AircrewListView(sortie: sortie)
             .environmentObject(dataController)
-
             .previewLayout(.sizeThatFits)
+        
         AircrewListView(sortie: sortie)
             .environmentObject(dataController)
-
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

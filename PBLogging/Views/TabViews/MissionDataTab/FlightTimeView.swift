@@ -50,17 +50,15 @@ struct FlightTimeView: View {
                 .font(.pblBold(size: 17))
                 .foregroundColor(.pblSecondary)
                 .layoutPriority(2)
-            ZStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke()
-                    .foregroundColor(.pblPrimary)
-                HStack {
-                    Text("\(sortie.numLoadmastersRequired)")
-                    Stepper("", value: $sortie.numLoadmastersRequired, in: 0...10)
-                }
+            Stepper("\(sortie.numLoadmastersRequired)", value: $sortie.numLoadmastersRequired, in: 0...10)
                 .font(.pblRegular(size: 18))
+                .foregroundColor(.pblSecondary)
                 .padding()
-            }
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke()
+                        .foregroundColor(.pblPrimary)
+                )
         }
     }
     

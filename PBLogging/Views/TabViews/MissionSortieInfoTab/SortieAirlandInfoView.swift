@@ -88,5 +88,9 @@ struct SortieAirlandInfoView_Previews: PreviewProvider {
         let sortie = SampleData.sortie
 
         SortieAirlandInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+        SortieAirlandInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

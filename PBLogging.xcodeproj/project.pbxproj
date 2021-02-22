@@ -439,12 +439,12 @@
 		7FBE15AE25D5CFB5009A0DEF /* MissionDataTab */ = {
 			isa = PBXGroup;
 			children = (
-				7F36016125C365AE009FF74E /* AircrewListView.swift */,
-				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
-				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
-				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
 				7FB30E3425D44A0700797B4A /* MissionDataView.swift */,
+				7F36016125C365AE009FF74E /* AircrewListView.swift */,
 				7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */,
+				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
+				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
+				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
 			);
 			path = MissionDataTab;
 			sourceTree = "<group>";

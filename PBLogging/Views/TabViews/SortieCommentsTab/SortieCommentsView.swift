@@ -21,7 +21,8 @@ struct SortieCommentsView: View {
                 .frame(height: geometry.size.height * 0.75)
                 .cornerRadius(5)
             }
-        }.onDisappear{
+        }
+        .onDisappear {
             dataController.save()
         }
     }

@@ -96,22 +96,28 @@ struct SortieFuelEditFields: View {
         .font(.pblBold(size: 18))
         .foregroundColor(.pblSecondary)
     }
+    
     func getValidationColor(for item: String) -> Color? {
         if item.isEmpty {return nil}
         return Double(item) == nil ? Color.red : Color.green
     }
+    
     func enforceAndUpdate(_ item: inout Double ,with stateObject: inout String){
         stateObject = stateObject.enforceDecimalNumber(maxDecimalPlaces: 1)
         if let doubleValue = Double(stateObject) {
             item = doubleValue
         }
-    }
-        
+    }        
 }
+
 struct SortieFuelInfoView_Previews: PreviewProvider {
     static var previews: some View {
         let sortie = SampleData.sortie
 
         SortieFuelInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+        SortieFuelInfoView(sortie: sortie)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

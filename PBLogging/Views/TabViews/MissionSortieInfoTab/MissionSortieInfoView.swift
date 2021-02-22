@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct MissionSortieInfoView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var sortie: Sortie
 
     var body: some View {
-    
         return ScrollView {
             VStack(alignment: .leading, spacing: 40) {
                 Text("Mission Sortie Info")

@@ -47,6 +47,7 @@ struct EventsOverview: View {
             dataController.save()
         }
     }
+    
     var addEventButton: some View {
         TextAndIconButton(text: "Add Event",
                           size: 24.0,
@@ -55,6 +56,7 @@ struct EventsOverview: View {
                     }
                     .accessibility(identifier: "addEventButton")
     }
+    
     private func addEvent() {
         let event = Event(context: viewContext)
         event.name = "New Event"
