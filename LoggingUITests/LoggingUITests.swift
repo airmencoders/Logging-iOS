@@ -15,7 +15,8 @@ class LoggingUITests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
         self.app = XCUIApplication()
-        self.app.launchArguments.append("CLEAR_CORE_DATA")
+        self.app.launchArguments.append("ui-tests")
+        self.app.launchArguments.append("clear-core-data")
         self.app.launch()
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -33,7 +34,8 @@ class LoggingUITests: XCTestCase {
 
         self.app.terminate()
         self.app = XCUIApplication()
-        self.app.launchArguments.append("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA")
+        self.app.launchArguments.append("ui-tests")
+        self.app.launchArguments.append("clear-core-data-load-sample-data")
         self.app.launch()
 
         // Events > Recent Sorties

@@ -40,11 +40,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func checkForUITestArguments() {
         
-        if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA_THEN_LOAD_FAKE_DATA") {
+        if ProcessInfo.processInfo.arguments.contains("ui-tests") {
+            UIView.setAnimationsEnabled(false)
+        }
+        if ProcessInfo.processInfo.arguments.contains("clear-core-data-load-sample-data") {
             dataController.deleteAllEvents()
             SampleData.loadMockData1(viewContext: dataController.container.viewContext)
            
-        }else if ProcessInfo.processInfo.arguments.contains("CLEAR_CORE_DATA") {
+        }else if ProcessInfo.processInfo.arguments.contains("clear-core-data") {
             dataController.deleteAllEvents()
             dataController.save()
         }
