@@ -4,13 +4,25 @@
 
 import CoreData
 
+ 
+
 class DataController: ObservableObject {
 
     let container: NSPersistentContainer
+    
+    static let model : NSManagedObjectModel = {
+        guard let modelURL = Bundle.main.url(forResource: "DataModel", withExtension: "momd") else {
+            fatalError()
+        }
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError()
+        }
+        return model
+    }()
 
     init(inMemory: Bool = false) {
 
-        container = NSPersistentContainer(name: "DataModel")
+        container = NSPersistentContainer(name: "DataModel", managedObjectModel: DataController.model)
 
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
