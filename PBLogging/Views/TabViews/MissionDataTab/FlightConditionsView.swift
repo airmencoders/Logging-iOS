@@ -12,7 +12,7 @@ struct FlightConditionsView: View {
     @EnvironmentObject var dataController: DataController
     
     @ObservedObject var sortie: Sortie
-    let labelSize: CGFloat = 18
+    let labelSize: CGFloat = 14
     let titleHeight: CGFloat = 80
     
     var body: some View {
@@ -21,6 +21,7 @@ struct FlightConditionsView: View {
                 .fontSectionHeading()
             flightTableView
         }
+        .padding()
     }
     
     var flightTableView: some View {
@@ -39,77 +40,46 @@ struct FlightConditionsView: View {
                 
                 FlightLabel(label: "LASTNAME", alignment: .leading)
             }
-            .frame(width: 232)
-            
-            ScrollView(.horizontal) {
-                HStack {
-                    
-                    //flight auth duty code column
-                    VStack(spacing: 0) {
-                        Text("FLIGHT AUTH\nDUTY CODE")
-                            .font(.pblBold(size: 12))
-                            .frame(maxWidth: .infinity, minHeight: titleHeight)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.pblSecondary)
-                        FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-                        ForEach(sortie.crewLines) { crewLine in
-                            // # TODO: Implement
-                            FlightLabel(label: "0")
-                            Divider()
-                        }
-                        FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: labelSize))
+            .frame(width: 200)
+        
+            HStack {
+                //flight auth duty code column
+                VStack(spacing: 0) {
+                    Text("FLIGHT AUTH\nDUTY CODE")
+                        .font(.pblBold(size: 12))
+                        .frame(maxWidth: .infinity, minHeight: titleHeight)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.pblSecondary)
+                    FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
+                    ForEach(sortie.crewLines) { crewLine in
+                        // # TODO: Implement
                         FlightLabel(label: "0")
+                        Divider()
                     }
-                    .frame(width: 96)
-                    .background(Color.pblDefault)
-                    .cornerRadius(5)
-                    
-                    FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)
-                    FlightColumn(sortie: sortie, title: "INS", titleHeight: titleHeight)
-                    FlightColumn(sortie: sortie, title: "SIM INS", titleHeight: titleHeight)
-                    FlightColumn(sortie: sortie, title: "NVG", titleHeight: titleHeight)
-                    FlightCombatColumn(sortie: sortie, title: "COMBAT", titleHeight: titleHeight)
-                    FlightCombatColumn(sortie: sortie, title: "COMBAT SUPPORT", titleHeight: titleHeight)
-                    FlightColumn(sortie: sortie, title: "RESV\nSTATUS", titleHeight: titleHeight)
+                    FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: labelSize))
+                    FlightLabel(label: "0")
                 }
+                .frame(width: 50)
+                .background(Color.pblDefault)
+                .cornerRadius(5)
+                
+                FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)
+                    .frame(width: 50)
+                FlightColumn(sortie: sortie, title: "INS", titleHeight: titleHeight)
+                FlightColumn(sortie: sortie, title: "SIM INS", titleHeight: titleHeight)
+                FlightColumn(sortie: sortie, title: "NVG", titleHeight: titleHeight)
+                    .frame(width: 50)
+                FlightColumn(sortie: sortie, title: "COMBAT\nTIME", titleHeight: titleHeight)
+                    .frame(width: 70)
+                FlightColumn(sortie: sortie, title: "COMBAT\nSUPPORT\nTIME", titleHeight: titleHeight)
+                    .frame(width: 70)
+                FlightColumn(sortie: sortie, title: "RESV\nSTATUS", titleHeight: titleHeight)
+                    .frame(width: 60)
             }
         }
+        .padding()
     }
-}
-
-struct FlightCombatColumn: View {
     
-    @ObservedObject var sortie: Sortie
-    let title: String
-    var titleHeight: CGFloat
-    var backgroundColor = Color.pblDefault
-    let labelSize: CGFloat = 18
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            VStack(spacing: 5) {
-                Text(title)
-                HStack {
-                    Text("TIME")
-                    Text("SRTY")
-                }
-            }
-            .font(.pblBold(size: labelSize))
-            .frame(maxWidth: .infinity, minHeight: titleHeight)
-            .foregroundColor(.pblSecondary)
-            FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
-            ForEach(sortie.crewLines) { crewLine in
-                // # TODO: Implement
-                FlightLabel(label: "0")
-                Divider()
-            }
-            FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: labelSize))
-            FlightLabel(label: "0")
-        }
-        .frame(width: 192)
-        .background(backgroundColor)
-        .cornerRadius(5)
-    }
 }
 
 struct FlightConditionsView_Previews: PreviewProvider {

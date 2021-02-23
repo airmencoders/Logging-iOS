@@ -27,6 +27,7 @@ struct SortieAirdropInfoView: View {
                 .cornerRadius(10)
             }
         }
+        .padding()
     }
 
     func labels() -> some View {

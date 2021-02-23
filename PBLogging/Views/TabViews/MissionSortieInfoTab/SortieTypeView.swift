@@ -17,36 +17,36 @@ struct SortieTypeView: View {
                 .fontFormLabel()
 
             HStack(alignment: .top, spacing: 0) {
-                VStack(alignment: .leading) {
-                    Toggle("AEROMEDICAL\nEVACUATION", isOn: $sortieType.isAeromedevac)
-                    Toggle("AIRDROP", isOn: $sortieType.isAirdrop)
-                    Toggle("AIRLAND", isOn: $sortieType.isAirland)
-                    Toggle("AIR REFUELING", isOn: $sortieType.isAirRefueling)
+                Spacer()
+                VStack(alignment: .center) {
+                    Toggle("Aeromedical Evacuations", isOn: $sortieType.isAeromedevac)
+                    Toggle("Airdrop", isOn: $sortieType.isAirdrop)
+                    Toggle("Airland", isOn: $sortieType.isAirland)
+                    Toggle("Air Refueling", isOn: $sortieType.isAirRefueling)
                 }
-                .padding()
-                .overlay(Rectangle().stroke(Color.pblDefault))
-
-                VStack(alignment: .leading) {
-                    Toggle("AMC FORM 52 FIELD", isOn: $sortieType.isAMCForm54Filed)
-                    Toggle("AMC FORM 97 FIELD", isOn: $sortieType.isAMCForm97Filed)
-                    Toggle("\"ASK TACC\" FIELD", isOn: $sortieType.isAskTACCFiled)
-                    Toggle("DISTINGUISHED\nVISITOR", isOn: $sortieType.isDistinguishedVisitor)
+               
+                Spacer()
+                VStack(alignment: .center) {
+                    Toggle("AMC Form 52", isOn: $sortieType.isAMCForm54Filed)
+                    Toggle("AMC Form 97", isOn: $sortieType.isAMCForm97Filed)
+                    Toggle("\"Ask TACC\"", isOn: $sortieType.isAskTACCFiled)
+                    Toggle("Distinguished Visitor", isOn: $sortieType.isDistinguishedVisitor)
                 }
-                .padding()
-                .overlay(Rectangle().stroke(Color.pblDefault))
-
-                VStack(alignment: .leading) {
-                    Toggle("HUMANITARIAN", isOn: $sortieType.isHumanitarian)
-                    Toggle("SPECIAL OPS\nLOW LEVEL 2", isOn: $sortieType.isSpecialOpsLL2)
-                    Toggle("SORTIE DELAYED\n (REMARKS)", isOn: $sortieType.isSortieDelay)
+               
+                Spacer()
+                VStack(alignment: .center) {
+                    Toggle("Humanitarian", isOn: $sortieType.isHumanitarian)
+                    Toggle("Special Ops Low Level 2", isOn: $sortieType.isSpecialOpsLL2)
+                    Toggle("Sortie Delayed (Remarks)", isOn: $sortieType.isSortieDelay)
                 }
-                .padding()
-                .overlay(Rectangle().stroke(Color.pblDefault))
+                Spacer()
+                
            }
             .font(.pblBold(size: 14))
             .foregroundColor(.pblSecondary)
             .toggleStyle(PBLToggleStyleChip())
         }
+        .padding()
     }
 }
 

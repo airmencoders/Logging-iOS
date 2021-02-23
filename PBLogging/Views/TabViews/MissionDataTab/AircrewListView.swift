@@ -27,6 +27,7 @@ struct AircrewListView: View {
         HStack {
             Text("Aircrew")
                 .fontSectionHeading()
+                .padding(.leading)
             Spacer()
             addAircrewButton
        }
@@ -36,10 +37,13 @@ struct AircrewListView: View {
         Button {
             addAircrew()
         } label: {
-            Text("Add Aircrew")
-            Image(systemName: "plus.circle")
+            HStack{
+                Text("Add Aircrew")
+                Image(systemName: "plus.circle")
+            }
+            .padding(.trailing)
+            
         }
-        .fontSectionHeading()
         .accessibility(identifier: "addAircrewButton")
     }
     
@@ -69,6 +73,7 @@ struct AircrewListView: View {
         .padding()
         .background(Color.pblDefault)
         .cornerRadius(10)
+        .padding()
     }
     
     func deleteSelectedAircrew(offsets: IndexSet) {

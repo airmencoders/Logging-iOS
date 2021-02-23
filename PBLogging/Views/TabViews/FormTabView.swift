@@ -9,30 +9,27 @@ import SwiftUI
 
 struct FormTabView: View {
     
+    let titles = ["Mission Data", "Training Events", "Mission Sortie Info", "Sortie Comments"]
+    @State private var selectedTab = 0
     @ObservedObject var sortie: Sortie
     
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             MissionDataView(sortie: sortie)
-                .tabItem {
-                    Text("Mission Data")
-                }
+                .tag(0)
+                .tabItem { Text("Mission Data") }
             AircrewListView(sortie: sortie)
-                .tabItem {
-                    Text("Training Events")
-                }
+                .tag(1)
+                .tabItem { Text("Training Events") }
             MissionSortieInfoView(sortie: sortie)
-                .tabItem {
-                    Text("Mission Sortie Info")
-                }
+                .tag(2)
+                .tabItem { Text("Mission Sortie Info") }
             SortieCommentsView(sortie: sortie)
-                .tabItem {
-                    Text("Sortie Comments")
-                }
+                .tag(3)
+                .tabItem { Text("Sortie Comments") }
         }
-        .onAppear() {
-            UITabBar.appearance().barTintColor = .systemBackground
-        }
+        .onAppear{ UITabBar.appearance().barTintColor = .systemBackground }
+        .navigationBarTitle(Text(titles[selectedTab]))
     }
 }
 

@@ -23,9 +23,10 @@ struct RecentSortiesList: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Recent Sorties"))
+        .navigationBarTitle(Text(event.name))
         .navigationBarItems(trailing:
                                 HStack {
+                                    
                                     TextAndIconButton(text: "Add Sortie",
                                                       size: 24.0,
                                                       icon: "plus") {

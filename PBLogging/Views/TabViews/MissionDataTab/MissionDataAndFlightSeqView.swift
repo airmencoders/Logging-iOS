@@ -43,7 +43,7 @@ struct MissionDataAndFlightSeqView: View {
             .padding()
             .background(Color.pblDefault)
             .cornerRadius(10)
-        }
+        }.padding()
     }
     
     var flightSeq: some View {
@@ -71,7 +71,7 @@ struct MissionDataAndFlightSeqView: View {
             .padding()
             .background(Color.pblDefault)
             .cornerRadius(10)
-        }
+        }.padding()
     }
     
     func icaoColor(for icao: String) -> Color {

@@ -39,12 +39,12 @@ class LoggingUITests: XCTestCase {
         self.app.launch()
 
         // Events > Recent Sorties
-        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
-        XCTAssert(self.app.staticTexts["Recent Sorties"].exists)
+        //self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+      //  XCTAssert(self.app.staticTexts["Recent Sorties"].exists)
 
-        // Recent Sorties > Events
-        self.app.navigationBars.buttons["Events"].tap()
-        XCTAssert(self.app.buttons["addEventButton"].exists)
+//        // Recent Sorties > Events
+//        self.app.navigationBars.buttons["Events"].tap()
+//        XCTAssert(self.app.buttons["addEventButton"].exists)
 
         // Events > Recent Sorties > Mission Data
         self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
@@ -64,6 +64,7 @@ class LoggingUITests: XCTestCase {
         self.app.tabBars.buttons["Sortie Comments"].tap()
         XCTAssert(self.app.staticTexts["Sortie Comments"].exists)
     }
+   
 
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

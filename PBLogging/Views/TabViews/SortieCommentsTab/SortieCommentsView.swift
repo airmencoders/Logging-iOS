@@ -14,15 +14,15 @@ struct SortieCommentsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Sortie Comments")
-                .fontSectionHeading()
-            GeometryReader { geometry in
-                TextView(text: $sortie.comments)
-                .frame(height: geometry.size.height * 0.75)
-                .cornerRadius(5)
-            }
+            TextView(text: $sortie.comments)
+                .overlay(
+                    RoundedRectangle(cornerRadius:5.0)
+                        .strokeBorder(Color.gray, lineWidth: 2)
+                )
+            Spacer()
         }
-        .onDisappear {
+        .padding()
+        .onDisappear{
             dataController.save()
         }
     }

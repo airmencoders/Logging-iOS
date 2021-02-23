@@ -10,28 +10,31 @@ import SwiftUI
 struct FlightColumn: View {
     
     @ObservedObject var sortie: Sortie
+    
     let title: String
     var titleHeight: CGFloat = 48
     var backgroundColor = Color.pblDefault
-    let labelSize: CGFloat = 18
+    let labelSize: CGFloat = 12
     
     var body: some View {
         VStack(spacing: 0) {
             Text(title)
-                .font(.pblBold(size: labelSize))
+                .padding(.leading, 3)
+                .padding(.trailing, 3 )
+                .font(.pblBold(size: 14))
                 .frame(maxWidth: .infinity, minHeight: titleHeight)
                 .foregroundColor(.pblSecondary)
                 .multilineTextAlignment(.center)
-            FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
+                .rotationEffect(Angle(degrees: 0))
+            FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: 14))
             ForEach(sortie.crewLines, id: \.self) { crewLine in
                 FlightLabel(label: "0")
                 Divider()
             }
-            FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: labelSize))
+            FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: 14))
             FlightLabel(label: "0")
         }
-        .frame(width: 80)
-        .background(backgroundColor)
+         .background(backgroundColor)
         .cornerRadius(5)
     }
 }
@@ -42,7 +45,7 @@ struct FlightLabel: View {
     var textColor = Color.pblSecondary
     var backgroundColor = Color.clear
     var alignment = Alignment.center
-    var weight = Font.pblRegular(size: 18)
+    var weight = Font.pblRegular(size: 14)
     
     var body: some View {
         Text(label)

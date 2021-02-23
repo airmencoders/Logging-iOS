@@ -37,10 +37,12 @@ struct MissionDataView: View {
         VStack(alignment: .leading) {
             Text("781 Remarks")
                 .fontSectionHeading()
+                .padding(.leading)
             TextView(text: $sortie.comments)
                 .frame(height: 100)
                 .cornerRadius(5)
                 .border(Color.gray)
+                .padding([.leading,.trailing])
         }
     }
 }

@@ -14,17 +14,17 @@ struct MissionSortieInfoView: View {
 
     var body: some View {
         return ScrollView {
-            VStack(alignment: .leading, spacing: 40) {
-                Text("Mission Sortie Info")
-                    .fontSectionHeading()
+            VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     SortieFuelInfoView(sortie: sortie)
                     SortieAirlandInfoView(sortie: sortie)
                 }
+                .padding()
                 SortieAirdropInfoView(sortie: sortie)
                 SortieTypeView(sortieType: sortie.sortieType)
             }
         }
+      
     }
 }
 

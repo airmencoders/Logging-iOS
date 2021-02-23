@@ -26,8 +26,9 @@ struct SortieFuelInfoView: View {
                 .background(Color.pblDefault)
                 .cornerRadius(10)
             }
+            
         }
-    }
+     }
 
     func labels() -> some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -43,7 +44,7 @@ struct SortieFuelInfoView: View {
             Text("AUX POWER UNIT HOURS")
                 .padding()
             Divider()
-            Text("TAKEOFF CENTER OF GRAVITY")
+            Text("TAKEOFF COG")
                 .padding()
         }
         .font(.pblRegular(size: 18))

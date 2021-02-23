@@ -43,7 +43,7 @@ struct SortieAirlandInfoView: View {
             Text("NUMBER OF ROLLING STOCK")
                 .padding()
             Divider()
-            Text("TAKEOFF CENTER OF GRAVITY")
+            Text("TAKEOFF COG")
                 .padding()
         }
         .font(.pblRegular(size: 18))
