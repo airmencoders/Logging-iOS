@@ -22,6 +22,28 @@ extension String {
         return s
     }
     
+    func enforceDecimalNumber(maxDecimalPlaces: Int = 1) -> String {
+        guard maxDecimalPlaces > 0 else {
+            fatalError("Must have at least one decimal place.")
+        }
+        let set = CharacterSet(charactersIn: "0123456789.")
+        var modifiedString = self.components(separatedBy: set.inverted).joined()
+        while (modifiedString.filter { $0 == "." }.count > 1){
+            modifiedString.replaceLastOccurrenceOfString(".", with: "")
+        }
+        if modifiedString.count == 2 && modifiedString.prefix(1) == "." {
+            modifiedString = "0" + modifiedString
+        }
+        
+        if let decimalPlaces = modifiedString.charactersAfterLastOccurrenceOf("."){
+            if decimalPlaces > maxDecimalPlaces{
+                let difference = decimalPlaces - maxDecimalPlaces
+                modifiedString = String(modifiedString.prefix(modifiedString.count - difference))
+            }
+        }
+        return modifiedString
+    }
+    
     func isValidSSANLast4() -> Bool {
         return self.count == 4 && self.isDigits
     }
@@ -43,32 +65,51 @@ extension String {
         return Set(self).isSubset(of: digits)
     }
     
-// Not used, so commenting out for now.
-//    func double(for obj: Any?) -> String {
-//        var retVal: String?
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        
-//        if let dbl = obj as? Double {
-//            retVal = formatter.string(from: NSNumber(value: dbl))
-//        } else {
-//            retVal = nil
-//        }
-//        
-//        return retVal!
-//    }
-//    
-//    func float(for obj: Any?) -> String {
-//        var retVal: String?
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        
-//        if let dbl = obj as? Float {
-//            retVal = formatter.string(from: NSNumber(value: dbl))
-//        } else {
-//            retVal = nil
-//        }
-//        
-//        return retVal!
-//    }
+    func charactersAfterLastOccurrenceOf(_ searchString: String, caseInsensitive: Bool = true) -> Int? {
+        if self.count <= 1 { return nil }
+        if !self.contains(searchString) { return nil }
+        if self.count == 2 {
+            if self.prefix(1) == searchString {
+                return 1
+            }else {
+                return 0
+            }
+        }
+        
+        let options: String.CompareOptions
+        if caseInsensitive {
+            options = [.backwards, .caseInsensitive]
+        } else {
+            options = [.backwards]
+        }
+        
+        if let range = self.range(of: searchString,
+                options: options,
+                range: nil,
+                locale: nil) {
+            
+            let index: Int = self.distance(from: self.endIndex, to: range.upperBound)
+            return abs(index)
+        }
+        return nil
+    }
+    
+    mutating func replaceLastOccurrenceOfString(_ searchString: String, with replacementString: String, caseInsensitive: Bool = true){
+        
+        let options: String.CompareOptions
+        
+        if caseInsensitive {
+            options = [.backwards, .caseInsensitive]
+        } else {
+            options = [.backwards]
+        }
+
+        if let range = self.range(of: searchString,
+                options: options,
+                range: nil,
+                locale: nil) {
+            self.replaceSubrange(range, with: replacementString)
+        }
+     
+    }
 }

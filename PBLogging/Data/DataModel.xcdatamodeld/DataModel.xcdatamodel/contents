@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CrewLine" representedClassName="CrewLine" syncable="YES">
+        <attribute name="flightAuthDutyCode_" optional="YES" attributeType="String"/>
+        <attribute name="flyingOrganization_" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="reserveStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="events_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MissionEventRecord" inverseName="crewLine" inverseEntity="MissionEventRecord"/>
+        <relationship name="flightConditions_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FlightConditions" inverseName="crewLine" inverseEntity="FlightConditions"/>
+        <relationship name="flightTime_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FlightTime" inverseName="crewLine" inverseEntity="FlightTime"/>
+        <relationship name="person_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="crewLines" inverseEntity="Person"/>
+        <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="crewLines_" inverseEntity="Sortie"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="summary_" optional="YES" attributeType="String"/>
+        <relationship name="sorties_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Sortie" inverseName="event" inverseEntity="Sortie"/>
+    </entity>
+    <entity name="FlightConditions" representedClassName="FlightConditions" syncable="YES">
+        <attribute name="combatSupportTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="combatTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="instruments" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="night" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="nvg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="simInstruments" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="crewLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="flightConditions_" inverseEntity="CrewLine"/>
+    </entity>
+    <entity name="FlightTime" representedClassName="FlightTime" syncable="YES">
+        <attribute name="evaluator" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="instructor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="other" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="primary" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="secondary" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="crewLine" maxCount="1" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="flightTime_" inverseEntity="CrewLine"/>
+    </entity>
+    <entity name="Fuel" representedClassName="Fuel" syncable="YES">
+        <attribute name="airRefuel" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="land" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ramp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="fuel_" inverseEntity="Sortie"/>
+    </entity>
+    <entity name="Metrics" representedClassName="Metrics" syncable="YES">
+        <attribute name="airdropWeight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="airlandWeight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numAirdropPallets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numAirlandPallets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numHeavies" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numJumpers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numPassengers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numRollingStock" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="metrics_" inverseEntity="Sortie"/>
+    </entity>
+    <entity name="MissionEventRecord" representedClassName="MissionEventRecord" syncable="YES">
+        <attribute name="asInstructor" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numberAccomplished" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="crewLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="events_" inverseEntity="CrewLine"/>
+        <relationship name="eventType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MissionEventTypes" inverseName="events" inverseEntity="MissionEventTypes"/>
+    </entity>
+    <entity name="MissionEventTypes" representedClassName="MissionEventTypes" syncable="YES">
+        <attribute name="eventID" optional="YES" attributeType="String"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MissionEventRecord" inverseName="eventType" inverseEntity="MissionEventRecord"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="branch" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstName_" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="last4_" optional="YES" attributeType="String"/>
+        <attribute name="lastName_" optional="YES" attributeType="String"/>
+        <attribute name="organization_" optional="YES" attributeType="String"/>
+        <attribute name="pbsUUID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="crewLines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="person_" inverseEntity="CrewLine"/>
+    </entity>
+    <entity name="Sortie" representedClassName="Sortie" syncable="YES">
+        <attribute name="auxiliaryPowerUnitHours" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="comments_" optional="YES" attributeType="String"/>
+        <attribute name="flightAuthNumber_" optional="YES" attributeType="String"/>
+        <attribute name="harmLocation_" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="issuingUnit_" optional="YES" attributeType="String"/>
+        <attribute name="landICAO_" optional="YES" attributeType="String"/>
+        <attribute name="landTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mds_" optional="YES" attributeType="String"/>
+        <attribute name="missionNumber_" optional="YES" attributeType="String"/>
+        <attribute name="missionSymbol_" optional="YES" attributeType="String"/>
+        <attribute name="numFullStop" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numLoadmastersRequired" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="numTouchAndGoes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="serialNumber_" optional="YES" attributeType="String"/>
+        <attribute name="specialUse_" optional="YES" attributeType="String"/>
+        <attribute name="takeoffCenterOfGravity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="takeoffICAO_" optional="YES" attributeType="String"/>
+        <attribute name="takeoffTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="unitCharged_" optional="YES" attributeType="String"/>
+        <relationship name="crewLines_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CrewLine" inverseName="sortie" inverseEntity="CrewLine"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="sorties_" inverseEntity="Event"/>
+        <relationship name="fuel_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Fuel" inverseName="sortie" inverseEntity="Fuel"/>
+        <relationship name="metrics_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Metrics" inverseName="sortie" inverseEntity="Metrics"/>
+        <relationship name="sortieType_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SortieType" inverseName="sortie" inverseEntity="SortieType"/>
+    </entity>
+    <entity name="SortieType" representedClassName="SortieType" syncable="YES">
+        <attribute name="isAeromedevac" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAirdrop" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAirland" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAirRefueling" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAMCForm54Filed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAMCForm97Filed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isAskTACCFiled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCombat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCombatSupport" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isDistinguishedVisitor" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isHumanitarian" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSortieDelay" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSpecialOpsLL2" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sortieDelayRemarks_" optional="YES" attributeType="String"/>
+        <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="sortieType_" inverseEntity="Sortie"/>
+    </entity>
+    <elements>
+        <element name="CrewLine" positionX="-40.4375" positionY="-9325.49609375" width="128" height="178"/>
+        <element name="Event" positionX="-378.48046875" positionY="-9072.640625" width="128" height="103"/>
+        <element name="FlightConditions" positionX="445.9375" positionY="-9340.71875" width="128" height="148"/>
+        <element name="FlightTime" positionX="505.4609375" positionY="-9082.05078125" width="128" height="148"/>
+        <element name="Fuel" positionX="-19.8671875" positionY="-9111.8125" width="128" height="103"/>
+        <element name="Metrics" positionX="304.26171875" positionY="-8895.375" width="128" height="178"/>
+        <element name="MissionEventRecord" positionX="117.41796875" positionY="-9365.11328125" width="128" height="103"/>
+        <element name="MissionEventTypes" positionX="287.49609375" positionY="-9352.8515625" width="128" height="118"/>
+        <element name="Person" positionX="153.2890625" positionY="-9046.4296875" width="128" height="178"/>
+        <element name="Sortie" positionX="-214.20703125" positionY="-9297.6953125" width="128" height="418"/>
+        <element name="SortieType" positionX="-41.05859375" positionY="-8932.14453125" width="128" height="268"/>
+    </elements>
+</model>
