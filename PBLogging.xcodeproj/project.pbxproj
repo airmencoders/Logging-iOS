@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1342AB6F25E6EB9400CCBB09 /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6725E6EB9400CCBB09 /* StackBuilder.swift */; };
+		1342AB7025E6EB9400CCBB09 /* EventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6825E6EB9400CCBB09 /* EventID.swift */; };
+		1342AB7125E6EB9400CCBB09 /* TempTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6925E6EB9400CCBB09 /* TempTestView.swift */; };
+		1342AB7225E6EB9400CCBB09 /* TrainingEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6A25E6EB9400CCBB09 /* TrainingEvents.swift */; };
+		1342AB7325E6EB9400CCBB09 /* EventTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6B25E6EB9400CCBB09 /* EventTitles.swift */; };
+		1342AB7425E6EB9400CCBB09 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6C25E6EB9400CCBB09 /* StepperView.swift */; };
+		1342AB7525E6EB9400CCBB09 /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6D25E6EB9400CCBB09 /* CellLabel.swift */; };
+		1342AB7625E6EB9400CCBB09 /* ScrollDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1342AB6E25E6EB9400CCBB09 /* ScrollDemo.swift */; };
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
 		4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */; };
@@ -116,6 +124,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1342AB6725E6EB9400CCBB09 /* StackBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
+		1342AB6825E6EB9400CCBB09 /* EventID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventID.swift; sourceTree = "<group>"; };
+		1342AB6925E6EB9400CCBB09 /* TempTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempTestView.swift; sourceTree = "<group>"; };
+		1342AB6A25E6EB9400CCBB09 /* TrainingEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingEvents.swift; sourceTree = "<group>"; };
+		1342AB6B25E6EB9400CCBB09 /* EventTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTitles.swift; sourceTree = "<group>"; };
+		1342AB6C25E6EB9400CCBB09 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		1342AB6D25E6EB9400CCBB09 /* CellLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
+		1342AB6E25E6EB9400CCBB09 /* ScrollDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollDemo.swift; sourceTree = "<group>"; };
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieFuelInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirlandInfoView.swift; sourceTree = "<group>"; };
@@ -238,11 +254,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13F47EF025C9AB250082E8BC /* Services */ = {
+		1342AB6325E6EAFC00CCBB09 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				1342AB6D25E6EB9400CCBB09 /* CellLabel.swift */,
+				1342AB6825E6EB9400CCBB09 /* EventID.swift */,
+				1342AB6B25E6EB9400CCBB09 /* EventTitles.swift */,
+				1342AB6E25E6EB9400CCBB09 /* ScrollDemo.swift */,
+				1342AB6725E6EB9400CCBB09 /* StackBuilder.swift */,
+				1342AB6C25E6EB9400CCBB09 /* StepperView.swift */,
+				1342AB6925E6EB9400CCBB09 /* TempTestView.swift */,
+				1342AB6A25E6EB9400CCBB09 /* TrainingEvents.swift */,
 			);
-			path = Services;
+			path = Training;
 			sourceTree = "<group>";
 		};
 		4DB3178025BA4E9400DB1201 /* Modifiers */ = {
@@ -320,6 +344,7 @@
 		4DD13FD7259ED18300C98EB8 /* PBLogging */ = {
 			isa = PBXGroup;
 			children = (
+				1342AB6325E6EAFC00CCBB09 /* Training */,
 				4DD1400E259ED1DB00C98EB8 /* App */,
 				4DD14011259ED23900C98EB8 /* Data */,
 				BFDD329225A4FE70000FE732 /* Extensions */,
@@ -689,7 +714,9 @@
 			files = (
 				BFDB3B0925DDAAF3000A16ED /* Event+Calculations.swift in Sources */,
 				13549C0325B103210000C875 /* String+Ext.swift in Sources */,
+				1342AB7225E6EB9400CCBB09 /* TrainingEvents.swift in Sources */,
 				BFDB3B0425DDAAF3000A16ED /* Person+Accessors.swift in Sources */,
+				1342AB7025E6EB9400CCBB09 /* EventID.swift in Sources */,
 				4D9E3F6725E0A908003903B0 /* SortieAirlandInfoView.swift in Sources */,
 				BF90216D25E1E384005BC585 /* CrewLine+CoreDataProperties.swift in Sources */,
 				BFDB3B0725DDAAF3000A16ED /* CrewLine+Comparable.swift in Sources */,
@@ -698,6 +725,7 @@
 				4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */,
 				BF90216025E1E384005BC585 /* MissionEventTypes+CoreDataClass.swift in Sources */,
 				4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */,
+				1342AB7125E6EB9400CCBB09 /* TempTestView.swift in Sources */,
 				BF90216525E1E384005BC585 /* FlightTime+CoreDataProperties.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BFDB3B0525DDAAF3000A16ED /* Sortie+Accessors.swift in Sources */,
@@ -710,6 +738,7 @@
 				BF90216925E1E384005BC585 /* Person+CoreDataProperties.swift in Sources */,
 				BF90215B25E1E384005BC585 /* MissionEventRecord+CoreDataProperties.swift in Sources */,
 				7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */,
+				1342AB7425E6EB9400CCBB09 /* StepperView.swift in Sources */,
 				D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */,
 				4DCD427325DC83C600EB6FF3 /* EventCard.swift in Sources */,
 				BF90216B25E1E384005BC585 /* SortieType+CoreDataProperties.swift in Sources */,
@@ -723,6 +752,7 @@
 				BFDB3AC325DDAA74000A16ED /* DataModel.xcdatamodeld in Sources */,
 				4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */,
 				BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */,
+				1342AB6F25E6EB9400CCBB09 /* StackBuilder.swift in Sources */,
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
 				4DCD426425DC83A200EB6FF3 /* ContentView.swift in Sources */,
 				7F03C0DE25D7304F00F7AA5B /* TrainingEventsView.swift in Sources */,
@@ -736,13 +766,16 @@
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
 				BF90215C25E1E384005BC585 /* Metrics+CoreDataClass.swift in Sources */,
 				BFDB3B0A25DDAAF3000A16ED /* AllIdentifiable.swift in Sources */,
+				1342AB7325E6EB9400CCBB09 /* EventTitles.swift in Sources */,
 				4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */,
 				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				BF90217925E1E84A005BC585 /* Sortie+CoreDataProperties.swift in Sources */,
+				1342AB7525E6EB9400CCBB09 /* CellLabel.swift in Sources */,
 				BF90215A25E1E384005BC585 /* MissionEventRecord+CoreDataClass.swift in Sources */,
 				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,
+				1342AB7625E6EB9400CCBB09 /* ScrollDemo.swift in Sources */,
 				BFDB3B0625DDAAF3000A16ED /* CrewLine+Accessors.swift in Sources */,
 				BF90215D25E1E384005BC585 /* Metrics+CoreDataProperties.swift in Sources */,
 				7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */,
@@ -931,7 +964,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"PBLogging/PreviewContent\"";
-				DEVELOPMENT_TEAM = 4W9F335W5Y;
+				DEVELOPMENT_TEAM = RQ9T47YT3S;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PBLogging/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
