@@ -41,7 +41,7 @@ struct MissionDataAndFlightSeqView: View {
                 ThickDivider()
             }
             .padding()
-            .background(Color.pblDefault)
+            .background(Color.pblBackgroundDefault)
             .cornerRadius(10)
         }.padding()
     }
@@ -69,7 +69,7 @@ struct MissionDataAndFlightSeqView: View {
                 ThickDivider()
             }
             .padding()
-            .background(Color.pblDefault)
+            .background(Color.pblBackgroundDefault)
             .cornerRadius(10)
         }.padding()
     }

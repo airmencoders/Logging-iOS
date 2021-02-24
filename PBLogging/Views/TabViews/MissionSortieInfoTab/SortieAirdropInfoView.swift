@@ -18,12 +18,12 @@ struct SortieAirdropInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                 .frame(width: 280)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
 
                 SortieAirdropEditFields(metrics: sortie.metrics)
                 .frame(width: 86)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
             }
         }
@@ -45,7 +45,7 @@ struct SortieAirdropInfoView: View {
                 .padding()
         }
         .font(.pblRegular(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
 }
 
@@ -67,7 +67,7 @@ struct SortieAirdropEditFields: View {
                 .padding()
         }
         .font(.pblBold(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
 }
 

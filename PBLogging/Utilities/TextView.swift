@@ -19,6 +19,7 @@ struct TextView: UIViewRepresentable {
         textView.autocapitalizationType = .sentences
         textView.isSelectable = true
         textView.isUserInteractionEnabled = true
+        textView.backgroundColor = UIColor.pblBackgroundDefaultUIColor
         
         return textView
     }

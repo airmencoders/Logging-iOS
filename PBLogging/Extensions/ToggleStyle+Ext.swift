@@ -15,7 +15,7 @@ struct PBLToggleStyleSwitch: ToggleStyle {
             ZStack(alignment: configuration.isOn ? .trailing : .leading) {
                 Capsule()
                     .frame(width: width, height: width / 2)
-                    .foregroundColor(configuration.isOn ? Color.pblPrimary : .pblElevated)
+                    .foregroundColor(configuration.isOn ? Color.pblForegroundPrimary : .pblBackgroundElevated)
 
                 Circle()
                     .frame(width: (width / 2) - 6, height: (width / 2) - 6)
@@ -40,7 +40,7 @@ struct PBLToggleStyleChip: ToggleStyle {
         ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 10.0)
                 .frame(height: 40)
-                .foregroundColor(configuration.isOn ? Color.pblPrimary : .pblDefault)
+                .foregroundColor(configuration.isOn ? Color.pblForegroundPrimary : .pblBackgroundDefault)
                 .overlay(
                     ZStack {
                         HStack{
@@ -69,7 +69,7 @@ struct ToggleStyle_Ext_Previews: PreviewProvider {
         Toggle(isOn: .mock(true), label: {
             Text("TEST")
                 .font(.pblBold(size: 14))
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
                 .layoutPriority(1)
         })
         .padding()
@@ -79,7 +79,7 @@ struct ToggleStyle_Ext_Previews: PreviewProvider {
         Toggle(isOn: .mock(false), label: {
             Text("TEST")
                 .font(.pblBold(size: 14))
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
                 .layoutPriority(1)
         })
         .padding()
@@ -90,7 +90,7 @@ struct ToggleStyle_Ext_Previews: PreviewProvider {
         Toggle(isOn: .mock(true), label: {
             Text("Long Text That is Long")
                 .font(.pblBold(size: 14))
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
                 .layoutPriority(1)
         })
         .padding()

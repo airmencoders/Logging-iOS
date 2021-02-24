@@ -12,7 +12,7 @@ struct TextFieldWithLabel: View {
     let label: String
     let placeholder: String
     @Binding var userInput: String
-    var color = Color.pblPrimary
+    var color = Color.pblForegroundPrimary
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

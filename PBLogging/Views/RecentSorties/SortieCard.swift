@@ -20,13 +20,13 @@ struct SortieCard: View {
                     RightCell(sortie: sortie)
                 }
                 .frame(height:240)
-                .foregroundColor(Color.pblSecondary)
+                .foregroundColor(Color.pblForegroundSecondary)
                 .cornerRadius(10)
                     
                    
             })
             .padding(.trailing)
-            .background(Color.pblDefault)
+            .background(Color.pblBackgroundDefault)
             .cornerRadius(10)
     }
     
@@ -36,7 +36,7 @@ struct SortieCard: View {
             RightCell(sortie: sortie)
         }
         .frame(height: 240)
-        .foregroundColor(Color.pblSecondary)
+        .foregroundColor(Color.pblForegroundSecondary)
         .cornerRadius(10)
     }
 }
@@ -61,7 +61,7 @@ private struct LeftCell: View {
         .padding()
         .frame(maxWidth: 220)
         .frame(maxHeight: .infinity)
-        .background(Color.pblElevated)
+        .background(Color.pblBackgroundElevated)
     }
 }
 
@@ -81,7 +81,7 @@ private struct RightCell: View {
         .padding()
         .padding(.top, 18)
         .frame(maxHeight: .infinity)
-        .background(Color.pblDefault)
+        .background(Color.pblBackgroundDefault)
     }
 }
 

@@ -23,7 +23,7 @@ struct SectionHeadingModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("DMSans-Bold", size: 24))
-            .foregroundColor(.pblSecondary)
+            .foregroundColor(.pblForegroundSecondary)
     }
 }
 
@@ -32,7 +32,7 @@ struct FormInputModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("DMSans-Regular", size: 18))
-            .foregroundColor(.pblSecondary)
+            .foregroundColor(.pblForegroundSecondary)
             //.autocapitalization(.allCharacters)
     }
 }
@@ -42,7 +42,7 @@ struct FormLabelModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("DMSans-Bold", size: 12))
-            .foregroundColor(.pblTertiary)
+            .foregroundColor(.pblForegroundTertiary)
             //.autocapitalization(.allCharacters)
     }
 }
@@ -52,13 +52,13 @@ struct FormMessageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("DMSans-Bold", size: 12))
-            .foregroundColor(.pblSecondary)
+            .foregroundColor(.pblForegroundSecondary)
     }
 }
 
 extension View {
     
-    func fontPageHeading(color: Color = .pblPrimary) -> some View {
+    func fontPageHeading(color: Color = .pblForegroundPrimary) -> some View {
         self.modifier(PageHeadingModifier(color: color))
     }
     

@@ -10,7 +10,7 @@ import SwiftUI
 struct TextAndIconButton: View {
     
     let text: String
-    var color: Color = .pblSecondary
+    var color: Color = .pblForegroundSecondary
     var size: CGFloat = 12.0
     let icon: String
     let action: () -> Void
@@ -33,11 +33,11 @@ struct TextAndIconButton: View {
 
 struct TextAndIconButton_Previews: PreviewProvider {
     static var previews: some View {
-        TextAndIconButton(text: "PRINT", color: .pblPrimary, icon: "info.circle", action: {
+        TextAndIconButton(text: "PRINT", color: .pblForegroundPrimary, icon: "info.circle", action: {
             print("TextAndIconButton tapped")
         })
         .previewLayout(.sizeThatFits)
-        TextAndIconButton(text: "PRINT", color: .pblPrimary, icon: "info.circle", action: {
+        TextAndIconButton(text: "PRINT", color: .pblForegroundPrimary, icon: "info.circle", action: {
             print("TextAndIconButton tapped")
         })
         .previewLayout(.sizeThatFits)

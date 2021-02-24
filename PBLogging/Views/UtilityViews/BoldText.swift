@@ -10,7 +10,7 @@ import SwiftUI
 struct BoldText: View {
     let text: String
     let size: CGFloat
-    var color: Color = .pblSlate
+    var color: Color = .pblForegroundPrimary
     
     var body: some View {
         Text(text)

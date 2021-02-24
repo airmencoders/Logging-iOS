@@ -13,7 +13,7 @@ struct FlightColumn: View {
     
     let title: String
     var titleHeight: CGFloat = 48
-    var backgroundColor = Color.pblDefault
+    var backgroundColor = Color.pblBackgroundDefault
     let labelSize: CGFloat = 12
     
     var body: some View {
@@ -23,15 +23,15 @@ struct FlightColumn: View {
                 .padding(.trailing, 3 )
                 .font(.pblBold(size: 14))
                 .frame(maxWidth: .infinity, minHeight: titleHeight)
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
                 .multilineTextAlignment(.center)
                 .rotationEffect(Angle(degrees: 0))
-            FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: 14))
+            FlightLabel(label: "0", backgroundColor: .pblForegroundTertiary, weight: .pblBold(size: 14))
             ForEach(sortie.crewLines, id: \.self) { crewLine in
                 FlightLabel(label: "0")
                 Divider()
             }
-            FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: 14))
+            FlightLabel(label: "0", backgroundColor: .pblForegroundPrimary, weight: .pblBold(size: 14))
             FlightLabel(label: "0")
         }
          .background(backgroundColor)
@@ -42,7 +42,7 @@ struct FlightColumn: View {
 struct FlightLabel: View {
     
     let label: String
-    var textColor = Color.pblSecondary
+    var textColor = Color.pblForegroundSecondary
     var backgroundColor = Color.clear
     var alignment = Alignment.center
     var weight = Font.pblRegular(size: 14)

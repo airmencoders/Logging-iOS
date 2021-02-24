@@ -43,8 +43,8 @@ struct FlightTimeView: View {
                 .font(.pblBold(size: 16))
         }
         .padding()
-        .foregroundColor(.pblDefault)
-        .background(Color.pblPrimary)
+        .foregroundColor(.pblBackgroundDefault)
+        .background(Color.pblForegroundPrimary)
         .cornerRadius(5)
     }
     
@@ -53,10 +53,10 @@ struct FlightTimeView: View {
        
             Text("How many loadmasters are required on this Sortie?")
                 .font(.pblBold(size: 17))
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
             Stepper("\(sortie.numLoadmastersRequired)", value: $sortie.numLoadmastersRequired, in: 0...3)
                 .font(.pblRegular(size: 18))
-                .foregroundColor(.pblSecondary)
+                .foregroundColor(.pblForegroundSecondary)
                 .padding(.vertical, 8)
                 .padding(.horizontal)
                 .frame(width:150)
@@ -73,14 +73,14 @@ struct FlightTimeView: View {
         HStack(spacing: 8) {
             VStack(spacing: 0) {
                 FlightLabel(label: "AIRCREW", alignment: .leading, weight: .pblBold(size: labelSize))
-                FlightLabel(label: "GHOST TIME", textColor: .pblTertiary, backgroundColor: .pblTertiary, alignment: .leading, weight: .pblBold(size: 14))
+                FlightLabel(label: "GHOST TIME", textColor: .pblForegroundTertiary, backgroundColor: .pblForegroundTertiary, alignment: .leading, weight: .pblBold(size: 14))
                 
                 ForEach(sortie.crewLines) { crewLine in
                     FlightLabel(label: crewLine.person.lastName, alignment: .leading)
                     Divider()
                 }
                 
-                FlightLabel(label: "PILOT TOTALS", backgroundColor: .pblPrimary, alignment: .leading, weight: .pblBold(size: 14))
+                FlightLabel(label: "PILOT TOTALS", backgroundColor: .pblForegroundPrimary, alignment: .leading, weight: .pblBold(size: 14))
                 
                 FlightLabel(label: "LASTNAME", alignment: .leading)
             }
@@ -93,17 +93,17 @@ struct FlightTimeView: View {
                         .font(.pblBold(size: 12))
                         .frame(maxWidth: .infinity, minHeight: 48)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.pblSecondary)
-                    FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: 14))
+                        .foregroundColor(.pblForegroundSecondary)
+                    FlightLabel(label: "0", backgroundColor: .pblForegroundTertiary, weight: .pblBold(size: 14))
                     ForEach(sortie.crewLines) { crewLine in
                         FlightLabel(label: "0")
                         Divider()
                     }
-                    FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: 14))
+                    FlightLabel(label: "0", backgroundColor: .pblForegroundPrimary, weight: .pblBold(size: 14))
                     FlightLabel(label: "0")
                 }
                 .frame(width: 96)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(5)
                 
                 FlightColumn(sortie: sortie, title: "PRIM")
@@ -111,7 +111,7 @@ struct FlightTimeView: View {
                 FlightColumn(sortie: sortie, title: "INSTR")
                 FlightColumn(sortie: sortie, title: "EVAL")
                 FlightColumn(sortie: sortie, title: "OTHER")
-                FlightColumn(sortie: sortie, title: "TIME", backgroundColor: .pblElevated)
+                FlightColumn(sortie: sortie, title: "TIME", backgroundColor: .pblBackgroundElevated)
             }
             
         }

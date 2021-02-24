@@ -18,12 +18,12 @@ struct SortieAirlandInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                 .frame(width: 280)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
 
                 SortieAirlandEditFields(sortie: sortie)
                 .frame(width: 86)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
             }
         }
@@ -47,7 +47,7 @@ struct SortieAirlandInfoView: View {
                 .padding()
         }
         .font(.pblRegular(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
 }
 
@@ -79,7 +79,7 @@ struct SortieAirlandEditFields: View {
                 .padding()
         }
         .font(.pblBold(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
 }
 

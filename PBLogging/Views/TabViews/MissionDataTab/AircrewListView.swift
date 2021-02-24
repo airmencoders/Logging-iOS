@@ -71,7 +71,7 @@ struct AircrewListView: View {
             .accessibility(identifier: "aircrewList")
         }
         .padding()
-        .background(Color.pblDefault)
+        .background(Color.pblBackgroundDefault)
         .cornerRadius(10)
         .padding()
     }

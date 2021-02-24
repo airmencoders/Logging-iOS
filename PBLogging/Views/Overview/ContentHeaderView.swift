@@ -31,7 +31,7 @@ struct ContentHeaderView: View {
                         actionSheet
                     })
             }
-            .foregroundColor(.pblPrimary)
+            .foregroundColor(.pblForegroundPrimary)
             Divider()
         }
         .sheet(isPresented: $shouldShowCollector) {

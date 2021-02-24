@@ -29,14 +29,14 @@ struct FlightConditionsView: View {
             VStack(spacing: 0) {
                 FlightLabel(label: "AIRCREW", alignment: .leading, weight: .pblBold(size: labelSize))
                     .frame(minHeight: titleHeight)
-                FlightLabel(label: "GHOST TIME", textColor: .pblTertiary, backgroundColor: .pblTertiary, alignment: .leading, weight: .pblBold(size: labelSize))
+                FlightLabel(label: "GHOST TIME", textColor: .pblForegroundTertiary, backgroundColor: .pblForegroundTertiary, alignment: .leading, weight: .pblBold(size: labelSize))
                 
                 ForEach(sortie.crewLines) { crewLine in
                     FlightLabel(label: crewLine.person.lastName, alignment: .leading)
                     Divider()
                 }
                 
-                FlightLabel(label: "PILOT TOTALS", backgroundColor: .pblPrimary, alignment: .leading, weight: .pblBold(size: labelSize))
+                FlightLabel(label: "PILOT TOTALS", backgroundColor: .pblForegroundPrimary, alignment: .leading, weight: .pblBold(size: labelSize))
                 
                 FlightLabel(label: "LASTNAME", alignment: .leading)
             }
@@ -49,18 +49,18 @@ struct FlightConditionsView: View {
                         .font(.pblBold(size: 12))
                         .frame(maxWidth: .infinity, minHeight: titleHeight)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.pblSecondary)
-                    FlightLabel(label: "0", backgroundColor: .pblTertiary, weight: .pblBold(size: labelSize))
+                        .foregroundColor(.pblForegroundSecondary)
+                    FlightLabel(label: "0", backgroundColor: .pblForegroundTertiary, weight: .pblBold(size: labelSize))
                     ForEach(sortie.crewLines) { crewLine in
                         // # TODO: Implement
                         FlightLabel(label: "0")
                         Divider()
                     }
-                    FlightLabel(label: "0", backgroundColor: .pblPrimary, weight: .pblBold(size: labelSize))
+                    FlightLabel(label: "0", backgroundColor: .pblForegroundPrimary, weight: .pblBold(size: labelSize))
                     FlightLabel(label: "0")
                 }
                 .frame(width: 50)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(5)
                 
                 FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)

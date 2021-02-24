@@ -22,8 +22,8 @@ struct EventCard: View {
         })
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
         .padding()
-        .background(Color.pblDefault)
-        .foregroundColor(Color.pblSecondary)
+        .background(Color.pblBackgroundDefault)
+        .foregroundColor(Color.pblForegroundSecondary)
         .cornerRadius(10)
     }
 
@@ -51,7 +51,7 @@ struct EventCard: View {
                 }
             }
             .padding(.leading)
-            .foregroundColor(Color.pblSecondary)
+            .foregroundColor(Color.pblForegroundSecondary)
         }
     }
 }

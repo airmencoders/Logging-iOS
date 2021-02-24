@@ -18,12 +18,12 @@ struct SortieFuelInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                 .frame(width: 280)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
 
                 SortieFuelEditFields(sortie: sortie)
                 .frame(width: 86)
-                .background(Color.pblDefault)
+                .background(Color.pblBackgroundDefault)
                 .cornerRadius(10)
             }
             
@@ -48,7 +48,7 @@ struct SortieFuelInfoView: View {
                 .padding()
         }
         .font(.pblRegular(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
 }
 
@@ -95,7 +95,7 @@ struct SortieFuelEditFields: View {
         }
         .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))
-        .foregroundColor(.pblSecondary)
+        .foregroundColor(.pblForegroundSecondary)
     }
     
     func getValidationColor(for item: String) -> Color? {
