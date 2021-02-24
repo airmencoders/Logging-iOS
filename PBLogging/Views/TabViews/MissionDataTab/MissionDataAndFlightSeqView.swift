@@ -63,9 +63,25 @@ struct MissionDataAndFlightSeqView: View {
                 }
                 ThickDivider()
                     .background(icaoColor(for: sortie.landICAO))
-                TextFieldWithLabel(label: "TAKE OFF TIME", placeholder: "0146", userInput: .constant("1234"))
+                ZStack (alignment: .topLeading){
+                    Text("TAKE OFF TIME")
+                        .fontFormLabel()
+                    HStack{
+                        Spacer()
+                        OptionalDatePicker(date: $sortie.takeoffTime)
+                    }
+                }
                 ThickDivider()
-                TextFieldWithLabel(label: "LAND TIME", placeholder: "9325", userInput: .constant("1234"))
+                ZStack (alignment: .topLeading){
+                    Text("LAND TIME")
+                        .fontFormLabel()
+                    HStack{
+                        Spacer()
+                        OptionalDatePicker(date: $sortie.landTime)
+                    }
+                }
+               
+                
                 ThickDivider()
             }
             .padding()

@@ -43,7 +43,7 @@ struct SortieCard: View {
 
 private struct LeftCell: View {
     
-    let sortie: Sortie
+    @ObservedObject var sortie: Sortie
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -67,7 +67,7 @@ private struct LeftCell: View {
 
 private struct RightCell: View {
     
-    let sortie: Sortie
+    @ObservedObject var sortie: Sortie
     
     var body: some View {
         VStack(alignment: .leading) {
