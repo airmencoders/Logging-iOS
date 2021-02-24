@@ -1,14 +1,14 @@
 //
-//  SortieTotalTimeTest.swift
+//  Sortie+CalculationsTests.swift
 //  LoggingTests
 //
-//  Created by John Bethancourt on 2/9/21.
+//  Created by John Bethancourt on 2/23/21.
 //
 
 import XCTest
 @testable import Logging
 
-class SortieTests: XCTestCase {
+class Sortie_CalculationsTests: XCTestCase {
 
     func testSortieTotalTime() throws {
         let formatter = DateFormatter()
@@ -77,53 +77,5 @@ class SortieTests: XCTestCase {
         sortie.landTime = formatter.date(from: "20:27 - 31 Oct 2022")
         XCTAssertEqual(sortie.flightTimeString, "26328.5")
     
-    }
-    
-    func testSortieAutoAccessors() {
-        
-        let context =  DataController(inMemory: true).container.viewContext
-        let sortie = Sortie(context: context)
-        
-        XCTAssertNotNil(sortie.fuel)
-        XCTAssertNotNil(sortie.metrics)
-        XCTAssertNotNil(sortie.sortieType)
-     
-    }
-
-    func testAllSortiesCalculatedTime() throws {
-        let dataController = DataController(inMemory: true)
-        let context =  dataController.container.viewContext
-        let event = Event(context: context)
-
-        var calculatedTime = event.allSortiesCalculatedTime
-        XCTAssertEqual(calculatedTime, "0.0")
-
-        let sortie = Sortie(context: context)
-        sortie.event = event
-        calculatedTime = event.allSortiesCalculatedTime
-        XCTAssertEqual(calculatedTime, "")
-
-        sortie.takeoffTime = Date(timeIntervalSinceNow: 0.0)
-        calculatedTime = event.allSortiesCalculatedTime
-        XCTAssertEqual(calculatedTime, "")
-
-        sortie.landTime = Date(timeIntervalSinceNow: 751.8)
-        calculatedTime = event.allSortiesCalculatedTime
-        XCTAssertEqual(calculatedTime, "0.2")
-
-        sortie.landTime = Date(timeIntervalSinceNow: 4351.8)
-        calculatedTime = event.allSortiesCalculatedTime
-        XCTAssertEqual(calculatedTime, "1.2")
-    }
-
-    func testSortieDelayRemarks() throws {
-        let dataController = DataController(inMemory: true)
-        let context =  dataController.container.viewContext
-        let sortie = Sortie(context: context)
-
-        XCTAssertEqual(sortie.sortieType.sortieDelayRemarks, "")
-
-        sortie.sortieType.sortieDelayRemarks = "A remark"
-        XCTAssertEqual(sortie.sortieType.sortieDelayRemarks, "A remark")
     }
 }

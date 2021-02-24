@@ -8,7 +8,7 @@
 import XCTest
 @testable import Logging
 
-class EntityIdentifiableTests: XCTestCase {
+class AllEntityAwakeTests: XCTestCase {
 
     func testAwakeUUIDGeneration() throws {
         let context =  DataController(inMemory: true).container.viewContext

@@ -8,7 +8,7 @@
 import XCTest
 @testable import Logging
 
-class CrewLineTests: XCTestCase {
+class CrewLine_ComparableTests: XCTestCase {
  
     func testComparable() throws {
         // This is an example of a functional test case.
