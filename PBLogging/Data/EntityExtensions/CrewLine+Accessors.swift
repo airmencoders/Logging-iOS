@@ -4,14 +4,26 @@
 //
 //  Created by John Bethancourt on 2/8/21.
 //
+import Foundation
 
 extension CrewLine {
 
+    
     public var flightAuthDutyCode: String {
         get { return flightAuthDutyCode_ ?? "" }
         set { flightAuthDutyCode_ = newValue }
     }
 
+    public var missionEventRecords: [MissionEventRecord] {
+        get {
+            let set = missionEventRecord_ as? Set<MissionEventRecord> ?? []
+            return Array(set)
+        }
+        set {
+            missionEventRecord_ = Set(newValue) as NSSet
+        }
+    }
+    
     public var flightTime: FlightTime {
         get {
             guard let flightTime = flightTime_ else {

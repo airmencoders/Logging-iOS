@@ -2,7 +2,7 @@
 //  CrewLine+CoreDataProperties.swift
 //  Logging
 //
-//  Created by John Bethancourt on 2/17/21.
+//  Created by John Bethancourt on 2/23/21.
 //
 //
 
@@ -20,7 +20,7 @@ extension CrewLine {
     @NSManaged public var flyingOrganization_: String?
     @NSManaged public var id: UUID?
     @NSManaged public var reserveStatus: Int16
-    @NSManaged public var events_: NSSet?
+    @NSManaged public var missionEventRecord_: NSSet?
     @NSManaged public var flightConditions_: FlightConditions?
     @NSManaged public var flightTime_: FlightTime?
     @NSManaged public var person_: Person?
@@ -28,20 +28,20 @@ extension CrewLine {
 
 }
 
-// MARK: Generated accessors for events_
+// MARK: Generated accessors for missionEventRecord_
 extension CrewLine {
 
-    @objc(addEvents_Object:)
-    @NSManaged public func addToEvents_(_ value: MissionEventRecord)
+    @objc(addMissionEventRecord_Object:)
+    @NSManaged public func addToMissionEventRecord_(_ value: MissionEventRecord)
 
-    @objc(removeEvents_Object:)
-    @NSManaged public func removeFromEvents_(_ value: MissionEventRecord)
+    @objc(removeMissionEventRecord_Object:)
+    @NSManaged public func removeFromMissionEventRecord_(_ value: MissionEventRecord)
 
-    @objc(addEvents_:)
-    @NSManaged public func addToEvents_(_ values: NSSet)
+    @objc(addMissionEventRecord_:)
+    @NSManaged public func addToMissionEventRecord_(_ values: NSSet)
 
-    @objc(removeEvents_:)
-    @NSManaged public func removeFromEvents_(_ values: NSSet)
+    @objc(removeMissionEventRecord_:)
+    @NSManaged public func removeFromMissionEventRecord_(_ values: NSSet)
 
 }
 

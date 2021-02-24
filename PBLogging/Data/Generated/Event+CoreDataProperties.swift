@@ -2,7 +2,7 @@
 //  Event+CoreDataProperties.swift
 //  Logging
 //
-//  Created by John Bethancourt on 2/17/21.
+//  Created by John Bethancourt on 2/23/21.
 //
 //
 
@@ -19,6 +19,7 @@ extension Event {
     @NSManaged public var id: UUID?
     @NSManaged public var name_: String?
     @NSManaged public var summary_: String?
+    @NSManaged public var isSim: Bool
     @NSManaged public var sorties_: NSSet?
 
 }

@@ -5,14 +5,15 @@
         <attribute name="flyingOrganization_" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="reserveStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="events_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MissionEventRecord" inverseName="crewLine" inverseEntity="MissionEventRecord"/>
         <relationship name="flightConditions_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FlightConditions" inverseName="crewLine" inverseEntity="FlightConditions"/>
         <relationship name="flightTime_" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FlightTime" inverseName="crewLine" inverseEntity="FlightTime"/>
+        <relationship name="missionEventRecord_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MissionEventRecord" inverseName="crewLine" inverseEntity="MissionEventRecord"/>
         <relationship name="person_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="crewLines" inverseEntity="Person"/>
         <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="crewLines_" inverseEntity="Sortie"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isSim" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <attribute name="summary_" optional="YES" attributeType="String"/>
         <relationship name="sorties_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Sortie" inverseName="event" inverseEntity="Sortie"/>
@@ -54,16 +55,14 @@
     </entity>
     <entity name="MissionEventRecord" representedClassName="MissionEventRecord" syncable="YES">
         <attribute name="asInstructor" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="eventID" optional="YES" attributeType="String"/>
         <attribute name="numberAccomplished" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="crewLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="events_" inverseEntity="CrewLine"/>
-        <relationship name="eventType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MissionEventTypes" inverseName="events" inverseEntity="MissionEventTypes"/>
+        <relationship name="crewLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CrewLine" inverseName="missionEventRecord_" inverseEntity="CrewLine"/>
     </entity>
     <entity name="MissionEventTypes" representedClassName="MissionEventTypes" syncable="YES">
-        <attribute name="eventID" optional="YES" attributeType="String"/>
-        <attribute name="frequency" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MissionEventRecord" inverseName="eventType" inverseEntity="MissionEventRecord"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="realEventID_" optional="YES" attributeType="String"/>
+        <attribute name="simEventID_" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="branch" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -121,14 +120,14 @@
         <relationship name="sortie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sortie" inverseName="sortieType_" inverseEntity="Sortie"/>
     </entity>
     <elements>
-        <element name="CrewLine" positionX="-40.4375" positionY="-9325.49609375" width="128" height="178"/>
-        <element name="Event" positionX="-378.48046875" positionY="-9072.640625" width="128" height="103"/>
+        <element name="CrewLine" positionX="-40.4375" positionY="-9325.49609375" width="128" height="164"/>
+        <element name="Event" positionX="-378.48046875" positionY="-9072.640625" width="128" height="118"/>
         <element name="FlightConditions" positionX="445.9375" positionY="-9340.71875" width="128" height="148"/>
         <element name="FlightTime" positionX="505.4609375" positionY="-9082.05078125" width="128" height="148"/>
         <element name="Fuel" positionX="-19.8671875" positionY="-9111.8125" width="128" height="103"/>
         <element name="Metrics" positionX="304.26171875" positionY="-8895.375" width="128" height="178"/>
         <element name="MissionEventRecord" positionX="117.41796875" positionY="-9365.11328125" width="128" height="103"/>
-        <element name="MissionEventTypes" positionX="287.49609375" positionY="-9352.8515625" width="128" height="118"/>
+        <element name="MissionEventTypes" positionX="277.359375" positionY="-9361.6484375" width="128" height="88"/>
         <element name="Person" positionX="153.2890625" positionY="-9046.4296875" width="128" height="178"/>
         <element name="Sortie" positionX="-214.20703125" positionY="-9297.6953125" width="128" height="418"/>
         <element name="SortieType" positionX="-41.05859375" positionY="-8932.14453125" width="128" height="268"/>

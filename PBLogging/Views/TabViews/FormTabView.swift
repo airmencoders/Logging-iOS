@@ -18,7 +18,7 @@ struct FormTabView: View {
             MissionDataView(sortie: sortie)
                 .tag(0)
                 .tabItem { Text("Mission Data") }
-            AircrewListView(sortie: sortie)
+            TrainingEventsView(sortie: sortie)
                 .tag(1)
                 .tabItem { Text("Training Events") }
             MissionSortieInfoView(sortie: sortie)

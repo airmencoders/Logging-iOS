@@ -2,7 +2,7 @@
 //  MissionEventTypes+CoreDataClass.swift
 //  Logging
 //
-//  Created by John Bethancourt on 2/17/21.
+//  Created by John Bethancourt on 2/23/21.
 //
 //
 

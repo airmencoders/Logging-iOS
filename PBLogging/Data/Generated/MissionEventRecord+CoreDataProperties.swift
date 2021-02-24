@@ -2,7 +2,7 @@
 //  MissionEventRecord+CoreDataProperties.swift
 //  Logging
 //
-//  Created by John Bethancourt on 2/17/21.
+//  Created by John Bethancourt on 2/23/21.
 //
 //
 
@@ -18,8 +18,8 @@ extension MissionEventRecord {
 
     @NSManaged public var asInstructor: Bool
     @NSManaged public var numberAccomplished: Int16
+    @NSManaged public var eventID: String?
     @NSManaged public var crewLine: CrewLine?
-    @NSManaged public var eventType: MissionEventTypes?
 
 }
 

@@ -25,6 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         checkForUITestArguments()
         #endif
         
+        /// This is temporary but will be necessary for a while.
+        /// The MERS data will be on PBS, and configured by the unit. We will then
+        /// download and update the data model from that, instead of this:
+        SampleData.createSampleDownloadedMERSData(context: dataController.container.viewContext)
+        
         let contentView = ContentView()
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)

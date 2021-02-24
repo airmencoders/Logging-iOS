@@ -345,6 +345,79 @@ enum SampleData {
         }
 
     }
+    
+    static func createSampleDownloadedMERSData(context: NSManagedObjectContext){
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = MissionEventTypes.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            _ = try context.execute(batchDeleteRequest)
+        } catch {
+            fatalError("Failed to delete the fetch.")
+        }
+        
+        let data = [
+            ("", "GX11Y", "Simulator-Airdrop Phase 1"),
+            ("", "GX12Y", "Simulator-Airdrop Phase 2"),
+            ("", "GX13Y", "Simulator-Airdrop Phase 3"),
+            ("", "GX14Y", "Simulator-Airdrop Phase 4"),
+            ("", "GX29Y", "Simulator-CRM/TEM MOST"),
+            ("", "GX61Y", "Simulator-Instrument (ISS)"),
+            ("", "GX79Y", "Simulator-Proficiency Sortie"),
+            ("", "GX91Y", "Simulator-Refresher Phase 1"),
+            ("", "GX92Y", "Simulator-Refresher Phase 2"),
+            ("", "GX93Y", "Simulator-Refresher Phase 3"),
+            ("", "GX94Y", "Simulator-Refresher Phase 4"),
+            ("PC35Y", "", "Have-Quick Event"),
+            ("PC39Y", "", "Secure Voice Event"),
+            ("AT59Y", "ST59Y", "Takeoff"),
+            ("MB28Y", "SB28Y", "ACBRNTQT"),
+            ("MB52Y", "SB52Y", "Integrated Mission Sortie"),
+            ("TW01Y", "SW01Y", "Tactical Departure"),
+            ("TW20Y", "SW20Y", "Tactical Route [Day Visual Low Level (VLL)]"),
+            ("TW25Y", "SW25Y", "Tactical Large Force Employment"),
+            ("TW50Y", "SW50Y", "Tactical Arrival"),
+            ("TW73Y", "SW73Y", "Wet Wing Defuel"),
+            ("AN11Y", "SN11Y", "NVG Takeoff (PF)"),
+            ("AN21Y", "SN21Y", "NVG Low-Level"),
+            ("AN33Y", "SN33Y", "NVG Landing (Pilot Flying)"),
+            ("AN35Y", "SN35Y", "NVG Landing, Assault (PDF)"),
+            ("RU01Y", "SU01Y", "Receiver AAR"),
+            ("RU03Y", "SU03Y", "Receiver AAR (Aircraft)"),
+            ("RU17Y", "SU17Y", "Receiver AAR Night"),
+            ("RU19Y", "SU19Y", "Receiver AAR Auto-Pilot Off"),
+            ("AF31Y", "SF31Y", "Formation Air Refueling"),
+            ("AG01Y", "SG01Y", "Airdrop-Event"),
+            ("AG03Y", "SG03Y", "Airdrop-CDS"),
+            ("AG13Y", "SG13Y", "Airdrop-Dual Row Pilot"),
+            ("AG15Y", "SG15Y", "Airdrop-Equipment"),
+            ("AG38Y", "SG38Y", "Airdrop-Med/High Altitude"),
+            ("AG35Y", "SG35Y", "Airdrop-Lead SKE/FFS"),
+            ("AG39Y", "SG39Y", "Airdrop-Multi-Element SKE/FFS"),
+            ("AG41Y", "SG41Y", "Air Drop Multi-Element Visual"),
+            ("AG45Y", "SG45Y", "Airdrop-PADS Operation (Unguided)"),
+            ("AG47Y", "SG47Y", "Airdrop-Personnel"),
+            ("AG55Y", "SG55Y", "Airdrop-Wing SKE/FFS"),
+            ("AG57Y", "SG57Y", "Airdrop-Wing Visual"),
+            ("AG59Y", "SG59Y", "Airdrop-Wing Visual Night"),
+            ("AN05Y", "", "Airdrop-NVG Event"),
+            ("AP15Y", "SP15Y", "Approach-Instrument"),
+            ("AP23Y", "SP23Y", "Approach-Instrument Landing System (ILS) Category II"),
+            ("AP33Y", "SP33Y", "Approach-Non-Precision"),
+            ("AP41Y", "SP41Y", "Approach Precision"),
+            ("AL01Y", "SL01Y", "Landing"),
+            ("AL11Y", "SL11Y", "Landing-Heavyweight, Full Flap, Night"),
+            ("AL51Y", "SL51Y", "Landing-Assault"),
+            ("AL55Y", "SL55Y", "Landing-Assault (Night Unaided)")]
+        
+        for item in data {
+            let met = MissionEventTypes(context: context)
+            met.name = item.2
+            met.simEventID = item.1
+            met.realEventID = item.0
+        }
+        try! context.save()
+    }
 }
 
 #if DEBUG
