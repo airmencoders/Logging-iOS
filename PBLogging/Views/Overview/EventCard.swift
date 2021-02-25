@@ -31,25 +31,13 @@ struct EventCard: View {
 
         @ObservedObject var event: Event
 
-        @State private var eventName: String = ""
-        @State private var eventDate: Date = Date()
-
         var body: some View {
             VStack(alignment: .leading) {
-                // TODO:  Repair
                 Text(event.name)
-                HStack {
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 16)
-                    if let date = event.sorties.first?.takeoffTime {
-                        Text(date.string())
-                    } else {
-                        Text("")
-                    }
-                }
-            }
+                    .font(.pblBold(size: 18))
+                Text(event.summary)
+                    .font(.pblRegular(size: 16))
+           }
             .padding(.leading)
             .foregroundColor(Color.pblForegroundSecondary)
         }

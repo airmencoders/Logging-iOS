@@ -52,9 +52,8 @@ private struct LeftCell: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 16)
-                // TODO: Implement
-//                Text(form.date.string())
-//                    .font(.pblBold(size: 16))
+                Text(sortie.takeoffTime?.string() ?? "")
+                    .font(.pblBold(size: 16))
             }
             ContentColumn(imageName: "doc.on.doc", title: "Sortie Summary", leftColumnLabels: ["Serial Number:", "Mission Number:", "Mission Symbol:", "Special Use:"], rightColumnLabels: [sortie.serialNumber, sortie.missionNumber, sortie.missionSymbol, sortie.specialUse])
         }
@@ -73,7 +72,7 @@ private struct RightCell: View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
                 ContentColumn(imageName: "location", title: "Location", leftColumnLabels: ["From:", "To:"], rightColumnLabels: [sortie.takeoffICAO, sortie.landICAO])
-                ContentColumn(imageName: "clock", title: "Flight Time", leftColumnLabels: ["Take off time:", "Land time:", "Total time:"], rightColumnLabels: [sortie.takeoffTime?.string() ?? "", sortie.landTime?.string() ?? "" , sortie.flightTimeString])
+                ContentColumn(imageName: "clock", title: "Flight Time", leftColumnLabels: ["Take off time:", "Land time:", "Total time:"], rightColumnLabels: [sortie.takeoffTime?.string24HourTime() ?? "", sortie.landTime?.string24HourTime() ?? "" , sortie.flightTimeString])
                     .layoutPriority(1)
                 ContentColumn(imageName: "airplane", title: "Landings", leftColumnLabels: ["Touch & go:", "Full stop:", "Total landings:"], rightColumnLabels: [sortie.touchAndGoesString, sortie.fullStopsString, sortie.totalLandingsString])
             }
