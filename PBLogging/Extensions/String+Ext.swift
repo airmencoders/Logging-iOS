@@ -67,29 +67,30 @@ extension String {
     
     func charactersAfterLastOccurrenceOf(_ searchString: String, caseInsensitive: Bool = true) -> Int? {
         if self.count <= 1 { return nil }
-        if !self.contains(searchString) { return nil }
-        if self.count == 2 {
-            if self.prefix(1) == searchString {
-                return 1
-            }else {
-                return 0
+        if self.contains(searchString) {
+            if self.count == 2 {
+                if self.prefix(1) == searchString {
+                    return 1
+                } else {
+                    return 0
+                }
             }
-        }
-        
-        let options: String.CompareOptions
-        if caseInsensitive {
-            options = [.backwards, .caseInsensitive]
-        } else {
-            options = [.backwards]
-        }
-        
-        if let range = self.range(of: searchString,
-                options: options,
-                range: nil,
-                locale: nil) {
-            
-            let index: Int = self.distance(from: self.endIndex, to: range.upperBound)
-            return abs(index)
+
+            let options: String.CompareOptions
+            if caseInsensitive {
+                options = [.backwards, .caseInsensitive]
+            } else {
+                options = [.backwards]
+            }
+
+            if let range = self.range(of: searchString,
+                    options: options,
+                    range: nil,
+                    locale: nil) {
+
+                let index: Int = self.distance(from: self.endIndex, to: range.upperBound)
+                return abs(index)
+            }
         }
         return nil
     }

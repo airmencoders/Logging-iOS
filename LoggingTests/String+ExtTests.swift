@@ -88,6 +88,7 @@ class String_ExtTests: XCTestCase {
         let isDigits = "123456"
         XCTAssertTrue(isDigits.isDigits)
     }
+
     func testCharactersAfterLastOccurrenceOf(){
         var testString = "0.000".charactersAfterLastOccurrenceOf(".")
         XCTAssertEqual(testString, 3)
@@ -111,8 +112,12 @@ class String_ExtTests: XCTestCase {
         XCTAssertEqual(testString, nil)
         testString = "130.203.02333.023".charactersAfterLastOccurrenceOf(".")
         XCTAssertEqual(testString, 3)
-    }
-    
+        testString = "XXxX".charactersAfterLastOccurrenceOf("x", caseInsensitive: false)
+        XCTAssertEqual(testString, 1)
+        testString = "Xx".charactersAfterLastOccurrenceOf("x", caseInsensitive: false)
+        XCTAssertEqual(testString, 0)
+   }
+
     func testReplaceLastOccurrenceOfString(){
         var testString = "ThexDogxJumpedxOverxThexMoonx"
         testString.replaceLastOccurrenceOfString("x", with: " ")
@@ -129,7 +134,9 @@ class String_ExtTests: XCTestCase {
         XCTAssertEqual(testString, "The Dog Jumped Over The Moon ")
         testString.replaceLastOccurrenceOfString("x", with: " ")
         XCTAssertEqual(testString, "The Dog Jumped Over The Moon ")
-         
+        testString = "XXxX"
+        testString.replaceLastOccurrenceOfString("x", with: " ", caseInsensitive: false)
+        XCTAssertEqual(testString, "XX X")
     }
     
     func testEnforceDecimalNumber(){
@@ -151,5 +158,8 @@ class String_ExtTests: XCTestCase {
         testString = ".1"
         XCTAssertEqual(testString.enforceDecimalNumber(), "0.1")
         
+        expectFatalError(expectedMessage: "Must have at least one decimal place.") {
+            _ = testString.enforceDecimalNumber(maxDecimalPlaces: 0)
+        }
     }
 }

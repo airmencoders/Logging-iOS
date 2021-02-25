@@ -25,6 +25,8 @@
 		4DD13FE5259ED18600C98EB8 /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD13FE4259ED18600C98EB8 /* PreviewAssets.xcassets */; };
 		4DD13FFE259ED18700C98EB8 /* LoggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD13FFD259ED18700C98EB8 /* LoggingUITests.swift */; };
 		4DE18EF025A38E3C0027A580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */; };
+		4DE7A98925E8321E00FD03D2 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7A98325E822A700FD03D2 /* FatalErrorUtil.swift */; };
+		4DE7A99125E83A4500FD03D2 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */; };
 		4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */; };
 		4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */; };
 		7F03C0C125D5DFD800F7AA5B /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0C025D5DFD800F7AA5B /* SortieCommentsView.swift */; };
@@ -142,6 +144,8 @@
 		4DD13FFD259ED18700C98EB8 /* LoggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUITests.swift; sourceTree = "<group>"; };
 		4DD13FFF259ED18700C98EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DE18EEF25A38E3B0027A580 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4DE7A98325E822A700FD03D2 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
+		4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
 		4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifiers.swift; sourceTree = "<group>"; };
 		4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtTests.swift"; sourceTree = "<group>"; };
 		7F03C0C025D5DFD800F7AA5B /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				BF76D3AA25E63C070045A4DA /* Event+CalculationsTests.swift */,
 				BF76D3AF25E63CAA0045A4DA /* Sortie+CalculationsTests.swift */,
 				BF76D3B425E63CFD0045A4DA /* Sortie+AccessorsTests.swift */,
+				4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */,
 			);
 			path = LoggingTests;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				BF5C1F2325A683690075404C /* AlertProvider.swift */,
 				D2223E5525B7691C00B6A33F /* PreviewMods.swift */,
 				7F03C0E225D7347D00F7AA5B /* TextView.swift */,
+				4DE7A98325E822A700FD03D2 /* FatalErrorUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 				4DCD42B725DCA29B00EB6FF3 /* SortieCard.swift in Sources */,
 				BFEB672C25E5DBAF00980700 /* MissionEventTypes+CoreDataClass.swift in Sources */,
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
+				4DE7A98925E8321E00FD03D2 /* FatalErrorUtil.swift in Sources */,
 				BFEB66FF25E5D29E00980700 /* Metrics+CoreDataClass.swift in Sources */,
 				BFDB3B0A25DDAAF3000A16ED /* AllEntityAwake.swift in Sources */,
 				4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */,
@@ -782,6 +789,7 @@
 			files = (
 				BF76D3AB25E63C070045A4DA /* Event+CalculationsTests.swift in Sources */,
 				BFDB3B1E25DDBC35000A16ED /* EventTests.swift in Sources */,
+				4DE7A99125E83A4500FD03D2 /* XCTestCase+FatalError.swift in Sources */,
 				BFDB3B1F25DDBC35000A16ED /* CrewLine+ComparableTests.swift in Sources */,
 				4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */,
 				BF76D3B525E63CFD0045A4DA /* Sortie+AccessorsTests.swift in Sources */,
