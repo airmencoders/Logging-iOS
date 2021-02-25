@@ -7,34 +7,7 @@
 
 import SwiftUI
 
-struct PBLToggleStyleSwitch: ToggleStyle {
-    let width: CGFloat = 50
-    
-    func makeBody(configuration: Self.Configuration) -> some View {
-        HStack {
-            ZStack(alignment: configuration.isOn ? .trailing : .leading) {
-                Capsule()
-                    .frame(width: width, height: width / 2)
-                    .foregroundColor(configuration.isOn ? Color.pblForegroundPrimary : .pblBackgroundElevated)
-
-                Circle()
-                    .frame(width: (width / 2) - 6, height: (width / 2) - 6)
-                    .padding(4)
-                    .foregroundColor(.white)
-            }
-            configuration.label
-            Spacer()
-        }
-        .onTapGesture {
-            withAnimation {
-                configuration.$isOn.wrappedValue.toggle()
-            }
-        }
-    }
-}
-
 struct PBLToggleStyleChip: ToggleStyle {
-    let width: CGFloat = 240
 
     func makeBody(configuration: Self.Configuration) -> some View {
         ZStack(alignment: .center) {
@@ -58,24 +31,13 @@ struct PBLToggleStyleChip: ToggleStyle {
             configuration.$isOn.wrappedValue.toggle()
         }
         .animation(.linear(duration: 0.05))
-
     }
 }
 
 struct ToggleStyle_Ext_Previews: PreviewProvider {
-   
+
     static var previews: some View {
-        
-        Toggle(isOn: .mock(true), label: {
-            Text("TEST")
-                .font(.pblBold(size: 14))
-                .foregroundColor(.pblForegroundSecondary)
-                .layoutPriority(1)
-        })
-        .padding()
-        .previewLayout(.sizeThatFits)
-        .toggleStyle(PBLToggleStyleSwitch())
-        
+
         Toggle(isOn: .mock(false), label: {
             Text("TEST")
                 .font(.pblBold(size: 14))
@@ -85,8 +47,7 @@ struct ToggleStyle_Ext_Previews: PreviewProvider {
         .padding()
         .previewLayout(.sizeThatFits)
         .toggleStyle(PBLToggleStyleChip())
-        
-        
+
         Toggle(isOn: .mock(true), label: {
             Text("Long Text That is Long")
                 .font(.pblBold(size: 14))
