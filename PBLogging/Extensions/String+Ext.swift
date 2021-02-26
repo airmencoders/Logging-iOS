@@ -43,7 +43,14 @@ extension String {
         }
         return modifiedString
     }
-    
+
+    func enforceIntNumber() -> String {
+        let set = CharacterSet(charactersIn: "0123456789")
+        let modifiedString = self.components(separatedBy: set.inverted).joined()
+
+        return modifiedString
+    }
+
     func isValidSSANLast4() -> Bool {
         return self.count == 4 && self.isDigits
     }

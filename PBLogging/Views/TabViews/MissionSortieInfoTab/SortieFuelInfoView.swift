@@ -102,13 +102,6 @@ struct SortieFuelEditFields: View {
         if item.isEmpty {return nil}
         return Double(item) == nil ? Color.red : Color.green
     }
-    
-    func enforceAndUpdate(_ item: inout Double ,with stateObject: inout String){
-        stateObject = stateObject.enforceDecimalNumber(maxDecimalPlaces: 1)
-        if let doubleValue = Double(stateObject) {
-            item = doubleValue
-        }
-    }        
 }
 
 struct SortieFuelInfoView_Previews: PreviewProvider {

@@ -55,29 +55,50 @@ struct SortieAirlandEditFields: View {
     
     @ObservedObject var sortie: Sortie
     @ObservedObject var metrics: Metrics
-    
+    @State var airlandWeight: String
+    @State var numPassengers: String
+    @State var numAirlandPallets: String
+    @State var numRollingStock: String
+    @State var takeoffCenterOfGravity: String
+
     init(sortie: Sortie){
         _sortie = ObservedObject(wrappedValue: sortie)
         _metrics = ObservedObject(wrappedValue: sortie.metrics)
-    }
+        _airlandWeight     = State(wrappedValue: sortie.metrics.airlandWeight == 0 ?
+                                                 "" : "\(sortie.metrics.airlandWeight)")
+        _numPassengers     = State(wrappedValue: sortie.metrics.numPassengers == 0 ?
+                                                 "" : "\(sortie.metrics.numPassengers)")
+        _numAirlandPallets = State(wrappedValue: sortie.metrics.numAirlandPallets == 0 ?
+                                                 "" : "\(sortie.metrics.numAirlandPallets)")
+        _numRollingStock   = State(wrappedValue: sortie.metrics.numRollingStock == 0 ?
+                                                 "" : "\(sortie.metrics.numRollingStock)")
+        _takeoffCenterOfGravity = State(wrappedValue: sortie.takeoffCenterOfGravity == 0 ?
+                                                 "" : "\(sortie.takeoffCenterOfGravity)")
+  }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            TextField("", value: $metrics.airlandWeight, formatter: NumberFormatter())
+            TextField("", text: $airlandWeight.onChange {
+                                enforceAndUpdate(&metrics.airlandWeight, with: &airlandWeight) })
                 .padding()
             Divider()
-            TextField("", value: $metrics.numPassengers, formatter: NumberFormatter())
+            TextField("", text: $numPassengers.onChange {
+                                enforceAndUpdate(&metrics.numPassengers, with: &numPassengers) })
                 .padding()
             Divider()
-            TextField("", value: $metrics.numAirlandPallets, formatter: NumberFormatter())
+            TextField("", text: $numAirlandPallets.onChange {
+                        enforceAndUpdate(&metrics.numAirlandPallets, with: &numAirlandPallets) })
                 .padding()
             Divider()
-            TextField("", value: $metrics.numRollingStock, formatter: NumberFormatter())
+            TextField("", text: $numRollingStock.onChange {
+                                enforceAndUpdate(&metrics.numRollingStock, with: &numRollingStock) })
                 .padding()
             Divider()
-            TextField("", value: $sortie.takeoffCenterOfGravity, formatter: NumberFormatter())
+            TextField("", text: $takeoffCenterOfGravity.onChange {
+                        enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &takeoffCenterOfGravity) })
                 .padding()
         }
+        .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))
         .foregroundColor(.pblForegroundSecondary)
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
+		4D8A7E0525E9A5EE00C70D7E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */; };
 		4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */; };
 		4D9E3F6725E0A908003903B0 /* SortieAirlandInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */; };
 		4D9E3F6F25E0C62E003903B0 /* SortieAirdropInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */; };
@@ -125,6 +126,7 @@
 
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieFuelInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirlandInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirdropInfoView.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				7F03C0EA25DC0CCE00F7AA5B /* ToggleStyle+Ext.swift */,
 				BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */,
 				7F3E513025E0584800B59CBF /* Binding+OnChange.swift */,
+				4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */,
 				4DCD426E25DC83BD00EB6FF3 /* EventsOverview.swift in Sources */,
 				BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */,
+				4D8A7E0525E9A5EE00C70D7E /* View+Ext.swift in Sources */,
 				4DCD42B725DCA29B00EB6FF3 /* SortieCard.swift in Sources */,
 				BFEB672C25E5DBAF00980700 /* MissionEventTypes+CoreDataClass.swift in Sources */,
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
