@@ -10,7 +10,7 @@ import SwiftUI
 struct BoldText: View {
     let text: String
     let size: CGFloat
-    var color: Color = .pblForegroundPrimary
+    var color: Color
     
     var body: some View {
         Text(text)
@@ -21,9 +21,9 @@ struct BoldText: View {
 
 struct BoldText_Previews: PreviewProvider {
     static var previews: some View {
-        BoldText(text: "OVERVIEW", size: 20)
+        BoldText(text: "OVERVIEW", size: 20, color: .pblForegroundPrimary)
             .previewLayout(.sizeThatFits)
-        BoldText(text: "OVERVIEW", size: 20, color: .white)
+        BoldText(text: "OVERVIEW", size: 20, color: .pblForegroundPrimary)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }

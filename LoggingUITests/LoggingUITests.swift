@@ -65,6 +65,14 @@ class LoggingUITests: XCTestCase {
         XCTAssert(self.app.staticTexts["Sortie Comments"].exists)
     }
    
+    func testSubmitAProblem() {
+        self.app.buttons["info.circle"].tap()
+        XCTAssert(self.app.buttons["Submit a Problem"].exists)
+
+        self.app.buttons["Submit a Problem"].tap()
+        XCTAssert(self.app.buttons["xmark.circle"].exists)
+        self.app.links["Close"].tap()
+    }
 
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
