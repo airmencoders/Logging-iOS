@@ -22,8 +22,10 @@ extension CrewLine: Comparable {
         let lhsDutyPos = lhsCharacters[1]
         let rhsDutyPos = rhsCharacters[1]
 
-        if lhsDutyPos == rhsDutyPos {
-            return compareStatus(lhs: lhs, rhs: rhs)
+        if lhsDutyPos == rhsDutyPos { // e.g. P for Pilot and P for Pilot
+            if lhsCharacters[0] != rhsCharacters[0] { //Not Same role and position ( e.g Evaluator Pilots (EP and EP)
+                return compareStatus(lhs: lhs, rhs: rhs)
+            }
         }
 
         // they are not the same duty position

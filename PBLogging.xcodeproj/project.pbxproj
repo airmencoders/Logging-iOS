@@ -57,6 +57,7 @@
 		BF76D3B525E63CFD0045A4DA /* Sortie+AccessorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76D3B425E63CFD0045A4DA /* Sortie+AccessorsTests.swift */; };
 		BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8B81EB25AD816200EC91C7 /* Font+Ext.swift */; };
 		BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982CEE25A54EFE00C14019 /* Date+Ext.swift */; };
+		BFCCCDF125E82387004E0AB8 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCCDF025E82387004E0AB8 /* PDFPreviewView.swift */; };
 		BFDB3AC225DDAA74000A16ED /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3ABE25DDAA74000A16ED /* DataController.swift */; };
 		BFDB3AC425DDAA74000A16ED /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3AC125DDAA74000A16ED /* SampleData.swift */; };
 		BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB3AF925DDAAF3000A16ED /* Sortie+Calculations.swift */; };
@@ -100,6 +101,8 @@
 		BFEB677C25E6064300980700 /* CrewLine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB677A25E6064300980700 /* CrewLine+CoreDataClass.swift */; };
 		BFEB677D25E6064300980700 /* CrewLine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB677B25E6064300980700 /* CrewLine+CoreDataProperties.swift */; };
 		BFF38E1925E6F4D30043BDD5 /* OptionalDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF38E1825E6F4D30043BDD5 /* OptionalDatePicker.swift */; };
+		BFF38E2A25E700BF0043BDD5 /* Form781.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF38E2925E700BF0043BDD5 /* Form781.swift */; };
+		BFF38E3425E70BBF0043BDD5 /* Event+Form781s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF38E3325E70BBF0043BDD5 /* Event+Form781s.swift */; };
 		D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2223E5525B7691C00B6A33F /* PreviewMods.swift */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +180,7 @@
 		BF76D3B425E63CFD0045A4DA /* Sortie+AccessorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sortie+AccessorsTests.swift"; sourceTree = "<group>"; };
 		BF8B81EB25AD816200EC91C7 /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		BF982CEE25A54EFE00C14019 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		BFCCCDF025E82387004E0AB8 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
 		BFDB3ABE25DDAA74000A16ED /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		BFDB3AC125DDAA74000A16ED /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		BFDB3AF925DDAAF3000A16ED /* Sortie+Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sortie+Calculations.swift"; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 		BFEB677A25E6064300980700 /* CrewLine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrewLine+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BFEB677B25E6064300980700 /* CrewLine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrewLine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BFF38E1825E6F4D30043BDD5 /* OptionalDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalDatePicker.swift; sourceTree = "<group>"; };
+		BFF38E2925E700BF0043BDD5 /* Form781.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781.swift; sourceTree = "<group>"; };
+		BFF38E3325E70BBF0043BDD5 /* Event+Form781s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Form781s.swift"; sourceTree = "<group>"; };
 		D2223E5525B7691C00B6A33F /* PreviewMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +290,7 @@
 			children = (
 				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
 				BFDB3C7225DF5C67000A16ED /* CollectorWebView.swift */,
+				BFCCCDF025E82387004E0AB8 /* PDFPreviewView.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
 				7FF0FEFB25B137FA00097C66 /* TextFieldWithLabel.swift */,
 				7F510EB925E062EB00821D5D /* ThickDivider.swift */,
@@ -398,6 +405,7 @@
 				BFDB3AF825DDAADC000A16ED /* EntityExtensions */,
 				BFDB3AC825DDAA81000A16ED /* Generated */,
 				BFDB3AC125DDAA74000A16ED /* SampleData.swift */,
+				BFF38E2925E700BF0043BDD5 /* Form781.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -513,6 +521,7 @@
 				BFDB3AFD25DDAAF3000A16ED /* CrewLine+Comparable.swift */,
 				BFDB3AFE25DDAAF3000A16ED /* Event+Accessors.swift */,
 				BFDB3AFF25DDAAF3000A16ED /* Event+Calculations.swift */,
+				BFF38E3325E70BBF0043BDD5 /* Event+Form781s.swift */,
 				BFDB3AFA25DDAAF3000A16ED /* Person+Accessors.swift */,
 				BFDB3AFB25DDAAF3000A16ED /* Sortie+Accessors.swift */,
 				BFDB3AF925DDAAF3000A16ED /* Sortie+Calculations.swift */,
@@ -715,6 +724,7 @@
 				BFEB670925E5D29E00980700 /* Sortie+CoreDataClass.swift in Sources */,
 				7F03C0C125D5DFD800F7AA5B /* SortieCommentsView.swift in Sources */,
 				4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */,
+				BFF38E2A25E700BF0043BDD5 /* Form781.swift in Sources */,
 				4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */,
 				BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */,
 				BFDB3B0525DDAAF3000A16ED /* Sortie+Accessors.swift in Sources */,
@@ -740,6 +750,7 @@
 				BFEB670625E5D29E00980700 /* FlightConditions+CoreDataProperties.swift in Sources */,
 				BFEB670725E5D29E00980700 /* Fuel+CoreDataClass.swift in Sources */,
 				4DD13FD9259ED18300C98EB8 /* AppDelegate.swift in Sources */,
+				BFF38E3425E70BBF0043BDD5 /* Event+Form781s.swift in Sources */,
 				BF982CEF25A54EFE00C14019 /* Date+Ext.swift in Sources */,
 				7FF0FEFC25B137FA00097C66 /* TextFieldWithLabel.swift in Sources */,
 				4DCD426425DC83A200EB6FF3 /* ContentView.swift in Sources */,
@@ -771,6 +782,7 @@
 				4DCD42B225DC9B0000EB6FF3 /* RecentSortiesList.swift in Sources */,
 				BFEB670D25E5D29E00980700 /* SortieType+CoreDataClass.swift in Sources */,
 				BFEB671925E5D4F800980700 /* MissionEventTypes+Accessors.swift in Sources */,
+				BFCCCDF125E82387004E0AB8 /* PDFPreviewView.swift in Sources */,
 				BFEB677C25E6064300980700 /* CrewLine+CoreDataClass.swift in Sources */,
 				BFEB677D25E6064300980700 /* CrewLine+CoreDataProperties.swift in Sources */,
 				7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */,

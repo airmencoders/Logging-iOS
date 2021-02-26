@@ -13,16 +13,20 @@ struct RecentSortiesList: View {
     @EnvironmentObject var dataController: DataController
     
     @ObservedObject var event: Event
-    
+     
     var body: some View {
         VStack(spacing: 30) {
             List {
+                NavigationLink(destination: PDFPreviewView(event: event)){
+                    Text("Generate 781s")
+                }
                 ForEach(event.sorties) { sortie in
                     SortieCard(sortie: sortie)
                         .accessibility(identifier: "sortieCard")
                 }
             }
         }
+        
         .navigationBarTitle(Text(event.name))
         .navigationBarItems(trailing:
                                 HStack {
@@ -36,12 +40,14 @@ struct RecentSortiesList: View {
                                         
                                     }
                                     .accessibility(identifier: "addSortieButton")
+                                    
+                                    
+                                    
                                 })
     }
-
+    
     func addSortie() {
-        print("Add Sortie")
-         
+        
         let newSortie = Sortie(context: viewContext)
         
         // if there was a previous sortie:

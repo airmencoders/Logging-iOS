@@ -25,7 +25,7 @@ enum SampleData {
         return dataController
     }()
 
-    // provie single CoreData entities for SwiftUI Previews
+    // provide single CoreData entities for SwiftUI Previews
     static let crewLine     = SampleData.crewLines.randomElement()!
     static let event        = SampleData.events.randomElement()!
     static let person       = SampleData.persons.randomElement()!
@@ -187,7 +187,358 @@ enum SampleData {
         }
         return orgs
     }()
-
+    static func loadFEMAMission(viewContext: NSManagedObjectContext) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm - d MMM y"
+        
+        let event = Event(context: viewContext)
+        event.name = "FEMA"
+        event.summary = "Deliver bottled water to various locations in Texas effected by freezing weather."
+        
+        let serial = "90-0534"
+        let mds = "C017A"
+        let unitCharged = "437 AW (AMC)/DKFX"
+        let harmLocation = "JB CHARLESTON SC 29404"
+        let missionSymbol = "M6CA"
+        let issuingUnit = "0016"
+        let flightAuthNumber = "21-0255"
+        
+        let brechbart = Person(context: viewContext)
+        brechbart.last4 = "2343"
+        brechbart.lastName = "Brechbart"
+        
+        let degrasio = Person(context: viewContext)
+        degrasio.last4 = "2366"
+        degrasio.lastName = "Degrasio"
+        
+        let cooperstan = Person(context: viewContext)
+        cooperstan.last4 = "5533"
+        cooperstan.lastName = "Cooperstanel"
+         
+        
+        let sortie1                 = Sortie(context: viewContext)
+        sortie1.serialNumber        = serial
+        sortie1.mds                 = mds
+        sortie1.takeoffICAO         = "KCHS"
+        sortie1.landICAO            = "KNFW"
+        sortie1.takeoffTime         = formatter.date(from: "09:52 - 19 FEB 2021")
+        sortie1.landTime            = formatter.date(from: "12:52 - 19 FEB 2021")
+        sortie1.missionSymbol       = missionSymbol
+        sortie1.unitCharged         = unitCharged
+        sortie1.harmLocation        = harmLocation
+        sortie1.missionNumber       = "AUNFMABRV049"
+        sortie1.event               = event
+        sortie1.numFullStop         = 1
+        sortie1.specialUse          = "1"
+        sortie1.issuingUnit         = issuingUnit
+        sortie1.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine1 = CrewLine(context: viewContext)
+        crewLine1.sortie = sortie1
+        crewLine1.flightAuthDutyCode = "FPB"
+        crewLine1.person = brechbart
+        crewLine1.flightTime.instructor = 3.0
+        crewLine1.flightConditions.night = 3.0
+        crewLine1.flightConditions.instruments = 3.0
+        
+        let mer1 = MissionEventRecord(context: viewContext)
+        mer1.eventID = "AT59Y"
+        mer1.numberAccomplished = 1
+        mer1.crewLine = crewLine1
+        
+        let mer2 = MissionEventRecord(context: viewContext)
+        mer2.eventID = "AP15Y"
+        mer2.numberAccomplished = 2
+        mer2.crewLine = crewLine1
+        
+        let mer3 = MissionEventRecord(context: viewContext)
+        mer3.eventID = "AL01Y"
+        mer3.numberAccomplished = 1
+        mer3.crewLine = crewLine1
+        
+        
+        let crewLine2 = CrewLine(context: viewContext)
+        crewLine2.sortie = sortie1
+        crewLine2.flightAuthDutyCode = "FPCC"
+        crewLine2.person = degrasio
+        crewLine2.flightTime.primary = 3.0
+        crewLine2.flightConditions.night = 3.0
+        crewLine2.flightConditions.instruments = 3.0
+        
+        let crewLine3 = CrewLine(context: viewContext)
+        crewLine3.sortie = sortie1
+        crewLine3.flightAuthDutyCode = "ML2C"
+        crewLine3.person = cooperstan
+        crewLine3.flightTime.primary = 3.0
+        
+        
+        let sortie2                 = Sortie(context: viewContext)
+        sortie2.serialNumber        = serial
+        sortie2.mds                 = mds
+        sortie2.takeoffICAO         = "KNFW"
+        sortie2.landICAO            = "KCRP"
+        sortie2.takeoffTime         = formatter.date(from: "16:05 - 19 FEB 2021")
+        sortie2.landTime            = formatter.date(from: "17:10 - 19 FEB 2021")
+        sortie2.missionSymbol       = missionSymbol
+        sortie2.unitCharged         = unitCharged
+        sortie2.harmLocation        = harmLocation
+        sortie2.missionNumber       = "AUNFMABRV049"
+        sortie2.event               = event
+        sortie2.numFullStop         = 1
+        sortie2.specialUse          = "1"
+        sortie2.issuingUnit         = issuingUnit
+        sortie2.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine21 = CrewLine(context: viewContext)
+        crewLine21.sortie = sortie2
+        crewLine21.flightAuthDutyCode = "FPB"
+        crewLine21.person = brechbart
+        crewLine21.flightTime.instructor = 1.1
+        crewLine21.flightConditions.night = 1.1
+        crewLine21.flightConditions.instruments = 1.0
+     
+        
+        let crewLine22 = CrewLine(context: viewContext)
+        crewLine22.sortie = sortie2
+        crewLine22.flightAuthDutyCode = "FPCC"
+        crewLine22.person = degrasio
+        crewLine22.flightTime.primary = 1.1
+        crewLine22.flightConditions.night = 1.1
+        crewLine22.flightConditions.instruments = 1.0
+        
+        let crewLine23 = CrewLine(context: viewContext)
+        crewLine23.sortie = sortie2
+        crewLine23.flightAuthDutyCode = "ML2C"
+        crewLine23.person = cooperstan
+        crewLine23.flightTime.primary = 1.1
+        
+        let sortie3                 = Sortie(context: viewContext)
+        sortie3.serialNumber        = serial
+        sortie3.mds                 = mds
+        sortie3.takeoffICAO         = "KCRP"
+        sortie3.landICAO            = "KNFW"
+        sortie3.takeoffTime         = formatter.date(from: "15:37 - 20 FEB 2021")
+        sortie3.landTime            = formatter.date(from: "16:50 - 20 FEB 2021")
+        sortie3.missionSymbol       = missionSymbol
+        sortie3.unitCharged         = unitCharged
+        sortie3.harmLocation        = harmLocation
+        sortie3.missionNumber       = "AMZJ101CH050"
+        sortie3.event               = event
+        sortie3.numFullStop         = 1
+        sortie3.specialUse          = "1"
+        sortie3.issuingUnit         = issuingUnit
+        sortie3.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine31 = CrewLine(context: viewContext)
+        crewLine31.sortie = sortie3
+        crewLine31.flightAuthDutyCode = "FPB"
+        crewLine31.person = brechbart
+        crewLine31.flightTime.instructor = 1.2
+        crewLine31.flightConditions.night = 0
+        crewLine31.flightConditions.instruments = 1.0
+        
+        let mer4 = MissionEventRecord(context: viewContext)
+        mer4.eventID = "AT59Y"
+        mer4.numberAccomplished = 2
+        mer4.crewLine = crewLine31
+        
+        let mer5 = MissionEventRecord(context: viewContext)
+        mer5.eventID = "AP41Y"
+        mer5.numberAccomplished = 2
+        mer5.crewLine = crewLine31
+        
+        let mer6 = MissionEventRecord(context: viewContext)
+        mer6.eventID = "AL01Y"
+        mer6.numberAccomplished = 2
+        mer6.crewLine = crewLine31
+        
+        let mer7 = MissionEventRecord(context: viewContext)
+        mer7.eventID = "AP33Y"
+        mer7.numberAccomplished = 1
+        mer7.crewLine = crewLine31
+        
+        let crewLine32 = CrewLine(context: viewContext)
+        crewLine32.sortie = sortie3
+        crewLine32.flightAuthDutyCode = "FPCC"
+        crewLine32.person = degrasio
+        crewLine32.flightTime.primary = 1.0
+        crewLine32.flightTime.secondary = 0.2
+        crewLine32.flightConditions.night = 0
+        crewLine32.flightConditions.instruments = 1.0
+        
+        let crewLine33 = CrewLine(context: viewContext)
+        crewLine33.sortie = sortie3
+        crewLine33.flightAuthDutyCode = "ML2C"
+        crewLine33.person = cooperstan
+        crewLine33.flightTime.primary = 1.2
+        
+        let sortie4                 = Sortie(context: viewContext)
+        sortie4.serialNumber        = serial
+        sortie4.mds                 = mds
+        sortie4.takeoffICAO         = "KNFW"
+        sortie4.landICAO            = "KMFE"
+        sortie4.takeoffTime         = formatter.date(from: "19:55 - 20 FEB 2021")
+        sortie4.landTime            = formatter.date(from: "21:10 - 20 FEB 2021")
+        sortie4.missionSymbol       = missionSymbol
+        sortie4.unitCharged         = unitCharged
+        sortie4.harmLocation        = harmLocation
+        sortie4.missionNumber       = "AMZJ101CH051"
+        sortie4.event               = event
+        sortie4.numFullStop         = 1
+        sortie4.specialUse          = "1"
+        sortie4.issuingUnit         = issuingUnit
+        sortie4.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine41 = CrewLine(context: viewContext)
+        crewLine41.sortie = sortie4
+        crewLine41.flightAuthDutyCode = "FPB"
+        crewLine41.person = brechbart
+        crewLine41.flightTime.instructor = 1.3
+        crewLine41.flightConditions.night = 0
+        crewLine41.flightConditions.instruments = 0.0
+        
+        let crewLine42 = CrewLine(context: viewContext)
+        crewLine42.sortie = sortie4
+        crewLine42.flightAuthDutyCode = "FPCC"
+        crewLine42.person = degrasio
+        crewLine42.flightTime.primary = 1.0
+        crewLine42.flightTime.secondary = 0.3
+        crewLine42.flightConditions.night = 0
+        crewLine42.flightConditions.instruments = 0.0
+        
+        let crewLine43 = CrewLine(context: viewContext)
+        crewLine43.sortie = sortie4
+        crewLine43.flightAuthDutyCode = "ML2C"
+        crewLine43.person = cooperstan
+        crewLine43.flightTime.primary = 1.3
+        
+        let sortie5                 = Sortie(context: viewContext)
+        sortie5.serialNumber        = serial
+        sortie5.mds                 = mds
+        sortie5.takeoffICAO         = "KMFE"
+        sortie5.landICAO            = "KNFW"
+        sortie5.takeoffTime         = formatter.date(from: "01:35 - 21 FEB 2021")
+        sortie5.landTime            = formatter.date(from: "02:50 - 21 FEB 2021")
+        sortie5.missionSymbol       = missionSymbol
+        sortie5.unitCharged         = unitCharged
+        sortie5.harmLocation        = harmLocation
+        sortie5.missionNumber       = "AJZJ1030H051"
+        sortie5.event               = event
+        sortie5.numFullStop         = 1
+        sortie5.specialUse          = "1"
+        sortie5.issuingUnit         = issuingUnit
+        sortie5.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine51 = CrewLine(context: viewContext)
+        crewLine51.sortie = sortie5
+        crewLine51.flightAuthDutyCode = "FPB"
+        crewLine51.person = brechbart
+        crewLine51.flightTime.instructor = 1.3
+        crewLine51.flightConditions.night = 1.0
+        crewLine51.flightConditions.instruments = 1.0
+        
+        let crewLine52 = CrewLine(context: viewContext)
+        crewLine52.sortie = sortie5
+        crewLine52.flightAuthDutyCode = "FPCC"
+        crewLine52.person = degrasio
+        crewLine52.flightTime.primary = 1.3
+        crewLine52.flightTime.secondary = 0.0
+        crewLine52.flightConditions.night = 1.0
+        crewLine52.flightConditions.instruments = 1.0
+        
+        let crewLine53 = CrewLine(context: viewContext)
+        crewLine53.sortie = sortie5
+        crewLine53.flightAuthDutyCode = "ML2C"
+        crewLine53.person = cooperstan
+        crewLine53.flightTime.primary = 1.3
+        
+        let sortie6                 = Sortie(context: viewContext)
+        sortie6.serialNumber        = serial
+        sortie6.mds                 = mds
+        sortie6.takeoffICAO         = "KNFW"
+        sortie6.landICAO            = "KEFD"
+        sortie6.takeoffTime         = formatter.date(from: "21:26 - 21 FEB 2021")
+        sortie6.landTime            = formatter.date(from: "22:30 - 21 FEB 2021")
+        sortie6.missionSymbol       = missionSymbol
+        sortie6.unitCharged         = unitCharged
+        sortie6.harmLocation        = harmLocation
+        sortie6.missionNumber       = "AJZJ1030H051"
+        sortie6.event               = event
+        sortie6.numFullStop         = 1
+        sortie6.specialUse          = "1"
+        sortie6.issuingUnit         = issuingUnit
+        sortie6.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine61 = CrewLine(context: viewContext)
+        crewLine61.sortie = sortie6
+        crewLine61.flightAuthDutyCode = "FPB"
+        crewLine61.person = brechbart
+        crewLine61.flightTime.instructor = 1.1
+        crewLine61.flightConditions.night = 0.0
+        crewLine61.flightConditions.instruments = 1.0
+        
+        let crewLine62 = CrewLine(context: viewContext)
+        crewLine62.sortie = sortie6
+        crewLine62.flightAuthDutyCode = "FPCC"
+        crewLine62.person = degrasio
+        crewLine62.flightTime.primary = 1.1
+        crewLine62.flightTime.secondary = 0.0
+        crewLine62.flightConditions.night = 0.0
+        crewLine62.flightConditions.instruments = 1.0
+        
+        let crewLine63 = CrewLine(context: viewContext)
+        crewLine63.sortie = sortie6
+        crewLine63.flightAuthDutyCode = "ML2C"
+        crewLine63.person = cooperstan
+        crewLine63.flightTime.primary = 1.1
+        
+        let sortie7                 = Sortie(context: viewContext)
+        sortie7.serialNumber        = serial
+        sortie7.mds                 = mds
+        sortie7.takeoffICAO         = "KEFD"
+        sortie7.landICAO            = "KCHS"
+        sortie7.takeoffTime         = formatter.date(from: "02:25 - 22 FEB 2021")
+        sortie7.landTime            = formatter.date(from: "04:15 - 22 FEB 2021")
+        sortie7.missionSymbol       = missionSymbol
+        sortie7.unitCharged         = unitCharged
+        sortie7.harmLocation        = harmLocation
+        sortie7.missionNumber       = "AMZJ1030H052"
+        sortie7.event               = event
+        sortie7.numFullStop         = 1
+        sortie7.specialUse          = "1"
+        sortie7.issuingUnit         = issuingUnit
+        sortie7.flightAuthNumber    = flightAuthNumber
+        
+        let crewLine71 = CrewLine(context: viewContext)
+        crewLine71.sortie = sortie7
+        crewLine71.flightAuthDutyCode = "FPB"
+        crewLine71.person = brechbart
+        crewLine71.flightTime.instructor = 1.8
+        crewLine71.flightConditions.night = 0.0
+        crewLine71.flightConditions.instruments = 0
+        
+        let crewLine72 = CrewLine(context: viewContext)
+        crewLine72.sortie = sortie7
+        crewLine72.flightAuthDutyCode = "FPCC"
+        crewLine72.person = degrasio
+        crewLine72.flightTime.primary = 1.8
+        crewLine72.flightTime.secondary = 0.0
+        crewLine72.flightConditions.night = 0.0
+        crewLine72.flightConditions.instruments = 0
+        
+        let crewLine73 = CrewLine(context: viewContext)
+        crewLine73.sortie = sortie7
+        crewLine73.flightAuthDutyCode = "ML2C"
+        crewLine73.person = cooperstan
+        crewLine73.flightTime.primary = 1.8
+        
+        for sortie in event.sorties {
+            for crewLine in sortie.crewLines{
+                crewLine.flyingOrganization = "0016"
+            }
+        }
+    
+    }
     static func loadMosherForm(viewContext: NSManagedObjectContext) {
 
         let formatter = DateFormatter()
@@ -195,7 +546,7 @@ enum SampleData {
 
         let event = Event(context: viewContext)
         event.name = "Exercise Scorpion"
-        event.summary = "Drop USAF personnel at North Auxillary Airfield and return."
+        event.summary = "Drop USAF personnel at North Auxiliary Airfield and return."
 
         let sortie1                 = Sortie(context: viewContext)
         sortie1.serialNumber        = "01-0193"
@@ -416,6 +767,7 @@ enum SampleData {
             met.simEventID = item.1
             met.realEventID = item.0
         }
+        
         try! context.save()
     }
 }
@@ -431,6 +783,7 @@ extension UIWindow {
              }
             sceneDelegate.dataController.deleteAllEvents()
             sceneDelegate.dataController.save()
+            SampleData.loadFEMAMission(viewContext: sceneDelegate.dataController.container.viewContext)
             SampleData.loadMosherForm(viewContext: sceneDelegate.dataController.container.viewContext)
             SampleData.loadMockData1(viewContext: sceneDelegate.dataController.container.viewContext)
         }
