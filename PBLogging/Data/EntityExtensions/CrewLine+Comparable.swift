@@ -8,9 +8,39 @@
 extension CrewLine: Comparable {
 
     public static func < (lhs: CrewLine, rhs: CrewLine) -> Bool {
+        return dutyCodeLessThan(DutyCodeCompInfo(lhs), DutyCodeCompInfo(rhs))
+    }
 
+    public struct DutyCodeCompInfo {
+        var flightAuthDutyCode: String
+        var lastName: String
+        var firstName: String
+        var ssanLast4: String
+
+        init(_ airCrew: AircrewData) {
+            flightAuthDutyCode = airCrew.flightAuthDutyCode
+            lastName = airCrew.lastName
+            firstName = airCrew.firstName
+            ssanLast4 = airCrew.ssanLast4
+        }
+
+        init(_ crewLine: CrewLine) {
+            flightAuthDutyCode = crewLine.flightAuthDutyCode
+            lastName = crewLine.person.lastName
+            firstName = crewLine.person.firstName
+            ssanLast4 = crewLine.person.last4
+        }
+    }
+
+    public static func dutyCodeLessThan(_ lhs: DutyCodeCompInfo, _ rhs: DutyCodeCompInfo) -> Bool {
         if lhs.flightAuthDutyCode == rhs.flightAuthDutyCode {
-            return compareNames(lhs: lhs, rhs: rhs)
+            if lhs.lastName != rhs.lastName {
+                return lhs.lastName < rhs.lastName
+            }
+            if lhs.firstName != rhs.firstName {
+                return lhs.firstName < rhs.firstName
+            }
+            return lhs.ssanLast4 < rhs.ssanLast4
         }
 
         guard lhs.flightAuthDutyCode.count >= 2 else { return false }
@@ -24,7 +54,16 @@ extension CrewLine: Comparable {
 
         if lhsDutyPos == rhsDutyPos { // e.g. P for Pilot and P for Pilot
             if lhsCharacters[0] != rhsCharacters[0] { //Not Same role and position ( e.g Evaluator Pilots (EP and EP)
-                return compareStatus(lhs: lhs, rhs: rhs)
+                // They are both pilots "P" or both loadmasters "L" or both the same whatever else
+                let lhsEIM = String(lhsCharacters[0])
+                let rhsEIM = String(rhsCharacters[0])
+
+                // Priority is 'E'valuator, 'I'nstructor, and 'M'ission
+                // thus alphabetical
+                let priorities = ["E": 0, "I": 1, "M": 2, "F": 3, "U": 4, "S": 5, "O": 6, "X": 7, "Z": 8]
+                guard let lPriorty = priorities[lhsEIM] else { return false }
+                guard let rPriorty = priorities[rhsEIM] else { return true }
+                return lPriorty < rPriorty
             }
         }
 
@@ -37,35 +76,5 @@ extension CrewLine: Comparable {
 
         // Then whoever else
         return lhsDutyPos <= rhsDutyPos
-
-    }
-
-    public static func compareNames (lhs: CrewLine, rhs: CrewLine) -> Bool {
-        // same duty codes compare last names
-        if lhs.person.lastName != rhs.person.lastName {
-            return lhs.person.lastName < rhs.person.lastName
-        }
-        // same duty codes and same last name
-        if lhs.person.firstName != rhs.person.firstName {
-            return lhs.person.firstName < rhs.person.firstName
-        }
-        // same duty codes, same last name, same first name
-        return lhs.person.last4 < rhs.person.last4
-    }
-
-    public static func compareStatus (lhs: CrewLine, rhs: CrewLine) -> Bool {
-
-        let lhsCharacters = Array(lhs.flightAuthDutyCode)
-        let rhsCharacters = Array(rhs.flightAuthDutyCode)
-        // They are both pilots "P" or both loadmasters "L" or both the same whatever else
-        let lhsEIM = String(lhsCharacters[0])
-        let rhsEIM = String(rhsCharacters[0])
-
-        // Priority is 'E'valuator, 'I'nstructor, and 'M'ission
-        // thus alphabetical
-        let priorities = ["E": 0, "I": 1, "M": 2, "F": 3, "U": 4, "S": 5, "O": 6, "X": 7, "Z": 8]
-        guard let lPriorty = priorities[lhsEIM] else { return false }
-        guard let rPriorty = priorities[rhsEIM] else { return true }
-        return lPriorty < rPriorty
     }
 }
