@@ -17,12 +17,12 @@ struct FlightTimeView: View {
         VStack(alignment: .leading) {
             header
             flightTableView
-            HStack{
+            HStack {
                 loadmasterStepper
                 Spacer()
             }
-           
-        }.padding()
+        }
+        .padding()
     }
     
     var header: some View {
@@ -31,7 +31,8 @@ struct FlightTimeView: View {
                 .fontSectionHeading()
             Spacer()
             splitTimeButton
-        }.padding()
+        }
+        .padding()
     }
     
     var splitTimeButton: some View {
@@ -50,7 +51,6 @@ struct FlightTimeView: View {
     
     var loadmasterStepper: some View {
         HStack {
-       
             Text("How many loadmasters are required on this Sortie?")
                 .font(.pblBold(size: 17))
                 .foregroundColor(.pblForegroundSecondary)
@@ -81,11 +81,9 @@ struct FlightTimeView: View {
                 }
                 
                 FlightLabel(label: "PILOT TOTALS", backgroundColor: .pblForegroundPrimary, alignment: .leading, weight: .pblBold(size: 14))
-                
                 FlightLabel(label: "LASTNAME", alignment: .leading)
             }
             .frame(width: 200)
-            
             
             HStack {
                 VStack(spacing: 0) {
@@ -113,7 +111,6 @@ struct FlightTimeView: View {
                 FlightColumn(sortie: sortie, title: "OTHER")
                 FlightColumn(sortie: sortie, title: "TIME", backgroundColor: .pblBackgroundElevated)
             }
-            
         }
     }
 }

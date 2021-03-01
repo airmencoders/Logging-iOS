@@ -17,19 +17,18 @@ struct SortieFuelInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                .frame(width: 280)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
-
+                    .frame(width: 280)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(10)
+                
                 SortieFuelEditFields(sortie: sortie)
-                .frame(width: 86)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
+                    .frame(width: 86)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(10)
             }
-            
         }
-     }
-
+    }
+    
     func labels() -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("RAMP")

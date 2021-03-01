@@ -79,7 +79,6 @@ struct FlightConditionsView: View {
         }
         .padding()
     }
-    
 }
 
 struct FlightConditionsView_Previews: PreviewProvider {

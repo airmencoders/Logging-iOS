@@ -130,7 +130,6 @@ struct TrainingEventsView: View {
     func offsetChanged(point: CGPoint) {
         yOffset = point.y
         xOffset = point.x
-        print(point)
     }
 }
 
@@ -171,7 +170,6 @@ struct PersonTrainingColumn: View {
         VStack(spacing: 30) {
             ForEach(0..<itemArray.count){ count in
                 Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
-                //Divider()
             }
         }
         .onDisappear(){

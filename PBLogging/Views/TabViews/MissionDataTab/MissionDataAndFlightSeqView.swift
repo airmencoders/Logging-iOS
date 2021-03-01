@@ -43,7 +43,8 @@ struct MissionDataAndFlightSeqView: View {
             .padding()
             .background(Color.pblBackgroundDefault)
             .cornerRadius(10)
-        }.padding()
+        }
+        .padding()
     }
     
     var flightSeq: some View {
@@ -63,31 +64,30 @@ struct MissionDataAndFlightSeqView: View {
                 }
                 ThickDivider()
                     .background(icaoColor(for: sortie.landICAO))
-                ZStack (alignment: .topLeading){
+                ZStack(alignment: .topLeading) {
                     Text("TAKE OFF TIME")
                         .fontFormLabel()
-                    HStack{
+                    HStack {
                         Spacer()
                         OptionalDatePicker(date: $sortie.takeoffTime)
                     }
                 }
                 ThickDivider()
-                ZStack (alignment: .topLeading){
+                ZStack(alignment: .topLeading) {
                     Text("LAND TIME")
                         .fontFormLabel()
-                    HStack{
+                    HStack {
                         Spacer()
                         OptionalDatePicker(date: $sortie.landTime)
                     }
                 }
-               
-                
                 ThickDivider()
             }
             .padding()
             .background(Color.pblBackgroundDefault)
             .cornerRadius(10)
-        }.padding()
+        }
+        .padding()
     }
     
     func icaoColor(for icao: String) -> Color {
