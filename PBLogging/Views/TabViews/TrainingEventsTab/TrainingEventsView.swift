@@ -9,6 +9,19 @@ import SwiftUI
 
 struct TrainingEventsView: View {
     
+    private struct ScrollOffsetPreferenceKey: PreferenceKey {
+        static var defaultValue: CGPoint = .zero
+        static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
+    }
+    @State var xOffset: CGFloat = 0
+    @State var yOffset: CGFloat = 0
+    
+    let personColumnWidth: CGFloat = 120
+    let eventIDWidth: CGFloat = 250
+    let headerHeight: CGFloat = 32
+    let smallSpacing: CGFloat = 10
+    let largeSpacing: CGFloat = 50
+    
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
     
@@ -45,39 +58,81 @@ struct TrainingEventsView: View {
     }
     
     var body: some View {
-        VStack {
-            
-            HStack {
-                List {
-                    ForEach(missionEventTypes.wrappedValue) { met in
-                        VStack(alignment: .leading){
-                            Text("\(met.name)")
-                            Text("\(isSim ? met.simEventID : met.realEventID) ")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 8))
-                            
-                        }
-                         
-                    }
+        ZStack(alignment: .topLeading) {
+            VStack(spacing: smallSpacing) {
+                HStack(spacing: smallSpacing) {
+                    Rectangle()
+                        .frame(width: eventIDWidth)
+                        .foregroundColor(Color(UIColor.systemBackground))
                     
-                }
-                .frame(width: 240)
-                ScrollView([.horizontal], showsIndicators: true) {
-                    HStack{
-                        ForEach(sortie.crewLines) { crewLine in
-                             PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
-                                .frame(width:150)
+                    // Names
+                    ScrollView([]) {
+                        HStack(spacing: largeSpacing) {
+                            ForEach(sortie.crewLines) { crewLine in
+                                Text("\(crewLine.person.lastName)")
+                                    .frame(width: personColumnWidth)
+                            }
                         }
+                        .offset(x: xOffset - (eventIDWidth + smallSpacing))
                     }
-                 }
+                }
+                .frame(height: headerHeight)
+                
+                HStack(alignment: .top, spacing: smallSpacing) {
+                    
+                    // Events
+                    ScrollView([]) {
+                        VStack(alignment: .leading, spacing: 15) {
+                            ForEach(missionEventTypes.wrappedValue) { met in
+                                VStack(alignment: .leading){
+                                    Text("\(met.name)")
+                                        .padding(.leading)
+                                    Text("\(isSim ? met.simEventID : met.realEventID) ")
+                                        .foregroundColor(.gray)
+                                        .font(.system(size: 8))
+                                        .padding(.leading)
+                                    Divider()
+                                        .padding(.top, 8)
+                                }
+                            }
+                        }
+                        .offset(y: yOffset - (headerHeight + smallSpacing + 178))
+                    }
+                    .frame(width: eventIDWidth)
+                    
+                    // Stepper Grid
+                    ScrollView([.horizontal, .vertical], showsIndicators: true) {
+                        HStack(spacing: largeSpacing) {
+                            ForEach(sortie.crewLines) { crewLine in
+                                PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
+                                    .frame(width: personColumnWidth)
+                            }
+                        }
+                        .background (
+                            GeometryReader {
+                                geometry in
+                                Color.clear
+                                    .preference(key: ScrollOffsetPreferenceKey.self,
+                                                value: geometry.frame(in: .named("scrollView")).origin
+                                    )
+                            }
+                        )
+                    }
+                    .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: offsetChanged)
+                }
             }
         }
         .onDisappear{
             dataController.save()
         }
     }
+    
+    func offsetChanged(point: CGPoint) {
+        yOffset = point.y
+        xOffset = point.x
+        print(point)
+    }
 }
-
 
 struct PersonTrainingColumn: View {
     
@@ -113,14 +168,11 @@ struct PersonTrainingColumn: View {
     }
     
     var body: some View{
-        VStack{
-            Text("\(crewLine.person.lastName)")
-            List{
-                ForEach(0..<itemArray.count){ count in
-                    Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
-                }
+        VStack(spacing: 30) {
+            ForEach(0..<itemArray.count){ count in
+                Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
+                //Divider()
             }
-           
         }
         .onDisappear(){
             saveMissionEventRecords()
@@ -139,9 +191,7 @@ struct PersonTrainingColumn: View {
                 missionEventRecord.crewLine = crewLine
             }
         }
-        
     }
-    
 }
 
 struct TrainingEventsView_Previews: PreviewProvider {
@@ -162,6 +212,5 @@ struct TrainingEventsView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
-       
     }
 }

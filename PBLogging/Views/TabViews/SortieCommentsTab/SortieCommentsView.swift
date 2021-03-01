@@ -15,10 +15,6 @@ struct SortieCommentsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             TextView(text: $sortie.comments)
-                .overlay(
-                    RoundedRectangle(cornerRadius:5.0)
-                        .strokeBorder(Color.gray, lineWidth: 2)
-                )
             Spacer()
         }
         .padding()
