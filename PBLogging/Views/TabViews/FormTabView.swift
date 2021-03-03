@@ -28,7 +28,6 @@ struct FormTabView: View {
                 .tag(3)
                 .tabItem { Text("Sortie Comments") }
         }
-        .onAppear{ UITabBar.appearance().barTintColor = .systemBackground }
         .navigationBarTitle(Text(titles[selectedTab]))
     }
 }

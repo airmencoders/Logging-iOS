@@ -17,9 +17,9 @@ struct TrainingEventsView: View {
     @State var yOffset: CGFloat = 0
     
     let personColumnWidth: CGFloat = 120
-    let eventIDWidth: CGFloat = 250
+    let eventIDWidth: CGFloat = 300
     let headerHeight: CGFloat = 32
-    let smallSpacing: CGFloat = 10
+    let smallSpacing: CGFloat = 15
     let largeSpacing: CGFloat = 50
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -70,6 +70,7 @@ struct TrainingEventsView: View {
                         HStack(spacing: largeSpacing) {
                             ForEach(sortie.crewLines) { crewLine in
                                 Text("\(crewLine.person.lastName)")
+                                    .bold()
                                     .frame(width: personColumnWidth)
                             }
                         }
@@ -86,17 +87,19 @@ struct TrainingEventsView: View {
                             ForEach(missionEventTypes.wrappedValue) { met in
                                 VStack(alignment: .leading){
                                     Text("\(met.name)")
+                                        .bold()
                                         .padding(.leading)
+                                        .foregroundColor(.pblForegroundSecondary)
                                     Text("\(isSim ? met.simEventID : met.realEventID) ")
-                                        .foregroundColor(.gray)
-                                        .font(.system(size: 8))
+                                        .bold()
                                         .padding(.leading)
+                                        .foregroundColor(.pblForegroundPrimary)
                                     Divider()
                                         .padding(.top, 8)
                                 }
                             }
                         }
-                        .offset(y: yOffset - (headerHeight + smallSpacing + 178))
+                        .offset(y: yOffset - (headerHeight + smallSpacing + 180))
                     }
                     .frame(width: eventIDWidth)
                     
@@ -167,7 +170,7 @@ struct PersonTrainingColumn: View {
     }
     
     var body: some View{
-        VStack(spacing: 30) {
+        VStack(spacing: 40.5) {
             ForEach(0..<itemArray.count){ count in
                 Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
             }
