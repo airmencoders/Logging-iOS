@@ -11,7 +11,7 @@ struct SortieCard: View {
     
     @ObservedObject var sortie: Sortie
     
-   var body: some View {
+    var body: some View {
         NavigationLink(
             destination: FormTabView(sortie: sortie),
             label: {
@@ -21,13 +21,11 @@ struct SortieCard: View {
                 }
                 .frame(height:240)
                 .foregroundColor(Color.pblForegroundSecondary)
-                .cornerRadius(10)
-                    
-                   
+                .cornerRadius(.pblCornerRadius)
             })
             .padding(.trailing)
             .background(Color.pblBackgroundDefault)
-            .cornerRadius(10)
+            .cornerRadius(.pblCornerRadius)
     }
     
     var SortieContents: some View {
@@ -37,7 +35,7 @@ struct SortieCard: View {
         }
         .frame(height: 240)
         .foregroundColor(Color.pblForegroundSecondary)
-        .cornerRadius(10)
+        .cornerRadius(.pblCornerRadius)
     }
 }
 
@@ -130,7 +128,6 @@ private struct TextColumn: View {
 }
 
 struct SortieCard_Previews: PreviewProvider {
-    
     
     static var previews: some View {
         let sortie = SampleData.sortie

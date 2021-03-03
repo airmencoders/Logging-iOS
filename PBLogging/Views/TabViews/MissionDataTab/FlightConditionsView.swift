@@ -61,7 +61,7 @@ struct FlightConditionsView: View {
                 }
                 .frame(width: 50)
                 .background(Color.pblBackgroundDefault)
-                .cornerRadius(5)
+                .cornerRadius(.pblCornerRadius)
                 
                 FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)
                     .frame(width: 50)

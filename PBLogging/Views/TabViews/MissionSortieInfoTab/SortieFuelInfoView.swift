@@ -19,12 +19,12 @@ struct SortieFuelInfoView: View {
                 labels()
                     .frame(width: 280)
                     .background(Color.pblBackgroundDefault)
-                    .cornerRadius(10)
+                    .cornerRadius(.pblCornerRadius)
                 
                 SortieFuelEditFields(sortie: sortie)
                     .frame(width: 86)
                     .background(Color.pblBackgroundDefault)
-                    .cornerRadius(10)
+                    .cornerRadius(.pblCornerRadius)
             }
         }
     }

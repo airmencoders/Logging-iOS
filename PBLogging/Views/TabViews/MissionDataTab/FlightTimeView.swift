@@ -46,7 +46,7 @@ struct FlightTimeView: View {
         .padding()
         .foregroundColor(.pblBackgroundDefault)
         .background(Color.pblForegroundPrimary)
-        .cornerRadius(5)
+        .cornerRadius(.pblCornerRadius)
     }
     
     var loadmasterStepper: some View {
@@ -61,7 +61,7 @@ struct FlightTimeView: View {
                 .padding(.horizontal)
                 .frame(width:150)
                 .background(
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: .pblCornerRadius)
                         .stroke()
                 )
             Spacer()
@@ -102,7 +102,7 @@ struct FlightTimeView: View {
                 }
                 .frame(width: 96)
                 .background(Color.pblBackgroundDefault)
-                .cornerRadius(5)
+                .cornerRadius(.pblCornerRadius)
                 
                 FlightColumn(sortie: sortie, title: "PRIM")
                 FlightColumn(sortie: sortie, title: "SEC")

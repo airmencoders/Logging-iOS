@@ -16,11 +16,12 @@ struct TextAndIconButton: View {
     let action: () -> Void
 
     var body: some View {
-
         Button {
             action()
         } label: {
-            BoldText(text: text, size: CGFloat(size), color: color)
+            Text(text)
+                .font(.pblBold(size: size))
+                .foregroundColor(color)
             Image(systemName: icon)
                 .resizable()
                 .scaledToFit()

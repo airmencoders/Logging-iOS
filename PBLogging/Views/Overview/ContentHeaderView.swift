@@ -43,20 +43,18 @@ struct ContentHeaderView: View {
     var bugCollector: some View {
         ZStack(alignment: .trailing) {
             CollectorWebView()
-            
-            VStack{
-                Button{
+            VStack {
+                Button {
                     shouldShowCollector = false
                 } label: {
                     Image(systemName: "xmark.circle")
                         .font(.title)
                         .padding(.top, 12)
-                    
                 }
                 Spacer()
                 // invisible button to overlay the webform's close button
                 // dismisses the sheet view rather than doing nothing via the web page
-                Button{
+                Button {
                     shouldShowCollector = false
                 } label: {
                     Text("")
@@ -64,12 +62,10 @@ struct ContentHeaderView: View {
                         .background(Color.blue.opacity(0.0001))
                 }
             }
-            
         }
     }
     
     var actionSheet: ActionSheet {
-        
         ActionSheet(title: Text("Info"), message: Text("What would you like to do?"), buttons: [
             .default(Text("View Release Notes")){
                 openConfluenceInSafari()
@@ -79,7 +75,6 @@ struct ContentHeaderView: View {
             },
             .cancel()
         ])
-        
     }
     
     var shareButton: some View {
@@ -97,7 +92,7 @@ struct ContentHeaderView: View {
     }
     
     var infoButton: some View {
-        Button{
+        Button {
             shouldDisplayActionSheet.toggle()
         } label: {
             Image(systemName: "info.circle")
@@ -114,7 +109,6 @@ struct ContentHeaderView: View {
     }
     
     func openConfluenceInSafari() {
-        
         let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging")!
         UIApplication.shared.open(url)
     }

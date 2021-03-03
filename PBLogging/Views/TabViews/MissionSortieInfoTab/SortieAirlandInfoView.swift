@@ -17,14 +17,14 @@ struct SortieAirlandInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                .frame(width: 280)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
-
+                    .frame(width: 280)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(.pblCornerRadius)
+                
                 SortieAirlandEditFields(sortie: sortie)
-                .frame(width: 86)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
+                    .frame(width: 86)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(.pblCornerRadius)
             }
         }
     }

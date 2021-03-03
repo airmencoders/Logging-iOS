@@ -11,13 +11,12 @@ struct RecentSortiesList: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
-    
     @ObservedObject var event: Event
      
     var body: some View {
         VStack(spacing: 30) {
             List {
-                NavigationLink(destination: PDFPreviewView(event: event)){
+                NavigationLink(destination: PDFPreviewView(event: event)) {
                     Text("Generate 781s")
                 }
                 ForEach(event.sorties) { sortie in
@@ -26,23 +25,17 @@ struct RecentSortiesList: View {
                 }
             }
         }
-        
         .navigationBarTitle(Text(event.name))
         .navigationBarItems(trailing:
                                 HStack {
-                                    
                                     TextAndIconButton(text: "Add Sortie",
                                                       size: 24.0,
                                                       icon: "plus") {
-                                        withAnimation{
+                                        withAnimation {
                                             addSortie()
                                         }
-                                        
                                     }
                                     .accessibility(identifier: "addSortieButton")
-                                    
-                                    
-                                    
                                 })
     }
     

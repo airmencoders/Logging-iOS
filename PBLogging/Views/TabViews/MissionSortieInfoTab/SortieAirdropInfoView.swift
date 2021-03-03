@@ -17,14 +17,14 @@ struct SortieAirdropInfoView: View {
                 .fontFormLabel()
             HStack(alignment: .firstTextBaseline) {
                 labels()
-                .frame(width: 280)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
-
+                    .frame(width: 280)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(.pblCornerRadius)
+                
                 SortieAirdropEditFields(sortie: sortie)
-                .frame(width: 86)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(10)
+                    .frame(width: 86)
+                    .background(Color.pblBackgroundDefault)
+                    .cornerRadius(.pblCornerRadius)
             }
         }
         .padding()
@@ -50,6 +50,7 @@ struct SortieAirdropInfoView: View {
 }
 
 struct SortieAirdropEditFields: View {
+    
     @ObservedObject var sortie: Sortie
     @ObservedObject var metrics: Metrics
     @State var airdropWeight: String

@@ -38,11 +38,11 @@
 		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
 		7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E513025E0584800B59CBF /* Binding+OnChange.swift */; };
 		7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB925E062EB00821D5D /* ThickDivider.swift */; };
+		7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
 		7F83DAB225A4C2EF00D5860C /* TextAndIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */; };
-		7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83DABE25A4C44A00D5860C /* BoldText.swift */; };
 		7FB30E1F25D1CCF700797B4A /* FormTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB30E1E25D1CCF700797B4A /* FormTabView.swift */; };
 		7FB30E3525D44A0700797B4A /* MissionDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB30E3425D44A0700797B4A /* MissionDataView.swift */; };
 		7FB30E4525D483FD00797B4A /* MissionDataAndFlightSeqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */; };
@@ -162,11 +162,11 @@
 		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
 		7F3E513025E0584800B59CBF /* Binding+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+OnChange.swift"; sourceTree = "<group>"; };
 		7F510EB925E062EB00821D5D /* ThickDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDivider.swift; sourceTree = "<group>"; };
+		7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndIconButton.swift; sourceTree = "<group>"; };
-		7F83DABE25A4C44A00D5860C /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		7FB30E1E25D1CCF700797B4A /* FormTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTabView.swift; sourceTree = "<group>"; };
 		7FB30E3425D44A0700797B4A /* MissionDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataView.swift; sourceTree = "<group>"; };
 		7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataAndFlightSeqView.swift; sourceTree = "<group>"; };
@@ -290,7 +290,6 @@
 		4DBDD02E25B790AC00C7C3DB /* UtilityViews */ = {
 			isa = PBXGroup;
 			children = (
-				7F83DABE25A4C44A00D5860C /* BoldText.swift */,
 				BFDB3C7225DF5C67000A16ED /* CollectorWebView.swift */,
 				BFCCCDF025E82387004E0AB8 /* PDFPreviewView.swift */,
 				7F83DAB125A4C2EF00D5860C /* TextAndIconButton.swift */,
@@ -546,6 +545,7 @@
 				BF634B1C25AD170A00BE6425 /* UIDevice+Ext.swift */,
 				7F3E513025E0584800B59CBF /* Binding+OnChange.swift */,
 				4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */,
+				7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -767,6 +767,7 @@
 				BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */,
 				4D8A7E0525E9A5EE00C70D7E /* View+Ext.swift in Sources */,
 				4DCD42B725DCA29B00EB6FF3 /* SortieCard.swift in Sources */,
+				7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */,
 				BFEB672C25E5DBAF00980700 /* MissionEventTypes+CoreDataClass.swift in Sources */,
 				BFDD329425A4FE83000FE732 /* Color+PBLStyle.swift in Sources */,
 				4DE7A98925E8321E00FD03D2 /* FatalErrorUtil.swift in Sources */,
@@ -775,7 +776,6 @@
 				4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */,
-				7F83DABF25A4C44A00D5860C /* BoldText.swift in Sources */,
 				BFEB672D25E5DBAF00980700 /* MissionEventTypes+CoreDataProperties.swift in Sources */,
 				BFEB676025E5E0E900980700 /* Event+CoreDataClass.swift in Sources */,
 				BF634B1E25AD170A00BE6425 /* UIDevice+Ext.swift in Sources */,

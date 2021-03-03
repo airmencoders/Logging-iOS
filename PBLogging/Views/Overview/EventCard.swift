@@ -24,7 +24,7 @@ struct EventCard: View {
         .padding()
         .background(Color.pblBackgroundDefault)
         .foregroundColor(Color.pblForegroundSecondary)
-        .cornerRadius(10)
+        .cornerRadius(.pblCornerRadius)
     }
 
     struct EventLabel: View {
@@ -37,7 +37,7 @@ struct EventCard: View {
                     .font(.pblBold(size: 18))
                 Text(event.summary)
                     .font(.pblRegular(size: 16))
-           }
+            }
             .padding(.leading)
             .foregroundColor(Color.pblForegroundSecondary)
         }

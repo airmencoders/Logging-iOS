@@ -40,7 +40,7 @@ struct MissionDataView: View {
                 .padding(.leading)
             TextView(text: $sortie.comments)
                 .frame(height: 100)
-                .cornerRadius(5)
+                .cornerRadius(.pblCornerRadius)
                 .padding([.leading,.trailing])
         }
     }

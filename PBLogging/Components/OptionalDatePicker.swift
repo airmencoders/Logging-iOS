@@ -33,7 +33,7 @@ struct OptionalDatePicker: View {
                 .frame(width:190)
                 .frame(height:32)
                 .background(
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: .pblCornerRadius)
                         .foregroundColor(Color(UIColor.systemGray4))
                         .opacity(date == nil ? 1.0 : 0.0)
                 )

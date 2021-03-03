@@ -29,9 +29,9 @@ enum AppleDevices {
     static let iPhone12Pro      = AppleDevice(previewName: "iPhone 12 Pro",                         displayName: "iPhone 12 Pro",       resolution: CGSize(width: 2532, height: 1170))
     static let iPhone12ProMax   = AppleDevice(previewName: "iPhone 12 Pro Max",                     displayName: "iPhone 12 Pro Max",   resolution: CGSize(width: 2778, height: 1284))
     static let iPhoneSE2        = AppleDevice(previewName: "iPhone SE (2nd generation)",            displayName: " iPhone SE 2",        resolution: CGSize(width: 1334, height: 750))
-    
 }
-struct DeviceMod: ViewModifier{
+
+struct DeviceMod: ViewModifier {
     var device: AppleDevice
     var isDark = true
     func body(content: Content) -> some View {
@@ -41,6 +41,7 @@ struct DeviceMod: ViewModifier{
             .previewDisplayName(device.fullStringName(isDark: isDark))
     }
 }
+
 /// Provides easy modifiers for canvas previews
 /// usage:
 /// View().iPadPro9_7(isDark: true)
@@ -79,17 +80,14 @@ extension View {
     func iPhoneSE2(isDark: Bool) -> some View {
         self.modifier(DeviceMod(device: AppleDevices.iPhoneSE2, isDark: isDark))
     }
-    
- 
 }
+
 /// See: https://www.swiftbysundell.com/articles/getting-the-most-out-of-xcode-previews/
 /// Allows to use .mock(value) in previews instead of .constant
-/// Mocked values can be changed in the live prevew
+/// Mocked values can be changed in the live preview
 extension Binding {
     static func mock(_ value: Value) -> Self {
         var value = value
         return Binding(get: { value }, set: { value = $0 })
     }
 }
-
- 

@@ -11,7 +11,7 @@ struct PBLToggleStyleChip: ToggleStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         ZStack(alignment: .center) {
-            RoundedRectangle(cornerRadius: 10.0)
+            RoundedRectangle(cornerRadius: .pblCornerRadius)
                 .frame(height: 40)
                 .foregroundColor(configuration.isOn ? Color.pblForegroundPrimary : .pblBackgroundDefault)
                 .overlay(

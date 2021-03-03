@@ -72,7 +72,7 @@ struct AircrewListView: View {
         }
         .padding()
         .background(Color.pblBackgroundDefault)
-        .cornerRadius(10)
+        .cornerRadius(.pblCornerRadius)
         .padding()
     }
     
