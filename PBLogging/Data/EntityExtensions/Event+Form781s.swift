@@ -7,98 +7,97 @@
 
 import Foundation
 import PDFKit
+
 extension Event {
-    
+
     func groupSorties(from event: Event) -> [[Sortie]] {
-        
+
         var currentDateComponents = Calendar.current.dateComponents([.day, .year], from: Date(timeIntervalSince1970: 0))
         var currentSerial = "d1ceaa8f-3993-4491-94d7-f135aeeb280d"
         var sortieGroups = [[Sortie]]()
         var groupCount = -1
         var sortieCount = 0
-        
+
         for sortie in event.sorties {
-            
+
             sortieCount += 1
-            
+
             guard let sortieTakeoffTime = sortie.takeoffTime else { break }
-            
+
             let sortieDateComponents = Calendar.current.dateComponents([.day, .year], from: sortieTakeoffTime)
-            
+
             var startNewGroup = false
-            
+
             if sortieDateComponents.day != currentDateComponents.day || sortieDateComponents.year != currentDateComponents.year {
                 currentDateComponents = sortieDateComponents
                 startNewGroup = true
             }
-            
+
             if sortie.serialNumber != currentSerial {
                 currentSerial = sortie.serialNumber
                 startNewGroup = true
             }
-            
+
             if sortieCount == 5 {
                 startNewGroup = true
             }
-            
+
             if startNewGroup{
                 sortieCount = 0
                 groupCount += 1
                 sortieGroups.append([Sortie]())
             }
-            
+
             sortieGroups[groupCount].append(sortie)
         }
-        
+
         return sortieGroups
-        
     }
     
-    
-    
     func generateMultiple781s() -> [Form781] {
-        
+
         let groupedSorties = groupSorties(from: self)
-        
+
         var form781s = [Form781]()
-        
+
         for sorties in groupedSorties{
             let newForm781 = createForm781(from: sorties)
             form781s.append(newForm781)
         }
+
         return form781s
     }
-    
+
     func createForm781(from sorties: [Sortie]) -> Form781 {
-        
+
         // pull the crew from the first sortie
         // no... cause they might pick up someone on a leg and drop them off somewhere else
         // need to check all sorties and collect all people
         var form = Form781()
         form.aircrewData = [AircrewData]()
-        
-        for sortie in sorties{
-            
+
+        for sortie in sorties {
+
             form.serialNumber = sortie.serialNumber
             form.date = sortie.takeoffTime
             form.harmLocation = sortie.harmLocation
             form.mds = sortie.mds
             form.unitCharged = sortie.unitCharged
-            
+
             var flight = Flight()
             flight.missionNumber = sortie.missionNumber
             flight.missionSymbol = sortie.missionSymbol
-            flight.fromICAO = sortie.takeoffICAO
-            flight.toICAO = sortie.landICAO
-            
-            flight.fullStop = sortie.numFullStop
-            flight.touchAndGo = sortie.numTouchAndGoes
+            flight.takeoffICAO = sortie.takeoffICAO
+            flight.landICAO = sortie.landICAO
+
+            flight.numFullStop = sortie.numFullStop
+            flight.numTouchAndGoes = sortie.numTouchAndGoes
             form.grandTotalFullStop += sortie.numFullStop
             form.grandTotalTouchAndGo += sortie.numTouchAndGoes
-            
+
             flight.takeOffTime = sortie.takeoffTime
             flight.landTime = sortie.landTime
-            
+
             if let totalTime = sortie.calculatedTotalFlightTimeFor781 {
                 flight.totalTime = totalTime
                 form.grandTotalTime += totalTime
@@ -106,24 +105,24 @@ extension Event {
             flight.sorties = 1
             form.grandTotalSorties += 1
             flight.specialUse = sortie.specialUse
-            
+
             form.flights.append(flight)
-            
+
             for crewLine in sortie.crewLines{
                 var tempAC = AircrewData()
                 tempAC.id = crewLine.person.id
                 
-                tempAC.lastName             = crewLine.person.lastName
-                tempAC.ssanLast4            = crewLine.person.last4
+                tempAC.personLastName       = crewLine.person.lastName
+                tempAC.personLast4          = crewLine.person.last4
                 tempAC.flightAuthDutyCode   = crewLine.flightAuthDutyCode
-                tempAC.ftPrimary            = crewLine.flightTime.primary
-                tempAC.ftSecondary          = crewLine.flightTime.secondary
-                tempAC.ftInstructor         = crewLine.flightTime.instructor
-                tempAC.ftEvaluator          = crewLine.flightTime.evaluator
+                tempAC.flightTimePrimary    = crewLine.flightTime.primary
+                tempAC.flightTimeSecondary  = crewLine.flightTime.secondary
+                tempAC.flightTimeInstructor = crewLine.flightTime.instructor
+                tempAC.flightTimeEvaluator  = crewLine.flightTime.evaluator
                 
-                tempAC.fcInstruments = crewLine.flightConditions.instruments
-                tempAC.fcNVG = crewLine.flightConditions.nvg
-                tempAC.fcNight = crewLine.flightConditions.night
+                tempAC.flightConditionsInstruments = crewLine.flightConditions.instruments
+                tempAC.flightConditionsNVG         = crewLine.flightConditions.nvg
+                tempAC.flightConditionsNight       = crewLine.flightConditions.night
                 
                 tempAC.flyingOrganization = crewLine.flyingOrganization
                 
@@ -153,25 +152,25 @@ extension Event {
             var uniquePerson = AircrewData()
             uniquePerson.id = id
             
-            for crewLine in form.aircrewData{
+            for crewLine in form.aircrewData {
                 if crewLine.id == uniquePerson.id {
-                    uniquePerson.flightAuthDutyCode = crewLine.flightAuthDutyCode
-                    uniquePerson.lastName = crewLine.lastName
-                    uniquePerson.ssanLast4 = crewLine.ssanLast4
-                    uniquePerson.ftPrimary += crewLine.ftPrimary
-                    uniquePerson.ftSecondary += crewLine.ftSecondary
-                    uniquePerson.ftOther += crewLine.ftOther
-                    uniquePerson.ftEvaluator += crewLine.ftEvaluator
-                    uniquePerson.ftTotalSorties += crewLine.ftTotalSorties
-                    uniquePerson.ftTotalTime += crewLine.ftTotalTime
-                    uniquePerson.ftInstructor += crewLine.ftInstructor
-                    uniquePerson.ftEvaluator += crewLine.ftEvaluator
-                    uniquePerson.fcNight += crewLine.fcNight
-                    uniquePerson.fcNVG += crewLine.fcNVG
-                    uniquePerson.fcCombatTime += crewLine.fcCombatTime
-                    uniquePerson.fcInstruments += crewLine.fcInstruments
-                    uniquePerson.fcSimInstruments += crewLine.fcSimInstruments
-                    uniquePerson.flyingOrganization = crewLine.flyingOrganization
+                    uniquePerson.flightAuthDutyCode              = crewLine.flightAuthDutyCode
+                    uniquePerson.personLastName                  = crewLine.personLastName
+                    uniquePerson.personLast4                     = crewLine.personLast4
+                    uniquePerson.flightTimePrimary              += crewLine.flightTimePrimary
+                    uniquePerson.flightTimeSecondary            += crewLine.flightTimeSecondary
+                    uniquePerson.flightTimeOther                += crewLine.flightTimeOther
+                    uniquePerson.flightTimeEvaluator            += crewLine.flightTimeEvaluator
+                    uniquePerson.flightTimeTotalSorties         += crewLine.flightTimeTotalSorties
+                    uniquePerson.flightTimeTotalTime            += crewLine.flightTimeTotalTime
+                    uniquePerson.flightTimeInstructor           += crewLine.flightTimeInstructor
+                    uniquePerson.flightTimeEvaluator            += crewLine.flightTimeEvaluator
+                    uniquePerson.flightConditionsNight          += crewLine.flightConditionsNight
+                    uniquePerson.flightConditionsNVG            += crewLine.flightConditionsNVG
+                    uniquePerson.flightConditionsCombatTime     += crewLine.flightConditionsCombatTime
+                    uniquePerson.flightConditionsInstruments    += crewLine.flightConditionsInstruments
+                    uniquePerson.flightConditionsSimInstruments += crewLine.flightConditionsSimInstruments
+                    uniquePerson.flyingOrganization              = crewLine.flyingOrganization
                 }
             }
             newAircrew.append(uniquePerson)
@@ -254,8 +253,8 @@ extension Event {
                     
                     page0?.annotation(at: page0dict["mission_number_\(i)"]!)?   .setText(form.flights[i].missionNumber)
                     page0?.annotation(at: page0dict["mission_symbol_\(i)"]!)?   .setText(form.flights[i].missionSymbol)
-                    page0?.annotation(at: page0dict["from_icao_\(i)"]!)?        .setText(form.flights[i].fromICAO)
-                    page0?.annotation(at: page0dict["to_icao_\(i)"]!)?          .setText(form.flights[i].toICAO)
+                    page0?.annotation(at: page0dict["from_icao_\(i)"]!)?        .setText(form.flights[i].takeoffICAO)
+                    page0?.annotation(at: page0dict["to_icao_\(i)"]!)?          .setText(form.flights[i].landICAO)
                     
                     //TODO: REPAIR THIS
                     page0?.annotation(at: page0dict["take_off_time_\(i)"]!)?    .setText(form.flights[i].takeOffTime?.string24HourTime() ?? "")
@@ -264,11 +263,11 @@ extension Event {
                     //let totalTimeString = self.flights[i].takeOffTime.stringDecimalHoursTill(date: self.flights[i].landTime)
                     
                     page0?.annotation(at: page0dict["total_time_\(i)"]!)?       .setText(form.flights[i].totalTime)
-                    page0?.annotation(at: page0dict["touch_go_\(i)"]!)?         .setText(form.flights[i].touchAndGo)
-                    page0?.annotation(at: page0dict["full_stop_\(i)"]!)?        .setText(form.flights[i].fullStop)
+                    page0?.annotation(at: page0dict["touch_go_\(i)"]!)?         .setText(form.flights[i].numTouchAndGoes)
+                    page0?.annotation(at: page0dict["full_stop_\(i)"]!)?        .setText(form.flights[i].numFullStop)
                     
-                    if let touchAndGo = form.flights[i].touchAndGo, let fullStop = form.flights[i].fullStop {
-                        page0?.annotation(at: page0dict["total_\(i)"]!)?            .setText(touchAndGo + fullStop)
+                    if let touchAndGo = form.flights[i].numTouchAndGoes, let fullStop = form.flights[i].numFullStop {
+                        page0?.annotation(at: page0dict["total_\(i)"]!)?        .setText(touchAndGo + fullStop)
                     }
                     
                     page0?.annotation(at: page0dict["sorties_\(i)"]!)?          .setText(form.flights[i].sorties)
@@ -280,26 +279,26 @@ extension Event {
                 //zeroeth to max on front page
                 for i in 0..<min(form.aircrewData.count, 15) {
                     page0?.annotation(at: page0dict["organization_\(i)"]!)?         .setText(form.aircrewData[i].flyingOrganization)
-                    page0?.annotation(at: page0dict["ssan_\(i)"]!)?                 .setText(form.aircrewData[i].ssanLast4)
-                    page0?.annotation(at: page0dict["last_name_\(i)"]!)?            .setText(form.aircrewData[i].lastName)
+                    page0?.annotation(at: page0dict["ssan_\(i)"]!)?                 .setText(form.aircrewData[i].personLast4)
+                    page0?.annotation(at: page0dict["last_name_\(i)"]!)?            .setText(form.aircrewData[i].personLastName)
                     page0?.annotation(at: page0dict["flight_auth_\(i)"]!)?          .setText(form.aircrewData[i].flightAuthDutyCode)
-                    page0?.annotation(at: page0dict["ft_prim_\(i)"]!)?              .setText(form.aircrewData[i].ftPrimary)
+                    page0?.annotation(at: page0dict["ft_prim_\(i)"]!)?              .setText(form.aircrewData[i].flightTimePrimary)
                     
-                    page0?.annotation(at: page0dict["ft_sec_\(i)"]!)?               .setText(form.aircrewData[i].ftSecondary)
+                    page0?.annotation(at: page0dict["ft_sec_\(i)"]!)?               .setText(form.aircrewData[i].flightTimeSecondary)
                     
-                    page0?.annotation(at: page0dict["ft_instr_\(i)"]!)?             .setText(form.aircrewData[i].ftInstructor)
-                    page0?.annotation(at: page0dict["ft_eval_\(i)"]!)?              .setText(form.aircrewData[i].ftEvaluator)
-                    page0?.annotation(at: page0dict["ft_other_\(i)"]!)?             .setText(form.aircrewData[i].ftOther)
-                    page0?.annotation(at: page0dict["ft_total_time_\(i)"]!)?        .setText(form.aircrewData[i].ftTotalTime)
-                    page0?.annotation(at: page0dict["ft_total_srty_\(i)"]!)?        .setText(form.aircrewData[i].ftTotalSorties)
-                    page0?.annotation(at: page0dict["fc_night_\(i)"]!)?             .setText(form.aircrewData[i].fcNight)
-                    page0?.annotation(at: page0dict["fc_ins_\(i)"]!)?               .setText(form.aircrewData[i].fcInstruments)
-                    page0?.annotation(at: page0dict["fc_sim_ins_\(i)"]!)?           .setText(form.aircrewData[i].fcSimInstruments)
-                    page0?.annotation(at: page0dict["fc_nvg_\(i)"]!)?               .setText(form.aircrewData[i].fcNVG)
-                    page0?.annotation(at: page0dict["fc_combat_time_\(i)"]!)?       .setText(form.aircrewData[i].fcCombatTime)
-                    page0?.annotation(at: page0dict["fc_combat_srty_\(i)"]!)?       .setText(form.aircrewData[i].fcCombatSorties)
-                    page0?.annotation(at: page0dict["fc_combat_spt_time_\(i)"]!)?   .setText(form.aircrewData[i].fcCombatSupportTime)
-                    page0?.annotation(at: page0dict["fc_combat_spt_srty_\(i)"]!)?   .setText(form.aircrewData[i].fcCombatSupportSorties)
+                    page0?.annotation(at: page0dict["ft_instr_\(i)"]!)?             .setText(form.aircrewData[i].flightTimeInstructor)
+                    page0?.annotation(at: page0dict["ft_eval_\(i)"]!)?              .setText(form.aircrewData[i].flightTimeEvaluator)
+                    page0?.annotation(at: page0dict["ft_other_\(i)"]!)?             .setText(form.aircrewData[i].flightTimeOther)
+                    page0?.annotation(at: page0dict["ft_total_time_\(i)"]!)?        .setText(form.aircrewData[i].flightTimeTotalTime)
+                    page0?.annotation(at: page0dict["ft_total_srty_\(i)"]!)?        .setText(form.aircrewData[i].flightTimeTotalSorties)
+                    page0?.annotation(at: page0dict["fc_night_\(i)"]!)?             .setText(form.aircrewData[i].flightConditionsNight)
+                    page0?.annotation(at: page0dict["fc_ins_\(i)"]!)?               .setText(form.aircrewData[i].flightConditionsInstruments)
+                    page0?.annotation(at: page0dict["fc_sim_ins_\(i)"]!)?           .setText(form.aircrewData[i].flightConditionsSimInstruments)
+                    page0?.annotation(at: page0dict["fc_nvg_\(i)"]!)?               .setText(form.aircrewData[i].flightConditionsNVG)
+                    page0?.annotation(at: page0dict["fc_combat_time_\(i)"]!)?       .setText(form.aircrewData[i].flightConditionsCombatTime)
+                    page0?.annotation(at: page0dict["fc_combat_srty_\(i)"]!)?       .setText(form.aircrewData[i].flightConditionsCombatSorties)
+                    page0?.annotation(at: page0dict["fc_combat_spt_time_\(i)"]!)?   .setText(form.aircrewData[i].flightConditionsCombatSupportTime)
+                    page0?.annotation(at: page0dict["fc_combat_spt_srty_\(i)"]!)?   .setText(form.aircrewData[i].flightConditionsCombatSupportSorties)
                     page0?.annotation(at: page0dict["resv_status_\(i)"]!)?          .setText(form.aircrewData[i].reserveStatus)
                     
                 }
@@ -311,24 +310,24 @@ extension Event {
                     for i in 15..<min(form.aircrewData.count, 35) {
                         
                         page1?.annotation(at: page1dict["organization_\(i)"]!)?         .setText(form.aircrewData[i].flyingOrganization)
-                        page1?.annotation(at: page1dict["ssan_\(i)"]!)?                 .setText(form.aircrewData[i].ssanLast4)
-                        page1?.annotation(at: page1dict["last_name_\(i)"]!)?            .setText(form.aircrewData[i].lastName)
+                        page1?.annotation(at: page1dict["ssan_\(i)"]!)?                 .setText(form.aircrewData[i].personLast4)
+                        page1?.annotation(at: page1dict["last_name_\(i)"]!)?            .setText(form.aircrewData[i].personLastName)
                         page1?.annotation(at: page1dict["flight_auth_\(i)"]!)?          .setText(form.aircrewData[i].flightAuthDutyCode)
-                        page1?.annotation(at: page1dict["ft_prim_\(i)"]!)?              .setText(form.aircrewData[i].ftPrimary)
-                        page1?.annotation(at: page1dict["ft_sec_\(i)"]!)?               .setText(form.aircrewData[i].ftSecondary)
-                        page1?.annotation(at: page1dict["ft_instr_\(i)"]!)?             .setText(form.aircrewData[i].ftInstructor)
-                        page1?.annotation(at: page1dict["ft_eval_\(i)"]!)?              .setText(form.aircrewData[i].ftEvaluator)
-                        page1?.annotation(at: page1dict["ft_other_\(i)"]!)?             .setText(form.aircrewData[i].ftOther)
-                        page1?.annotation(at: page1dict["ft_total_time_\(i)"]!)?        .setText(form.aircrewData[i].ftTotalTime)
-                        page1?.annotation(at: page1dict["ft_total_srty_\(i)"]!)?        .setText(form.aircrewData[i].ftTotalSorties)
-                        page1?.annotation(at: page1dict["fc_night_\(i)"]!)?             .setText(form.aircrewData[i].fcNight)
-                        page1?.annotation(at: page1dict["fc_ins_\(i)"]!)?               .setText(form.aircrewData[i].fcInstruments)
-                        page1?.annotation(at: page1dict["fc_sim_ins_\(i)"]!)?           .setText(form.aircrewData[i].fcSimInstruments)
-                        page1?.annotation(at: page1dict["fc_nvg_\(i)"]!)?               .setText(form.aircrewData[i].fcNVG)
-                        page1?.annotation(at: page1dict["fc_combat_time_\(i)"]!)?       .setText(form.aircrewData[i].fcCombatTime)
-                        page1?.annotation(at: page1dict["fc_combat_srty_\(i)"]!)?       .setText(form.aircrewData[i].fcCombatSorties)
-                        page1?.annotation(at: page1dict["fc_combat_spt_time_\(i)"]!)?   .setText(form.aircrewData[i].fcCombatSupportTime)
-                        page1?.annotation(at: page1dict["fc_combat_spt_srty_\(i)"]!)?   .setText(form.aircrewData[i].fcCombatSupportSorties)
+                        page1?.annotation(at: page1dict["ft_prim_\(i)"]!)?              .setText(form.aircrewData[i].flightTimePrimary)
+                        page1?.annotation(at: page1dict["ft_sec_\(i)"]!)?               .setText(form.aircrewData[i].flightTimeSecondary)
+                        page1?.annotation(at: page1dict["ft_instr_\(i)"]!)?             .setText(form.aircrewData[i].flightTimeInstructor)
+                        page1?.annotation(at: page1dict["ft_eval_\(i)"]!)?              .setText(form.aircrewData[i].flightTimeEvaluator)
+                        page1?.annotation(at: page1dict["ft_other_\(i)"]!)?             .setText(form.aircrewData[i].flightTimeOther)
+                        page1?.annotation(at: page1dict["ft_total_time_\(i)"]!)?        .setText(form.aircrewData[i].flightTimeTotalTime)
+                        page1?.annotation(at: page1dict["ft_total_srty_\(i)"]!)?        .setText(form.aircrewData[i].flightTimeTotalSorties)
+                        page1?.annotation(at: page1dict["fc_night_\(i)"]!)?             .setText(form.aircrewData[i].flightConditionsNight)
+                        page1?.annotation(at: page1dict["fc_ins_\(i)"]!)?               .setText(form.aircrewData[i].flightConditionsInstruments)
+                        page1?.annotation(at: page1dict["fc_sim_ins_\(i)"]!)?           .setText(form.aircrewData[i].flightConditionsSimInstruments)
+                        page1?.annotation(at: page1dict["fc_nvg_\(i)"]!)?               .setText(form.aircrewData[i].flightConditionsNVG)
+                        page1?.annotation(at: page1dict["fc_combat_time_\(i)"]!)?       .setText(form.aircrewData[i].flightConditionsCombatTime)
+                        page1?.annotation(at: page1dict["fc_combat_srty_\(i)"]!)?       .setText(form.aircrewData[i].flightConditionsCombatSorties)
+                        page1?.annotation(at: page1dict["fc_combat_spt_time_\(i)"]!)?   .setText(form.aircrewData[i].flightConditionsCombatSupportTime)
+                        page1?.annotation(at: page1dict["fc_combat_spt_srty_\(i)"]!)?   .setText(form.aircrewData[i].flightConditionsCombatSupportSorties)
                         page1?.annotation(at: page1dict["resv_status_\(i)"]!)?          .setText(form.aircrewData[i].reserveStatus)
                     }
                 }

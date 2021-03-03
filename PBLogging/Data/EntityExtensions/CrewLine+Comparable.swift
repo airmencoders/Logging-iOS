@@ -13,34 +13,34 @@ extension CrewLine: Comparable {
 
     public struct DutyCodeCompInfo {
         var flightAuthDutyCode: String
-        var lastName: String
-        var firstName: String
-        var ssanLast4: String
+        var personLastName: String
+        var personFirstName: String
+        var personLast4: String
 
         init(_ airCrew: AircrewData) {
             flightAuthDutyCode = airCrew.flightAuthDutyCode
-            lastName = airCrew.lastName
-            firstName = airCrew.firstName
-            ssanLast4 = airCrew.ssanLast4
+            personLastName = airCrew.personLastName
+            personFirstName = airCrew.personFirstName
+            personLast4 = airCrew.personLast4
         }
 
         init(_ crewLine: CrewLine) {
             flightAuthDutyCode = crewLine.flightAuthDutyCode
-            lastName = crewLine.person.lastName
-            firstName = crewLine.person.firstName
-            ssanLast4 = crewLine.person.last4
+            personLastName = crewLine.person.lastName
+            personFirstName = crewLine.person.firstName
+            personLast4 = crewLine.person.last4
         }
     }
 
     public static func dutyCodeLessThan(_ lhs: DutyCodeCompInfo, _ rhs: DutyCodeCompInfo) -> Bool {
         if lhs.flightAuthDutyCode == rhs.flightAuthDutyCode {
-            if lhs.lastName != rhs.lastName {
-                return lhs.lastName < rhs.lastName
+            if lhs.personLastName != rhs.personLastName {
+                return lhs.personLastName < rhs.personLastName
             }
-            if lhs.firstName != rhs.firstName {
-                return lhs.firstName < rhs.firstName
+            if lhs.personFirstName != rhs.personFirstName {
+                return lhs.personFirstName < rhs.personFirstName
             }
-            return lhs.ssanLast4 < rhs.ssanLast4
+            return lhs.personLast4 < rhs.personLast4
         }
 
         guard lhs.flightAuthDutyCode.count >= 2 else { return false }
