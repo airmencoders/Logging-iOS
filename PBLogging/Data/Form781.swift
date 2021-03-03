@@ -36,7 +36,7 @@ struct Form781 {
     var unitCharged: String?
     var aircrewData_: [AircrewData]?
     var flights_: [Flight]?
-    
+
     public var flights: [Flight] {
         get {
             let set = flights_ ?? []
@@ -46,7 +46,7 @@ struct Form781 {
             flights_ = newValue
         }
     }
-    
+
     public var aircrewData: [AircrewData] {
         get {
             let set = aircrewData_ ?? []
@@ -56,13 +56,13 @@ struct Form781 {
             aircrewData_ = newValue
         }
     }
-   
 }
+
+// The 781 equivalent of an Event Sortie
 struct Flight {
  
-    var dateCreated: Date?
-    var fromICAO: String?
-    var fullStop: Int16?
+    var takeoffICAO: String?
+    var numFullStop: Int16?
     var id: UUID?
     var landTime: Date?
     var missionNumber: String?
@@ -71,36 +71,36 @@ struct Flight {
     var sorties: Int16?
     var specialUse: String?
     var takeOffTime: Date?
-    var toICAO: String?
+    var landICAO: String?
     var totalLandings: Int16?
     var totalTime: Double?
-    var touchAndGo: Int16?
-   
+    var numTouchAndGoes: Int16?
 }
+
 struct AircrewData {
 
    var id: UUID?
-   var fcCombatSorties: Int16 = 0
-   var fcCombatSupportSorties: Int16 = 0
-   var fcCombatSupportTime: Double = 0
-   var fcCombatTime: Double = 0
-   var fcInstruments: Double = 0
-   var fcNight: Double = 0
-   var fcNVG: Double = 0
-   var fcSimInstruments: Double = 0
+   var flightConditionsCombatSorties: Int16 = 0
+   var flightConditionsCombatSupportSorties: Int16 = 0
+   var flightConditionsCombatSupportTime: Double = 0
+   var flightConditionsCombatTime: Double = 0
+   var flightConditionsInstruments: Double = 0
+   var flightConditionsNight: Double = 0
+   var flightConditionsNVG: Double = 0
+   var flightConditionsSimInstruments: Double = 0
    var flightAuthDutyCode: String = ""
    var flyingOrganization: String?
-   var ftEvaluator: Double = 0
-   var ftInstructor: Double = 0
-   var ftOther: Double = 0
-   var ftPrimary: Double = 0
-   var ftSecondary: Double = 0
-   var ftTotalSorties: Int16 = 0
-   var ftTotalTime: Double = 0
-   var lastName: String = ""
-   var firstName: String = ""
+   var flightTimeEvaluator: Double = 0
+   var flightTimeInstructor: Double = 0
+   var flightTimeOther: Double = 0
+   var flightTimePrimary: Double = 0
+   var flightTimeSecondary: Double = 0
+   var flightTimeTotalSorties: Int16 = 0
+   var flightTimeTotalTime: Double = 0
+   var personLastName: String = ""
+   var personFirstName: String = ""
    var reserveStatus: Int16 = 0
-   var ssanLast4: String = ""
+   var personLast4: String = ""
    var form781: Form781?
 }
 
