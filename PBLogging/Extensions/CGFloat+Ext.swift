@@ -9,5 +9,6 @@ import SwiftUI
 
 extension CGFloat {
     
+    /// PBL default corner radius
     static let pblCornerRadius: CGFloat = 10
 }

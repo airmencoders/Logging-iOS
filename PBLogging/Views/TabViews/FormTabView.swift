@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormTabView: View {
     
-    let titles = ["Mission Data", "Training Events", "Mission Sortie Info", "Sortie Comments"]
+    let titles = ["Mission Data", "Flight Time", "Training Events", "Mission Sortie Info"]
     @State private var selectedTab = 0
     @ObservedObject var sortie: Sortie
     
@@ -18,15 +18,15 @@ struct FormTabView: View {
             MissionDataView(sortie: sortie)
                 .tag(0)
                 .tabItem { Text("Mission Data") }
-            TrainingEventsView(sortie: sortie)
+            FlightTabView(sortie: sortie)
                 .tag(1)
+                .tabItem { Text("Flight Time") }
+            TrainingEventsView(sortie: sortie)
+                .tag(2)
                 .tabItem { Text("Training Events") }
             MissionSortieInfoView(sortie: sortie)
-                .tag(2)
-                .tabItem { Text("Mission Sortie Info") }
-            SortieCommentsView(sortie: sortie)
                 .tag(3)
-                .tabItem { Text("Sortie Comments") }
+                .tabItem { Text("Mission Sortie Info") }
         }
         .navigationBarTitle(Text(titles[selectedTab]))
     }

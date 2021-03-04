@@ -30,7 +30,6 @@
 		4DE7A99125E83A4500FD03D2 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */; };
 		4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */; };
 		4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */; };
-		7F03C0C125D5DFD800F7AA5B /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0C025D5DFD800F7AA5B /* SortieCommentsView.swift */; };
 		7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0D025D72EB500F7AA5B /* SortieTypeView.swift */; };
 		7F03C0DE25D7304F00F7AA5B /* TrainingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0DD25D7304F00F7AA5B /* TrainingEventsView.swift */; };
 		7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0E225D7347D00F7AA5B /* TextView.swift */; };
@@ -39,6 +38,8 @@
 		7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E513025E0584800B59CBF /* Binding+OnChange.swift */; };
 		7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB925E062EB00821D5D /* ThickDivider.swift */; };
 		7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */; };
+		7F707B7C25F01C380035E3F2 /* FlightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B7B25F01C380035E3F2 /* FlightTabView.swift */; };
+		7F707B9025F01E850035E3F2 /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -153,7 +154,6 @@
 		4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
 		4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifiers.swift; sourceTree = "<group>"; };
 		4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtTests.swift"; sourceTree = "<group>"; };
-		7F03C0C025D5DFD800F7AA5B /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
 		7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSortieInfoView.swift; sourceTree = "<group>"; };
 		7F03C0D025D72EB500F7AA5B /* SortieTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieTypeView.swift; sourceTree = "<group>"; };
 		7F03C0DD25D7304F00F7AA5B /* TrainingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEventsView.swift; sourceTree = "<group>"; };
@@ -163,6 +163,8 @@
 		7F3E513025E0584800B59CBF /* Binding+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+OnChange.swift"; sourceTree = "<group>"; };
 		7F510EB925E062EB00821D5D /* ThickDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDivider.swift; sourceTree = "<group>"; };
 		7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		7F707B7B25F01C380035E3F2 /* FlightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabView.swift; sourceTree = "<group>"; };
+		7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -269,9 +271,9 @@
 			children = (
 				7FB30E1E25D1CCF700797B4A /* FormTabView.swift */,
 				7FBE15AE25D5CFB5009A0DEF /* MissionDataTab */,
-				7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */,
-				7F03C0B625D5D18800F7AA5B /* SortieCommentsTab */,
+				7F707B7225F01BCB0035E3F2 /* FlightTimeTab */,
 				7F03C0B425D5D17000F7AA5B /* TrainingEventsTab */,
+				7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -427,16 +429,20 @@
 				4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */,
 				4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */,
 				7F03C0D025D72EB500F7AA5B /* SortieTypeView.swift */,
+				7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */,
 			);
 			path = MissionSortieInfoTab;
 			sourceTree = "<group>";
 		};
-		7F03C0B625D5D18800F7AA5B /* SortieCommentsTab */ = {
+		7F707B7225F01BCB0035E3F2 /* FlightTimeTab */ = {
 			isa = PBXGroup;
 			children = (
-				7F03C0C025D5DFD800F7AA5B /* SortieCommentsView.swift */,
+				7F707B7B25F01C380035E3F2 /* FlightTabView.swift */,
+				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
+				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
+				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
 			);
-			path = SortieCommentsTab;
+			path = FlightTimeTab;
 			sourceTree = "<group>";
 		};
 		7F83DA7325A3B17400D5860C /* Fonts */ = {
@@ -455,9 +461,6 @@
 				7FB30E3425D44A0700797B4A /* MissionDataView.swift */,
 				7F36016125C365AE009FF74E /* AircrewListView.swift */,
 				7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */,
-				7FB30E4C25D4846300797B4A /* FlightTimeView.swift */,
-				7FB30E5425D4852800797B4A /* FlightConditionsView.swift */,
-				7FB30E5925D4854000797B4A /* FlightViewStructures.swift */,
 			);
 			path = MissionDataTab;
 			sourceTree = "<group>";
@@ -725,7 +728,6 @@
 				BFEB670A25E5D29E00980700 /* Sortie+CoreDataProperties.swift in Sources */,
 				BFDB3AC425DDAA74000A16ED /* SampleData.swift in Sources */,
 				BFEB670925E5D29E00980700 /* Sortie+CoreDataClass.swift in Sources */,
-				7F03C0C125D5DFD800F7AA5B /* SortieCommentsView.swift in Sources */,
 				4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */,
 				BFF38E2A25E700BF0043BDD5 /* Form781.swift in Sources */,
 				4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */,
@@ -760,6 +762,7 @@
 				BFEB670825E5D29E00980700 /* Fuel+CoreDataProperties.swift in Sources */,
 				7F03C0DE25D7304F00F7AA5B /* TrainingEventsView.swift in Sources */,
 				4DF7C78B25BB666F00EB1E5C /* FontModifiers.swift in Sources */,
+				7F707B9025F01E850035E3F2 /* SortieCommentsView.swift in Sources */,
 				BFEB670225E5D29E00980700 /* FlightTime+CoreDataProperties.swift in Sources */,
 				7FB30E5A25D4854000797B4A /* FlightViewStructures.swift in Sources */,
 				7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */,
@@ -789,6 +792,7 @@
 				BFCCCDF125E82387004E0AB8 /* PDFPreviewView.swift in Sources */,
 				BFEB677C25E6064300980700 /* CrewLine+CoreDataClass.swift in Sources */,
 				BFEB677D25E6064300980700 /* CrewLine+CoreDataProperties.swift in Sources */,
+				7F707B7C25F01C380035E3F2 /* FlightTabView.swift in Sources */,
 				7F03C0D125D72EB500F7AA5B /* SortieTypeView.swift in Sources */,
 				7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */,
 				BF8B81EC25AD816200EC91C7 /* Font+Ext.swift in Sources */,

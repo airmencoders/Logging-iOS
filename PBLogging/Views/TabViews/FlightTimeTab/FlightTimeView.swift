@@ -62,7 +62,7 @@ struct FlightTimeView: View {
                 .frame(width:150)
                 .background(
                     RoundedRectangle(cornerRadius: .pblCornerRadius)
-                        .stroke()
+                        .stroke(Color.pblForegroundPrimary)
                 )
             Spacer()
         }

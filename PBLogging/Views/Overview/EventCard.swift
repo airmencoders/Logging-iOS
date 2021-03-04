@@ -19,16 +19,18 @@ struct EventCard: View {
                     EventLabel(event: event)
                     Spacer()
                 }
-        })
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-        .padding()
-        .background(Color.pblBackgroundDefault)
-        .foregroundColor(Color.pblForegroundSecondary)
-        .cornerRadius(.pblCornerRadius)
+            })
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            .padding()
+            .foregroundColor(Color.pblForegroundSecondary)
+            .overlay(
+                RoundedRectangle(cornerRadius: .pblCornerRadius)
+                    .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+            )
     }
-
+    
     struct EventLabel: View {
-
+        
         @ObservedObject var event: Event
 
         var body: some View {

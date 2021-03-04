@@ -14,8 +14,11 @@ struct SortieCommentsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Sortie Comments")
+                .fontSectionHeading()
             TextView(text: $sortie.comments)
-            Spacer()
+                .frame(minHeight: 100)
+                .cornerRadius(.pblCornerRadius)
         }
         .padding()
         .onDisappear{

@@ -50,8 +50,12 @@ class LoggingUITests: XCTestCase {
         self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
         self.self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
         XCTAssert(self.app.buttons["Add Aircrew"].exists)
+        
+        // Mission Data > Flight Time
+        self.app.tabBars.buttons["Flight Time"].tap()
+        XCTAssert(self.app.staticTexts["Flight Time"].exists)
 
-        // Mission Data > Training Events
+        // Flight Time > Training Events
         self.app.tabBars.buttons["Training Events"].tap()
         // TODO: Add tests for Training Events when it's ready.
 //        XCTAssert(self.app.staticTexts["Training Events"].exists)
@@ -59,10 +63,6 @@ class LoggingUITests: XCTestCase {
         // Training Events > Mission Sortie Info
         self.app.tabBars.buttons["Mission Sortie Info"].tap()
         XCTAssert(self.app.staticTexts["Mission Sortie Info"].exists)
-
-        // Mission Sortie Info > Sortie Comments
-        self.app.tabBars.buttons["Sortie Comments"].tap()
-        XCTAssert(self.app.staticTexts["Sortie Comments"].exists)
     }
    
     func testSubmitAProblem() {

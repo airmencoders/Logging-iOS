@@ -13,7 +13,7 @@ struct MissionSortieInfoView: View {
     @ObservedObject var sortie: Sortie
 
     var body: some View {
-        return ScrollView {
+        ScrollView {
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     SortieFuelInfoView(sortie: sortie)
@@ -22,9 +22,9 @@ struct MissionSortieInfoView: View {
                 .padding()
                 SortieAirdropInfoView(sortie: sortie)
                 SortieTypeView(sortieType: sortie.sortieType)
+                SortieCommentsView(sortie: sortie)
             }
         }
-      
     }
 }
 

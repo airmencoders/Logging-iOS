@@ -18,30 +18,11 @@ struct MissionDataView: View {
             VStack(spacing: 50) {
                 AircrewListView(sortie: sortie)
                 MissionDataAndFlightSeqView(sortie: sortie)
-                FlightTimeView(sortie: sortie)
-                FlightConditionsView(sortie: sortie)
-                remarks
-            }
-            .navigationBarTitle(Text("TBD"))
-            .onAppear {
-                UITableView.appearance().backgroundColor = .clear
             }
             Spacer()
         }
         .onDisappear {
             dataController.save()
-        }
-    }
-    
-    var remarks: some View {
-        VStack(alignment: .leading) {
-            Text("781 Remarks")
-                .fontSectionHeading()
-                .padding(.leading)
-            TextView(text: $sortie.comments)
-                .frame(height: 100)
-                .cornerRadius(.pblCornerRadius)
-                .padding([.leading,.trailing])
         }
     }
 }
