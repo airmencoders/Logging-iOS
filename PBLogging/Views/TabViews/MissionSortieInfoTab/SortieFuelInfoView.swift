@@ -18,17 +18,11 @@ struct SortieFuelInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                     .frame(width: 280)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: .pblCornerRadius)
-                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
-                    )
+                    .pblBorder()
                 
                 SortieFuelEditFields(sortie: sortie)
                     .frame(width: 86)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: .pblCornerRadius)
-                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
-                    )
+                    .pblBorder()
             }
         }
     }

@@ -71,10 +71,7 @@ struct AircrewListView: View {
             .accessibility(identifier: "aircrewList")
         }
         .padding()
-        .overlay(
-            RoundedRectangle(cornerRadius: .pblCornerRadius)
-                .stroke(Color.pblBackgroundDefault, lineWidth: 1)
-        )
+        .pblBorder()
         .padding()
     }
     

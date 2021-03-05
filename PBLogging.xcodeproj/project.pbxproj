@@ -40,6 +40,7 @@
 		7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */; };
 		7F707B7C25F01C380035E3F2 /* FlightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B7B25F01C380035E3F2 /* FlightTabView.swift */; };
 		7F707B9025F01E850035E3F2 /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */; };
+		7F707BA625F14DEA0035E3F2 /* BorderModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */; };
 		7F83DA7725A3B22300D5860C /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */; };
 		7F83DA7825A3B22300D5860C /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */; };
 		7F83DA7925A3B22300D5860C /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */; };
@@ -165,6 +166,7 @@
 		7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		7F707B7B25F01C380035E3F2 /* FlightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabView.swift; sourceTree = "<group>"; };
 		7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
+		7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderModifiers.swift; sourceTree = "<group>"; };
 		7F83DA7425A3B22300D5860C /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F83DA7525A3B22300D5860C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7F83DA7625A3B22300D5860C /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */,
+				7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				7FB30E4525D483FD00797B4A /* MissionDataAndFlightSeqView.swift in Sources */,
 				BFDB3B0B25DDAAF3000A16ED /* Sortie+Comparable.swift in Sources */,
 				BFEB676125E5E0E900980700 /* Event+CoreDataProperties.swift in Sources */,
+				7F707BA625F14DEA0035E3F2 /* BorderModifiers.swift in Sources */,
 				4D9E3F6F25E0C62E003903B0 /* SortieAirdropInfoView.swift in Sources */,
 				BFEB675A25E5E0CA00980700 /* DataModel.xcdatamodeld in Sources */,
 				BFEB670625E5D29E00980700 /* FlightConditions+CoreDataProperties.swift in Sources */,

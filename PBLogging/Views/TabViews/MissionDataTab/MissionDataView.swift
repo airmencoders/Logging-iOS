@@ -15,7 +15,7 @@ struct MissionDataView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 50) {
+            VStack {
                 AircrewListView(sortie: sortie)
                 MissionDataAndFlightSeqView(sortie: sortie)
             }

@@ -29,7 +29,7 @@ struct FlightTabView: View {
             TextView(text: $sortie.comments)
                 .frame(height: 100)
                 .cornerRadius(.pblCornerRadius)
-                .padding([.leading,.trailing])
+                .padding([.horizontal, .bottom])
         }
     }
 }

@@ -60,8 +60,7 @@ struct FlightConditionsView: View {
                     FlightLabel(label: "0")
                 }
                 .frame(width: 50)
-                .background(Color.pblBackgroundDefault)
-                .cornerRadius(.pblCornerRadius)
+                .pblBorder()
                 
                 FlightColumn(sortie: sortie, title: "NIGHT", titleHeight: titleHeight)
                     .frame(width: 50)
