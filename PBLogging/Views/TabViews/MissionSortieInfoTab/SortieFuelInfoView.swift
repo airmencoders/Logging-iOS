@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+fileprivate let rampLabel = "RAMP"
+fileprivate let landLabel = "LAND"
+fileprivate let airRefuelLabel = "AIR REFUEL"
+fileprivate let auxPowerUnitHoursLabel = "AUX POWER UNIT HOURS"
+fileprivate let takeoffCogLabel = "TAKEOFF COG"
+
 struct SortieFuelInfoView: View {
 
     @ObservedObject var sortie: Sortie
@@ -18,30 +24,36 @@ struct SortieFuelInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                     .frame(width: 280)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
                 
                 SortieFuelEditFields(sortie: sortie)
                     .frame(width: 86)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
             }
         }
     }
     
     func labels() -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("RAMP")
+            Text(rampLabel)
                 .padding()
             Divider()
-            Text("LAND")
+            Text(landLabel)
                 .padding()
             Divider()
-            Text("AIR REFUEL")
+            Text(airRefuelLabel)
                 .padding()
             Divider()
-            Text("AUX POWER UNIT HOURS")
+            Text(auxPowerUnitHoursLabel)
                 .padding()
             Divider()
-            Text("TAKEOFF COG")
+            Text(takeoffCogLabel)
                 .padding()
         }
         .font(.pblRegular(size: 18))
@@ -72,23 +84,28 @@ struct SortieFuelEditFields: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             TextField("", text: $rampFuel.onChange { enforceAndUpdate(&fuel.ramp, with: &rampFuel) })
-                 .padding()
+                .padding()
+                .accessibility(identifier: rampLabel)
             ThickDivider()
                 .background(getValidationColor(for: rampFuel))
             TextField("", text: $landFuel.onChange { enforceAndUpdate(&fuel.land, with: &landFuel) })
-                 .padding()
+                .padding()
+                .accessibility(identifier: landLabel)
             ThickDivider()
                 .background(getValidationColor(for: landFuel))
             TextField("", text: $airRefuel.onChange { enforceAndUpdate(&fuel.airRefuel, with: &airRefuel) })
-                 .padding()
+                .padding()
+                .accessibility(identifier: airRefuelLabel)
             ThickDivider()
                 .background(getValidationColor(for: airRefuel))
             TextField("", text: $auxPower.onChange{ enforceAndUpdate(&sortie.auxiliaryPowerUnitHours, with: &auxPower) })
-                 .padding()
+                .padding()
+                .accessibility(identifier: auxPowerUnitHoursLabel)
             ThickDivider()
                 .background(getValidationColor(for: auxPower))
             TextField("", text: $cog.onChange{ enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &cog) })
                 .padding()
+                .accessibility(identifier: takeoffCogLabel)
         }
         .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))

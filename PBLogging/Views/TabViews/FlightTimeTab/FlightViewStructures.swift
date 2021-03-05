@@ -34,7 +34,8 @@ struct FlightColumn: View {
             FlightLabel(label: "0", backgroundColor: .pblForegroundPrimary, weight: .pblBold(size: 14))
             FlightLabel(label: "0")
         }
-        .pblBorder()
+        .background(backgroundColor)
+        .cornerRadius(.pblCornerRadius)
     }
 }
 

@@ -18,11 +18,17 @@ struct SortieAirdropInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                     .frame(width: 280)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
                 
                 SortieAirdropEditFields(sortie: sortie)
                     .frame(width: 86)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
             }
         }
         .padding()

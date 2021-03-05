@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+fileprivate let rairlandWeightLabel = "AIRLAND WEIGHT"
+fileprivate let numPassengersLabel = "NUMBER OF PASSENGERS"
+fileprivate let numAirlandPalletsLabel = "NUMBER OF AIRLAND PALLETS"
+fileprivate let numRollingStockLabel = "NUMBER OF ROLLING STOCK"
+fileprivate let takeoffCogLabel = "TAKEOFF COG"
+
 struct SortieAirlandInfoView: View {
 
     @ObservedObject var sortie: Sortie
@@ -18,30 +24,36 @@ struct SortieAirlandInfoView: View {
             HStack(alignment: .firstTextBaseline) {
                 labels()
                     .frame(width: 280)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
                 
                 SortieAirlandEditFields(sortie: sortie)
                     .frame(width: 86)
-                    .pblBorder()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: .pblCornerRadius)
+                            .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+                    )
             }
         }
     }
 
     func labels() -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("AIRLAND WEIGHT")
+            Text(rairlandWeightLabel)
                 .padding()
             Divider()
-            Text("NUMBER OF PASSENGERS")
+            Text(numPassengersLabel)
                 .padding()
             Divider()
-            Text("NUMBER OF AIRLAND PALLETS")
+            Text(numAirlandPalletsLabel)
                 .padding()
             Divider()
-            Text("NUMBER OF ROLLING STOCK")
+            Text(numRollingStockLabel)
                 .padding()
             Divider()
-            Text("TAKEOFF COG")
+            Text(takeoffCogLabel)
                 .padding()
         }
         .font(.pblRegular(size: 18))
@@ -79,18 +91,22 @@ struct SortieAirlandEditFields: View {
             TextField("", text: $airlandWeight.onChange {
                                 enforceAndUpdate(&metrics.airlandWeight, with: &airlandWeight) })
                 .padding()
+                .accessibility(identifier: rairlandWeightLabel)
             Divider()
             TextField("", text: $numPassengers.onChange {
                                 enforceAndUpdate(&metrics.numPassengers, with: &numPassengers) })
                 .padding()
+                .accessibility(identifier: numPassengersLabel)
             Divider()
             TextField("", text: $numAirlandPallets.onChange {
                         enforceAndUpdate(&metrics.numAirlandPallets, with: &numAirlandPallets) })
                 .padding()
+                .accessibility(identifier: numAirlandPalletsLabel)
             Divider()
             TextField("", text: $numRollingStock.onChange {
                                 enforceAndUpdate(&metrics.numRollingStock, with: &numRollingStock) })
                 .padding()
+                .accessibility(identifier: numRollingStockLabel)
             Divider()
             TextField("", text: $takeoffCenterOfGravity.onChange {
                         enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &takeoffCenterOfGravity) })

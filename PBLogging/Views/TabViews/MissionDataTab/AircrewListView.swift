@@ -44,7 +44,7 @@ struct AircrewListView: View {
             .padding(.trailing)
             
         }
-        .accessibility(identifier: "addAircrewButton")
+        .accessibility(identifier: "addAircrew")
     }
     
     var aircrewList: some View {
@@ -71,7 +71,10 @@ struct AircrewListView: View {
             .accessibility(identifier: "aircrewList")
         }
         .padding()
-        .pblBorder()
+        .overlay(
+            RoundedRectangle(cornerRadius: .pblCornerRadius)
+                .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+        )
         .padding()
     }
     

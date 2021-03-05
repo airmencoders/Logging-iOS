@@ -101,7 +101,8 @@ struct FlightTimeView: View {
                     FlightLabel(label: "0")
                 }
                 .frame(width: 96)
-                .pblBorder()
+                .background(Color.pblBackgroundDefault)
+                .cornerRadius(.pblCornerRadius)
                 
                 FlightColumn(sortie: sortie, title: "PRIM")
                 FlightColumn(sortie: sortie, title: "SEC")

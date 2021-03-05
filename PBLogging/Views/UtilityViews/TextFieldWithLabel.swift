@@ -20,6 +20,7 @@ struct TextFieldWithLabel: View {
                 .fontFormLabel()
             TextField(placeholder, text: $userInput)
                 .fontFormInput()
+                .accessibility(identifier: label)
         }
     }
 }

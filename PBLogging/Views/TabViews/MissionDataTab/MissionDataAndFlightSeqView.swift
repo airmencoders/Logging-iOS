@@ -41,7 +41,10 @@ struct MissionDataAndFlightSeqView: View {
                 ThickDivider()
             }
             .padding()
-            .pblBorder()
+            .overlay(
+                RoundedRectangle(cornerRadius: .pblCornerRadius)
+                    .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+            )
         }
         .padding()
     }
@@ -83,7 +86,10 @@ struct MissionDataAndFlightSeqView: View {
                 ThickDivider()
             }
             .padding()
-            .pblBorder()
+            .overlay(
+                RoundedRectangle(cornerRadius: .pblCornerRadius)
+                    .stroke(Color.pblBackgroundDefault, lineWidth: 1)
+            )
         }
         .padding()
     }
