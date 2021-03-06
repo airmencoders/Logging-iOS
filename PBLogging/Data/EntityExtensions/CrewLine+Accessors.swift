@@ -66,4 +66,45 @@ extension CrewLine {
         get { return flyingOrganization_ ?? "" }
         set { flyingOrganization_ = newValue }
     }
+    
+    public var canInstruct: Bool {
+        guard flightAuthDutyCode.count > 1 else { return false }
+        let characters = Array(flightAuthDutyCode)
+        if characters[0] == "I" || characters[0] == "E" { // all evaluators are instructors
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    public var canEvaluate: Bool {
+        guard flightAuthDutyCode.count > 1 else { return false }
+        let characters = Array(flightAuthDutyCode)
+        if characters[0] == "E" {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    public var isPilot: Bool {
+        guard flightAuthDutyCode.count > 1 else { return false }
+        let characters = Array(flightAuthDutyCode)
+        if characters[1] == "P" {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    public var isLoadmaster: Bool {
+        guard flightAuthDutyCode.count > 1 else { return false }
+        let characters = Array(flightAuthDutyCode)
+        if characters[1] == "L" {
+            return true
+        }else{
+            return false
+        }
+    }
+    
 }

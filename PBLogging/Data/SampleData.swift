@@ -235,7 +235,7 @@ enum SampleData {
         
         let crewLine1 = CrewLine(context: viewContext)
         crewLine1.sortie = sortie1
-        crewLine1.flightAuthDutyCode = "FPB"
+        crewLine1.flightAuthDutyCode = "IPB"
         crewLine1.person = brechbart
         crewLine1.flightTime.instructor = 3.0
         crewLine1.flightConditions.night = 3.0
@@ -291,7 +291,7 @@ enum SampleData {
         
         let crewLine21 = CrewLine(context: viewContext)
         crewLine21.sortie = sortie2
-        crewLine21.flightAuthDutyCode = "FPB"
+        crewLine21.flightAuthDutyCode = "IPB"
         crewLine21.person = brechbart
         crewLine21.flightTime.instructor = 1.1
         crewLine21.flightConditions.night = 1.1
@@ -331,7 +331,7 @@ enum SampleData {
         
         let crewLine31 = CrewLine(context: viewContext)
         crewLine31.sortie = sortie3
-        crewLine31.flightAuthDutyCode = "FPB"
+        crewLine31.flightAuthDutyCode = "IPB"
         crewLine31.person = brechbart
         crewLine31.flightTime.instructor = 1.2
         crewLine31.flightConditions.night = 0
@@ -391,7 +391,7 @@ enum SampleData {
         
         let crewLine41 = CrewLine(context: viewContext)
         crewLine41.sortie = sortie4
-        crewLine41.flightAuthDutyCode = "FPB"
+        crewLine41.flightAuthDutyCode = "IPB"
         crewLine41.person = brechbart
         crewLine41.flightTime.instructor = 1.3
         crewLine41.flightConditions.night = 0
@@ -431,7 +431,7 @@ enum SampleData {
         
         let crewLine51 = CrewLine(context: viewContext)
         crewLine51.sortie = sortie5
-        crewLine51.flightAuthDutyCode = "FPB"
+        crewLine51.flightAuthDutyCode = "IPB"
         crewLine51.person = brechbart
         crewLine51.flightTime.instructor = 1.3
         crewLine51.flightConditions.night = 1.0
@@ -471,7 +471,7 @@ enum SampleData {
         
         let crewLine61 = CrewLine(context: viewContext)
         crewLine61.sortie = sortie6
-        crewLine61.flightAuthDutyCode = "FPB"
+        crewLine61.flightAuthDutyCode = "IPB"
         crewLine61.person = brechbart
         crewLine61.flightTime.instructor = 1.1
         crewLine61.flightConditions.night = 0.0
@@ -511,7 +511,7 @@ enum SampleData {
         
         let crewLine71 = CrewLine(context: viewContext)
         crewLine71.sortie = sortie7
-        crewLine71.flightAuthDutyCode = "FPB"
+        crewLine71.flightAuthDutyCode = "IPB"
         crewLine71.person = brechbart
         crewLine71.flightTime.instructor = 1.8
         crewLine71.flightConditions.night = 0.0
