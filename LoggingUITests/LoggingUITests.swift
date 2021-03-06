@@ -262,6 +262,7 @@ class LoggingUITests: XCTestCase {
         textField = app.textFields["FLIGHT AUTH DUTY CODE"]
         enterAndTestFreeFormatText(textField, "SECRET")
 
+        waitFor(self.app.tabBars.buttons["Training Events"])
         self.app.tabBars.buttons["Training Events"].tap()
         XCTAssert(self.app.staticTexts["Training Events"].exists)
         XCTAssert(self.app.staticTexts["SMITH"].exists)
