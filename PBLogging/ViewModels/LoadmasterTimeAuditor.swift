@@ -38,7 +38,7 @@ struct LoadmasterTimeAuditor: Auditing {
     var secondaryTotalHasProblem:   Bool { totalRow.secondary.rounded(toPlaces: 1)   > totalFlightTime }
     var instructorTotalHasProblem:  Bool { totalRow.instructor.rounded(toPlaces: 1)  > totalFlightTime }
     var evaluatorTotalHasProblem:   Bool { totalRow.evaluator.rounded(toPlaces: 1)   > totalFlightTime }
-    var otherTotalHasProblem:       Bool { totalRow.other.rounded(toPlaces: 1)      > totalFlightTime }
+    var otherTotalHasProblem:       Bool { totalRow.other.rounded(toPlaces: 1)       > totalFlightTime }
       
     /// If the errors above are true, assign a string to corresponding variables
     var primaryTotalError: String? {
@@ -59,7 +59,7 @@ struct LoadmasterTimeAuditor: Auditing {
     /// https://developer.apple.com/documentation/swift/sequence/2950916-compactmap
     var errors: [String] {
         let errors = [primaryTotalError, secondaryTotalError, instructorTotalError, evaluatorTotalError]
-        return errors.compactMap{ $0 }
+        return errors.compactMap { $0 }
     }
     
     /// calculate the ghost time
@@ -78,9 +78,7 @@ struct LoadmasterTimeAuditor: Auditing {
         return ghost
     }
     
-   
-    
-    init(with sortie: Sortie){
+    init(with sortie: Sortie) {
         
         var timeRows = [TimeRow]()
         for case let line in sortie.crewLines where line.isLoadmaster == true {
@@ -90,7 +88,7 @@ struct LoadmasterTimeAuditor: Auditing {
         self.rows = timeRows
         if let sortieTime = sortie.calculatedTotalFlightTimeFor781{
             self.totalFlightTime = sortieTime
-        }else {
+        } else {
             self.canAudit = false
         }
         
@@ -98,14 +96,14 @@ struct LoadmasterTimeAuditor: Auditing {
         self.sortie = sortie
     }
     
-    mutating func splitPrimaryEqually(){
+    mutating func splitPrimaryEqually() {
         print(#function)
         guard canAudit == true else { return }
         guard Int(totalFlightTime * 10.0) > rows.count else { return } // not enough time to split
         print("passed guard")
         
         /// reset all values
-        for i in 0..<rows.count{
+        for i in 0..<rows.count {
             rows[i].primary.value     = 0
             rows[i].secondary.value   = 0
             rows[i].instructor.value  = 0
@@ -130,15 +128,13 @@ struct LoadmasterTimeAuditor: Auditing {
                 remainder -= 1
             }
         }
-      print(primaryGhost)
+        print(primaryGhost)
     }
     
-    func save(){
+    func save() {
         self.sortie.numLoadmastersRequired = self.numLoadmastersRequired
-        for row in self.rows{
+        for row in self.rows {
             row.save()
         }
     }
 }
-
-

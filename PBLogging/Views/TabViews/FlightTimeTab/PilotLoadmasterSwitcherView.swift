@@ -11,6 +11,7 @@ struct PilotLoadmasterSwitcherView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var sortie: Sortie
     @State var dutyPosition: DutyPositions = .pilot
+    
     var body: some View {
         ScrollView{
             Picker(selection: $dutyPosition.animation(.linear), label: Text("Duty Position")) {
@@ -20,7 +21,7 @@ struct PilotLoadmasterSwitcherView: View {
             .frame(width: 210)
             .pickerStyle(SegmentedPickerStyle())
             
-            switch dutyPosition{
+            switch dutyPosition {
             case .pilot:
                 AuditingFlightTimeView(auditor: PilotTimeAuditor(with: sortie))
             case .loadmaster:
@@ -28,10 +29,9 @@ struct PilotLoadmasterSwitcherView: View {
             }
             remarks
             Spacer()
-            
-        } 
-      
+        }
     }
+    
     var remarks: some View {
         VStack(alignment: .leading) {
             Text("781 Remarks")

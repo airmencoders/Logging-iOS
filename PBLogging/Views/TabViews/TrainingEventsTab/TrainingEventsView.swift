@@ -30,7 +30,7 @@ struct TrainingEventsView: View {
     @ObservedObject var sortie: Sortie
     @State var isSim: Bool
     
-    init(sortie: Sortie){
+    init(sortie: Sortie) {
         
         _sortie = ObservedObject(wrappedValue: sortie)
         _isSim = State(wrappedValue: sortie.event!.isSim)
@@ -46,7 +46,7 @@ struct TrainingEventsView: View {
         let predicate: NSPredicate = {
             if sortie.event!.isSim {
                 return NSPredicate(format: "simEventID_ != ''")
-            }else{
+            } else {
                 return NSPredicate(format: "realEventID_ != ''")
             }
         }()
@@ -88,15 +88,14 @@ struct TrainingEventsView: View {
                                 VStack(alignment: .leading){
                                     Text("\(met.name)")
                                         .bold()
-                                        .padding(.leading)
                                         .foregroundColor(.pblForegroundSecondary)
                                     Text("\(isSim ? met.simEventID : met.realEventID) ")
                                         .bold()
-                                        .padding(.leading)
                                         .foregroundColor(.pblForegroundPrimary)
                                     Divider()
                                         .padding(.top, 8)
                                 }
+                                .padding(.leading)
                             }
                         }
                         .offset(y: yOffset - (headerHeight + smallSpacing + 180))
@@ -145,11 +144,11 @@ struct PersonTrainingColumn: View {
     @State var missionEventTypes: FetchRequest<MissionEventTypes>
     @State var itemArray: [(eventID: String, numberAccomplished: Int)]
  
-    init(crewLine: CrewLine, missionEventTypes: FetchRequest<MissionEventTypes>){
+    init(crewLine: CrewLine, missionEventTypes: FetchRequest<MissionEventTypes>) {
         _crewLine = ObservedObject(wrappedValue: crewLine)
         _missionEventTypes = State(wrappedValue: missionEventTypes)
         
-         let isSim = crewLine.sortie!.event!.isSim
+        let isSim = crewLine.sortie!.event!.isSim
         var anItemArray = [(String, Int)]()
         
         var personsEvents = [String: Int]()
@@ -162,29 +161,29 @@ struct PersonTrainingColumn: View {
             
             if isSim {
                 anItemArray.append((met.simEventID, personsEvents[met.simEventID] ?? 0))
-             } else {
+            } else {
                 anItemArray.append((met.realEventID, personsEvents[met.realEventID] ?? 0))
-             }
+            }
         }
         _itemArray = State(wrappedValue: anItemArray)
     }
     
-    var body: some View{
+    var body: some View {
         VStack(spacing: 40.5) {
-            ForEach(0..<itemArray.count){ count in
+            ForEach(0..<itemArray.count) { count in
                 Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
             }
         }
-        .onDisappear(){
+        .onDisappear() {
             saveMissionEventRecords()
         }
     }
     
-    func saveMissionEventRecords(){
+    func saveMissionEventRecords() {
         
         crewLine.missionEventRecords.removeAll()
         
-        for item in itemArray{
+        for item in itemArray {
             if item.numberAccomplished != 0 {
                 let missionEventRecord = MissionEventRecord(context: viewContext)
                 missionEventRecord.eventID = item.eventID

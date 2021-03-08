@@ -30,6 +30,7 @@ struct SortieCommentsView: View {
 struct SortieCommentsView_Previews: PreviewProvider {
     static var previews: some View {
         let sortie = SampleData.sortie
+        
         SortieCommentsView(sortie: sortie)
             .previewLayout(.sizeThatFits)
         SortieCommentsView(sortie: sortie)

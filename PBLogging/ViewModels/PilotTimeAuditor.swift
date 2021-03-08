@@ -78,9 +78,7 @@ struct PilotTimeAuditor: Auditing {
         return ghost
     }
     
-   
-    
-    init(with sortie: Sortie){
+    init(with sortie: Sortie) {
         
         var timeRows = [TimeRow]()
         for case let pilotLine in sortie.crewLines where pilotLine.isPilot == true {
@@ -90,21 +88,21 @@ struct PilotTimeAuditor: Auditing {
         self.rows = timeRows
         if let sortieTime = sortie.calculatedTotalFlightTimeFor781{
             self.totalFlightTime = sortieTime
-        }else {
+        } else {
             self.canAudit = false
         }
         self.sortie = sortie
         numLoadmastersRequired = sortie.numLoadmastersRequired
     }
     
-    mutating func splitPrimaryEqually(){
+    mutating func splitPrimaryEqually() {
         print(#function)
         guard canAudit == true else { return }
         guard Int(totalFlightTime * 10.0) > rows.count else { return } // not enough time to split
         print("passed guard")
         
         /// reset all values
-        for i in 0..<rows.count{
+        for i in 0..<rows.count {
             rows[i].primary.value     = 0
             rows[i].secondary.value   = 0
             rows[i].instructor.value  = 0
@@ -129,14 +127,12 @@ struct PilotTimeAuditor: Auditing {
                 remainder -= 1
             }
         }
-      print(primaryGhost)
+        print(primaryGhost)
     }
     
-    func save(){
-        for row in self.rows{
+    func save() {
+        for row in self.rows {
             row.save()
         }
     }
 }
- 
-

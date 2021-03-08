@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-struct AppleDevice{
+struct AppleDevice {
     
     let previewName : String
     let displayName : String
@@ -18,11 +18,11 @@ struct AppleDevice{
 }
  
 enum AppleDevices {
-    static let iPadPro9_7       = AppleDevice(previewName: "iPad Pro (9.7-inch)",                   displayName: "iPad Pro 9.7\"",      resolution: CGSize(width: 2048,height: 1536))
-    static let iPadPro11        = AppleDevice(previewName: "iPad Pro (11-inch) (2nd generation)",   displayName: "iPad Pro 11\"",       resolution: CGSize(width: 2388,height: 1668))
-    static let iPadPro12_9      = AppleDevice(previewName: "iPad Pro (12.9-inch) (4th generation)", displayName: "iPad Pro 12.9\"",     resolution: CGSize(width: 2732,height: 2048))
-    static let iPadAir          = AppleDevice(previewName: "iPad Air (4th generation)",             displayName: "iPad Air",            resolution: CGSize(width: 2360,height: 1640))
-    static let iPadMini         = AppleDevice(previewName: "iPad mini (5th generation)",            displayName: "iPad Mini",           resolution: CGSize(width: 2048,height: 1536))
+    static let iPadPro9_7       = AppleDevice(previewName: "iPad Pro (9.7-inch)",                   displayName: "iPad Pro 9.7\"",      resolution: CGSize(width: 2048, height: 1536))
+    static let iPadPro11        = AppleDevice(previewName: "iPad Pro (11-inch) (2nd generation)",   displayName: "iPad Pro 11\"",       resolution: CGSize(width: 2388, height: 1668))
+    static let iPadPro12_9      = AppleDevice(previewName: "iPad Pro (12.9-inch) (4th generation)", displayName: "iPad Pro 12.9\"",     resolution: CGSize(width: 2732, height: 2048))
+    static let iPadAir          = AppleDevice(previewName: "iPad Air (4th generation)",             displayName: "iPad Air",            resolution: CGSize(width: 2360, height: 1640))
+    static let iPadMini         = AppleDevice(previewName: "iPad mini (5th generation)",            displayName: "iPad Mini",           resolution: CGSize(width: 2048, height: 1536))
     static let iPad             = AppleDevice(previewName: "iPad (8th generation)",                 displayName: "iPad",                resolution: CGSize(width: 2160, height: 1620))
     static let iPhone12Mini     = AppleDevice(previewName: "iPhone 12 mini",                        displayName: "iPhone 12 mini",      resolution: CGSize(width: 2340, height: 1080))
     static let iPhone12         = AppleDevice(previewName: "iPhone 12",                             displayName: "iPhone 12",           resolution: CGSize(width: 2532, height: 1170))

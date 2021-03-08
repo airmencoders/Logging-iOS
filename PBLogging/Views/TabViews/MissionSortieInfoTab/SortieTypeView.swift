@@ -56,7 +56,6 @@ struct SortieTypeView_Previews: PreviewProvider {
 
         SortieTypeView(sortieType: sortie.sortieType)
             .previewLayout(.sizeThatFits)
-
         SortieTypeView(sortieType: sortie.sortieType)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)

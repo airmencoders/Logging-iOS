@@ -18,7 +18,7 @@ struct AircrewListView: View {
             header
             aircrewList
         }
-        .onDisappear{
+        .onDisappear {
             dataController.save()
         }
     }
@@ -37,12 +37,11 @@ struct AircrewListView: View {
         Button {
             addAircrew()
         } label: {
-            HStack{
+            HStack {
                 Text("Add Aircrew")
                 Image(systemName: "plus.circle")
             }
             .padding(.trailing)
-            
         }
         .accessibility(identifier: "addAircrewButton")
     }
@@ -50,14 +49,13 @@ struct AircrewListView: View {
     var aircrewList: some View {
         VStack {
             HStack {
-                Text("LAST NAME")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("SSN (LAST 4)")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("FLYING ORG")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("FLIGHT AUTH DUTY CODE")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                Group {
+                    Text("LAST NAME")
+                    Text("SSN (LAST 4)")
+                    Text("FLYING ORG")
+                    Text("FLIGHT AUTH DUTY CODE")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .fontFormLabel()
             ScrollView {
@@ -95,7 +93,7 @@ struct AircrewRow: View {
     @ObservedObject var crewLine: CrewLine
     
     var body: some View {
-        VStack{
+        VStack {
             HStack {
                 TextField("LAST NAME", text: $crewLine.person.lastName)
                 TextField("SSN (LAST 4)", text: $crewLine.person.last4)
@@ -105,7 +103,7 @@ struct AircrewRow: View {
             .fontFormInput()
             .autocapitalization(.allCharacters)
             .padding(.vertical, 5)
-                Divider()
+            Divider()
         }
     }
 }

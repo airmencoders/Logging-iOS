@@ -35,7 +35,7 @@ struct PDFPreviewView: View {
                         Button {
                             self.printPDF()
                         } label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: "printer")
                                 Text("Print")
                             }
@@ -55,12 +55,10 @@ struct PDFPreviewView: View {
                             .padding()
                             .blur(radius: isReady ? 0.0 : 3.0)
                     }
-                    
                 }
                 .sheet(isPresented: $isSharing) {
                     ShareView(activityItems: [pdfURL!], callback: afterShare(_:_:_:_:))
                 }
-                
             } else {
                 ActivityIndicator(isAnimating: true)
             }
@@ -79,6 +77,7 @@ struct PDFPreviewView: View {
             }
         }
     }
+    
     func afterShare(_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void{
         
         if let error = error {
@@ -90,10 +89,10 @@ struct PDFPreviewView: View {
             if activityType?.rawValue == "com.mattermost.rn.MattermostShare" || activityType == UIActivity.ActivityType.mail {
                 
                 // TODOL Determine if we still need/want to capture this.
-                
             }
         }
     }
+    
     func printPDF() {
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = pdfURL!.lastPathComponent  // force unwrap as function won't be available unless the pdf is already generated correctly
@@ -145,8 +144,8 @@ struct PDFRepView : UIViewRepresentable {
             pdfView.backgroundColor = UIColor.init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         }
     }
-    
 }
+
 struct ShareView: UIViewControllerRepresentable {
     
     let excludedActivityTypes: [UIActivity.ActivityType]? = [.postToWeibo, .postToFlickr, .postToTwitter, .postToVimeo, .postToFacebook, .postToTencentWeibo, .assignToContact, .message, .print, .assignToContact]
@@ -164,10 +163,12 @@ struct ShareView: UIViewControllerRepresentable {
         controller.excludedActivityTypes = excludedActivityTypes
         return controller
     }
+    
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         // nothing
     }
 }
+
 struct ShareView_Previews: PreviewProvider {
     static let url = URL(fileURLWithPath: Bundle.main.path(forResource: "fillable781v3", ofType: "pdf")!)
     static var previews: some View {
@@ -176,8 +177,6 @@ struct ShareView_Previews: PreviewProvider {
 }
 
 struct PDFPreviewView_Previews: PreviewProvider {
-    
- 
     static var previews: some View {
         PDFPreviewView(event: SampleData.event)
             .iPadPro9_7(isDark: false)

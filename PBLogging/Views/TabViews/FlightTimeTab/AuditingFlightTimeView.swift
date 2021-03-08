@@ -11,38 +11,34 @@ import Combine
 struct AuditingFlightTimeView: View {
     
     @EnvironmentObject var dataController: DataController
-    
     @State var auditor: Auditing
     
     var body: some View {
         ScrollView {
-            VStack{
+            VStack {
                 header
                 //PILOT HEADER
-                HStack{
+                HStack {
                     //PILOTS
                     NameColumnView(title: "Pilots", crewLines: auditor.rows, hasGhost: true)
                         .padding([.leading,.trailing])
                     
-                    VStack(spacing:0){
-                        HStack(spacing:0){
-                            Text("Primary")
-                                .frame( maxWidth: .infinity, alignment: Alignment.center)
-                            Text("Secondary")
-                                .frame(maxWidth: .infinity, alignment: Alignment.center)
-                            Text("Instructor")
-                                .frame(maxWidth: .infinity, alignment: Alignment.center)
-                            Text("Evaluator")
-                                .frame(maxWidth: .infinity, alignment: Alignment.center)
-                            Text("Other")
-                                .frame( maxWidth: .infinity, alignment: Alignment.center)
+                    VStack(spacing:0) {
+                        HStack(spacing:0) {
+                            Group {
+                                Text("Primary")
+                                Text("Secondary")
+                                Text("Instructor")
+                                Text("Evaluator")
+                                Text("Other")
+                            }
+                            .frame(maxWidth: .infinity, alignment: Alignment.center)
+                            
                             Text("Total")
                                 .frame(width: FlightTimeConstants.totalColumnWidth, alignment: Alignment.center)
-                            
                         }
                         .font(.subheadline)
                         .frame(height: FlightTimeConstants.rowHeight)
-                        
                         
                         FlightTimeTotalsView(totals: auditor.ghostRow)
                             .frame(height: FlightTimeConstants.rowHeight)
@@ -63,19 +59,17 @@ struct AuditingFlightTimeView: View {
                 )
                 .padding()
                 
-                VStack{
-                    
+                VStack {
                     ForEach(auditor.errors, id: \.self) { errorMessage in
                         //   let index = pilotAuditor.errors.firstIndex(where: { errorMessage == $0 })!
                         FadeInText(text:"⚠️ \(errorMessage)")
                             .foregroundColor(.red)
                             .frame(maxWidth:.infinity, alignment: .leading)
                     }
-                    
                 }
                 .padding()
-                if auditor.dutyPosition == .loadmaster && auditor.rows.count > 1{
                 
+                if auditor.dutyPosition == .loadmaster && auditor.rows.count > 1 {
                     loadmasterStepper
                 }
                 Spacer()
@@ -87,7 +81,6 @@ struct AuditingFlightTimeView: View {
             dataController.save()
         }
         .navigationBarTitle(Text("Splitting \(auditor.sortie.calculatedTotalFlightTimeFor781 ?? 0.0, specifier: "%1.1f") hours"))
-        
     }
     
     var loadmasterStepper: some View {
@@ -106,7 +99,6 @@ struct AuditingFlightTimeView: View {
                     RoundedRectangle(cornerRadius: .pblCornerRadius)
                         .stroke(Color.pblForegroundPrimary)
                 )
-           
         }
         .padding()
     }
@@ -118,19 +110,19 @@ struct AuditingFlightTimeView: View {
                 withAnimation(.bounce()){
                     auditor.splitPrimaryEqually()
                 }
-                
-                
             } label: {
-                HStack{
+                HStack {
                     Image(systemName: "clock")
                     Text("Split Time Equally")
-                }.padding(.trailing)
+                }
+                .padding(.trailing)
             }
         }
     }
 }
 
 import CoreData
+
 struct PilotFlightTimeView_Previews: PreviewProvider {
     static let femaSortie: Sortie = {
         let controller = DataController(inMemory: true)
@@ -143,10 +135,9 @@ struct PilotFlightTimeView_Previews: PreviewProvider {
         let sorties = fetchedEntity  as! [Sortie]
         return sorties.randomElement()!
     }()
+    
     static var previews: some View {
         let auditor = PilotTimeAuditor(with: femaSortie)
-        
-        
         
         AuditingFlightTimeView(auditor: auditor)
             .padding()
@@ -154,4 +145,3 @@ struct PilotFlightTimeView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
-

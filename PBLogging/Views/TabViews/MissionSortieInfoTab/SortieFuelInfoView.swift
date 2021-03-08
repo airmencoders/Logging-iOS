@@ -19,7 +19,6 @@ struct SortieFuelInfoView: View {
                 labels()
                     .frame(width: 280)
                     .pblBorder()
-                
                 SortieFuelEditFields(sortie: sortie)
                     .frame(width: 86)
                     .pblBorder()
@@ -96,7 +95,7 @@ struct SortieFuelEditFields: View {
     }
     
     func getValidationColor(for item: String) -> Color? {
-        if item.isEmpty {return nil}
+        if item.isEmpty { return nil }
         return Double(item) == nil ? Color.red : Color.green
     }
 }

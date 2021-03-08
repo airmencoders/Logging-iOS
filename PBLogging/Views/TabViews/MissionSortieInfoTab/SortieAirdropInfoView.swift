@@ -19,7 +19,6 @@ struct SortieAirdropInfoView: View {
                 labels()
                     .frame(width: 280)
                     .pblBorder()
-                
                 SortieAirdropEditFields(sortie: sortie)
                     .frame(width: 86)
                     .pblBorder()
@@ -56,7 +55,7 @@ struct SortieAirdropEditFields: View {
     @State var numAirdropPallets: String
     @State var numHeavies: String
 
-    init(sortie: Sortie){
+    init(sortie: Sortie) {
         _sortie            = ObservedObject(wrappedValue: sortie)
         _metrics           = ObservedObject(wrappedValue: sortie.metrics)
         _airdropWeight     = State(wrappedValue: sortie.metrics.airdropWeight == 0 ?

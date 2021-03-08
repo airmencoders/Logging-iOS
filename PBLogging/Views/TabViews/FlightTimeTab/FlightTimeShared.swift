@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum FlightTimeConstants{
+enum FlightTimeConstants {
     static let rowHeight: CGFloat = 40
     static let totalColumnWidth: CGFloat = 55
 }
@@ -38,10 +38,12 @@ private struct OnTouchDownGestureModifier: ViewModifier {
                                     })
     }
 }
+
 struct FadeInText: View {
     var text: String
     @State var opacity: Double = 0
-    var body: some View{
+    
+    var body: some View {
         Text(text)
             .opacity(opacity)
             .onAppear{
@@ -51,63 +53,53 @@ struct FadeInText: View {
             }
     }
 }
+
 struct FlightTimeTotalsView: View {
     var totals: DisplayRow
+    
     var body: some View {
         HStack {
-            Text("\(totals.primary, specifier: "%1.1f")")
-                .frame( maxWidth: .infinity, alignment: Alignment.center)
-            Text("\(totals.secondary, specifier: "%1.1f")")
-                .frame(maxWidth: .infinity, alignment: Alignment.center)
-            Text("\(totals.instructor, specifier: "%1.1f")")
-                .frame(maxWidth: .infinity, alignment: Alignment.center)
-            Text("\(totals.evaluator, specifier: "%1.1f")")
-                .frame(maxWidth: .infinity, alignment: Alignment.center)
-            Text("\(totals.other, specifier: "%1.1f")")
-                .frame( maxWidth: .infinity, alignment: Alignment.center)
+            Group {
+                Text("\(totals.primary, specifier: "%1.1f")")
+                Text("\(totals.secondary, specifier: "%1.1f")")
+                Text("\(totals.instructor, specifier: "%1.1f")")
+                Text("\(totals.evaluator, specifier: "%1.1f")")
+                Text("\(totals.other, specifier: "%1.1f")")
+            }
+            .frame(maxWidth: .infinity, alignment: Alignment.center)
+            
             Text("\(totals.total, specifier: "%1.1f")")
                 .frame(width: FlightTimeConstants.totalColumnWidth, alignment: Alignment.center)
         }
-        
     }
 }
+
 struct CrewRowView: View {
     
     @Binding var timeRow: TimeRow
     
-    var body: some View{
-        HStack{
-            
-            TextField("", text: $timeRow.primary.text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("", text: $timeRow.secondary.text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("", text: $timeRow.instructor.text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .disabled(timeRow.instructor.disabled)
-                
-                .opacity(timeRow.instructor.disabled ? 0.0 : 1.0)
-            
-            TextField("", text: $timeRow.evaluator.text)
-                .disabled(timeRow.evaluator.disabled)
-                
-                .opacity(timeRow.evaluator.disabled ? 0.0 : 1.0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("", text: $timeRow.other.text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Text("\(timeRow.total, specifier: "%1.1f")")
-                .frame(width: FlightTimeConstants.totalColumnWidth)
+    var body: some View {
+        HStack {
+            Group {
+                TextField("", text: $timeRow.primary.text)
+                TextField("", text: $timeRow.secondary.text)
+                TextField("", text: $timeRow.instructor.text)
+                    .disabled(timeRow.instructor.disabled)
+                    .opacity(timeRow.instructor.disabled ? 0.0 : 1.0)
+                TextField("", text: $timeRow.evaluator.text)
+                    .disabled(timeRow.evaluator.disabled)
+                    .opacity(timeRow.evaluator.disabled ? 0.0 : 1.0)
+                TextField("", text: $timeRow.other.text)
+                Text("\(timeRow.total, specifier: "%1.1f")")
+                    .frame(width: FlightTimeConstants.totalColumnWidth)
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         .keyboardType(.decimalPad)
         .multilineTextAlignment(.center)
-        
-        
     }
 }
+
 struct CrewRowView_Previews: PreviewProvider {
     
     static var previews: some View {
@@ -117,8 +109,6 @@ struct CrewRowView_Previews: PreviewProvider {
             .padding()
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
-        
-        
     }
 }
 
@@ -127,7 +117,7 @@ struct NumberColumn: View {
     var title: String
     
     var body: some View {
-        VStack{
+        VStack {
             Text(title)
         }
     }
@@ -140,33 +130,30 @@ struct NameColumnView: View {
     var hasGhost: Bool = false
     @State var ghostPressed: Bool = false
     
-    var body: some View{
-        VStack(spacing:0){
-            
+    var body: some View {
+        VStack(spacing:0) {
             Text(title)
                 .font(.headline)
                 .frame(maxWidth:.infinity)
                 .frame(height: FlightTimeConstants.rowHeight)
             Divider()
             
-            if hasGhost{
-                
-                
-                HStack{
+            if hasGhost {
+                HStack {
                     Text("Ghost")
                         .frame(maxWidth:.infinity)
                         .opacity(ghostPressed ? 0.5 : 1.0)
                 }
                 .frame(height: FlightTimeConstants.rowHeight)
                 .onTouches(down: {
-                    withAnimation{ ghostPressed = true }
+                    withAnimation { ghostPressed = true }
                 }, up: {
-                    withAnimation{ ghostPressed = false }
+                    withAnimation { ghostPressed = false }
                 })
-                
                 Divider()
             }
-            ForEach(crewLines, id: \.crewLine){ crew in
+            
+            ForEach(crewLines, id: \.crewLine) { crew in
                 NameCell(crew: crew.crewLine)
                     .frame(height: FlightTimeConstants.rowHeight)
                 Divider()
@@ -178,17 +165,17 @@ struct NameColumnView: View {
         .frame(width:200)
     }
 }
-struct NameCell: View{
+
+struct NameCell: View {
     @ObservedObject var crew: CrewLine
-    var body: some View{
-        HStack{
+    var body: some View {
+        HStack {
             Text(crew.person.lastName)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(1)
             Text(crew.flightAuthDutyCode)
                 .lineLimit(1)
                 .frame(width: 50, alignment: .leading)
-            
         }
     }
 }

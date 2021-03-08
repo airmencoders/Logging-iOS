@@ -19,7 +19,6 @@ struct SortieAirlandInfoView: View {
                 labels()
                     .frame(width: 280)
                     .pblBorder()
-                
                 SortieAirlandEditFields(sortie: sortie)
                     .frame(width: 86)
                     .pblBorder()
@@ -59,7 +58,7 @@ struct SortieAirlandEditFields: View {
     @State var numRollingStock: String
     @State var takeoffCenterOfGravity: String
 
-    init(sortie: Sortie){
+    init(sortie: Sortie) {
         _sortie = ObservedObject(wrappedValue: sortie)
         _metrics = ObservedObject(wrappedValue: sortie.metrics)
         _airlandWeight     = State(wrappedValue: sortie.metrics.airlandWeight == 0 ?

@@ -15,7 +15,7 @@ import SwiftUI
 ///
 /// These modal alerts should be avoided if at all possible. Hopefully we can restrict them to just unavoidable beta testing related items.
 ///
-class AlertProvider: ObservableObject{
+class AlertProvider: ObservableObject {
     
     @Published var alertIsVisible = false
   
@@ -23,12 +23,12 @@ class AlertProvider: ObservableObject{
     
     static let shared = AlertProvider()
     
-    enum AlertType{
+    enum AlertType {
         
         case persistence
         
-        func getAlert() -> Alert{
-            switch self{
+        func getAlert() -> Alert {
+            switch self {
             // .persistence is an unused sample... add case above and Alert design below to add new alert if you are using an alert in more than one place
             // Then it is easy access at the call site like:
             //      AlertProvider.shared.showAlert(.persistence)
@@ -42,7 +42,7 @@ class AlertProvider: ObservableObject{
     ///
     /// - Parameters:
     ///   - alert: Custom alert view struct to show
-    func showAlert(_ alert: Alert){
+    func showAlert(_ alert: Alert) {
         self.alert = alert
         self.alertIsVisible = true
     }
@@ -51,7 +51,7 @@ class AlertProvider: ObservableObject{
     ///
     /// - Parameters:
     ///   - type: A custom AlertType constructed in the AlertProvider class
-    func showAlert(_ type:AlertType){
+    func showAlert(_ type:AlertType) {
         self.alert = type.getAlert()
         self.alertIsVisible = true
     }
@@ -62,11 +62,10 @@ class AlertProvider: ObservableObject{
     ///   - title: text for the the title of the alert. Defaults to "Error"
     ///   - message: the message to show in the alert
     ///   - dismissButtonText: the text to show on the dismissal button. Defaults to "OK"
-    func showAlertWithTitle(title: String = "Error", message: String, dismissButtonText: String = "OK"){
+    func showAlertWithTitle(title: String = "Error", message: String, dismissButtonText: String = "OK") {
         self.alert = Alert(title: Text(title), message: Text(message), dismissButton: .default(Text(dismissButtonText)))
         self.alertIsVisible = true
     }
-    
 }
 
 /// Modifier that allows any view to become a displayer of alerts sourced from the AlertProvider publisher class
@@ -75,12 +74,11 @@ struct AlertViewModifier: ViewModifier {
     @ObservedObject var alertProvider = AlertProvider.shared
     
     func body(content: Content) -> some View {
-          content
+        content
             .alert(isPresented: $alertProvider.alertIsVisible) {
                 alertProvider.alert
             }
-      }
-    
+    }
 }
 
 extension View {

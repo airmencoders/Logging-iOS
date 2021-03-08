@@ -6,22 +6,20 @@
 //
 import SwiftUI
 import WebKit
+
 struct CollectorWebView : UIViewRepresentable {
    
-   
     func makeUIView(context: Context) -> PBLWebView  {
-        
         let view = PBLWebView()
         view.navigationDelegate = view
         return view
     }
+    
     func updateUIView(_ uiView: PBLWebView, context: Context) {
-        
         let url = URL(string:"https://jira.il2.dso.mil/rest/collectors/1.0/template/form/974f02c0")
         let request = URLRequest(url: url!)
         uiView.load(request)
     }
-   
 }
 
 class PBLWebView: WKWebView{}
@@ -45,19 +43,18 @@ extension PBLWebView: WKNavigationDelegate {
             }
         })
     }
+    
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         NSLog(#function)
     }
+    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         NSLog(#function)
     }
-  
-    
 }
+
 struct CollectorWebView_Previews : PreviewProvider {
     static var previews: some View {
         CollectorWebView()
      }
 }
- 
-

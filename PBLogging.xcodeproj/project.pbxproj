@@ -493,13 +493,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		BF16A57525F13D7E00CF6F41 /* FlightTimeAndConditions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FlightTimeAndConditions;
-			sourceTree = "<group>";
-		};
 		BF5C1F2225A6835A0075404C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,7 +507,6 @@
 		BFBAF95725AFA93A00BBFBD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF16A57525F13D7E00CF6F41 /* FlightTimeAndConditions */,
 				4DBDD02A25B78FFE00C7C3DB /* Overview */,
 				4DCD42B025DC9AD100EB6FF3 /* RecentSorties */,
 				4DB3178D25BA516F00DB1201 /* TabViews */,
