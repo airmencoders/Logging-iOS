@@ -16,11 +16,10 @@ struct TrainingEventsView: View {
     @State var xOffset: CGFloat = 0
     @State var yOffset: CGFloat = 0
     
-    let personColumnWidth: CGFloat = 120
+    let personColumnWidth: CGFloat = 145
     let eventIDWidth: CGFloat = 300
     let headerHeight: CGFloat = 32
-    let smallSpacing: CGFloat = 15
-    let largeSpacing: CGFloat = 50
+    let spacing: CGFloat = 15
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
@@ -59,55 +58,63 @@ struct TrainingEventsView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack(spacing: smallSpacing) {
-                HStack(spacing: smallSpacing) {
+            VStack(spacing: spacing) {
+                HStack(spacing: spacing) {
                     Rectangle()
                         .frame(width: eventIDWidth)
                         .foregroundColor(Color(UIColor.systemBackground))
                     
                     // Names
                     ScrollView([]) {
-                        HStack(spacing: largeSpacing) {
+                        HStack(spacing: spacing) {
                             ForEach(sortie.crewLines) { crewLine in
                                 Text("\(crewLine.person.lastName)")
-                                    .bold()
                                     .frame(width: personColumnWidth)
+                                    .foregroundColor(.pblForegroundSecondary)
                             }
                         }
-                        .offset(x: xOffset - (eventIDWidth + smallSpacing))
+                        .offset(x: xOffset - (eventIDWidth + spacing))
                     }
                 }
                 .frame(height: headerHeight)
                 
-                HStack(alignment: .top, spacing: smallSpacing) {
+                HStack(alignment: .top, spacing: spacing) {
                     
                     // Events
                     ScrollView([]) {
-                        VStack(alignment: .leading, spacing: 15) {
+                        VStack(alignment: .leading, spacing: 10) {
                             ForEach(missionEventTypes.wrappedValue) { met in
                                 VStack(alignment: .leading){
-                                    Text("\(met.name)")
-                                        .bold()
-                                        .foregroundColor(.pblForegroundSecondary)
                                     Text("\(isSim ? met.simEventID : met.realEventID) ")
-                                        .bold()
-                                        .foregroundColor(.pblForegroundPrimary)
-                                    Divider()
-                                        .padding(.top, 8)
+                                        .foregroundColor(.pblForegroundTertiary)
+                                    Text("\(met.name)")
+                                        .foregroundColor(.pblForegroundSecondary)
+                                    ThickDivider()
+                                        .padding(.top, 5)
                                 }
                                 .padding(.leading)
                             }
                         }
-                        .offset(y: yOffset - (headerHeight + smallSpacing + 180))
+                        .offset(y: yOffset - (headerHeight + spacing + 175))
                     }
                     .frame(width: eventIDWidth)
                     
                     // Stepper Grid
                     ScrollView([.horizontal, .vertical], showsIndicators: true) {
-                        HStack(spacing: largeSpacing) {
-                            ForEach(sortie.crewLines) { crewLine in
-                                PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
-                                    .frame(width: personColumnWidth)
+                        HStack(spacing: spacing) {
+                            ForEach(Array(sortie.crewLines.enumerated()), id: \.offset) { index, crewLine in
+                                
+                                if index % 2 == 0 {
+                                    PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
+                                        .frame(width: personColumnWidth)
+                                        .background(Color.pblBackgroundDefault)
+                                        .cornerRadius(.pblCornerRadius)
+                                } else {
+                                    PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
+                                        .frame(width: personColumnWidth)
+                                        .background(Color.pblForegroundPrimary.opacity(0.3))
+                                        .cornerRadius(.pblCornerRadius)
+                                }
                             }
                         }
                         .background (
@@ -139,8 +146,6 @@ struct PersonTrainingColumn: View {
     
     @ObservedObject var crewLine: CrewLine
     @Environment(\.managedObjectContext) private var viewContext
-
- 
     @State var missionEventTypes: FetchRequest<MissionEventTypes>
     @State var itemArray: [(eventID: String, numberAccomplished: Int)]
  
@@ -157,8 +162,7 @@ struct PersonTrainingColumn: View {
             personsEvents[record.eventID!] = Int(record.numberAccomplished)
         }
         
-        for met in missionEventTypes.wrappedValue{
-            
+        for met in missionEventTypes.wrappedValue {
             if isSim {
                 anItemArray.append((met.simEventID, personsEvents[met.simEventID] ?? 0))
             } else {
@@ -169,9 +173,13 @@ struct PersonTrainingColumn: View {
     }
     
     var body: some View {
-        VStack(spacing: 40.5) {
+        VStack(spacing: 0) {
             ForEach(0..<itemArray.count) { count in
                 Stepper("\(itemArray[count].numberAccomplished)", value: $itemArray[count].numberAccomplished, in: 0...10)
+                    .foregroundColor(.pblForegroundSecondary)
+                    .padding()
+                ThickDivider()
+                    .background(Color.pblBackground)
             }
         }
         .onDisappear() {
