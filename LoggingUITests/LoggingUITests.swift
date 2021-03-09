@@ -53,7 +53,7 @@ class LoggingUITests: XCTestCase {
         
         // Mission Data > Flight Time
         self.app.tabBars.buttons["Flight Time"].tap()
-        XCTAssert(self.app.staticTexts["Flight Time"].exists)
+        XCTAssert(self.app.staticTexts["Splitting 7.8 hours"].exists)
 
         // Flight Time > Training Events
         self.app.tabBars.buttons["Training Events"].tap()

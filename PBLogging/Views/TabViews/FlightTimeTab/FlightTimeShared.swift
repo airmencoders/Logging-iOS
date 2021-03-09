@@ -94,6 +94,7 @@ struct CrewRowView: View {
                     .frame(width: FlightTimeConstants.totalColumnWidth)
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .disabled(timeRow.isLocked)
         }
         .keyboardType(.decimalPad)
         .multilineTextAlignment(.center)
@@ -126,7 +127,8 @@ struct NumberColumn: View {
 struct NameColumnView: View {
     
     var title: String
-    var crewLines: [TimeRow]
+    @Binding var crewLines: [TimeRow]
+    
     var hasGhost: Bool = false
     @State var ghostPressed: Bool = false
     
@@ -152,12 +154,29 @@ struct NameColumnView: View {
                 })
                 Divider()
             }
-            
-            ForEach(crewLines, id: \.crewLine) { crew in
-                NameCell(crew: crew.crewLine)
-                    .frame(height: FlightTimeConstants.rowHeight)
-                Divider()
+            ForEach((0..<crewLines.count), id: \.self){ index in
+                HStack{
+                    NameCell(crew: crewLines[index].crewLine)
+                        .frame(height: FlightTimeConstants.rowHeight)
+                    Divider()
+                    Button{
+                        withAnimation{
+                            crewLines[index].isLocked.toggle()
+                        }
+                    } label:{
+                        Image(systemName: crewLines[index].isLocked ? "lock.fill" : "lock.open.fill")
+                    }
+                }
             }
+//            ForEach(crewLines, id: \.crewLine) { crew in
+//                HStack{
+//                    NameCell(crew: crew.crewLine)
+//                        .frame(height: FlightTimeConstants.rowHeight)
+//                    Divider()
+//
+//                }
+//
+//            }
             Text("Totals")
                 .frame(maxWidth:.infinity)
                 .frame(height: FlightTimeConstants.rowHeight)

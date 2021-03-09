@@ -20,7 +20,7 @@ struct AuditingFlightTimeView: View {
                 //PILOT HEADER
                 HStack {
                     //PILOTS
-                    NameColumnView(title: "Pilots", crewLines: auditor.rows, hasGhost: true)
+                    NameColumnView(title: "Pilots", crewLines: $auditor.rows, hasGhost: true)
                         .padding([.leading,.trailing])
                     
                     VStack(spacing:0) {
@@ -61,7 +61,6 @@ struct AuditingFlightTimeView: View {
                 
                 VStack {
                     ForEach(auditor.errors, id: \.self) { errorMessage in
-                        //   let index = pilotAuditor.errors.firstIndex(where: { errorMessage == $0 })!
                         FadeInText(text:"⚠️ \(errorMessage)")
                             .foregroundColor(.red)
                             .frame(maxWidth:.infinity, alignment: .leading)
@@ -75,12 +74,13 @@ struct AuditingFlightTimeView: View {
                 Spacer()
             }
         }
+      
         .onDisappear {
             auditor.sortie.objectWillChange.send()
             auditor.save()
             dataController.save()
         }
-        .navigationBarTitle(Text("Splitting \(auditor.sortie.calculatedTotalFlightTimeFor781 ?? 0.0, specifier: "%1.1f") hours"))
+       
     }
     
     var loadmasterStepper: some View {

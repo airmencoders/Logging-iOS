@@ -29,7 +29,9 @@ struct PilotLoadmasterSwitcherView: View {
             }
             remarks
             Spacer()
-        }
+        }  
+        
+         
     }
     
     var remarks: some View {
