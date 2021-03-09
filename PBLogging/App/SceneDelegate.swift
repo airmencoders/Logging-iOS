@@ -34,6 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
         
+        // Check for first run, if so load example data
+        if(UserDefaults().bool(forKey: "PBL-HAS-RUN-BEFORE") != true){
+            firstLoad()
+        }
+        
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -50,12 +55,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         if ProcessInfo.processInfo.arguments.contains("clear-core-data-load-sample-data") {
             dataController.deleteAllEvents()
-            SampleData.loadMockData1(viewContext: dataController.container.viewContext)
+            SampleData.loadMockData1(viewContext: dataController.container.viewContext, numEvents: 6)
            
         }else if ProcessInfo.processInfo.arguments.contains("clear-core-data") {
             dataController.deleteAllEvents()
             dataController.save()
         }
+    }
+    
+    //Loads dummy data on first install
+    func firstLoad(){
+        SampleData.loadFEMAMission(viewContext: dataController.container.viewContext)
+        SampleData.loadMockData1(viewContext: dataController.container.viewContext, numEvents: 1)
+        
+        UserDefaults().set(true, forKey: "PBL-HAS-RUN-BEFORE")
+        UserDefaults().synchronize()
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

@@ -14,7 +14,7 @@ enum SampleData {
     static var previewDataController: DataController = {
         let dataController = DataController(inMemory: true)
         let viewContext = dataController.container.viewContext
-        loadMockData1(viewContext: viewContext)
+        loadMockData1(viewContext: viewContext, numEvents: 5)
         loadMosherForm(viewContext: viewContext)
         do {
             try viewContext.save()
@@ -86,6 +86,8 @@ enum SampleData {
     }()
 
     static let icaos = ["RJSM", "KTIK", "KNGB", "RJTY", "KSKA", "KPDX", "PHIK", "RJTA", "RJTZ", "KADW", "KAFF", "KBKF", "KCHS", "KDMA", "KEDW", "KHIF", "KHMN", "KIAB", "KLFI", "KLSV", "KSSC", "KSUU"]
+    
+    static let missionSymbols = ["P7BA", "P7BC", "N6A", "ABCD"]
 
     static let takeOffAndLandTimes: [(takeoff: Date, land: Date)] = {
 
@@ -160,7 +162,7 @@ enum SampleData {
     static let socials: [String] = {
         var socials = [String]()
 
-        for i in 10..<(10 + 35) {
+        for i in 10..<(10 + 100) {
             socials.append("\(i)\(i+1)")
         }
 
@@ -182,17 +184,23 @@ enum SampleData {
 
     static let flightOrgs: [String] = {
         var orgs = [String]()
-        for i in 10..<(10 + 35) {
+        for i in 10..<(10 + 45) {
             orgs.append("00\(i)")
         }
         return orgs
+    }()
+    
+    static let randomMissionNum: String = {
+        let julian = Int.random(in: 1..<365)
+        let middle = Int.random(in: 1000..<2000)
+        return "AUN\(middle)\(randomString(length: 1).uppercased())\(julian)"
     }()
     static func loadFEMAMission(viewContext: NSManagedObjectContext) {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm - d MMM y"
         
         let event = Event(context: viewContext)
-        event.name = "FEMA"
+        event.name = "FEMA - Complete Example"
         event.summary = "Deliver bottled water to various locations in Texas effected by freezing weather."
         
         let serial = "90-0534"
@@ -648,14 +656,17 @@ enum SampleData {
 
     }
 
-    static func loadMockData1(viewContext: NSManagedObjectContext) {
+    static func loadMockData1(viewContext: NSManagedObjectContext, numEvents:Int) {
 
         var personCounter = 0
-        for i in 0...5 {
+        for i in 0...numEvents-1 {
             let event = Event(context: viewContext)
             // newItem.name = Date()
-            event.name = SampleData.eventNames[i]
+            event.name = "\(SampleData.eventNames[i]) - Shell Example"
             event.summary = SampleData.eventSummaries[i]
+            
+            let msnSymbol = SampleData.missionSymbols.randomElement()
+            let msnNumber = SampleData.randomMissionNum
 
             for j in 0..<3 {
                 let sortie = Sortie(context: viewContext)
@@ -665,6 +676,8 @@ enum SampleData {
                 sortie.takeoffTime = SampleData.takeOffAndLandTimes[j + i].takeoff
                 sortie.landTime = SampleData.takeOffAndLandTimes[j + i].land
                 sortie.mds = SampleData.mds[i]
+                sortie.missionSymbol = msnSymbol ?? "DCBA"
+                sortie.missionNumber = msnNumber
                 if i == 0 {
                     // the first sortie will have a different serial number so we can test splitting the Form 781 on different aircraft
                     sortie.serialNumber = SampleData.serialNumbers[j]
@@ -673,17 +686,23 @@ enum SampleData {
                 }
                 sortie.harmLocation = SampleData.harmLocations[i]
                 sortie.unitCharged = SampleData.unitCharged[i]
+                sortie.flightAuthNumber = SampleData.flightAuthNum[i]
+                sortie.issuingUnit = SampleData.issuingUnits[i]
+
 
                 for c in 0..<(3 + i) {
                     let person = Person(context: viewContext)
                     person.firstName = SampleData.firstNames[personCounter]
                     person.lastName = SampleData.lastNames[personCounter]
+                    person.last4 = SampleData.socials[personCounter]
                     personCounter += 1
 
                     let crewLine = CrewLine(context: viewContext)
                     crewLine.flightAuthDutyCode = SampleData.flightAuthDutyCodes[c]
                     crewLine.person = person
                     crewLine.sortie = sortie
+                    crewLine.flyingOrganization = "0016"
+                    
 
                 }
             }
@@ -770,6 +789,11 @@ enum SampleData {
         
         try! context.save()
     }
+    
+    private static func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+      }
 }
 
 #if DEBUG
@@ -785,7 +809,7 @@ extension UIWindow {
             sceneDelegate.dataController.save()
             SampleData.loadFEMAMission(viewContext: sceneDelegate.dataController.container.viewContext)
             SampleData.loadMosherForm(viewContext: sceneDelegate.dataController.container.viewContext)
-            SampleData.loadMockData1(viewContext: sceneDelegate.dataController.container.viewContext)
+            SampleData.loadMockData1(viewContext: sceneDelegate.dataController.container.viewContext, numEvents: 6)
         }
     }
 }
