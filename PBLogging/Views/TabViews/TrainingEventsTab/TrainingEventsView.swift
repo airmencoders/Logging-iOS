@@ -103,18 +103,10 @@ struct TrainingEventsView: View {
                     ScrollView([.horizontal, .vertical], showsIndicators: true) {
                         HStack(spacing: spacing) {
                             ForEach(Array(sortie.crewLines.enumerated()), id: \.offset) { index, crewLine in
-                                
-                                if index % 2 == 0 {
-                                    PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
-                                        .frame(width: personColumnWidth)
-                                        .background(Color.pblBackgroundDefault)
-                                        .cornerRadius(.pblCornerRadius)
-                                } else {
-                                    PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
-                                        .frame(width: personColumnWidth)
-                                        .background(Color.pblForegroundPrimary.opacity(0.3))
-                                        .cornerRadius(.pblCornerRadius)
-                                }
+                                PersonTrainingColumn(crewLine: crewLine, missionEventTypes: missionEventTypes)
+                                    .frame(width: personColumnWidth)
+                                    .background(getColumnColor(index))
+                                    .cornerRadius(.pblCornerRadius)
                             }
                         }
                         .background (
@@ -139,6 +131,10 @@ struct TrainingEventsView: View {
     func offsetChanged(point: CGPoint) {
         yOffset = point.y
         xOffset = point.x
+    }
+    
+    func getColumnColor(_ num: Int) -> Color {
+        return num.isMultiple(of: 2) ? Color.pblBackgroundDefault : Color.pblForegroundPrimary.opacity(0.3)
     }
 }
 
