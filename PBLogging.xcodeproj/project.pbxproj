@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
+		4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */; };
 		4D8A7E0525E9A5EE00C70D7E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */; };
 		4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */; };
 		4D9E3F6725E0A908003903B0 /* SortieAirlandInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */; };
@@ -134,6 +135,7 @@
 
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ExtTest.swift"; sourceTree = "<group>"; };
 		4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieFuelInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirlandInfoView.swift; sourceTree = "<group>"; };
@@ -375,14 +377,15 @@
 		4DD13FF1259ED18700C98EB8 /* LoggingTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFDB3B1C25DDBC35000A16ED /* CrewLine+ComparableTests.swift */,
 				BFDB3B5325DDD76E000A16ED /* AllEntityAwakeTests.swift */,
-				BFDB3B1B25DDBC35000A16ED /* EventTests.swift */,
-				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
-				4DD13FF4259ED18700C98EB8 /* Info.plist */,
+				BFDB3B1C25DDBC35000A16ED /* CrewLine+ComparableTests.swift */,
+				4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */,
 				BF76D3AA25E63C070045A4DA /* Event+CalculationsTests.swift */,
-				BF76D3AF25E63CAA0045A4DA /* Sortie+CalculationsTests.swift */,
+				BFDB3B1B25DDBC35000A16ED /* EventTests.swift */,
+				4DD13FF4259ED18700C98EB8 /* Info.plist */,
 				BF76D3B425E63CFD0045A4DA /* Sortie+AccessorsTests.swift */,
+				BF76D3AF25E63CAA0045A4DA /* Sortie+CalculationsTests.swift */,
+				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
 				4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */,
 			);
 			path = LoggingTests;
@@ -850,6 +853,7 @@
 				4DF7C7AF25BFB87600EB1E5C /* String+ExtTests.swift in Sources */,
 				BF76D3B525E63CFD0045A4DA /* Sortie+AccessorsTests.swift in Sources */,
 				BFDB3B5425DDD76E000A16ED /* AllEntityAwakeTests.swift in Sources */,
+				4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */,
 				BF76D3B025E63CAA0045A4DA /* Sortie+CalculationsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

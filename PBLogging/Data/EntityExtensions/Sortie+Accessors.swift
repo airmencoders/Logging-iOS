@@ -1,5 +1,5 @@
 //
-//  Sortie.swift
+//  Sortie+Accessors.swift
 //
 //  Created by John Bethancourt on 2/4/21.
 //
@@ -36,7 +36,7 @@ extension Sortie {
     }
     
     public var totalLandingsString: String {
-        get { return "\(numFullStop)" }
+        get { return "\(totalLandings)" }
     }
      
     public var missionNumber: String {
@@ -86,7 +86,11 @@ extension Sortie {
     
     public var crewLines: [CrewLine] {
         get {
-            let set = crewLines_ as? Set<CrewLine> ?? []
+            // I usually do not like as!, but unless the type of crewLines_ change
+            // this can not fail. So we would never get to the default if we use as?
+            // Also, if the type of crewLines_ changes, I think it's better for this
+            // to fail instead of silently 'work'.
+            let set = crewLines_ as! Set<CrewLine>
             return Array(set).sorted()
         }
         set {
@@ -132,5 +136,4 @@ extension Sortie {
         }
         set { fuel_ = newValue }
     }
-    
 }

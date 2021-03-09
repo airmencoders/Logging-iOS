@@ -145,4 +145,13 @@ class LoggingUITests: XCTestCase {
 
         XCTAssertEqual(originalAircrewCount + 3, currentAircrewCount, "Aircrew were not added")
     }
+
+    func testBackgroundAppAndReopen() throws {
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        sleep(1)    // Need a little delay so that sceneDidEnterBackground() gets called.
+        self.app.launch()
+
+        // Land back on the Event page.
+        XCTAssert(self.app.buttons["addEventButton"].exists)
+    }
 }
