@@ -99,35 +99,50 @@ struct PilotTimeAuditor: Auditing {
         print(#function)
         guard canAudit == true else { return }
         guard Int(totalFlightTime * 10.0) > rows.count else { return } // not enough time to split
-        print("passed guard")
         
         /// reset all values
+        var primaryTimeUsed = 0.0
+        var unlockedRowsCount = 0
         for i in 0..<rows.count {
-            rows[i].primary.value     = 0
-            rows[i].secondary.value   = 0
-            rows[i].instructor.value  = 0
-            rows[i].evaluator.value   = 0
-            rows[i].other.value       = 0
+            
+            if rows[i].isLocked {
+                /// sum locked primary time
+                primaryTimeUsed += rows[i].primary.value
+            } else {
+                /// set non locked rows to zero
+                rows[i].primary.value     = 0
+                rows[i].secondary.value   = 0
+                rows[i].instructor.value  = 0
+                rows[i].evaluator.value   = 0
+                rows[i].other.value       = 0
+                unlockedRowsCount += 1
+            }
         }
+        
+        /// Don't split time if there is no one to split time with 
+        guard unlockedRowsCount > 0 else { return }
         
         /// multiply the total flight time by 10 so we can do integer math
         /// 1.1 becomes 11
-        let totalTime = Int(totalFlightTime * 10)
+        let totalTime = Int(totalFlightTime * 10) - Int(primaryTimeUsed * 10)
         /// integer math causes the equal time to remove any remainder
         /// e.g. 13 / 3 will equal 4 instead of 4.33333 (4 remainder 1)
-        let equalTime = totalTime / rows.count
+        //let equalTime = totalTime / rows.count
+        let equalTime = totalTime / unlockedRowsCount
         /// modulo tells us the remaining amount
         var remainder = totalTime % equalTime
-        
+         
         for i in 0..<rows.count {
             /// give each pilot their fair share and some of the remainder if any
-            rows[i].primary.value = Double(equalTime) / 10.0
-            if remainder > 0 {
-                rows[i].primary.value += 0.1
-                remainder -= 1
+            if rows[i].isLocked == false {
+                rows[i].primary.value = Double(equalTime) / 10.0
+                if remainder > 0 {
+                    rows[i].primary.value += 0.1
+                    remainder -= 1
+                }
             }
         }
-        print(primaryGhost)
+        
     }
     
     func save() {

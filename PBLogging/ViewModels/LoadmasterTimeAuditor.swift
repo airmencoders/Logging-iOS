@@ -128,7 +128,6 @@ struct LoadmasterTimeAuditor: Auditing {
                 remainder -= 1
             }
         }
-        print(primaryGhost)
     }
     
     func save() {

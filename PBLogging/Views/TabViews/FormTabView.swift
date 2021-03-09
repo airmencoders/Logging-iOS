@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormTabView: View {
     
-    let titles = ["Mission Data", "Flight Time", "Training Events", "Mission Sortie Info"]
+   
     @State private var selectedTab = 0
     @ObservedObject var sortie: Sortie
     
@@ -28,7 +28,18 @@ struct FormTabView: View {
                 .tag(3)
                 .tabItem { Text("Mission Sortie Info") }
         }
-        .navigationBarTitle(Text(titles[selectedTab]))
+        .navigationBarTitle(Text(getTitle(for: selectedTab)))
+       
+    }
+    
+    private func getTitle(for selectedTab: Int) -> String {
+        switch selectedTab{
+        case 0: return "Mission Data"
+        case 1: return "Splitting \(String(format: "%1.1f",sortie.calculatedTotalFlightTimeFor781 ?? 0.0)) hours"
+        case 2:  return "Training Events"
+        case 3:  return "Mission Sortie Info"
+        default: return ""
+        }
     }
 }
 
