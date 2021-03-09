@@ -17,7 +17,7 @@ class EventTest: XCTestCase {
         let context =  dataController.container.viewContext
 
         // loads 6 events with 3 Sorties each
-        SampleData.loadMockData1(viewContext: context)
+        SampleData.loadMockData1(viewContext: context, numEvents: 6)
 
         let eventRequest = NSFetchRequest<Event>(entityName: "Event")
         var events = try context.fetch(eventRequest)
