@@ -29,7 +29,6 @@ class LoggingUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    // TODO: Add this back when the views settle down.
     func testNavigation() {
 
         self.app.terminate()
@@ -38,17 +37,19 @@ class LoggingUITests: XCTestCase {
         self.app.launchArguments.append("clear-core-data-load-sample-data")
         self.app.launch()
 
-        // Events > Recent Sorties
-        //self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
-      //  XCTAssert(self.app.staticTexts["Recent Sorties"].exists)
+        // Events > Sortie list
+        let firstEvent = self.app.buttons.matching(identifier: "eventCard").firstMatch
+        let title = eventTitle(firstEvent)
+        firstEvent.tap()
+        XCTAssert(self.app.staticTexts[title].exists)
 
-//        // Recent Sorties > Events
-//        self.app.navigationBars.buttons["Events"].tap()
-//        XCTAssert(self.app.buttons["addEventButton"].exists)
+        // Sortie list > Events
+        self.app.navigationBars.buttons["Events"].tap()
+        XCTAssert(self.app.buttons["addEventButton"].exists)
 
-        // Events > Recent Sorties > Mission Data
-        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
-        self.self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
+        // Events > Sortie list > Mission Data
+        self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+        self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
         XCTAssert(self.app.buttons["Add Aircrew"].exists)
         
         // Mission Data > Flight Time
@@ -57,8 +58,7 @@ class LoggingUITests: XCTestCase {
 
         // Flight Time > Training Events
         self.app.tabBars.buttons["Training Events"].tap()
-        // TODO: Add tests for Training Events when it's ready.
-//        XCTAssert(self.app.staticTexts["Training Events"].exists)
+        XCTAssert(self.app.staticTexts["Training Events"].exists)
 
         // Training Events > Mission Sortie Info
         self.app.tabBars.buttons["Mission Sortie Info"].tap()
@@ -74,14 +74,6 @@ class LoggingUITests: XCTestCase {
         self.app.links["Close"].tap()
     }
 
-//    func testLaunchPerformance() throws {
-//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-//            // This measures how long it takes to launch your application.
-//            measure(metrics: [XCTApplicationLaunchMetric()]) {
-//                XCUIApplication().launch()
-//            }
-//        }
-//    }
 
     func testAddEvents() throws {
 
@@ -104,7 +96,7 @@ class LoggingUITests: XCTestCase {
     func testAddSorties() throws {
 
         self.app.buttons["addEventButton"].tap()
-        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+        self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
 
         let originalSortieCount = self.app.buttons.matching(identifier: "sortieCard").count
 
@@ -125,10 +117,10 @@ class LoggingUITests: XCTestCase {
     func testAddAircrew() throws {
 
         self.app.buttons["addEventButton"].tap()
-        self.self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
+        self.app.buttons.matching(identifier: "eventCard").firstMatch.tap()
 
         self.app.buttons["addSortieButton"].tap()
-        self.self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
+        self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
 
         let originalAircrewCount = self.app.scrollViews["aircrewList"].descendants(matching: .textField).matching(identifier: "LAST NAME").count
 
@@ -146,12 +138,30 @@ class LoggingUITests: XCTestCase {
         XCTAssertEqual(originalAircrewCount + 3, currentAircrewCount, "Aircrew were not added")
     }
 
-    func testBackgroundAppAndReopen() throws {
-        XCUIDevice.shared.press(XCUIDevice.Button.home)
-        sleep(1)    // Need a little delay so that sceneDidEnterBackground() gets called.
+    func testPDFPreview() throws {
+        self.app.terminate()
+        self.app = XCUIApplication()
+        self.app.launchArguments.append("ui-tests")
+        self.app.launchArguments.append("clear-core-data-load-sample-data")
         self.app.launch()
 
-        // Land back on the Event page.
-        XCTAssert(self.app.buttons["addEventButton"].exists)
+        let firstEvent = self.app.buttons.matching(identifier: "eventCard").firstMatch
+        let title = eventTitle(firstEvent)
+        firstEvent.tap()
+
+        XCTAssert(app.buttons["Generate 781s"].exists)
+        app.buttons["Generate 781s"].tap()
+        let returnButton = self.app.buttons[title]
+        XCTAssert(returnButton.exists)
+        returnButton.tap()
+    }
+
+    private func eventTitle(_ object: XCUIElement) -> String {
+        XCTAssert(object.exists)
+        let label = object.label
+        let components = label.components(separatedBy: ",")
+        XCTAssert(components.count > 0)
+
+        return components[0]
     }
 }

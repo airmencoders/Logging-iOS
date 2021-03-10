@@ -16,7 +16,8 @@ extension CrewLine {
 
     public var missionEventRecords: [MissionEventRecord] {
         get {
-            let set = missionEventRecord_ as? Set<MissionEventRecord> ?? []
+            /// Used forced casting as NSManaged property wrapper never allows a relationship to be nil
+            let set = missionEventRecord_ as! Set<MissionEventRecord>
             return Array(set)
         }
         set {
