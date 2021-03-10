@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension MissionEventTypes{
+extension MissionEventTypes {
     
     public var simEventID: String {
         get { return simEventID_ ?? "" }
@@ -26,6 +26,5 @@ extension MissionEventTypes{
     
     public var id: String {
         get { return self.simEventID + self.realEventID }
-        set { simEventID_ = newValue }
     }
 }
