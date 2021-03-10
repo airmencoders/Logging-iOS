@@ -10,6 +10,7 @@
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
 		4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */; };
+		4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */; };
 		4D8A7E0525E9A5EE00C70D7E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */; };
 		4D9E3F6225E097B0003903B0 /* SortieFuelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */; };
 		4D9E3F6725E0A908003903B0 /* SortieAirlandInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */; };
@@ -137,6 +138,7 @@
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ExtTest.swift"; sourceTree = "<group>"; };
+		4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionEventTypes+AccessorsTests.swift"; sourceTree = "<group>"; };
 		4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieFuelInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirlandInfoView.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				BF76D3AA25E63C070045A4DA /* Event+CalculationsTests.swift */,
 				BFDB3B1B25DDBC35000A16ED /* EventTests.swift */,
 				4DD13FF4259ED18700C98EB8 /* Info.plist */,
+				4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */,
 				BF76D3B425E63CFD0045A4DA /* Sortie+AccessorsTests.swift */,
 				BF76D3AF25E63CAA0045A4DA /* Sortie+CalculationsTests.swift */,
 				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
@@ -850,6 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */,
 				BF76D3AB25E63C070045A4DA /* Event+CalculationsTests.swift in Sources */,
 				BFDB3B1E25DDBC35000A16ED /* EventTests.swift in Sources */,
 				4DE7A99125E83A4500FD03D2 /* XCTestCase+FatalError.swift in Sources */,
