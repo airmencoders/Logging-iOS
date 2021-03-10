@@ -11,7 +11,6 @@ struct EventsOverview: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
-
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Event.name_, ascending: false)],
         animation: .default)
@@ -20,16 +19,14 @@ struct EventsOverview: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 30) {
-                List {
-                    ForEach(events) { event in
-                        EventCard(event: event)
-                            .accessibility(identifier: "eventCard")
-                    }
-                    .onDelete(perform: deleteSelectedEvents)
+            List {
+                ForEach(events) { event in
+                    EventCard(event: event)
+                        .accessibility(identifier: "eventCard")
                 }
-                .padding()
+                .onDelete(perform: deleteSelectedEvents)
             }
+            .padding()
             .navigationBarTitle(Text("Events"))
             .navigationBarItems(trailing:
                                     HStack {
@@ -39,7 +36,7 @@ struct EventsOverview: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-
+    
     func deleteSelectedEvents(offsets: IndexSet) {
         for offset in offsets {
             let itemToDelete = events[offset]

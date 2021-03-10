@@ -15,13 +15,7 @@ struct SortieCard: View {
         NavigationLink(
             destination: FormTabView(sortie: sortie),
             label: {
-                HStack(spacing: 0) {
-                    LeftCell(sortie: sortie)
-                    RightCell(sortie: sortie)
-                }
-                .frame(height:240)
-                .foregroundColor(Color.pblForegroundSecondary)
-                .cornerRadius(.pblCornerRadius)
+                SortieContents
             })
             .padding(.trailing)
             .background(Color.pblBackgroundDefault)
@@ -53,11 +47,12 @@ private struct LeftCell: View {
                 Text(sortie.takeoffTime?.string() ?? "")
                     .font(.pblBold(size: 16))
             }
-            ContentColumn(imageName: "doc.on.doc", title: "Sortie Summary", leftColumnLabels: ["Serial Number:", "Mission Number:", "Mission Symbol:", "Special Use:"], rightColumnLabels: [sortie.serialNumber, sortie.missionNumber, sortie.missionSymbol, sortie.specialUse])
+            ContentColumn(imageName: "doc.on.doc", title: "Sortie Summary", leftColumnLabels: ["Serial Number:", "Mission Number:"], rightColumnLabels: [sortie.serialNumber, sortie.missionNumber])
         }
         .padding()
-        .frame(maxWidth: 220)
+        .frame(maxWidth: 270)
         .frame(maxHeight: .infinity)
+        .offset(y: -25)
         .background(Color.pblBackgroundElevated)
     }
 }
@@ -68,15 +63,13 @@ private struct RightCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: 30) {
                 ContentColumn(imageName: "location", title: "Location", leftColumnLabels: ["From:", "To:"], rightColumnLabels: [sortie.takeoffICAO, sortie.landICAO])
                 ContentColumn(imageName: "clock", title: "Flight Time", leftColumnLabels: ["Take off time:", "Land time:", "Total time:"], rightColumnLabels: [sortie.takeoffTime?.string24HourTime() ?? "", sortie.landTime?.string24HourTime() ?? "" , sortie.flightTimeString])
-                    .layoutPriority(1)
-                ContentColumn(imageName: "airplane", title: "Landings", leftColumnLabels: ["Touch & go:", "Full stop:", "Total landings:"], rightColumnLabels: [sortie.touchAndGoesString, sortie.fullStopsString, sortie.totalLandingsString])
             }
         }
         .padding()
-        .padding(.top, 18)
+        .padding(.top, 27)
         .frame(maxHeight: .infinity)
         .background(Color.pblBackgroundDefault)
     }

@@ -15,13 +15,13 @@ struct MissionSortieInfoView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                SortieTypeView(sortieType: sortie.sortieType)
                 HStack(alignment: .top) {
                     SortieFuelInfoView(sortie: sortie)
                     SortieAirlandInfoView(sortie: sortie)
                 }
                 .padding()
                 SortieAirdropInfoView(sortie: sortie)
-                SortieTypeView(sortieType: sortie.sortieType)
                 SortieCommentsView(sortie: sortie)
             }
         }

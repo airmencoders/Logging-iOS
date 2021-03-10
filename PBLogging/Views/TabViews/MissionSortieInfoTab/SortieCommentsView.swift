@@ -17,7 +17,7 @@ struct SortieCommentsView: View {
             Text("Sortie Comments")
                 .fontSectionHeading()
             TextView(text: $sortie.comments)
-                .frame(minHeight: 100)
+                .frame(minHeight: 150)
                 .cornerRadius(.pblCornerRadius)
         }
         .padding()
