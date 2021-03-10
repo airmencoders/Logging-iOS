@@ -86,12 +86,9 @@ extension Sortie {
     
     public var crewLines: [CrewLine] {
         get {
-            // I usually do not like as!, but unless the type of crewLines_ change
-            // this can not fail. So we would never get to the default if we use as?
-            // Also, if the type of crewLines_ changes, I think it's better for this
-            // to fail instead of silently 'work'.
+            /// Use forced casting as NSManaged property wrapper never allows a relationship to be nil
             let set = crewLines_ as! Set<CrewLine>
-            return Array(set).sorted()
+            return set.sorted()
         }
         set {
             crewLines_ = Set(newValue) as NSSet

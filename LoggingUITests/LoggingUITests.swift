@@ -74,14 +74,6 @@ class LoggingUITests: XCTestCase {
         self.app.links["Close"].tap()
     }
 
-//    func testLaunchPerformance() throws {
-//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-//            // This measures how long it takes to launch your application.
-//            measure(metrics: [XCTApplicationLaunchMetric()]) {
-//                XCUIApplication().launch()
-//            }
-//        }
-//    }
 
     func testAddEvents() throws {
 
@@ -146,12 +138,4 @@ class LoggingUITests: XCTestCase {
         XCTAssertEqual(originalAircrewCount + 3, currentAircrewCount, "Aircrew were not added")
     }
 
-    func testBackgroundAppAndReopen() throws {
-        XCUIDevice.shared.press(XCUIDevice.Button.home)
-        sleep(1)    // Need a little delay so that sceneDidEnterBackground() gets called.
-        self.app.launch()
-
-        // Land back on the Event page.
-        XCTAssert(self.app.buttons["addEventButton"].exists)
-    }
 }

@@ -21,7 +21,8 @@ extension Event {
 
     public var sorties: [Sortie] {
         get {
-            let set = sorties_ as? Set<Sortie> ?? []
+            /// Use forced casting as NSManaged property wrapper never allows a relationship to be nil
+            let set = sorties_ as! Set<Sortie>
             return Array(set).sorted()
         }
         set {
