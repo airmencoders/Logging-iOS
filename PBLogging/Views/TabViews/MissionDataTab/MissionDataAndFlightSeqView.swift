@@ -25,6 +25,7 @@ struct MissionDataAndFlightSeqView: View {
                 flightSeq
             }
         }
+        .padding()
     }
     
     var missionData: some View {
@@ -48,6 +49,7 @@ struct MissionDataAndFlightSeqView: View {
             .padding(4)
         }
         .padding()
+        .pblBorder()
     }
     
     var flightSeq: some View {
@@ -78,6 +80,8 @@ struct MissionDataAndFlightSeqView: View {
             .padding(4)
         }
         .padding()
+        .pblBorder()
+        
     }
     
     func icaoColor(for icao: String) -> Color {

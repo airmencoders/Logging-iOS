@@ -46,5 +46,5 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(dataController)
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .iPadPro12_9(isDark: false)
-      }
+    }
 }

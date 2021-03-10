@@ -45,6 +45,8 @@ struct SortieTypeView: View {
             .font(.pblBold(size: 14))
             .foregroundColor(.pblForegroundSecondary)
             .toggleStyle(PBLToggleStyleChip())
+            .padding()
+            .pblBorder()
         }
         .padding()
     }
