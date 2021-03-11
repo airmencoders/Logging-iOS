@@ -8,21 +8,13 @@
 import SwiftUI
 
 extension View {
-    func enforceAndUpdate(_ item: inout Int32, with stateObject: inout String) {
+    
+    func enforceAndUpdate<I: FixedWidthInteger>(_ item: inout I, with stateObject: inout String) {
         stateObject = stateObject.enforceIntNumber()
-        if let integerValue = Int32(stateObject) {
+        if let integerValue = I(stateObject) {
             item = integerValue
         } else if stateObject.count == 0 {
-            item = 0
-        }
-    }
-
-    func enforceAndUpdate(_ item: inout Int16, with stateObject: inout String) {
-        stateObject = stateObject.enforceIntNumber()
-        if let integerValue = Int16(stateObject) {
-            item = integerValue
-        } else if stateObject.count == 0 {
-            item = 0
+            item = I(0)
         }
     }
 
