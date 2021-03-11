@@ -25,6 +25,7 @@ struct EventsOverview: View {
                         .accessibility(identifier: "eventCard")
                 }
                 .onDelete(perform: deleteSelectedEvents)
+                .padding(.vertical)
             }
             .padding()
             .navigationBarTitle(Text("Events"))
@@ -49,9 +50,9 @@ struct EventsOverview: View {
         TextAndIconButton(text: "Add Event",
                           size: 24.0,
                           icon: "plus") {
-                      addEvent()
-                    }
-                    .accessibility(identifier: "addEventButton")
+            addEvent()
+        }
+        .accessibility(identifier: "addEventButton")
     }
     
     private func addEvent() {
