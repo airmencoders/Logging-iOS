@@ -66,6 +66,11 @@ private struct RightCell: View {
             HStack(alignment: .top, spacing: 30) {
                 ContentColumn(imageName: "location", title: "Location", leftColumnLabels: ["From:", "To:"], rightColumnLabels: [sortie.takeoffICAO, sortie.landICAO])
                 ContentColumn(imageName: "clock", title: "Flight Time", leftColumnLabels: ["Take off time:", "Land time:", "Total time:"], rightColumnLabels: [sortie.takeoffTime?.string24HourTime() ?? "", sortie.landTime?.string24HourTime() ?? "" , sortie.flightTimeString])
+                    .background(Color.pblForegroundPrimary.opacity(0.3)
+                                    .frame(height: 30)
+                                    .cornerRadius(.pblCornerRadius)
+                                    .offset(x: -15, y: 49)
+                    )
             }
         }
         .padding()
