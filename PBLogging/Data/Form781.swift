@@ -105,13 +105,24 @@ struct AircrewData {
 }
 
 extension AircrewData: Comparable {
-
+    
+    static func < (lhs: AircrewData, rhs: AircrewData) -> Bool {
+        
+        if lhs.flightAuthDutyCode == rhs.flightAuthDutyCode {
+            if lhs.personLastName != rhs.personLastName {
+                return lhs.personLastName < rhs.personLastName
+            }
+            if lhs.personFirstName != rhs.personFirstName {
+                return lhs.personFirstName < rhs.personFirstName
+            }
+            return lhs.personLast4 < rhs.personLast4
+        }
+        return CrewLine.compareFlightAuthDutyCodes(lhs.flightAuthDutyCode, rhs.flightAuthDutyCode)
+    }
+     
     static func == (lhs: AircrewData, rhs: AircrewData) -> Bool {
         if lhs.id == rhs.id { return true }
         return false
     }
-
-    public static func < (lhs: AircrewData, rhs: AircrewData) -> Bool {
-        return CrewLine.dutyCodeLessThan(CrewLine.DutyCodeCompInfo(lhs), CrewLine.DutyCodeCompInfo(rhs))
-    }
+ 
 }

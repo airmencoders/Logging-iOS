@@ -14,12 +14,13 @@ struct MissionDataAndFlightSeqView: View {
     @State var isLandICAOValid = false
     
     var body: some View {
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 Text("Mission Data")
                     .fontSectionHeading()
                 Spacer()
-            }.padding(.leading)
+            }
+            .padding(.leading)
             HStack {
                 missionData
                 flightSeq
@@ -29,10 +30,8 @@ struct MissionDataAndFlightSeqView: View {
     }
     
     var missionData: some View {
-        
-        
         VStack(alignment: .leading) {
-            Group{
+            Group {
                 TextField("MDS", text: $sortie.mds)
                     .withBorderLabel("MISSION DESIGN SERIES")
                 TextField("Serial Number", text: $sortie.serialNumber)
@@ -49,11 +48,9 @@ struct MissionDataAndFlightSeqView: View {
             .padding(4)
         }
         .padding()
-        .pblBorder()
     }
     
     var flightSeq: some View {
-        
         VStack(alignment: .leading) {
             Group {
                 TextField("Mission Number", text: $sortie.missionNumber)
@@ -80,8 +77,6 @@ struct MissionDataAndFlightSeqView: View {
             .padding(4)
         }
         .padding()
-        .pblBorder()
-        
     }
     
     func icaoColor(for icao: String) -> Color {

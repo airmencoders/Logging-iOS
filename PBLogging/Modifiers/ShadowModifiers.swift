@@ -1,31 +1,33 @@
 //
-//  BorderModifiers.swift
+//  ShadowModifiers.swift
 //  Logging
 //
-//  Created by Bethany Morris on 3/4/21.
+//  Created by Bethany Morris on 3/12/21.
 //
 
 import SwiftUI
 
-struct BorderModifier: ViewModifier {
+struct ShadowModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
-            .overlay(
-                RoundedRectangle(cornerRadius: .pblCornerRadius)
-                    .stroke(Color.pblBackgroundDefault, lineWidth: 2)
+            .background(
+                Rectangle()
+                    .foregroundColor(.pblBackground)
+                    .cornerRadius(.pblCornerRadius)
+                    .shadow(radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 5)
             )
     }
 }
 
 extension View {
     
-    func pblBorder() -> some View {
-        self.modifier(BorderModifier())
+    func pblShadow() -> some View {
+        self.modifier(ShadowModifier())
     }
 }
 
-struct BorderModifiers_Previews: PreviewProvider {
+struct ShadowModifier_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Text("Hello World")
@@ -33,7 +35,7 @@ struct BorderModifiers_Previews: PreviewProvider {
             Text("Hello World")
         }
         .padding()
-        .pblBorder()
+        .pblShadow()
         .previewLayout(.fixed(width: 200, height: 200))
         
         VStack {
@@ -42,7 +44,7 @@ struct BorderModifiers_Previews: PreviewProvider {
             Text("Hello World")
         }
         .padding()
-        .pblBorder()
+        .pblShadow()
         .previewLayout(.fixed(width: 200, height: 200))
         .preferredColorScheme(.dark)
     }

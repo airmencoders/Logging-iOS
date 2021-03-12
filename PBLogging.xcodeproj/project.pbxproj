@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
+		13986CC325FA769100C0253B /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13986CC225FA769100C0253B /* EventsListView.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
 		4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */; };
 		4D81231A25F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81231925F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift */; };
@@ -40,6 +41,7 @@
 		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
 		7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E513025E0584800B59CBF /* Binding+OnChange.swift */; };
 		7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB925E062EB00821D5D /* ThickDivider.swift */; };
+		7F651B4D25FBEB9E005D319A /* ShadowModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */; };
 		7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */; };
 		7F707B9025F01E850035E3F2 /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */; };
 		7F707BA625F14DEA0035E3F2 /* BorderModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */; };
@@ -61,6 +63,8 @@
 		BF22CE5A25F28D950050C589 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22CE5925F28D950050C589 /* Double+Ext.swift */; };
 		BF22CE6425F28FC10050C589 /* FlightTimeShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22CE6325F28FC10050C589 /* FlightTimeShared.swift */; };
 		BF22CE7225F292120050C589 /* AuditingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22CE7125F292120050C589 /* AuditingProtocol.swift */; };
+		BF2D900025F9FBE3002E7E4C /* Event+Form781sTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D8FFF25F9FBE3002E7E4C /* Event+Form781sTests.swift */; };
+		BF2D901725FA99FB002E7E4C /* View+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D901625FA99FB002E7E4C /* View+ExtTests.swift */; };
 		BF547E2E25F6AE41009CA4A8 /* FrameWithLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF547E2D25F6AE41009CA4A8 /* FrameWithLabelModifier.swift */; };
 		BF5C1F2425A683690075404C /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C1F2325A683690075404C /* AlertProvider.swift */; };
 		BF634B1D25AD170A00BE6425 /* Animation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */; };
@@ -138,6 +142,7 @@
 
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		13986CC225FA769100C0253B /* EventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ExtTest.swift"; sourceTree = "<group>"; };
 		4D81231925F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadmasterTimeAuditorTests.swift; sourceTree = "<group>"; };
 		4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionEventTypes+AccessorsTests.swift"; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
 		7F3E513025E0584800B59CBF /* Binding+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+OnChange.swift"; sourceTree = "<group>"; };
 		7F510EB925E062EB00821D5D /* ThickDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDivider.swift; sourceTree = "<group>"; };
+		7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifiers.swift; sourceTree = "<group>"; };
 		7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
 		7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderModifiers.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 		BF22CE5925F28D950050C589 /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		BF22CE6325F28FC10050C589 /* FlightTimeShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimeShared.swift; sourceTree = "<group>"; };
 		BF22CE7125F292120050C589 /* AuditingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditingProtocol.swift; sourceTree = "<group>"; };
+		BF2D8FFF25F9FBE3002E7E4C /* Event+Form781sTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Form781sTests.swift"; sourceTree = "<group>"; };
+		BF2D901625FA99FB002E7E4C /* View+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ExtTests.swift"; sourceTree = "<group>"; };
 		BF547E2D25F6AE41009CA4A8 /* FrameWithLabelModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameWithLabelModifier.swift; sourceTree = "<group>"; };
 		BF5C1F2325A683690075404C /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		BF634B1B25AD170A00BE6425 /* Animation+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Animation+Ext.swift"; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 				4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */,
 				7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */,
 				BF547E2D25F6AE41009CA4A8 /* FrameWithLabelModifier.swift */,
+				7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 				4DCD426325DC83A200EB6FF3 /* ContentView.swift */,
 				4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */,
 				4DCD426D25DC83BD00EB6FF3 /* EventsOverview.swift */,
+				13986CC225FA769100C0253B /* EventsListView.swift */,
 				4DCD427225DC83C600EB6FF3 /* EventCard.swift */,
 			);
 			path = Overview;
@@ -388,6 +398,7 @@
 				BFDB3B1C25DDBC35000A16ED /* CrewLine+ComparableTests.swift */,
 				4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */,
 				BF76D3AA25E63C070045A4DA /* Event+CalculationsTests.swift */,
+				BF2D8FFF25F9FBE3002E7E4C /* Event+Form781sTests.swift */,
 				BFDB3B1B25DDBC35000A16ED /* EventTests.swift */,
 				4D81231925F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift */,
 				4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */,
@@ -396,6 +407,7 @@
 				4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */,
 				4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */,
 				4DD13FF4259ED18700C98EB8 /* Info.plist */,
+				BF2D901625FA99FB002E7E4C /* View+ExtTests.swift */,
 			);
 			path = LoggingTests;
 			sourceTree = "<group>";
@@ -783,6 +795,7 @@
 				BFEB670125E5D29E00980700 /* FlightTime+CoreDataClass.swift in Sources */,
 				BFEB66F925E5D29E00980700 /* MissionEventRecord+CoreDataClass.swift in Sources */,
 				7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */,
+				7F651B4D25FBEB9E005D319A /* ShadowModifiers.swift in Sources */,
 				7FB30E1F25D1CCF700797B4A /* FormTabView.swift in Sources */,
 				7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */,
 				D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */,
@@ -825,6 +838,7 @@
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				BF16A56E25F13B4C00CF6F41 /* PilotTimeAuditor.swift in Sources */,
 				BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */,
+				13986CC325FA769100C0253B /* EventsListView.swift in Sources */,
 				BF22CE5A25F28D950050C589 /* Double+Ext.swift in Sources */,
 				BFEB672D25E5DBAF00980700 /* MissionEventTypes+CoreDataProperties.swift in Sources */,
 				BFEB676025E5E0E900980700 /* Event+CoreDataClass.swift in Sources */,
@@ -856,6 +870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2D900025F9FBE3002E7E4C /* Event+Form781sTests.swift in Sources */,
 				4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */,
 				BF76D3AB25E63C070045A4DA /* Event+CalculationsTests.swift in Sources */,
 				BFDB3B1E25DDBC35000A16ED /* EventTests.swift in Sources */,
@@ -865,6 +880,7 @@
 				BF76D3B525E63CFD0045A4DA /* Sortie+AccessorsTests.swift in Sources */,
 				4D81231A25F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift in Sources */,
 				BFDB3B5425DDD76E000A16ED /* AllEntityAwakeTests.swift in Sources */,
+				BF2D901725FA99FB002E7E4C /* View+ExtTests.swift in Sources */,
 				4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */,
 				BF76D3B025E63CAA0045A4DA /* Sortie+CalculationsTests.swift in Sources */,
 			);

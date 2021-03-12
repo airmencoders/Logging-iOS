@@ -67,15 +67,27 @@ extension Event {
 
         return form781s
     }
-
+    
+    /// Creates as Form781 struct from a an array of sorties
+    /// - Parameter sorties: An array of sortie objects
+    /// - Returns: A form 781 struct containing the combine information from all sorties passed in
     func createForm781(from sorties: [Sortie]) -> Form781 {
 
-        // pull the crew from the first sortie
-        // no... cause they might pick up someone on a leg and drop them off somewhere else
-        // need to check all sorties and collect all people
         var form = Form781()
         form.aircrewData = [AircrewData]()
-
+        
+        var aircrewDictionary = [UUID: AircrewData]()
+        
+        /// load all aircrew from all sorties into a dictionary
+        for sortie in sorties {
+            for crewLine in sortie.crewLines{
+                guard let identifier = crewLine.person.id else { continue }
+                var tempAC = AircrewData()
+                tempAC.id = identifier
+                aircrewDictionary[identifier] = tempAC
+            }
+        }
+      
         for sortie in sorties {
 
             form.serialNumber = sortie.serialNumber
@@ -107,76 +119,39 @@ extension Event {
             flight.specialUse = sortie.specialUse
 
             form.flights.append(flight)
-
+            
             for crewLine in sortie.crewLines{
-                var tempAC = AircrewData()
+                
+                guard let identifier = crewLine.person.id else { continue }
+                guard var tempAC = aircrewDictionary[identifier] else { continue }
+             
                 tempAC.id = crewLine.person.id
                 
-                tempAC.personLastName       = crewLine.person.lastName
-                tempAC.personLast4          = crewLine.person.last4
-                tempAC.flightAuthDutyCode   = crewLine.flightAuthDutyCode
-                tempAC.flightTimePrimary    = crewLine.flightTime.primary
-                tempAC.flightTimeSecondary  = crewLine.flightTime.secondary
-                tempAC.flightTimeInstructor = crewLine.flightTime.instructor
-                tempAC.flightTimeEvaluator  = crewLine.flightTime.evaluator
-                
-                tempAC.flightConditionsInstruments = crewLine.flightConditions.instruments
-                tempAC.flightConditionsNVG         = crewLine.flightConditions.nvg
-                tempAC.flightConditionsNight       = crewLine.flightConditions.night
-                
+                tempAC.flightAuthDutyCode              = crewLine.flightAuthDutyCode
+                tempAC.personLastName                  = crewLine.person.lastName
+                tempAC.personLast4                     = crewLine.person.last4
+                tempAC.flightTimePrimary              += crewLine.flightTime.primary
+                tempAC.flightTimeSecondary            += crewLine.flightTime.secondary
+                tempAC.flightTimeOther                += crewLine.flightTime.other
+                tempAC.flightTimeEvaluator            += crewLine.flightTime.evaluator
+                tempAC.flightTimeTotalSorties         += 1
+                tempAC.flightTimeTotalTime            += crewLine.flightTime.totalTime
+                tempAC.flightTimeInstructor           += crewLine.flightTime.instructor
+                tempAC.flightTimeEvaluator            += crewLine.flightTime.evaluator
+                tempAC.flightConditionsNight          += crewLine.flightConditions.night
+                tempAC.flightConditionsNVG            += crewLine.flightConditions.nvg
+                tempAC.flightConditionsCombatTime     += crewLine.flightConditions.combatTime
+                tempAC.flightConditionsInstruments    += crewLine.flightConditions.instruments
+                tempAC.flightConditionsSimInstruments += crewLine.flightConditions.simInstruments
                 tempAC.flyingOrganization = crewLine.flyingOrganization
                 
-                form.aircrewData.append(tempAC)
+                aircrewDictionary[identifier] = tempAC
+                 
             }
-            
-            mergeCrew(form: &form)
-            
+            form.aircrewData = Array(aircrewDictionary.values).sorted()
         }
         form.grandTotalLandings = form.grandTotalFullStop + form.grandTotalTouchAndGo
         return form
-    }
-    
-    func mergeCrew(form: inout Form781) {
-        
-        var ids = [UUID]()
-        
-        for crewPerson in form.aircrewData{
-            if let id = crewPerson.id {
-                ids.append(id)
-            }
-        }
-        
-        let uniqueIDs = Set(ids)
-        var newAircrew = [AircrewData]()
-        for id in uniqueIDs{
-            var uniquePerson = AircrewData()
-            uniquePerson.id = id
-            
-            for crewLine in form.aircrewData {
-                if crewLine.id == uniquePerson.id {
-                    uniquePerson.flightAuthDutyCode              = crewLine.flightAuthDutyCode
-                    uniquePerson.personLastName                  = crewLine.personLastName
-                    uniquePerson.personLast4                     = crewLine.personLast4
-                    uniquePerson.flightTimePrimary              += crewLine.flightTimePrimary
-                    uniquePerson.flightTimeSecondary            += crewLine.flightTimeSecondary
-                    uniquePerson.flightTimeOther                += crewLine.flightTimeOther
-                    uniquePerson.flightTimeEvaluator            += crewLine.flightTimeEvaluator
-                    uniquePerson.flightTimeTotalSorties         += crewLine.flightTimeTotalSorties
-                    uniquePerson.flightTimeTotalTime            += crewLine.flightTimeTotalTime
-                    uniquePerson.flightTimeInstructor           += crewLine.flightTimeInstructor
-                    uniquePerson.flightTimeEvaluator            += crewLine.flightTimeEvaluator
-                    uniquePerson.flightConditionsNight          += crewLine.flightConditionsNight
-                    uniquePerson.flightConditionsNVG            += crewLine.flightConditionsNVG
-                    uniquePerson.flightConditionsCombatTime     += crewLine.flightConditionsCombatTime
-                    uniquePerson.flightConditionsInstruments    += crewLine.flightConditionsInstruments
-                    uniquePerson.flightConditionsSimInstruments += crewLine.flightConditionsSimInstruments
-                    uniquePerson.flyingOrganization              = crewLine.flyingOrganization
-                }
-            }
-            newAircrew.append(uniquePerson)
-        }
-        
-        form.aircrewData = newAircrew.sorted()
     }
     
 }
@@ -220,10 +195,6 @@ extension Event {
                     pageAnnotationDictionaries.append(annotationDictionary)
                 }
                 
-                
-                
-                
-                
                 let page0 = pdf.page(at:0)
                 
                 let page0dict = pageAnnotationDictionaries[0]
@@ -247,7 +218,6 @@ extension Event {
                 page0?.annotation(at: page0dict["grand_total_landings"]!)?  .setText(form.grandTotalLandings)
                 //Fill out flight data section
                 //max 6 even if flights somehow contains more
-                
                 
                 for i in 0..<min(form.flights.count, 6) {
                     
@@ -360,6 +330,7 @@ extension Event {
     }
     
 }
+
 enum PDFGenError: Error {
     case badURL
     case formNotFound

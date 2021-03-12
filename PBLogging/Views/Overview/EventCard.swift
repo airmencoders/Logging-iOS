@@ -20,10 +20,11 @@ struct EventCard: View {
                     Spacer()
                 }
             })
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: 600, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 60, maxHeight: 60, alignment: .center)
             .foregroundColor(Color.pblForegroundSecondary)
             .padding()
             .pblBorder()
+            .pblShadow()
     }
     
     struct EventLabel: View {
@@ -49,5 +50,10 @@ struct EventCard_Previews: PreviewProvider {
         let event = SampleData.event
         EventCard(event:event)
             .previewLayout(.sizeThatFits)
+            .padding()
+        EventCard(event:event)
+            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
+            .padding()
     }
 }
