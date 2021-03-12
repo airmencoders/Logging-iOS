@@ -9,45 +9,50 @@ import SwiftUI
 
 struct EventsOverview: View {
     
+    @State var isLoginSheetPresented: Bool = false
+    @State var editMode: Bool = false
+    
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Event.name_, ascending: false)],
-        animation: .default)
-
-    private var events: FetchedResults<Event>
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(events) { event in
-                    EventCard(event: event)
-                        .accessibility(identifier: "eventCard")
-                }
-                .onDelete(perform: deleteSelectedEvents)
+            EventsListView().environment(\.editMode, .constant(self.editMode ? EditMode.active : EditMode.inactive))
+                .padding()
+                .navigationBarTitle(Text("Events"))
+                .navigationBarItems(trailing:
+                                        HStack {
+                                            addEventButton
+                                            pullEventButton
+                                            editButton
+                                        })
             }
-            .padding()
-            .navigationBarTitle(Text("Events"))
-            .navigationBarItems(trailing:
-                                    HStack {
-                                        addEventButton
-                                        EditButton()
-                                    })
-        }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    func deleteSelectedEvents(offsets: IndexSet) {
-        for offset in offsets {
-            let itemToDelete = events[offset]
-            dataController.delete(itemToDelete)
-            dataController.save()
         }
+    
+    var editButton: some View {
+        TextAndIconButton(text: editMode ? "Done" : "Edit",
+                          size: 12.0,
+                          icon: "square.and.pencil") {
+            
+            self.editMode = !self.editMode
+        }
+    }
+    var pullEventButton: some View {
+        TextAndIconButton(text: "Add Event from Puckboard",
+                          size: 12.0,
+                          icon: "square.and.arrow.down") {
+            isLoginSheetPresented.toggle()
+        }
+        .sheet(isPresented: $isLoginSheetPresented, content: {
+            //Placeholder for next PR with webview
+            EmptyView()
+        })
     }
     
     var addEventButton: some View {
         TextAndIconButton(text: "Add Event",
-                          size: 24.0,
+                          size: 12.0,
                           icon: "plus") {
                       addEvent()
                     }

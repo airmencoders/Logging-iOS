@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
+		13986CC325FA769100C0253B /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13986CC225FA769100C0253B /* EventsListView.swift */; };
 		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
 		4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */; };
 		4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		13549C0225B103210000C875 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		13986CC225FA769100C0253B /* EventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ExtTest.swift"; sourceTree = "<group>"; };
 		4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionEventTypes+AccessorsTests.swift"; sourceTree = "<group>"; };
 		4D8A7E0425E9A5EE00C70D7E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */,
 				4DCD426D25DC83BD00EB6FF3 /* EventsOverview.swift */,
 				4DCD427225DC83C600EB6FF3 /* EventCard.swift */,
+				13986CC225FA769100C0253B /* EventsListView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				BF16A56E25F13B4C00CF6F41 /* PilotTimeAuditor.swift in Sources */,
 				BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */,
+				13986CC325FA769100C0253B /* EventsListView.swift in Sources */,
 				BF22CE5A25F28D950050C589 /* Double+Ext.swift in Sources */,
 				BFEB672D25E5DBAF00980700 /* MissionEventTypes+CoreDataProperties.swift in Sources */,
 				BFEB676025E5E0E900980700 /* Event+CoreDataClass.swift in Sources */,
