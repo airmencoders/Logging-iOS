@@ -67,24 +67,28 @@ struct SortieAirdropEditFields: View {
         _numHeavies        = State(wrappedValue: sortie.metrics.numHeavies == 0 ?
                                                  "" : "\(sortie.metrics.numHeavies)")
     }
-
+ 
     var body: some View {
+        
+        let textFieldWidth: CGFloat = 86
+        let textFieldHeight: CGFloat = 57
+        
         VStack(alignment: .leading, spacing: 0) {
             TextField("", text: $airdropWeight.onChange {
-                                    enforceAndUpdate(&metrics.airdropWeight, with: &airdropWeight) })
-                .padding()
+                        enforceAndUpdate(&metrics.airdropWeight, with: &airdropWeight) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numJumpers.onChange {
-                                    enforceAndUpdate(&metrics.numJumpers, with: &numJumpers) })
-                .padding()
+                        enforceAndUpdate(&metrics.numJumpers, with: &numJumpers) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numAirdropPallets.onChange {
-                                    enforceAndUpdate(&metrics.numAirdropPallets, with: &numAirdropPallets) })
-                .padding()
+                        enforceAndUpdate(&metrics.numAirdropPallets, with: &numAirdropPallets) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numHeavies.onChange {
-                                    enforceAndUpdate(&metrics.numHeavies, with: &numHeavies) })
-                .padding()
+                        enforceAndUpdate(&metrics.numHeavies, with: &numHeavies) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
         }
         .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))

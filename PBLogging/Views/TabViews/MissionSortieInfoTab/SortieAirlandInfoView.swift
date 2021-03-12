@@ -62,38 +62,42 @@ struct SortieAirlandEditFields: View {
         _sortie = ObservedObject(wrappedValue: sortie)
         _metrics = ObservedObject(wrappedValue: sortie.metrics)
         _airlandWeight     = State(wrappedValue: sortie.metrics.airlandWeight == 0 ?
-                                                 "" : "\(sortie.metrics.airlandWeight)")
+                                    "" : "\(sortie.metrics.airlandWeight)")
         _numPassengers     = State(wrappedValue: sortie.metrics.numPassengers == 0 ?
-                                                 "" : "\(sortie.metrics.numPassengers)")
+                                    "" : "\(sortie.metrics.numPassengers)")
         _numAirlandPallets = State(wrappedValue: sortie.metrics.numAirlandPallets == 0 ?
-                                                 "" : "\(sortie.metrics.numAirlandPallets)")
+                                    "" : "\(sortie.metrics.numAirlandPallets)")
         _numRollingStock   = State(wrappedValue: sortie.metrics.numRollingStock == 0 ?
-                                                 "" : "\(sortie.metrics.numRollingStock)")
+                                    "" : "\(sortie.metrics.numRollingStock)")
         _takeoffCenterOfGravity = State(wrappedValue: sortie.takeoffCenterOfGravity == 0 ?
-                                                 "" : "\(sortie.takeoffCenterOfGravity)")
-  }
+                                            "" : "\(sortie.takeoffCenterOfGravity)")
+    }
 
     var body: some View {
+        
+        let textFieldWidth: CGFloat = 86
+        let textFieldHeight: CGFloat = 57
+        
         VStack(alignment: .leading, spacing: 0) {
             TextField("", text: $airlandWeight.onChange {
-                                enforceAndUpdate(&metrics.airlandWeight, with: &airlandWeight) })
-                .padding()
+                        enforceAndUpdate(&metrics.airlandWeight, with: &airlandWeight) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numPassengers.onChange {
-                                enforceAndUpdate(&metrics.numPassengers, with: &numPassengers) })
-                .padding()
+                        enforceAndUpdate(&metrics.numPassengers, with: &numPassengers) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numAirlandPallets.onChange {
                         enforceAndUpdate(&metrics.numAirlandPallets, with: &numAirlandPallets) })
-                .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $numRollingStock.onChange {
-                                enforceAndUpdate(&metrics.numRollingStock, with: &numRollingStock) })
-                .padding()
+                        enforceAndUpdate(&metrics.numRollingStock, with: &numRollingStock) })
+                .frame(width: textFieldWidth, height: textFieldHeight)
             Divider()
             TextField("", text: $takeoffCenterOfGravity.onChange {
                         enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &takeoffCenterOfGravity) })
-                .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
         }
         .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))

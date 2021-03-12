@@ -67,27 +67,31 @@ struct SortieFuelEditFields: View {
         _auxPower   = State(wrappedValue: sortie.auxiliaryPowerUnitHours == 0 ? "" : "\(sortie.auxiliaryPowerUnitHours)")
         _cog        = State(wrappedValue: sortie.takeoffCenterOfGravity == 0 ? "" : "\(sortie.takeoffCenterOfGravity)")
     }
-    
+
     var body: some View {
+        
+        let textFieldWidth: CGFloat = 86
+        let textFieldHeight: CGFloat = 57
+        
         VStack(alignment: .leading, spacing: 0) {
             TextField("", text: $rampFuel.onChange { enforceAndUpdate(&fuel.ramp, with: &rampFuel) })
-                 .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
             ThickDivider()
                 .background(getValidationColor(for: rampFuel))
             TextField("", text: $landFuel.onChange { enforceAndUpdate(&fuel.land, with: &landFuel) })
-                 .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
             ThickDivider()
                 .background(getValidationColor(for: landFuel))
             TextField("", text: $airRefuel.onChange { enforceAndUpdate(&fuel.airRefuel, with: &airRefuel) })
-                 .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
             ThickDivider()
                 .background(getValidationColor(for: airRefuel))
             TextField("", text: $auxPower.onChange{ enforceAndUpdate(&sortie.auxiliaryPowerUnitHours, with: &auxPower) })
-                 .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
             ThickDivider()
                 .background(getValidationColor(for: auxPower))
             TextField("", text: $cog.onChange{ enforceAndUpdate(&sortie.takeoffCenterOfGravity, with: &cog) })
-                .padding()
+                .frame(width: textFieldWidth, height: textFieldHeight)
         }
         .keyboardType(.decimalPad)
         .font(.pblBold(size: 18))
