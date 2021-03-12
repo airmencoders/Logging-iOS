@@ -23,6 +23,7 @@ struct RecentSortiesList: View {
                     SortieCard(sortie: sortie)
                         .accessibility(identifier: "sortieCard")
                 }
+                .padding(.vertical)
             }
         }
         .navigationBarTitle(Text(event.name))

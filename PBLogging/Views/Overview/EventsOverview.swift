@@ -26,9 +26,9 @@ struct EventsOverview: View {
                                             pullEventButton
                                             editButton
                                         })
-            }
-        .navigationViewStyle(StackNavigationViewStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
     
     var editButton: some View {
         TextAndIconButton(text: editMode ? "Done" : "Edit",
@@ -38,6 +38,7 @@ struct EventsOverview: View {
             self.editMode = !self.editMode
         }
     }
+    
     var pullEventButton: some View {
         TextAndIconButton(text: "Add Event from Puckboard",
                           size: 12.0,
@@ -54,9 +55,9 @@ struct EventsOverview: View {
         TextAndIconButton(text: "Add Event",
                           size: 12.0,
                           icon: "plus") {
-                      addEvent()
-                    }
-                    .accessibility(identifier: "addEventButton")
+            addEvent()
+        }
+        .accessibility(identifier: "addEventButton")
     }
     
     private func addEvent() {

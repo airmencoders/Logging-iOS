@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EventsListView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
     @FetchRequest(
@@ -23,8 +24,10 @@ struct EventsListView: View {
                     .accessibility(identifier: "eventCard")
             }
             .onDelete(perform: deleteSelectedEvents)
+            .padding(.vertical)
         }
     }
+    
     func deleteSelectedEvents(offsets: IndexSet) {
         for offset in offsets {
             let itemToDelete = events[offset]
