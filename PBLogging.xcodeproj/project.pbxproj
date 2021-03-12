@@ -40,6 +40,7 @@
 		7F36016225C365AE009FF74E /* AircrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36016125C365AE009FF74E /* AircrewListView.swift */; };
 		7F3E513125E0584800B59CBF /* Binding+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E513025E0584800B59CBF /* Binding+OnChange.swift */; };
 		7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB925E062EB00821D5D /* ThickDivider.swift */; };
+		7F651B4D25FBEB9E005D319A /* ShadowModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */; };
 		7F707B5325F002CF0035E3F2 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */; };
 		7F707B9025F01E850035E3F2 /* SortieCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */; };
 		7F707BA625F14DEA0035E3F2 /* BorderModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */; };
@@ -178,6 +179,7 @@
 		7F36016125C365AE009FF74E /* AircrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewListView.swift; sourceTree = "<group>"; };
 		7F3E513025E0584800B59CBF /* Binding+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+OnChange.swift"; sourceTree = "<group>"; };
 		7F510EB925E062EB00821D5D /* ThickDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickDivider.swift; sourceTree = "<group>"; };
+		7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifiers.swift; sourceTree = "<group>"; };
 		7F707B5225F002CF0035E3F2 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieCommentsView.swift; sourceTree = "<group>"; };
 		7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderModifiers.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */,
 				7F707BA525F14DEA0035E3F2 /* BorderModifiers.swift */,
 				BF547E2D25F6AE41009CA4A8 /* FrameWithLabelModifier.swift */,
+				7F651B4C25FBEB9E005D319A /* ShadowModifiers.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				BFEB670125E5D29E00980700 /* FlightTime+CoreDataClass.swift in Sources */,
 				BFEB66F925E5D29E00980700 /* MissionEventRecord+CoreDataClass.swift in Sources */,
 				7F03C0E325D7347D00F7AA5B /* TextView.swift in Sources */,
+				7F651B4D25FBEB9E005D319A /* ShadowModifiers.swift in Sources */,
 				7FB30E1F25D1CCF700797B4A /* FormTabView.swift in Sources */,
 				7F510EBA25E062EB00821D5D /* ThickDivider.swift in Sources */,
 				D2223E5625B7691C00B6A33F /* PreviewMods.swift in Sources */,

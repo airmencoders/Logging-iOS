@@ -18,8 +18,10 @@ struct SortieCard: View {
                 SortieContents
             })
             .padding(.trailing)
-            .background(Color.pblBackgroundDefault)
+            .background(Color.pblBackground)
             .cornerRadius(.pblCornerRadius)
+            .pblBorder()
+            .pblShadow()
     }
     
     var SortieContents: some View {
@@ -53,7 +55,7 @@ private struct LeftCell: View {
         .frame(maxWidth: 270)
         .frame(maxHeight: .infinity)
         .offset(y: -25)
-        .background(Color.pblBackgroundElevated)
+        .background(Color.pblBackgroundDefault)
     }
 }
 
@@ -76,7 +78,7 @@ private struct RightCell: View {
         .padding()
         .padding(.top, 27)
         .frame(maxHeight: .infinity)
-        .background(Color.pblBackgroundDefault)
+        .background(Color.pblBackground)
     }
 }
 
@@ -131,9 +133,11 @@ struct SortieCard_Previews: PreviewProvider {
         let sortie = SampleData.sortie
         SortieCard(sortie: sortie)
             .previewLayout(.sizeThatFits)
+            .padding()
         SortieCard(sortie: sortie)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
+            .padding()
         SortieCard(sortie: sortie)
             .iPadPro9_7(isDark: true)
         SortieCard(sortie: sortie)
