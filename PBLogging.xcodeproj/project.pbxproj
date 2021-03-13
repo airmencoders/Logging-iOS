@@ -16,6 +16,7 @@
 		4D9E3F6725E0A908003903B0 /* SortieAirlandInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */; };
 		4D9E3F6F25E0C62E003903B0 /* SortieAirdropInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */; };
 		4DA26E0A25AE7D2E00D0A66D /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */; };
+		4DA727BF25FB22B900F72527 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA727BE25FB22B900F72527 /* CoreDataTests.swift */; };
 		4DCD426425DC83A200EB6FF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426325DC83A200EB6FF3 /* ContentView.swift */; };
 		4DCD426925DC83AF00EB6FF3 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */; };
 		4DCD426E25DC83BD00EB6FF3 /* EventsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD426D25DC83BD00EB6FF3 /* EventsOverview.swift */; };
@@ -148,6 +149,7 @@
 		4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirlandInfoView.swift; sourceTree = "<group>"; };
 		4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieAirdropInfoView.swift; sourceTree = "<group>"; };
 		4DA26E0925AE7D2E00D0A66D /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
+		4DA727BE25FB22B900F72527 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		4DCD426325DC83A200EB6FF3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = PBLogging/Views/Overview/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		4DCD426825DC83AF00EB6FF3 /* ContentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentHeaderView.swift; path = PBLogging/Views/Overview/ContentHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		4DCD426D25DC83BD00EB6FF3 /* EventsOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsOverview.swift; path = PBLogging/Views/Overview/EventsOverview.swift; sourceTree = SOURCE_ROOT; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDB3B5325DDD76E000A16ED /* AllEntityAwakeTests.swift */,
+				4DA727BE25FB22B900F72527 /* CoreDataTests.swift */,
 				BFDB3B1C25DDBC35000A16ED /* CrewLine+ComparableTests.swift */,
 				4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */,
 				BF76D3AA25E63C070045A4DA /* Event+CalculationsTests.swift */,
@@ -865,6 +868,7 @@
 			files = (
 				BF2D900025F9FBE3002E7E4C /* Event+Form781sTests.swift in Sources */,
 				4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */,
+				4DA727BF25FB22B900F72527 /* CoreDataTests.swift in Sources */,
 				BF76D3AB25E63C070045A4DA /* Event+CalculationsTests.swift in Sources */,
 				BFDB3B1E25DDBC35000A16ED /* EventTests.swift in Sources */,
 				4DE7A99125E83A4500FD03D2 /* XCTestCase+FatalError.swift in Sources */,

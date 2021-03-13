@@ -67,7 +67,7 @@ class LoggingUITests: XCTestCase {
 
         self.app.buttons["Submit a Problem"].tap()
         XCTAssert(self.app.buttons["xmark.circle"].exists)
-        self.app.links["Close"].tap()
+        self.app.buttons["xmark.circle"].tap()
     }
 
 
@@ -150,6 +150,70 @@ class LoggingUITests: XCTestCase {
         let returnButton = self.app.buttons[title]
         XCTAssert(returnButton.exists)
         returnButton.tap()
+    }
+
+    func testMissionDataEntry() throws {
+        self.app.buttons["addEventButton"].tap()
+        let firstEvent = self.app.buttons.matching(identifier: "eventCard").firstMatch
+        firstEvent.tap()
+
+        self.app.buttons["addSortieButton"].tap()
+        self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
+
+        // left side text fields
+        var textField = app.textFields["MISSION DESIGN SERIES"]
+        enterAndTestFreeFormatText(textField, "C017A")
+
+        // Let's just do a few (for speed), but leave these here
+        // to make it easier to add them later if we want to.
+//        textField = app.textFields["SERIAL NUMBER"]
+//        enterAndTestFreeFormatText(textField, "01-01")
+//
+//        textField = app.textFields["UNIT CHARGED"]
+//        enterAndTestFreeFormatText(textField, "MainMan")
+//
+//        textField = app.textFields["HARM LOCATION"]
+//        enterAndTestFreeFormatText(textField, "OVER_THERE")
+//
+//        textField = app.textFields["FLIGHT AUTH NUMBER"]
+//        enterAndTestFreeFormatText(textField, "21-2121")
+//
+//        textField = app.textFields["ISSUING UNIT"]
+//        enterAndTestFreeFormatText(textField, "U2")
+
+        // right side test fields
+        // ditto, comment out for speed for now.
+//        textField = app.textFields["MISSION NUMBER"]
+//        enterAndTestFreeFormatText(textField, "XL5")
+//
+//        textField = app.textFields["MISSION SYMBOL"]
+//        enterAndTestFreeFormatText(textField, "N99Z")
+//
+//        textField = app.textFields["FROM"]
+//        enterAndTestText(textField, "AAAAAA", expected: "AAAA")
+
+        textField = app.textFields["TO"]
+        enterAndTestText(textField, "AAABB", expected: "AAAB")
+    }
+
+    func enterAndTestFreeFormatText(_ textField: XCUIElement, _ text: String) {
+        XCTAssert(textField.exists)
+
+        textField.tap()
+        textField.typeText(text)
+
+        XCTAssertEqual(textField.value as! String, text)
+        app.keyboards.buttons["Hide keyboard"].tap()
+    }
+
+    func enterAndTestText(_ textField: XCUIElement, _ text: String, expected: String) {
+        XCTAssert(textField.exists)
+
+        textField.tap()
+        textField.typeText(text)
+
+        XCTAssertEqual(textField.value as! String, expected)
+        app.keyboards.buttons["Hide keyboard"].tap()
     }
 
     private func eventTitle(_ object: XCUIElement) -> String {
