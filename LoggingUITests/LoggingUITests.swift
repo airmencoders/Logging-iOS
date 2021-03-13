@@ -59,10 +59,6 @@ class LoggingUITests: XCTestCase {
         // Flight Time > Training Events
         self.app.tabBars.buttons["Training Events"].tap()
         XCTAssert(self.app.staticTexts["Training Events"].exists)
-
-        // Training Events > Mission Sortie Info
-        self.app.tabBars.buttons["Mission Sortie Info"].tap()
-        XCTAssert(self.app.staticTexts["Mission Sortie Info"].exists)
     }
    
     func testSubmitAProblem() {
