@@ -16,6 +16,7 @@ struct TrainingEventsView: View {
     @State var xOffset: CGFloat = 0
     @State var yOffset: CGFloat = 0
     
+    let missionEventTypes: FetchRequest<MissionEventTypes>
     let personColumnWidth: CGFloat = 145
     let eventIDWidth: CGFloat = 300
     let headerHeight: CGFloat = 32
@@ -23,9 +24,6 @@ struct TrainingEventsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dataController: DataController
-    
-    let missionEventTypes: FetchRequest<MissionEventTypes>
-    
     @ObservedObject var sortie: Sortie
     @State var isSim: Bool
     

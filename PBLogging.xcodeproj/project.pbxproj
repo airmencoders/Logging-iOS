@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		13549C0325B103210000C875 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13549C0225B103210000C875 /* String+Ext.swift */; };
 		13986CC325FA769100C0253B /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13986CC225FA769100C0253B /* EventsListView.swift */; };
-		4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */; };
 		4D81230625F6CFF40097A0C7 /* Double+ExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81230525F6CFF40097A0C7 /* Double+ExtTest.swift */; };
 		4D81231A25F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81231925F6FA400097A0C7 /* LoadmasterTimeAuditorTests.swift */; };
 		4D81235525F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81235425F8413C0097A0C7 /* MissionEventTypes+AccessorsTests.swift */; };
@@ -173,7 +172,6 @@
 		4DE7A99025E83A4500FD03D2 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
 		4DF7C78A25BB666F00EB1E5C /* FontModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifiers.swift; sourceTree = "<group>"; };
 		4DF7C7AE25BFB87600EB1E5C /* String+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtTests.swift"; sourceTree = "<group>"; };
-		7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSortieInfoView.swift; sourceTree = "<group>"; };
 		7F03C0D025D72EB500F7AA5B /* SortieTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortieTypeView.swift; sourceTree = "<group>"; };
 		7F03C0DD25D7304F00F7AA5B /* TrainingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingEventsView.swift; sourceTree = "<group>"; };
 		7F03C0E225D7347D00F7AA5B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -306,7 +304,6 @@
 				7FBE15AE25D5CFB5009A0DEF /* MissionDataTab */,
 				7F707B7225F01BCB0035E3F2 /* FlightTimeTab */,
 				7F03C0B425D5D17000F7AA5B /* TrainingEventsTab */,
-				7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -461,17 +458,16 @@
 			path = TrainingEventsTab;
 			sourceTree = "<group>";
 		};
-		7F03C0B525D5D17E00F7AA5B /* MissionSortieInfoTab */ = {
+		7F03C0B525D5D17E00F7AA5B /* SortieInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7F03C0CB25D6F91300F7AA5B /* MissionSortieInfoView.swift */,
 				4D9E3F6125E097B0003903B0 /* SortieFuelInfoView.swift */,
 				4D9E3F6625E0A908003903B0 /* SortieAirlandInfoView.swift */,
 				4D9E3F6E25E0C62E003903B0 /* SortieAirdropInfoView.swift */,
 				7F03C0D025D72EB500F7AA5B /* SortieTypeView.swift */,
 				7F707B8F25F01E850035E3F2 /* SortieCommentsView.swift */,
 			);
-			path = MissionSortieInfoTab;
+			path = SortieInfo;
 			sourceTree = "<group>";
 		};
 		7F707B7225F01BCB0035E3F2 /* FlightTimeTab */ = {
@@ -500,6 +496,7 @@
 				7FB30E3425D44A0700797B4A /* MissionDataView.swift */,
 				7F36016125C365AE009FF74E /* AircrewListView.swift */,
 				7FB30E4425D483FD00797B4A /* MissionDataAndFlightSeqView.swift */,
+				7F03C0B525D5D17E00F7AA5B /* SortieInfo */,
 			);
 			path = MissionDataTab;
 			sourceTree = "<group>";
@@ -834,7 +831,6 @@
 				4DE7A98925E8321E00FD03D2 /* FatalErrorUtil.swift in Sources */,
 				BFEB66FF25E5D29E00980700 /* Metrics+CoreDataClass.swift in Sources */,
 				BFDB3B0A25DDAAF3000A16ED /* AllEntityAwake.swift in Sources */,
-				4D26117425D770B90016A27E /* MissionSortieInfoView.swift in Sources */,
 				4DD13FDB259ED18300C98EB8 /* SceneDelegate.swift in Sources */,
 				BF16A56E25F13B4C00CF6F41 /* PilotTimeAuditor.swift in Sources */,
 				BFDB3B0325DDAAF3000A16ED /* Sortie+Calculations.swift in Sources */,

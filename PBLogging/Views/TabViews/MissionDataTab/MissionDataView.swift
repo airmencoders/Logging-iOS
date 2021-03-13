@@ -10,14 +10,21 @@ import SwiftUI
 struct MissionDataView: View {
     
     @EnvironmentObject var dataController: DataController
-    
     @ObservedObject var sortie: Sortie
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 AircrewListView(sortie: sortie)
                 MissionDataAndFlightSeqView(sortie: sortie)
+                SortieTypeView(sortieType: sortie.sortieType)
+                HStack(alignment: .top) {
+                    SortieFuelInfoView(sortie: sortie)
+                    SortieAirlandInfoView(sortie: sortie)
+                }
+                .padding()
+                SortieAirdropInfoView(sortie: sortie)
+                SortieCommentsView(sortie: sortie)
             }
             Spacer()
         }
@@ -28,7 +35,6 @@ struct MissionDataView: View {
 }
 
 struct MissionDataView_Previews: PreviewProvider {
-    
     static var previews: some View {
         
         let dataController = SampleData.previewDataController
