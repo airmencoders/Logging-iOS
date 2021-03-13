@@ -161,38 +161,16 @@ class LoggingUITests: XCTestCase {
         self.app.buttons.matching(identifier: "sortieCard").firstMatch.tap()
 
         // left side text fields
-        var textField = app.textFields["MISSION DESIGN SERIES"]
+        
+        
+        var textField = app.textFields["MDS"]
         enterAndTestFreeFormatText(textField, "C017A")
 
-        // Let's just do a few (for speed), but leave these here
-        // to make it easier to add them later if we want to.
-//        textField = app.textFields["SERIAL NUMBER"]
-//        enterAndTestFreeFormatText(textField, "01-01")
-//
-//        textField = app.textFields["UNIT CHARGED"]
-//        enterAndTestFreeFormatText(textField, "MainMan")
-//
-//        textField = app.textFields["HARM LOCATION"]
-//        enterAndTestFreeFormatText(textField, "OVER_THERE")
-//
-//        textField = app.textFields["FLIGHT AUTH NUMBER"]
-//        enterAndTestFreeFormatText(textField, "21-2121")
-//
-//        textField = app.textFields["ISSUING UNIT"]
-//        enterAndTestFreeFormatText(textField, "U2")
-
-        // right side test fields
-        // ditto, comment out for speed for now.
-//        textField = app.textFields["MISSION NUMBER"]
-//        enterAndTestFreeFormatText(textField, "XL5")
-//
-//        textField = app.textFields["MISSION SYMBOL"]
-//        enterAndTestFreeFormatText(textField, "N99Z")
-//
-//        textField = app.textFields["FROM"]
-//        enterAndTestText(textField, "AAAAAA", expected: "AAAA")
-
-        textField = app.textFields["TO"]
+        // If we are going to comment out tests, don't include them.
+        // Maybe put them in a special branch if you don't want the work to go to waste
+        // or just commit them, then do another commit to remove them. They will be forever available.
+        
+        textField = app.textFields["To"]
         enterAndTestText(textField, "AAABB", expected: "AAAB")
     }
 
@@ -202,7 +180,7 @@ class LoggingUITests: XCTestCase {
         textField.tap()
         textField.typeText(text)
 
-        XCTAssertEqual(textField.value as! String, text)
+        XCTAssertEqual(textField.value as! String, text)  
         app.keyboards.buttons["Hide keyboard"].tap()
     }
 
